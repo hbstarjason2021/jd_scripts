@@ -58,7 +58,7 @@ function jd_sign() {
 }
 
 //掌火签到
-var cfnz_token = 'mMY';
+var cfnz_token = 'mM';
 function cf_sign() {
     console.log("🍎掌火签到脚本开始!");
 
