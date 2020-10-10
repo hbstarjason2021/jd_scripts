@@ -1,4 +1,4 @@
-﻿
+
 console.log("天气脚本开始!");
 var $tool = tool();
 
@@ -57,15 +57,26 @@ function tool() {
         notify: function (title, subtitle, message, option) {
             var option_obj = {};
             if (isQuanX) {
-                if (!!option.url) option_obj["open-url"] = option.url;
-                if (!!option.img) option_obj["media-url"] = option.img;
-                $notify(title, subtitle, message, option_obj);
+                if (!!option) {
+                    if (typeof option == "string") option_obj["open-url"] = option;
+                    if (!!option.url) option_obj["open-url"] = option.url;
+                    if (!!option.img) option_obj["media-url"] = option.img;
+                    $notify(title, subtitle, message, option_obj);
+                }
+                else {
+                    $notify(title, subtitle, message);
+                }
             }
             if (isLoon) {
-                if (typeof option == "string") option_obj["openUrl"] = option;
-                if (!!option.url) option_obj["openUrl"] = option.url;
-                if (!!option.img) option_obj["mediaUrl"] = option.img;
-                $notification.post(title, subtitle, message, option_obj);
+                if (!!option) {
+                    if (typeof option == "string") option_obj["openUrl"] = option;
+                    if (!!option.url) option_obj["openUrl"] = option.url;
+                    if (!!option.img) option_obj["mediaUrl"] = option.img;
+                    $notification.post(title, subtitle, message, option_obj);
+                }
+                else {
+                    $notification.post(title, subtitle, message);
+                }
             }
         },
         //get请求
