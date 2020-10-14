@@ -1,19 +1,19 @@
-﻿
+
 try {
     if (typeof $request != "undefined") {
-        var token = $request.headers["token"];
+        var reqtoken = $request.headers["token"];
         var reqbody = $request.body;
-        $prefs.setValueForKey(token, "feilu_token");
+        $prefs.setValueForKey(reqtoken, "feilu_token");
         if (!!reqbody) {
             $prefs.setValueForKey(reqbody, "feilu_reqbody");
         }
-        $notify("飞卢小说", "获得token", "token:" + token + "@reqbody:" + reqbody);
+        $notify("飞卢小说", "获得token", "token:" + reqtoken + "@reqbody:" + reqbody);
     }
     else {
         var options = {
             url: "http://61.55.164.26:8088/V4.1/Xml4Android_DoInfoNewPage.aspx?appversion=7.3&type=ios",
             headers: {
-                token: $prefs.valueForKey("feilu_token"),
+                token: !!$prefs.valueForKey("feilu_token") ? $prefs.valueForKey("feilu_token") : "",
                 appversion: "7.3"
             },
             body: $prefs.valueForKey("feilu_reqbody"),
@@ -39,7 +39,7 @@ try {
     console.log(e);
     $notify("飞卢小说", e, e);
 }
-$done();
+$done("");
 
 function BASE64() {
     var BASE64_MAPPING = [
