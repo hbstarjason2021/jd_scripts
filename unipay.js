@@ -1,7 +1,7 @@
 
 try {
     if (typeof $request != "undefined") {
-        if ($request.url.indexOf("newsign/api/daily_sign_in") > -1) {
+        if ($request.url.indexOf("newsign/public/app") > -1) {
             var Cookie = $request.headers["Cookie"];
             $prefs.setValueForKey(Cookie, "UniCookie");
             $notify("云闪付签到!", "获得Cookie", Cookie);
