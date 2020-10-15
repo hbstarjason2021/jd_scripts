@@ -4,7 +4,7 @@ try {
         if ($request.url.indexOf("newsign/api/daily_sign_in") > -1) {
             var Cookie = $request.headers["Cookie"];
             $prefs.setValueForKey(Cookie, "Cookie");
-            $notify("ÔÆÉÁ¸¶Ç©µ½!", "»ñµÃCookie", Cookie);
+            $notify("äº‘é—ªä»˜ç­¾åˆ°!", "è·å¾—Cookie", Cookie);
         }
     }
     else {
@@ -39,22 +39,23 @@ try {
                             days++;
                         }
                     }
-                    $notify("ÔÆÉÁ¸¶Ç©µ½³É¹¦!", "¿ªÊ¼Ê±¼ä:" + obj.startedAt, "ÒÑÁ¬ĞøÇ©µ½:" + days + "Ìì!");
+                    
+                    $notify("äº‘é—ªä»˜ç­¾åˆ°æˆåŠŸ!", "å¼€å§‹æ—¶é—´:" + obj.startedAt, "å·²è¿ç»­ç­¾åˆ°:" + days + "å¤©!");
                 }
             }
             else {
-                $notify("ÔÆÉÁ¸¶Ç©µ½Ê§°Ü!", response.body, response.body);
+                $notify("äº‘é—ªä»˜ç­¾åˆ°å¤±è´¥!", response.body, response.body);
             }
             console.log(response.statusCode + "\n\n" + response.body);
         }, function (reason) {
-            $notify("ÔÆÉÁ¸¶Ç©µ½Ê§°Ü!", reason.error, reason.error);
+            $notify("äº‘é—ªä»˜ç­¾åˆ°å¤±è´¥!", reason.error, reason.error);
             console.log(reason.error);
         });
     }
 
 } catch (e) {
     console.log(e);
-    $notify("ÔÆÉÁ¸¶Ç©µ½´íÎó!", e, e);
+    $notify("äº‘é—ªä»˜ç­¾åˆ°é”™è¯¯!", e, e);
 }
 $done();
 
