@@ -1,5 +1,5 @@
 
-//获取cookie重写配置: https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/loon/blob/master/unipay.js
+//获取cookie重写配置: https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/loon/raw/master/unipay.js
 //打开重写后进入云闪付签到页面,提示获得Cookie即可
 //添加MITM hostname:95516.com
 
