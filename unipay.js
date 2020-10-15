@@ -1,6 +1,7 @@
 
 try {
     if (typeof $request != "undefined") {
+        console.log($request.url);
         if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
             var Cookie = $request.headers["Cookie"];
             $prefs.setValueForKey(Cookie, "UniCookie");
