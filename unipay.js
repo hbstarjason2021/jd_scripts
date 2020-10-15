@@ -2,7 +2,7 @@
 //获取cookie重写配置:
 //Qx:https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/loon/raw/master/unipay.js
 //Loon:http-request https://youhui.95516.com/newsign/public/app/index.html script-path=https://gitee.com/passerby-b/loon/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
-//打开重写后进入云闪付签到页面,提示获得Cookie即可,一定要等签到页面加载出来才行
+//打开重写后进入云闪付签到页面,提示获得Cookie即可,一定要等签到页面加载完成
 //添加MITM hostname:youhui.95516.com
 
 var $tool = tool();
@@ -12,8 +12,10 @@ try {
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
             var Cookie = $request.headers["Cookie"];
-            $tool.setkeyval(Cookie, "UniCookie");
-            $tool.notify("云闪付签到!", "获得Cookie", Cookie, { img: img });
+            if (!!Cookie) {
+                $tool.setkeyval(Cookie, "UniCookie");
+                $tool.notify("云闪付签到!", "获得Cookie", Cookie, { img: img });
+            }
         }
     }
     else {
