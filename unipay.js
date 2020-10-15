@@ -3,7 +3,7 @@ try {
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("newsign/api/daily_sign_in") > -1) {
             var Cookie = $request.headers["Cookie"];
-            $prefs.setValueForKey(Cookie, "Cookie");
+            $prefs.setValueForKey(Cookie, "UniCookie");
             $notify("云闪付签到!", "获得Cookie", Cookie);
         }
     }
@@ -14,7 +14,7 @@ try {
             'Accept': 'application/json, text/plain, */*',
             'Accept-Encoding': 'gzip, deflate, br',
             'Origin': 'https://youhui.95516.com',
-            'Cookie': $prefs.valueForKey("Cookie"),
+            'Cookie': $prefs.valueForKey("UniCookie"),
             'Connection': 'keep-alive',
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 807) (UnionPay/1.0 CloudPay) (clientVersion 137) (language zh_CN)',
             'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
@@ -39,7 +39,6 @@ try {
                             days++;
                         }
                     }
-                    
                     $notify("云闪付签到成功!", "开始时间:" + obj.startedAt, "已连续签到:" + days + "天!");
                 }
             }
