@@ -66,7 +66,7 @@ try {
     console.log(e);
     $tool.notify("云闪付签到错误!", e, e, { img: img });
 }
-$done();
+$done({});
 
 //loon/quanx通用方法
 function tool() {
