@@ -51,7 +51,7 @@ try {
                             days++;
                         }
                     }
-                    $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt, "已连续签到:" + days + "天!", { img: img });
+                    $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt, "已签到:" + days + "天!", { img: img });
                 }
                 else {
                     $tool.notify("云闪付签到失败!", d, d, { img: img });
