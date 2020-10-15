@@ -1,5 +1,7 @@
 //兼容loon和qx
-//获取cookie重写配置: https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/loon/raw/master/unipay.js
+//获取cookie重写配置:
+//Qx:https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/loon/raw/master/unipay.js
+//Loon:http-request https://youhui.95516.com/newsign/public/app/index.html script-path https://gitee.com/passerby-b/loon/raw/master/unipay.js,requires-body=true,timeout=10,enabled=true,tag=云闪付签到
 //打开重写后进入云闪付签到页面,提示获得Cookie即可
 //添加MITM hostname:youhui.95516.com
 
