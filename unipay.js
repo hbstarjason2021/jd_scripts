@@ -8,11 +8,12 @@
 var $tool = tool();
 try {
     console.log("云闪付签到脚本开始!");
+    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
             var Cookie = $request.headers["Cookie"];
             $tool.setkeyval(Cookie, "UniCookie");
-            $tool.notify("云闪付签到!", "获得Cookie", Cookie);
+            $tool.notify("云闪付签到!", "获得Cookie", Cookie, { img: img });
         }
     }
     else {
@@ -48,14 +49,14 @@ try {
                             days++;
                         }
                     }
-                    $tool.notify("云闪付签到成功!", "开始时间:" + obj.startedAt, "已连续签到:" + days + "天!");
+                    $tool.notify("云闪付签到成功!", "开始时间:" + obj.startedAt, "已连续签到:" + days + "天!", { img: img });
                 }
                 else {
-                    $tool.notify("云闪付签到失败!", d, d);
+                    $tool.notify("云闪付签到失败!", d, d, { img: img });
                 }
             }
             else {
-                $tool.notify("云闪付签到失败!", d, d);
+                $tool.notify("云闪付签到失败!", d, d, { img: img });
             }
         })
         
@@ -63,7 +64,7 @@ try {
 
 } catch (e) {
     console.log(e);
-    $tool.notify("云闪付签到错误!", e, e);
+    $tool.notify("云闪付签到错误!", e, e, { img: img });
 }
 $done();
 
