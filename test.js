@@ -7,7 +7,7 @@ var $tool = tool();
 try {
     if (!!$response.body) {
         var body = $response.body;
-        if (body.indexOf("download_addr") > -1 || body.indexOf("play_addr") > -1 || body.indexOf("v5-dy-a.ixigua.com") > -1) {
+        if (body.indexOf("download_addr") > -1 || body.indexOf("play_addr") > -1 || body.indexOf("api-hl.amemv.com/aweme/v1/play/") > -1) {
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
             console.log("🍎" + $request.url + "🍎" + body);
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
