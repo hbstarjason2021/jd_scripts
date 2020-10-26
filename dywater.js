@@ -5,7 +5,7 @@ console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
 var $tool = tool();
 try {
-    if (!!body) {
+    if ($request.url.indexOf("api3-core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
         var obj = $tool.str2json(body);
         for (var i = 0; i < obj.aweme_list.length; i++) {
             obj.aweme_list[i].video_control.allow_download = true;
@@ -32,8 +32,8 @@ try {
         $done({});
     }
 } catch (e) {
-    console.log("🍎Try错误:" + e);
-    $tool.notify('Try错误!', 'Try错误:', e);
+    console.log("🍎try错误:" + e);
+    $tool.notify('try错误!', 'try错误:', e);
     $done({});
 }
 console.log("执行完成!!!!");
