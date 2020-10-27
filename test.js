@@ -7,11 +7,7 @@ var $tool = tool();
 try {
     if (!!$response.body) {
         var body = $response.body;
-        var obj = JSON.parse(body);
-        if (obj.data) {
-
-        
-        //if (body.indexOf("download_addr") > -1 || body.indexOf("play_addr") > -1 || body.indexOf("api-hl.amemv.com/aweme/v1/play/") > -1) {
+        if (body.indexOf("download_addr") > -1 || body.indexOf("play_addr") > -1 || body.indexOf("v.douyin.com/") > -1) {
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
             console.log("🍎" + $request.url + "🍎" + body);
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
