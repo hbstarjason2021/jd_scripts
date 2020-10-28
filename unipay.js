@@ -5,7 +5,7 @@
 //打开重写后进入云闪付签到页面,提示获得Cookie即可,一定要等签到页面加载完成,获取cookie成功后立刻划掉云闪付后台
 //添加MITM hostname:youhui.95516.com
 
-var cookie = "";//手动获取cookie填写此处
+var cookie = '';//手动获取cookie填写此处
 var $tool = tool();
 try {
     console.log("云闪付签到脚本开始!");
