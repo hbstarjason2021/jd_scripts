@@ -1,10 +1,11 @@
-//兼容loon和qx,理论上支持surge,自测
+//兼容loon和qx
 //获取cookie重写配置:
 //Qx:https://youhui.95516.com/newsign/public/app/index.html url script-request-header https://gitee.com/passerby-b/javascript/raw/master/unipay.js
 //Loon:http-request https://youhui.95516.com/newsign/public/app/index.html script-path=https://gitee.com/passerby-b/javascript/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
 //打开重写后进入云闪付签到页面,提示获得Cookie即可,一定要等签到页面加载完成,获取cookie成功后立刻划掉云闪付后台
 //添加MITM hostname:youhui.95516.com
 
+var cookie = "";//手动获取cookie填写此处
 var $tool = tool();
 try {
     console.log("云闪付签到脚本开始!");
@@ -25,7 +26,7 @@ try {
             'Accept': 'application/json, text/plain, */*',
             'Accept-Encoding': 'gzip, deflate, br',
             'Origin': 'https://youhui.95516.com',
-            'Cookie': $tool.getkeyval("UniCookie"),
+            'Cookie': !!cookie ? cookie : $tool.getkeyval("UniCookie"),
             'Connection': 'keep-alive',
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 807) (UnionPay/1.0 CloudPay) (clientVersion 137) (language zh_CN)',
             'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
@@ -68,7 +69,7 @@ try {
     console.log(e);
     $tool.notify("云闪付签到错误!", e, e, { img: img });
 }
-$done({});
+
 
 //loon/quanx通用方法
 function tool() {
@@ -187,3 +188,5 @@ function tool() {
     return obj;
 
 };
+
+$done({});
