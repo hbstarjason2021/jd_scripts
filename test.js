@@ -7,7 +7,7 @@ var $tool = tool();
 try {
     if (!!$response.body) {
         var body = $response.body;
-        if (body.indexOf("isure6.stream.qqmusic.qq.com") > -1 ) {
+        if (body.indexOf(".m4a") > -1 ) {
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
             console.log("🍎" + $request.url + "🍎" + body);
             console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎");
