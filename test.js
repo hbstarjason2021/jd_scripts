@@ -1,7 +1,7 @@
 
 //api3-core-c-hl.amemv.com/aweme/v1/aweme/post
 
-console.log("🍎抖音去水印脚本开始!");
+console.log("🍎测试脚本开始!");
 
 var $tool = tool();
 try {
