@@ -1,5 +1,6 @@
 
 //重写匹配地址:api3-core-c-hl.amemv.com/aweme/v1/aweme/post
+//QuanX重写配置:https://api3-core-c-hl.amemv.com/aweme/v1/aweme/post url script-response-body https://gitee.com/passerby-b/javascript/raw/master/dywm.js
 //MITM:*.amemv.com
 //需要到作者的作品列表里找到那个视频再下载
 
