@@ -11,22 +11,8 @@ try {
     if ($request.url.indexOf("api3-core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
         var obj = $tool.str2json(body);
         for (var i = 0; i < obj.aweme_list.length; i++) {
-            obj.aweme_list[i].video_control.allow_download = true;
-            obj.aweme_list[i].video_control.share_type = 1;
-            obj.aweme_list[i].video_control.prevent_download_type = 0;
-            obj.aweme_list[i].status.self_see = false;
-            obj.aweme_list[i].status.reviewed = 1;
-            obj.aweme_list[i].status.is_private = false;
-            obj.aweme_list[i].status.dont_share_status = -1;
-            obj.aweme_list[i].status.download_status = 0;
-            obj.aweme_list[i].status.allow_share = true;
-            obj.aweme_list[i].status.private_status = 0;
-
             var play_addr = obj.aweme_list[i].video.play_addr.url_list;
             obj.aweme_list[i].video.download_addr.url_list = play_addr;
-            if (obj.aweme_list[i].video.download_suffix_logo_addr) {
-                obj.aweme_list[i].video.download_suffix_logo_addr.url_list = play_addr;
-            }
             console.log("🍎播放地址:" + play_addr);
         }
         $done({ body: $tool.json2str(obj) });
