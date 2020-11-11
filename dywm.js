@@ -1,5 +1,6 @@
 
-//api3-core-c-hl.amemv.com/aweme/v1/aweme/post
+//重写匹配地址:api3-core-c-hl.amemv.com/aweme/v1/aweme/post
+//MITM:*.amemv.com
 
 console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
