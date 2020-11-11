@@ -1,6 +1,7 @@
 
 //重写匹配地址:api3-core-c-hl.amemv.com/aweme/v1/aweme/post
 //MITM:*.amemv.com
+//需要到作者的作品列表里找到那个视频再下载
 
 console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
