@@ -14,7 +14,7 @@ try {
         }
     }
     else {
-        var url = 'www.baidu.com';
+        var url = 'https://www.baidu.com';
         var method = 'POST';
         var headers = {
             'Connection': 'keep-alive',
