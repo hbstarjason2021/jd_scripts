@@ -4,16 +4,7 @@ var $tool = tool();
 console.log("🍎闯越顶岗实习签到脚本开始!");
 try {
     
-    if (typeof $request != "undefined") {
-        if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
-            var Cookie = $request.headers["Cookie"];
-            if (!!Cookie) {
-                $tool.setkeyval(Cookie, "cydg");
-                $tool.notify("闯越顶岗实习!", "获得Cookie", Cookie);
-            }
-        }
-    }
-    else {
+    
         $task.fetch({ url: "https://www.baidu.com", method: "GET" }).then(function (response) {
             console.log(response.body);
         }, function (reason) {
@@ -64,7 +55,7 @@ try {
         //    }
         //})
         
-    }
+    
 
 } catch (e) {
     console.log(e);
