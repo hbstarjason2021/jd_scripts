@@ -31,7 +31,7 @@ try {
             'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
             'Accept-Encoding': 'gzip, deflate',
             'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Cookie': 'ASP.NET_SessionId=asdasd; jxnApp=0; giveCard_10269=asdasdasd; loginUserName=dasdasdasd; LoginTimeCooikeName=8ee100zxcdb2c3afd71eax4501ec36b1;'
+            'Cookie': '.ASPXAUTH=8F754661F84BED3EB000FD48A324C0ABAA466FE8AC1D5536C31D737E4969B8839019EABAE91FA5DB969176F2ECB2BC7D35F2307CBD830B7E2571908AC2FA10B7D4FAED5E5BDF0309741A4141776CB57828FDC2477A1BDA3D61D055221DFEBD4EFE8C360E56202BB9DBF07B227EC53AE64EE0A3B1BFE609B0F3A146927CD6A00A7163D2CE20F6E73303395EA41E5CA044; LoginTimeCooikeName=5602117bb2c1742e6b3efacdb6093b4c; LoginUser_Id=891885322AFDC20D&logintype=2&RoleOId=106&UserName=1828021&Name=%e9%bb%84%e5%a4%a7%e6%99%ba&unGuid=1cdf2dde17224cefb9f1dec8d216b01d; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021'
         };
         var body = 'InternStateId=4&interContent=%E5%AE%9E%E4%B9%A0%E7%AD%BE%E5%88%B0&logImg=&posAddress=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA&posLong=114.21&posLati=30.254&locationType=1&ArticleId=0';
 
@@ -52,7 +52,7 @@ try {
             else {
                 try {
                     var obj = JSON.parse(d);
-                    if (d.status == 1) {
+                    if (d.state == 1) {
                         $tool.notify("闯越顶岗实习!", "签到成功!", "");
                     }
                     else {
