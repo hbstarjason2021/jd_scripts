@@ -16,8 +16,8 @@ try {
     else {
         var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
-            'Host': 'hl.cydgsx.com',
-            'Connection': 'keep-alive',
+            //'Host': 'hl.cydgsx.com',
+            //'Connection': 'keep-alive',
             'Content-Length': '292',
             'Accept': '*/*',
             'Origin': 'https://hl.cydgsx.com',
