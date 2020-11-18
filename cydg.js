@@ -10,11 +10,11 @@ try {
         }, function (reason) {
             console.log(reason);
         })
-        $tool.get({ url: "https://www.baidu.com" }, function (e, r, d) {
-                console.log(e);
-                console.log(r);
-                console.log(d);
-        })
+        //$tool.get({ url: "https://www.baidu.com" }, function (e, r, d) {
+                //console.log(e);
+                //console.log(r);
+                //console.log(d);
+        //})
         //var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
         //var method = 'GET';
         //var headers = {
