@@ -4,58 +4,58 @@ var $tool = tool();
 console.log("🍎闯越顶岗实习签到脚本开始!");
 try {
     
-    
-        $task.fetch({ url: "https://www.baidu.com", method: "GET" }).then(function (response) {
-            console.log(response.body);
-        }, function (reason) {
-            console.log(reason);
-        })
-        //$tool.get({ url: "https://www.baidu.com" }, function (e, r, d) {
-                //console.log(e);
-                //console.log(r);
-                //console.log(d);
-        //})
-        //var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
-        //var method = 'GET';
-        //var headers = {
-        //    'Connection': 'keep-alive',
-        //    'Content-Length': '292',
-        //    'Accept': '*/*',
-        //    'Origin': 'https://hl.cydgsx.com',
-        //    'X-Requested-With': 'XMLHttpRequest',
-        //    'Sec-Fetch-Dest': 'empty',
-        //    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios',
-        //    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        //    'Sec-Fetch-Site': 'same-origin',
-        //    'Sec-Fetch-Mode': 'cors',
-        //    'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
-        //    'Accept-Encoding': 'gzip, deflate',
-        //    'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        //    'Cookie': 'ASP.NET_SessionId=asdasd; jxnApp=0; giveCard_10269=asdasdasd; loginUserName=dasdasdasd; LoginTimeCooikeName=8ee100zxcdb2c3afd71eax4501ec36b1;'
-        //};
-        //var body = 'InternStateId=4&interContent=%E5%AE%9E%E4%B9%A0%E7%AD%BE%E5%88%B0&logImg=&posAddress=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA&posLong=114.21&posLati=30.254&locationType=1&ArticleId=0';
-
-        //var myRequest = {
-        //    url: url,
-        //    method: method,
-        //    headers: headers,
-        //    body: body
-        //};
-        ////console.log(JSON.stringify(myRequest));
-
-        //$tool.get(myRequest, function (e, r, d) {
-        //    console.log(e);
-        //    console.log(r);
-        //    console.log(d);
-        //    if (d.indexOf("请重新登录") >-1 ) {
-        //        $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
-        //    }
-        //    else if (true) {
-        //        $tool.notify("闯越顶岗实习!", "签到成功!", "");
-        //    }
-        //})
+    if (typeof $request != "undefined") {
+        if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
+            var Cookie = $request.headers["Cookie"];
+            if (!!Cookie) {
+                $tool.setkeyval(Cookie, "cydg");
+                $tool.notify("闯越顶岗实习!", "获得Cookie", Cookie);
+            }
+        }
+    }
+    else {
         
-    
+        var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
+        var method = 'GET';
+        var headers = {
+            'Connection': 'keep-alive',
+            'Content-Length': '292',
+            'Accept': '*/*',
+            'Origin': 'https://hl.cydgsx.com',
+            'X-Requested-With': 'XMLHttpRequest',
+            'Sec-Fetch-Dest': 'empty',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-Fetch-Mode': 'cors',
+            'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Cookie': 'ASP.NET_SessionId=asdasd; jxnApp=0; giveCard_10269=asdasdasd; loginUserName=dasdasdasd; LoginTimeCooikeName=8ee100zxcdb2c3afd71eax4501ec36b1;'
+        };
+        var body = 'InternStateId=4&interContent=%E5%AE%9E%E4%B9%A0%E7%AD%BE%E5%88%B0&logImg=&posAddress=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA&posLong=114.21&posLati=30.254&locationType=1&ArticleId=0';
+
+        var myRequest = {
+            url: url,
+            method: method,
+            headers: headers,
+            body: body
+        };
+        //console.log(JSON.stringify(myRequest));
+
+        $tool.get(myRequest, function (e, r, d) {
+            console.log(e);
+            console.log(r);
+            console.log(d);
+            if (d.indexOf("请重新登录") >-1 ) {
+                $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
+            }
+            else if (true) {
+                $tool.notify("闯越顶岗实习!", "签到成功!", "");
+            }
+        })
+        
+    }
 
 } catch (e) {
     console.log(e);
