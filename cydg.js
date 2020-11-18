@@ -14,6 +14,7 @@ try {
         }
     }
     else {
+        console.log("🍎🍎🍎🍎");
         var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
         var method = 'POST';
         var headers = {
