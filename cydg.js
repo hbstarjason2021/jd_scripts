@@ -16,7 +16,7 @@ try {
     }
     else {
         
-        var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
+        var url = 'http://hl.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
             'Connection': 'keep-alive',
             'Content-Length': '292',
