@@ -16,7 +16,7 @@ try {
     else {
         
         var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
-        var method = 'GET';
+        var method = 'POST';
         var headers = {
             'Connection': 'keep-alive',
             'Content-Length': '292',
@@ -43,7 +43,7 @@ try {
         };
         //console.log(JSON.stringify(myRequest));
 
-        $tool.get(myRequest, function (e, r, d) {
+        $tool.post(myRequest, function (e, r, d) {
             console.log(e);
             console.log(r);
             console.log(d);
