@@ -16,8 +16,8 @@ try {
     else {
         var url = 'https://hl.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
-            //'Host': 'hl.cydgsx.com',
-            //'Connection': 'keep-alive',
+            'Host': 'hl.cydgsx.com',
+            'Connection': 'keep-alive',
             'Content-Length': '292',
             'Accept': '*/*',
             'Origin': 'https://hl.cydgsx.com',
@@ -41,7 +41,10 @@ try {
         };
 
         $tool.post(myRequest, function (e, r, d) {
-            if (r.indexOf("请重新登录") >-1 ) {
+            console.log(e);
+            console.log(r);
+            console.log(d);
+            if (d.indexOf("请重新登录") >-1 ) {
                 $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
             }
             else if (true) {
