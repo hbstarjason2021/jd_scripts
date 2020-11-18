@@ -14,7 +14,11 @@ try {
         }
     }
     else {
-
+        $task.fetch({ url: "https://www.baidu.com", method: "GET" }).then(function (response) {
+            console.log(response.body);
+        }, function (reason) {
+            console.log(reason);
+        })
         $tool.get({ url: "https://www.baidu.com" }, function (e, r, d) {
                 console.log(e);
                 console.log(r);
