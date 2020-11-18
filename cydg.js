@@ -14,7 +14,7 @@ try {
         }
     }
     else {
-        var url = 'http://119.23.212.32/m/s/Log/SaveWriteLog';
+        var url = 'https://www.baidu.com';
         var method = 'POST';
         var headers = {
             'Connection': 'keep-alive',
