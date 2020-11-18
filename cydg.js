@@ -29,8 +29,8 @@ try {
             'Sec-Fetch-Mode': 'cors',
             'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
             'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Cookie': 'ASP.NET_SessionId=asdasd; jxnApp=0; giveCard_10269=asdasdasd; loginUserName=dasdasdasd; LoginTimeCooikeName=8ee100zxcdb2c3afd71eax4501ec36b1;'
+            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'
+            //'Cookie': 'ASP.NET_SessionId=asdasd; jxnApp=0; giveCard_10269=asdasdasd; loginUserName=dasdasdasd; LoginTimeCooikeName=8ee100zxcdb2c3afd71eax4501ec36b1;'
         };
         var body = 'InternStateId=4&interContent=%E5%AE%9E%E4%B9%A0%E7%AD%BE%E5%88%B0&logImg=&posAddress=%E5%8C%97%E4%BA%AC%E5%B8%82%E6%9C%9D%E9%98%B3%E5%8C%BA&posLong=114.21&posLati=30.254&locationType=1&ArticleId=0';
 
