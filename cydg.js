@@ -1,8 +1,9 @@
 
 
 var $tool = tool();
+console.log("🍎闯越顶岗实习签到脚本开始!");
 try {
-    console.log("🍎闯越顶岗实习签到脚本开始!");
+    
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
             var Cookie = $request.headers["Cookie"];
@@ -40,7 +41,7 @@ try {
         };
 
         $tool.post(myRequest, function (e, r, d) {
-            if (r.indexOf("请重新登录")) {
+            if (r.indexOf("请重新登录") >-1 ) {
                 $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
             }
             else if (true) {
@@ -54,6 +55,7 @@ try {
     console.log(e);
     $tool.notify("🍎闯越顶岗实习签到错误!", e, e);
 }
+console.log("🍎闯越顶岗实习签到脚本结束!");
 
 
 function tool() { var a = typeof $httpClient != "undefined"; var b = typeof $task != "undefined"; var c = { notify: function (i, f, h, g) { var e = {}; if (b) { if (!!g) { if (typeof g == "string") { e["open-url"] = g } if (!!g.url) { e["open-url"] = g.url } if (!!g.img) { e["media-url"] = g.img } $notify(i, f, h, e) } else { $notify(i, f, h) } } if (a) { if (!!g) { if (typeof g == "string") { e["openUrl"] = g } if (!!g.url) { e["openUrl"] = g.url } if (!!g.img) { e["mediaUrl"] = g.img } $notification.post(i, f, h, e) } else { $notification.post(i, f, h) } } }, get: function (e, f) { if (b) { if (typeof e == "string") { e = { url: e } } e["method"] = "GET"; $task.fetch(e).then(function (g) { f(null, d(g), g.body) }, function (g) { f(g.error, null, null) }) } if (a) { $httpClient.get(e, function (i, h, g) { f(i, d(h), g) }) } }, post: function (e, f) { if (b) { if (typeof e == "string") { e = { url: e } } e["method"] = "POST"; $task.fetch(e).then(function (g) { f(null, d(g), g.body) }, function (g) { f(g.error, null, null) }) } if (a) { $httpClient.post(e, function (i, h, g) { f(i, d(h), g) }) } }, unicode: function (e) { return unescape(e.replace(/\\u/gi, "%u")) }, decodeurl: function (e) { return decodeURIComponent(e) }, json2str: function (e) { return JSON.stringify(e) }, str2json: function (e) { return JSON.parse(e) }, setkeyval: function (f, e) { if (b) { $prefs.setValueForKey(f, e) } if (a) { $persistentStore.write(f, e) } }, getkeyval: function (e) { if (b) { return $prefs.valueForKey(e) } if (a) { return $persistentStore.read(e) } } }; function d(e) { if (e) { if (e.status) { e["statusCode"] = e.status } else { if (e.statusCode) { e["status"] = e.statusCode } } } return e } return c };
