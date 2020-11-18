@@ -22,7 +22,7 @@ try {
             'Origin': 'https://hl.cydgsx.com',
             'X-Requested-With': 'XMLHttpRequest',
             'Sec-Fetch-Dest': 'empty',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios',
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'Sec-Fetch-Site': 'same-origin',
             'Sec-Fetch-Mode': 'cors',
