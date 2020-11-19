@@ -3,7 +3,7 @@
 var $tool = tool();
 console.log("🍎闯越顶岗实习签到脚本开始!" + getCurrentDate());
 try {
-    
+
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("nfjs.cydgsx.com/m/s/") > -1) {
             var Cookie = $request.headers["Cookie"];
@@ -15,23 +15,22 @@ try {
         $done({});
     }
     else {
-        
+
         var url = 'https://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
-            'Connection': 'keep-alive',
-            'Content-Length': '292',
-            'Accept': '*/*',
-            'Origin': 'https://hl.cydgsx.com',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Sec-Fetch-Dest': 'empty',
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            "X-Requested-With": "XMLHttpRequest",
+            "Connection": "keep-alive",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "Origin": "https://nfjs.cydgsx.com",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+            "Cookie": ".ASPXAUTH=CC3ECB2C5D9BC09D6D149D610777954AE577B23BB5F92E5B815D104B18ECB4663CA4150D3424E45A07ACBF4AD23B4A30B2A6B02DE3D64F3E5D18028F1332615A82A23883F519BD08E959872DD32134E37FEA7DEB4AAD1A977C757CBE5816E7EF0DF31F92D91D2A8CA48482DC5E76256B78B7B1D67BCE472DF24B8362669A72368A8D02779A7866FB10A7F598FBD78187; ASP.NET_SessionId=yb20vjyuiecb0g5r2te4aviu; LoginTimeCooikeName=6d1d198c82719b54ee5a77621c7f7d6e; LoginUser_Id=891885322AFDC20D&amp;logintype=2&amp;RoleOId=106&amp;UserName=1828021&amp;Name=%e9%bb%84%e5%a4%a7%e6%99%ba&amp;unGuid=01f0fa64873748b3a207c956b98272c5; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021",
+            "Referer": "https://nfjs.cydgsx.com/m/s/Log/wLog",
+            "Accept-Language": "zh-cn",
+            "Accept": "*/*",
+            "Content-Length": "266",
             'Sec-Fetch-Site': 'same-origin',
-            'Sec-Fetch-Mode': 'cors',
-            'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            Cookie: '.ASPXAUTH=CC3ECB2C5D9BC09D6D149D610777954AE577B23BB5F92E5B815D104B18ECB4663CA4150D3424E45A07ACBF4AD23B4A30B2A6B02DE3D64F3E5D18028F1332615A82A23883F519BD08E959872DD32134E37FEA7DEB4AAD1A977C757CBE5816E7EF0DF31F92D91D2A8CA48482DC5E76256B78B7B1D67BCE472DF24B8362669A72368A8D02779A7866FB10A7F598FBD78187; ASP.NET_SessionId=yb20vjyuiecb0g5r2te4aviu; LoginTimeCooikeName=6d1d198c82719b54ee5a77621c7f7d6e; LoginUser_Id=891885322AFDC20D&logintype=2&RoleOId=106&UserName=1828021&Name=%e9%bb%84%e5%a4%a7%e6%99%ba&unGuid=01f0fa64873748b3a207c956b98272c5; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021'
+            'Sec-Fetch-Mode': 'cors'
         };
         var body = 'InternStateId=1&interContent=&logImg=&posAddress=%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E5%87%8C%E5%A1%98%E6%96%B0%E6%9D%91%E5%A4%A7%E8%A1%97&posLong=113.385556&posLati=23.172220&locationType=1&ArticleId=0';
 
@@ -46,13 +45,13 @@ try {
             console.log(e);
             //console.log(r);
             console.log(d);
-            if (d.indexOf("请重新登录") >-1 ) {
+            if (d.indexOf("请重新登录") > -1) {
                 $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
             }
             else {
                 try {
                     var obj = JSON.parse(d);
-                   
+
                     if (obj.state == 1) {
                         $tool.notify("闯越顶岗实习!", "签到成功!", "");
                     }
@@ -62,10 +61,10 @@ try {
                 } catch (e) {
                     $tool.notify("闯越顶岗实习签到错误!", "请查看日志", e);
                 }
-                
+
             }
         })
-        
+
     }
 
 } catch (e) {
