@@ -19,7 +19,7 @@ try {
         var url = 'https://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
             "X-Requested-With": "XMLHttpRequest",
-            "Connection": "keep-alive",
+            //"Connection": "keep-alive",
             "Accept-Encoding": "gzip, deflate, br",
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "Origin": "https://nfjs.cydgsx.com",
