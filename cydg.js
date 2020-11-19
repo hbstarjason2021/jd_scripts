@@ -5,7 +5,7 @@ console.log("🍎闯越顶岗实习签到脚本开始!" + getCurrentDate());
 try {
     
     if (typeof $request != "undefined") {
-        if ($request.url.indexOf("youhui.95516.com/newsign/public/app/index.html") > -1) {
+        if ($request.url.indexOf("nfjs.cydgsx.com/m/s/") > -1) {
             var Cookie = $request.headers["Cookie"];
             if (!!Cookie) {
                 $tool.setkeyval(Cookie, "cydg");
@@ -16,24 +16,22 @@ try {
     }
     else {
         
-        var url = 'http://hl.cydgsx.com/m/s/Log/SaveWriteLog';
+        var url = 'https://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
         var headers = {
-            'Connection': 'keep-alive',
-            'Content-Length': '292',
-            'Accept': '*/*',
-            'Origin': 'https://hl.cydgsx.com',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Sec-Fetch-Dest': 'empty',
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'Sec-Fetch-Site': 'same-origin',
-            'Sec-Fetch-Mode': 'cors',
-            'Referer': 'https://hl.cydgsx.com/m/s/Log/wLog',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            Cookie: '.ASPXAUTH=8F754661F84BED3EB000FD48A324C0ABAA466FE8AC1D5536C31D737E4969B8839019EABAE91FA5DB969176F2ECB2BC7D35F2307CBD830B7E2571908AC2FA10B7D4FAED5E5BDF0309741A4141776CB57828FDC2477A1BDA3D61D055221DFEBD4EFE8C360E56202BB9DBF07B227EC53AE64EE0A3B1BFE609B0F3A146927CD6A00A7163D2CE20F6E73303395EA41E5CA044; LoginTimeCooikeName=5602117bb2c1742e6b3efacdb6093b4c; LoginUser_Id=891885322AFDC20D&logintype=2&RoleOId=106&UserName=1828021&Name=%e9%bb%84%e5%a4%a7%e6%99%ba&unGuid=1cdf2dde17224cefb9f1dec8d216b01d; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021'
+            "X-Requested-With": "XMLHttpRequest",
+            "Connection": "keep-alive",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "Origin": "https://nfjs.cydgsx.com",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+            "Cookie": ".ASPXAUTH=CC3ECB2C5D9BC09D6D149D610777954AE577B23BB5F92E5B815D104B18ECB4663CA4150D3424E45A07ACBF4AD23B4A30B2A6B02DE3D64F3E5D18028F1332615A82A23883F519BD08E959872DD32134E37FEA7DEB4AAD1A977C757CBE5816E7EF0DF31F92D91D2A8CA48482DC5E76256B78B7B1D67BCE472DF24B8362669A72368A8D02779A7866FB10A7F598FBD78187; ASP.NET_SessionId=yb20vjyuiecb0g5r2te4aviu; LoginTimeCooikeName=6d1d198c82719b54ee5a77621c7f7d6e; LoginUser_Id=891885322AFDC20D&amp;logintype=2&amp;RoleOId=106&amp;UserName=1828021&amp;Name=%e9%bb%84%e5%a4%a7%e6%99%ba&amp;unGuid=01f0fa64873748b3a207c956b98272c5; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021",
+            //"Host": "nfjs.cydgsx.com",
+            "Referer": "https://nfjs.cydgsx.com/m/s/Log/wLog",
+            "Accept-Language": "zh-cn",
+            "Accept": "*/*",
+            "Content-Length": "266"
         };
-        var body = 'InternStateId=4&interContent=%E5%BF%99%E4%B8%8D%E8%BF%87%E6%9D%A5&logImg=&posAddress=%E5%B9%BF%E5%B7%9E%E5%B8%82%E8%8D%94%E6%B9%BE%E5%8C%BA%E5%8D%81%E5%85%AB%E7%94%AB%E5%8D%97%E8%B7%AF30%E5%8F%B7&posLong=113.249308&posLati=23.112359&locationType=1&ArticleId=0';
+        var body = 'InternStateId=1&interContent=&logImg=&posAddress=%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E5%87%8C%E5%A1%98%E6%96%B0%E6%9D%91%E5%A4%A7%E8%A1%97&posLong=113.385556&posLati=23.172220&locationType=1&ArticleId=0';
 
         var myRequest = {
             url: url,
@@ -52,6 +50,7 @@ try {
             else {
                 try {
                     var obj = JSON.parse(d);
+                   
                     if (obj.state == 1) {
                         $tool.notify("闯越顶岗实习!", "签到成功!", "");
                     }
