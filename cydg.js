@@ -30,7 +30,8 @@ try {
             'Accept': '*/*',
             'Content-Length': '266',
             'Sec-Fetch-Site': 'same-origin',
-            'Sec-Fetch-Mode': 'cors'
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Dest': 'empty'
         };
         var body = 'InternStateId=1&interContent=&logImg=&posAddress=%E4%B8%AD%E5%9B%BD%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E5%87%8C%E5%A1%98%E6%96%B0%E6%9D%91%E5%A4%A7%E8%A1%97&posLong=113.385556&posLati=23.172220&locationType=1&ArticleId=0';
 
