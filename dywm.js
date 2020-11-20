@@ -1,6 +1,6 @@
 
-//重写匹配地址:api3-core-c-hl.amemv.com/aweme/v1/aweme/post
-//QuanX重写配置:api3-core-c-hl.amemv.com/aweme/v1/aweme/post url script-response-body https://gitee.com/passerby-b/javascript/raw/master/dywm.js
+//重写匹配地址:core-c-hl.amemv.com/aweme/v1/aweme/post
+//QuanX重写配置:core-c-hl.amemv.com/aweme/v1/aweme/post url script-response-body https://gitee.com/passerby-b/javascript/raw/master/dywm.js
 //MITM:*.amemv.com
 //需要到作者的作品列表里找到那个视频再下载
 
@@ -8,7 +8,7 @@ console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
 var $tool = tool();
 try {
-    if ($request.url.indexOf("api3-core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
+    if ($request.url.indexOf("core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
         var obj = $tool.str2json(body);
         for (var i = 0; i < obj.aweme_list.length; i++) {
             var play_addr = obj.aweme_list[i].video.play_addr.url_list;
