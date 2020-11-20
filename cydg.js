@@ -19,7 +19,7 @@ function sign(){
         }
         else {
 
-            var url = 'http://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
+            var url = 'https://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
             var headers = {
                 "X-Requested-With": "XMLHttpRequest",
                 "Connection": "keep-alive",
