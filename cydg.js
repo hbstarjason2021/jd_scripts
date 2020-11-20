@@ -2,9 +2,11 @@
 
 var $tool = tool();
 console.log("🍎闯越顶岗实习签到脚本开始!" + getCurrentDate());
+
 async function testAsync() {
     $tool.notify("闯越顶岗实习!", "获得Cookie", '');
  }
+ testAsync();
 try {
 
     if (typeof $request != "undefined") {
