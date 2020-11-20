@@ -9,6 +9,7 @@ var body = $response.body;
 var $tool = tool();
 try {
     if ($request.url.indexOf("core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
+        $tool.notify('🍎抖音去水印脚本开始!', '', '');
         var obj = $tool.str2json(body);
         for (var i = 0; i < obj.aweme_list.length; i++) {
             var play_addr = obj.aweme_list[i].video.play_addr.url_list;
