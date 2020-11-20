@@ -1,1 +1,80 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([79j-ln-qtvwyzA-WYZ]|1\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('j $l=l();z.A("🍎闯越顶岗实习签到脚本开始!"+U());V{7(t $M!="N"){7($M.k.W("G.H.I/m/s/")>-1){j q=$M.J["q"];7(!!q){$l.Y(q,"cydg");$l.o("闯越顶岗实习!","获得q",q)}}$done({})}B{j k=\'O://G.H.I/m/s/Z/SaveWriteLog\';j J={"X-Requested-With":"XMLHttpRequest","Connection":"keep-alive","P-Encoding":"gzip, deflate, br","10-Type":"application\\/x-www-form-urlencoded; charset=UTF-8","Origin":"O:\\/\\/G.H.I","User-Agent":"Mozilla\\/5.0 (11; CPU 11 OS 14_1 13 Mac OS X) AppleWebKit\\/605.1.15 (KHTML, 13 Gecko) Mobile\\/15E148","q":".ASPXAUTH=CC3ECB2C5D9BC09D6D149D610777954AE577B23BB5F92E5B815D104B18ECB4663CA4150D3424E45A07ACBF4AD23B4A30B2A6B02DE3D64F3E5D18028F1332615A82A23883F519BD08E959872DD32134E37FEA7DEB4AAD1A977C757CBE5816E7EF0DF31F92D91D2A8CA48482DC5E76256B78B7B1D67BCE472DF24B8362669A72368A8D02779A7866FB10A7F598FBD78187; ASP.NET_SessionId=yb20vjyuiecb0g5r2te4aviu; LoginTimeCooikeName=6d1d198c82719b54ee5a77621c7f7d6e; LoginUser_Id=891885322AFDC20D&logintype=2&RoleOId=106&UserName=14&Name=%e9%bb%84%e5%a4%a7%e6%99%ba&unGuid=01f0fa64873748b3a207c956b98272c5; giveCard_3275=%7b%22id%22%16%2c%22isnew%22%16%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=14","Referer":"O:\\/\\/G.H.I\\/m\\/s\\/Z\\/wLog","P-Language":"zh-cn","P":"*\\/*","10-Length":"266"};j D=\'InternStateId=1&interContent=&logImg=&posAddress=%v%B9%BF%v%B7%9E%v%B8%82%v%A4%A9%E6%B2%B3%v%8C%BA%E4%B8%AD%v%B1%B1%v%A4%A7%E9%81%93%E8%A5%BF&posLong=113.368782&posLati=23.130985&locationType=1&ArticleId=0\';j 1b={k:k,J:J,D:D};$l.E(1b,9(e,r,d){z.A(e);z.A(r);z.A(d);7(d.W("请重新登录")>-1){$l.o("闯越顶岗实习!","签到失败!","请重新获取q!")}B{V{j 1c=$l.1d(d);7(1c.state==1){$l.o("闯越顶岗实习!","签到成功!",d)}B{$l.o("闯越顶岗实习!","签到失败!",d)}}1e(e){$l.o("闯越顶岗实习签到错误!","请查看日志",e)}}})}}1e(e){z.A("🍎"+e);$l.o("闯越顶岗实习签到错误!","请查看日志",e)}z.A("🍎闯越顶岗实习签到脚本结束!");9 l(){j a=t $Q!="N";j b=t $R!="N";j c={o:9(i,f,h,g){j e={};7(b){7(!!g){7(t g=="K"){e["1f-k"]=g}7(!!g.k){e["1f-k"]=g.k}7(!!g.L){e["media-k"]=g.L}$o(i,f,h,e)}B{$o(i,f,h)}}7(a){7(!!g){7(t g=="K"){e["1g"]=g}7(!!g.k){e["1g"]=g.k}7(!!g.L){e["mediaUrl"]=g.L}$1h.E(i,f,h,e)}B{$1h.E(i,f,h)}}},1i:9(e,f){7(b){7(t e=="K"){e={k:e}}e["1j"]="GET";$R.1k(e).1l(9(g){f(C,d(g),g.D)},9(g){f(g.1m,C,C)})}7(a){$Q.1i(e,9(i,h,g){f(i,d(h),g)})}},E:9(e,f){7(b){7(t e=="K"){e={k:e}}e["1j"]="POST";$R.1k(e).1l(9(g){f(C,d(g),g.D)},9(g){f(g.1m,C,C)})}7(a){$Q.E(e,9(i,h,g){f(i,d(h),g)})}},unicode:9(e){p unescape(e.replace(/\\\\u/gi,"%u"))},decodeurl:9(e){p decodeURIComponent(e)},json2str:9(e){p 1n.stringify(e)},1d:9(e){p 1n.parse(e)},Y:9(f,e){7(b){$1o.setValueForKey(f,e)}7(a){$1p.write(f,e)}},getkeyval:9(e){7(b){p $1o.valueForKey(e)}7(a){p $1p.read(e)}}};9 d(e){7(e){7(e.S){e["T"]=e.S}B{7(e.T){e["S"]=e.T}}}p e}p c};9 U(){j F=new Date();j 1q=F.getFullYear();j 1r=F.getMonth()+1;j 1s=F.getDate();j n=F.getDay();switch(n){w 1:n=\'星期一\';y;w 2:n=\'星期二\';y;w 3:n=\'星期三\';y;w 4:n=\'星期四\';y;w 5:n=\'星期五\';y;w 6:n=\'星期六\';y;w 0:n=\'星期日\';y}j 1t=1q+"年"+1r+"月"+1s+"日  "+n;p 1t}',[],92,'|||||||if||function||||||||||var|url|tool||days|notify|return|Cookie|||typeof||E5|case||break|console|log|else|null|body|post|myDate|nfjs|cydgsx|com|headers|string|img|request|undefined|https|Accept|httpClient|task|status|statusCode|getCurrentDate|try|indexOf||setkeyval|Log|Content|iPhone||like|1828021||3a0|||||params|obj|str2json|catch|open|openUrl|notification|get|method|fetch|then|error|JSON|prefs|persistentStore|year|month|day|str'.split('|'),0,{}))
+
+
+var $tool = tool();
+console.log("🍎闯越顶岗实习签到脚本开始!" + getCurrentDate());
+async function testAsync() {
+    $tool.notify("闯越顶岗实习!", "获得Cookie", '');
+ }
+try {
+
+    if (typeof $request != "undefined") {
+        if ($request.url.indexOf("nfjs.cydgsx.com/m/s/") > -1) {
+            var Cookie = $request.headers["Cookie"];
+            if (!!Cookie) {
+                $tool.setkeyval(Cookie, "cydg");
+                $tool.notify("闯越顶岗实习!", "获得Cookie", Cookie);
+            }
+        }
+        $done({});
+    }
+    else {
+
+        var url = 'https://nfjs.cydgsx.com/m/s/Log/SaveWriteLog';
+        var headers = {
+            "X-Requested-With": "XMLHttpRequest",
+            "Connection": "keep-alive",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Content-Type": "application\/x-www-form-urlencoded; charset=UTF-8",
+            "Origin": "https:\/\/nfjs.cydgsx.com",
+            "User-Agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148",
+            "Cookie": ".ASPXAUTH=CC3ECB2C5D9BC09D6D149D610777954AE577B23BB5F92E5B815D104B18ECB4663CA4150D3424E45A07ACBF4AD23B4A30B2A6B02DE3D64F3E5D18028F1332615A82A23883F519BD08E959872DD32134E37FEA7DEB4AAD1A977C757CBE5816E7EF0DF31F92D91D2A8CA48482DC5E76256B78B7B1D67BCE472DF24B8362669A72368A8D02779A7866FB10A7F598FBD78187; ASP.NET_SessionId=yb20vjyuiecb0g5r2te4aviu; LoginTimeCooikeName=6d1d198c82719b54ee5a77621c7f7d6e; LoginUser_Id=891885322AFDC20D&logintype=2&RoleOId=106&UserName=1828021&Name=%e9%bb%84%e5%a4%a7%e6%99%ba&unGuid=01f0fa64873748b3a207c956b98272c5; giveCard_3275=%7b%22id%22%3a0%2c%22isnew%22%3a0%2c%22title%22%3a%22%22%7d; jxnApp=0; loginUserName=1828021",
+            "Referer": "https:\/\/nfjs.cydgsx.com\/m\/s\/Log\/wLog",
+            "Accept-Language": "zh-cn",
+            "Accept": "*\/*",
+            "Content-Length": "266"
+        };
+        var body = 'InternStateId=1&interContent=&logImg=&posAddress=%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E4%B8%AD%E5%B1%B1%E5%A4%A7%E9%81%93%E8%A5%BF&posLong=113.368782&posLati=23.130985&locationType=1&ArticleId=0';
+
+        var params = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+        //console.log(JSON.stringify(myRequest));
+
+        $tool.post(params, function (e, r, d) {
+            console.log(e);
+            console.log(r);
+            console.log(d);
+            if (d.indexOf("请重新登录") > -1) {
+                $tool.notify("闯越顶岗实习!", "签到失败!", "请重新获取Cookie!");
+            }
+            else {
+                try {
+                    var obj = $tool.str2json(d);
+                    if (obj.state == 1) {
+                        $tool.notify("闯越顶岗实习!", "签到成功!", d);
+                    }
+                    else {
+                        $tool.notify("闯越顶岗实习!", "签到失败!", d);
+                    }
+                } catch (e) {
+                    $tool.notify("闯越顶岗实习签到错误!", "请查看日志", e);
+                }
+
+            }
+        })
+
+    }
+
+} catch (e) {
+    console.log("🍎" + e);
+    $tool.notify("闯越顶岗实习签到错误!", "请查看日志", e);
+}
+console.log("🍎闯越顶岗实习签到脚本结束!");
+
+
+function tool() { var a = typeof $httpClient != "undefined"; var b = typeof $task != "undefined"; var c = { notify: function (i, f, h, g) { var e = {}; if (b) { if (!!g) { if (typeof g == "string") { e["open-url"] = g } if (!!g.url) { e["open-url"] = g.url } if (!!g.img) { e["media-url"] = g.img } $notify(i, f, h, e) } else { $notify(i, f, h) } } if (a) { if (!!g) { if (typeof g == "string") { e["openUrl"] = g } if (!!g.url) { e["openUrl"] = g.url } if (!!g.img) { e["mediaUrl"] = g.img } $notification.post(i, f, h, e) } else { $notification.post(i, f, h) } } }, get: function (e, f) { if (b) { if (typeof e == "string") { e = { url: e } } e["method"] = "GET"; $task.fetch(e).then(function (g) { f(null, d(g), g.body) }, function (g) { f(g.error, null, null) }) } if (a) { $httpClient.get(e, function (i, h, g) { f(i, d(h), g) }) } }, post: function (e, f) { if (b) { if (typeof e == "string") { e = { url: e } } e["method"] = "POST"; $task.fetch(e).then(function (g) { f(null, d(g), g.body) }, function (g) { f(g.error, null, null) }) } if (a) { $httpClient.post(e, function (i, h, g) { f(i, d(h), g) }) } }, unicode: function (e) { return unescape(e.replace(/\\u/gi, "%u")) }, decodeurl: function (e) { return decodeURIComponent(e) }, json2str: function (e) { return JSON.stringify(e) }, str2json: function (e) { return JSON.parse(e) }, setkeyval: function (f, e) { if (b) { $prefs.setValueForKey(f, e) } if (a) { $persistentStore.write(f, e) } }, getkeyval: function (e) { if (b) { return $prefs.valueForKey(e) } if (a) { return $persistentStore.read(e) } } }; function d(e) { if (e) { if (e.status) { e["statusCode"] = e.status } else { if (e.statusCode) { e["status"] = e.statusCode } } } return e } return c }; function getCurrentDate() { var myDate = new Date(); var year = myDate.getFullYear(); var month = myDate.getMonth() + 1; var day = myDate.getDate(); var days = myDate.getDay(); switch (days) { case 1: days = '星期一'; break; case 2: days = '星期二'; break; case 3: days = '星期三'; break; case 4: days = '星期四'; break; case 5: days = '星期五'; break; case 6: days = '星期六'; break; case 0: days = '星期日'; break } var str = year + "年" + month + "月" + day + "日  " + days; return str }
+$done();
+
+
