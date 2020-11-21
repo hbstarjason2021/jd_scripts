@@ -4,7 +4,7 @@
 //MITM:*.amemv.com
 //需要到作者的作品列表里找到那个视频再下载
 
-console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音去水印脚本开始!");
+console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
 try {
     if ($request.url.indexOf("core-c-hl.amemv.com/aweme/v1/aweme/post") > -1 && !!body) {
@@ -13,17 +13,16 @@ try {
             var play_addr = obj.aweme_list[i].video.play_addr.url_list;
             obj.aweme_list[i].video.download_addr.url_list = play_addr;
             obj.aweme_list[i].video.download_suffix_logo_addr.url_list = play_addr;
-            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎播放地址:" + play_addr);
-            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎替换后地址:" + obj.aweme_list[i].video.download_addr.url_list);
+            console.log("🍎播放地址:" + play_addr);
         }
         $done({ body: JSON.stringify(obj) });
     }
     else {
-        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎body为空");
+        console.log("🍎🍎body为空");
         $done({});
     }
 } catch (e) {
-    console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎try错误:" + e);
+    console.log("🍎🍎🍎🍎try错误:" + e);
     $done({});
 }
 console.log("执行完成!!!!");
