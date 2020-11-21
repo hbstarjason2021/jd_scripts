@@ -12,7 +12,9 @@ try {
         for (var i = 0; i < obj.aweme_list.length; i++) {
             var play_addr = obj.aweme_list[i].video.play_addr.url_list;
             obj.aweme_list[i].video.download_addr.url_list = play_addr;
-            obj.aweme_list[i].video.download_suffix_logo_addr.url_list = play_addr;
+            if(!!obj.aweme_list[i].video.download_suffix_logo_addr.url_list){
+                obj.aweme_list[i].video.download_suffix_logo_addr.url_list = play_addr;
+            }
             console.log("🍎播放地址:" + play_addr);
         }
         $done({ body: JSON.stringify(obj) });
