@@ -21,7 +21,6 @@ try {
     }
 } catch (e) {
     console.log("🍎try错误:" + e);
-    $tool.notify('try错误!', 'try错误:', e);
     $done({});
 }
 console.log("执行完成!!!!");
