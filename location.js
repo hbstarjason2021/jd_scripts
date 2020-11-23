@@ -35,7 +35,7 @@ console.log(`当前位置：纬度${latitude}，经度${longitude}`);
 
 $tool.setkeyval(latitude, "latitude");
 $tool.setkeyval(longitude, "longitude");
-$tool.notify('经纬度',latitude+','+longitude,'');
+$tool.notify('经纬度', latitude +','+ longitude, '存储经纬度:' + $tool.getkeyval("latitude") + ',' + $tool.getkeyval("longitude"));
 
 $done({});
 
