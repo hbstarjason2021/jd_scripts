@@ -33,16 +33,8 @@ const latitude = res[1];
 const longitude = res[2];
 console.log(`当前位置：纬度${latitude}，经度${longitude}`);
 
-// write data
-if (typeof $prefs !== 'undefined'){
-    // QX
-    $prefs.setValueForKey(latitude, "latitude");
-    $prefs.setValueForKey(longitude, "longitude");
-}else{
-    // Loon & Surge
-    $persistentStore.write(latitude, "latitude");
-    $persistentStore.write(longitude, "longitude");
-}
+$tool.setkeyval(latitude, "latitude");
+$tool.setkeyval(longitude, "longitude");
 $tool.notify('经纬度',latitude+','+longitude,'');
 
 $done();
