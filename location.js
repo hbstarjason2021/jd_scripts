@@ -31,7 +31,7 @@ const res =
     url.match(/geocode=([0-9.]*),([0-9.]*)/);
 const latitude = res[1];
 const longitude = res[2];
-console.log(`当前位置：纬度${latitude}，经度${longitude}`);
+console.log(`🍎当前位置：纬度${latitude}，经度${longitude}`);
 
 $tool.setkeyval(latitude, "latitude");
 $tool.setkeyval(longitude, "longitude");
