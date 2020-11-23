@@ -43,7 +43,7 @@ if (typeof $prefs !== 'undefined'){
     $persistentStore.write(latitude, "latitude");
     $persistentStore.write(longitude, "longitude");
 }
-$tool.notify('经纬度',latitude,longitude);
+$tool.notify('经纬度',latitude+','+longitude,'');
 
 $done();
 
