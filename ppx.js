@@ -8,8 +8,10 @@ try {
         console.log("🍎🍎" + body + "🍎🍎🍎");
         var obj = JSON.parse(body);
         for (var i = 0; i < obj.data.data.length; i++) {
-            obj.data.data[i].item.video.video_download.url_list = obj.data.data[i].item.video.video_high.url_list;
-            console.log("🍎" + obj.data.data[i].item.video.video_download.url_list[0]);
+            if (!!obj.data.data[i].item && !!obj.data.data[i].item.video) {
+                obj.data.data[i].item.video.video_download.url_list = obj.data.data[i].item.video.video_high.url_list;
+                console.log("🍎" + JSON.stringify(obj.data.data[i].item.video.video_high.url_list[0]));
+            }
         }
         $done({ body: JSON.stringify(obj) });
     }
