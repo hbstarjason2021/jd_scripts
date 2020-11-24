@@ -3,7 +3,6 @@
 
 console.log("🍎抖音去水印脚本开始!");
 var body = $response.body;
-var $tool = tool();
 try {
     if ($request.url.indexOf("ib-hl.snssdk.com/bds/feed/stream") > -1 && !!body) {
         console.log("🍎" + body);
