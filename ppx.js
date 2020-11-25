@@ -8,16 +8,25 @@ try {
         console.log("🍎🍎" + body + "🍎🍎🍎");
         var obj = JSON.parse(body);
         for (var i = 0; i < obj.data.data.length; i++) {
-            if (!!obj.data.data[i].item && !!obj.data.data[i].item.video) {
+            if (!obj.data.data[i].item.video) {
                 obj.data.data[i].item.video.video_download.url_list = obj.data.data[i].item.video.video_high.url_list;
-                console.log("🍎" + JSON.stringify(obj.data.data[i].item.video.video_high.url_list[0]));
-                                if(!!obj.data.data[i].item.comments){
-                                    for (var n = 0; n < obj.data.data[i].item.comments.length; n++) {
-                                        obj.data.data[i].item.comments[n].item.video.video_download.url_list = obj.data.data[i].item.comments[n].item.video.video_high.url_list;
-                                        console.log("🍎" + JSON.stringify(obj.data.data[i].item.comments[n].item.video.video_high.url_list[0]));
-                                    }
-                                }
+                console.log("🍎" + obj.data.data[i].item.video.video_download.url_list[0]);
             }
+            else if (!!obj.data.data[i].item.comments) {
+                for (var n = 0; n < obj.data.data[i].item.comments.length; n++) {
+                    obj.data.data[i].item.comments[n].item.video.video_download.url_list = obj.data.data[i].item.comments[n].item.video.video_high.url_list;
+                    console.log("🍎" + JSON.stringify(obj.data.data[i].item.comments[n].item.video.video_high.url_list[0]));
+                }
+            }
+            else if (!!obj.data.data[i].block_info.cell_list) {
+                for (var n = 0; n < obj.data.data[i].block_info.cell_list.length; n++) {
+                    if (!!obj.data.data[i].block_info.cell_list[n].item) {
+                        obj.data.data[i].block_info.cell_list[n].item.video.video_download.url_list = obj.data.data[i].block_info.cell_list[n].item.video.video_high.url_list;
+                        console.log("🍎" + JSON.stringify(obj.data.data[i].block_info.cell_list[n].item.video.video_high.url_list[0]));
+                    }  
+                }
+            }
+            
         }
         $done({ body: JSON.stringify(obj) });
     }
