@@ -1,7 +1,7 @@
 
 //ib-hl.snssdk.com/bds/feed/stream
 
-console.log("🍎抖音去水印脚本开始!");
+console.log("🍎皮皮虾去水印脚本开始!");
 var body = $response.body;
 try {
     if (!!body) {
