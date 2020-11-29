@@ -37,7 +37,7 @@ try {
                 $tool.notify("cf逆战获取token!", "获得token", token);
             }
         }
-        if ($request.url.indexOf("api.m.jd.com/client.action") > -1) {
+        if ($request.url.indexOf("mars.jd.com/log/sdk/") > -1) {
             console.log("🍎京东获取Cookie脚本开始!");
             var Cookie = $request.headers["Cookie"];
             if (!!Cookie) {
