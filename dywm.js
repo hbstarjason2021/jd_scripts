@@ -1,4 +1,3 @@
-
 //重写匹配地址:amemv.com/aweme/v1/aweme/post
 //QuanX重写配置:amemv.com/aweme/v1/aweme/post url script-response-body https://gitee.com/passerby-b/javascript/raw/master/dywm.js
 //MITM:*.amemv.com
