@@ -41,7 +41,6 @@ $tool.get(params, function (e, r, d) {
     else {
         $tool.notify("返回空", "错误", d);
     }
-
 });
 
 console.log("执行完成!!!!");
