@@ -1,5 +1,4 @@
 //MITM:music.tc.qq.com
-
 var $tool = tool();
 try {
     console.log("🍎QQ音乐下载地址脚本开始!");
