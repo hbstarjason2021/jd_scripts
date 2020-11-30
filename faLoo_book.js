@@ -1,4 +1,4 @@
-
+//重写地址:http://61.55.164.26:8088/V4.1/Xml4Android_DoInfoNewPage.aspx
 try {
     if (typeof $request != "undefined") {
         var reqtoken = $request.headers["token"];
