@@ -1,9 +1,9 @@
 
 console.log("天气脚本开始!");
 var $tool = tool();
-
+var url= "https://tianqi.moji.com/weather/china/hubei/wuhan";//修改所在省份城市
 var params = {
-    url: "https://tianqi.moji.com/weather/china/hubei/wuhan"
+    url: url
 };
 $tool.get(params, function (e, r, d) {
     if (!!d) {
@@ -32,7 +32,7 @@ $tool.get(params, function (e, r, d) {
 
         msg = msg.split('。');
         if (msg.length > 0) {
-            $tool.notify(msg[0], msg[1], msg[2], { "url": "http://tianqi.moji.com/weather/china/hubei/wuhan", "img": "https://h5tq.moji.com/tianqi/assets/images/weather/w1.png" });
+            $tool.notify(msg[0], msg[1], msg[2], { "url": url, "img": "https://h5tq.moji.com/tianqi/assets/images/weather/w1.png" });
         }
         else {
             $tool.notify("错误", "错误", d.substring(index, index2).replace(/ /g, ""));
