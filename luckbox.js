@@ -13,8 +13,8 @@ try {
         console.log("🍎红包列表:" + data);
         respdata = data;
     });
-
-    if (JSON.parse(respdata).data.length > 0) {
+    var list = JSON.parse(respdata).data;
+    if (list.length > 0) {
         $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
         forPost();
     }
@@ -30,7 +30,7 @@ try {
 
             console.log("🍎循环请求执行");
 
-            var list = JSON.parse(respdata).data;
+            
 
             var params2 = {
                 url: "https://webcast3-normal-c-hl.amemv.com/webcast/luckybox/rush/?version_code=12.1.0&pass-region=0&js_sdk_version=1.73.0.65&tma_jssdk_version=1.73.0.65&pass-route=0&app_name=aweme&app_version=12.1.0&vid=89C92D9E-E9ED-4CE3-BC06-E8A569C4F7C9&webcast_sdk_version=1620&device_id=58019842405&channel=App%20Store&mcc_mnc=46002&language=zh-Hans-CN&aid=1128&effect_sdk_version=7.2.0&screen_width=414&openudid=d2406de73fcb79bfafa6d4f66d88b2f7572ccc4f&cdid=75D47001-A2E3-43F2-A19D-A129079906BE&os_api=18&webcast_language=zh&ac=WIFI&os_version=13.6&webcast_locale=zh-Hans_CN&build_number=121013&device_platform=iphone&device_type=iPhone%20XS%20Max&is_vcd=1&iid=2497687840631863&idfa=B481C950-8580-480C-A4D9-D033DA3A4585",
