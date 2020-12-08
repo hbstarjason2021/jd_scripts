@@ -39,14 +39,19 @@ try {
 
             $httpClient.post(params2, function (error, response, data) {
                 console.log("🍎" + data);
-                var obj = JSON.parse(data);
-                if (!!obj.data.gift_name && obj.data.gift_name != undefined && obj.data.gift_name != "undefined") {
-                    $notification.post('获取礼物!', obj.data.gift_name, data);
-                    console.log("🍎获取礼物:" + obj.data.gift_name);
-                }
-                else {
+                try {
+                    var obj = JSON.parse(data);
+                    if (!!obj.data.gift_name && obj.data.gift_name != undefined && obj.data.gift_name != "undefined") {
+                        $notification.post('获取礼物!', obj.data.gift_name, data);
+                        console.log("🍎获取礼物:" + obj.data.gift_name);
+                    }
+                    else {
+                        forPost(list);
+                    }
+                } catch (e) {
                     forPost(list);
                 }
+                
             });
 
 
