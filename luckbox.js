@@ -2,29 +2,27 @@ console.log("🍎脚本开始!");
 var url = $request.url;
 var headers = $request.headers;
 try {
+    var room_id = url.split("room_id=")[1];
 
     headers["response-format"] = "json";
     var params = {
         url: url,
         headers: headers
     };
-    var respdata = "";
+
     $httpClient.get(params, function (error, response, data) {
         console.log("🍎红包列表:" + data);
-        respdata = data;
+        var list = JSON.parse(data);
+        if (list.data.length > 0) {
+            $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
+            forPost();
+        }
+        else {
+            $done({});
+            console.log("🍎执行完成!!!!");
+        }
     });
-    var list = JSON.parse(respdata);
-    if (list.data.length > 0) {
-        $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
-        forPost();
-    }
-    else {
-        $done({});
-        console.log("🍎执行完成!!!!");
-    }
-
-    var room_id = url.split("room_id=")[1];
-
+    
     function forPost() {
         setTimeout(function () {
 
