@@ -12,15 +12,22 @@ try {
 
     $httpClient.get(params, function (error, response, data) {
         console.log("🍎红包列表:" + data);
-        var list = JSON.parse(data);
-        if (list.data.length > 0) {
-            $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
-            forPost(list);
+        if (!!data) {
+            var list = JSON.parse(data);
+            if (list.data.length > 0) {
+                $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
+                forPost(list);
+            }
+            else {
+                $done({});
+                console.log("🍎执行完成!!!!");
+            }
         }
         else {
             $done({});
             console.log("🍎执行完成!!!!");
         }
+        
     });
     
     function forPost(list) {
