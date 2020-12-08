@@ -1,11 +1,19 @@
 console.log("🍎脚本开始!");
 var url = $request.url;
 var headers = $request.headers;
-var respbody = $response.body;
 try {
 
     $notification.post('获取到红包列表!', '开始执行自动抢红包!', "")
-    console.log(JSON.stringify(respbody));
+    headers["response-formart"] = "json";
+    var params = {
+        url: url,
+        headers: headers
+    };
+    var respdata = "";
+    $httpClient.get(params, function (error, response, data) {
+        console.log("🍎" + data);
+        respdata = data;
+    });
 
     var room_id = url.split("room_id=")[1];
 
@@ -14,7 +22,7 @@ try {
 
             console.log("🍎循环请求执行");
 
-            var list = JSON.parse(respbody).data;
+            var list = JSON.parse(respdata).data;
             if (list.length > 0) {
 
                 var params2 = {
