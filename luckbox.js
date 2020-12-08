@@ -1,11 +1,11 @@
 console.log("🍎脚本开始!");
 var url = $request.url;
 var headers = $request.headers;
-var body = $response.body;
+var respbody = $response.body;
 try {
 
     $notification.post('获取到红包列表!', '开始执行自动抢红包!', "")
-    console.log(JSON.stringify(body));
+    console.log(JSON.stringify(respbody));
 
     var room_id = url.split("room_id=")[1];
 
@@ -14,7 +14,7 @@ try {
 
             console.log("🍎循环请求执行");
 
-            var list = JSON.parse(data).data;
+            var list = JSON.parse(respbody).data;
             if (list.length > 0) {
 
                 var params2 = {
