@@ -3,15 +3,15 @@ var url = $request.url;
 var headers = $request.headers;
 try {
 
-    $notification.post('获取到红包列表!', '开始执行自动抢红包!', "")
-    headers["response-formart"] = "json";
+    $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
+    headers["response-format"] = "json";
     var params = {
         url: url,
         headers: headers
     };
     var respdata = "";
     $httpClient.get(params, function (error, response, data) {
-        console.log("🍎" + data);
+        console.log("🍎红包列表:" + data);
         respdata = data;
     });
 
@@ -48,7 +48,7 @@ try {
                 });
             }
 
-        }, 100);
+        }, 200);
     }
 
     forPost();
