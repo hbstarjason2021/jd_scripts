@@ -15,7 +15,7 @@ try {
         var list = JSON.parse(data);
         if (list.data.length > 0) {
             $notification.post('获取到红包列表!', '开始执行自动抢红包!', "");
-            forPost();
+            forPost(list);
         }
         else {
             $done({});
@@ -23,7 +23,7 @@ try {
         }
     });
     
-    function forPost() {
+    function forPost(list) {
         setTimeout(function () {
 
             console.log("🍎循环请求执行");
@@ -45,7 +45,7 @@ try {
                     console.log("🍎获取礼物:" + obj.data.gift_name);
                 }
                 else {
-                    forPost();
+                    forPost(list);
                 }
             });
 
