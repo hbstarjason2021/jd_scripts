@@ -13,6 +13,7 @@ try {
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("youhui.95516.com/newsign/api/coin_details") > -1) {
             var Cookie = $request.headers["Authorization"];
+            console.log("🍎" + Cookie);
             if (!!Cookie) {
                 $tool.setkeyval(Cookie, "authorization");
                 console.log("Authorization:" + Cookie);
