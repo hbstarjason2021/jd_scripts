@@ -8,7 +8,7 @@
 var Authorization = '';//手动获取authorization填写此处
 var $tool = tool();
 try {
-    console.log("云闪付签到脚本开始!");
+    console.log("🍎云闪付签到脚本开始!");
     var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
     if (typeof $request != "undefined") {
         if ($request.url.indexOf("youhui.95516.com/newsign/api/coin_details") > -1) {
@@ -73,11 +73,10 @@ try {
     }
 
 } catch (e) {
-    console.log(e);
+    console.log("🍎erro" + e);
     $tool.notify("云闪付签到错误!", e, e, { img: img });
     $done();
 }
-
 
 //loon/quanx通用方法
 function tool() {
