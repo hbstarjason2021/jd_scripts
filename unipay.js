@@ -1,18 +1,19 @@
 //兼容loon和qx
 //获取Authorization重写配置:
-//Qx:https://youhui.95516.com/newsign/api/daily_sign_in url script-request-header https://gitee.com/passerby-b/javascript/raw/master/unipay.js
-//Loon:http-request https://youhui.95516.com/newsign/api/daily_sign_in script-path=https://gitee.com/passerby-b/javascript/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
+//Qx:https://youhui.95516.com/newsign/api/coin_details url script-request-header https://gitee.com/passerby-b/javascript/raw/master/unipay.js
+//Loon:http-request https://youhui.95516.com/newsign/api/coin_details script-path=https://gitee.com/passerby-b/javascript/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
 //先手动签到一次获取Authorization
 //添加MITM hostname:youhui.95516.com
 
 var Authorization = '';//手动获取authorization填写此处
 var $tool = tool();
 try {
-    console.log("云闪付签到脚本开始!");
+    console.log("🍎云闪付签到脚本开始!");
     var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
     if (typeof $request != "undefined") {
-         if ($request.url.indexOf("youhui.95516.com/newsign/api/daily_sign_in") > -1) {
+        if ($request.url.indexOf("youhui.95516.com/newsign/api/coin_details") > -1) {
             var Cookie = $request.headers["Authorization"];
+            console.log("🍎" + Cookie);
             if (!!Cookie) {
                 $tool.setkeyval(Cookie, "authorization");
                 console.log("Authorization:" + Cookie);
@@ -72,7 +73,7 @@ try {
     }
 
 } catch (e) {
-    console.log(e);
+    console.log("🍎erro" + e);
     $tool.notify("云闪付签到错误!", e, e, { img: img });
     $done();
 }
@@ -194,3 +195,4 @@ function tool() {
     return obj;
 
 };
+
