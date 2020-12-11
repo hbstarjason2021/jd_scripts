@@ -2,7 +2,6 @@
 //获取Authorization重写配置:
 //Qx:https://youhui.95516.com/newsign/api/coin_details url script-request-header https://gitee.com/passerby-b/javascript/raw/master/unipay.js
 //Loon:http-request https://youhui.95516.com/newsign/api/coin_details script-path=https://gitee.com/passerby-b/javascript/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
-//进入签到页面,点击金额明细后提示获取Authorization即可
 //添加MITM hostname:youhui.95516.com
 
 var Authorization = '';//手动获取authorization填写此处
