@@ -15,6 +15,7 @@ try {
             var Cookie = $request.headers["authorization"];
             if (!!Cookie) {
                 $tool.setkeyval(Cookie, "authorization");
+                console.log("Authorization:" + Cookie);
                 $tool.notify("云闪付签到!", "获得Authorization", Cookie, { img: img });
                 $done({});
             }
