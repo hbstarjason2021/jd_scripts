@@ -52,7 +52,7 @@ try {
                     for (var item in obj.days) {
                         if (obj.days[item] == 1) days++;
                     }
-                    $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt.split('T')[0], "已签到:" + days + "天!", { img: img });
+                    $tool.notify("云闪付签到成功!", "本星期首次签到时间:" + obj.startedAt.split('T')[0], "已签到:" + days + "天!", { img: img });
                     $done();
                 }
                 else {
