@@ -1,4 +1,4 @@
-//兼容loon和qx
+//兼容loon和qx,理论上支持surge
 //获取Authorization重写配置:
 //Qx:https://youhui.95516.com/newsign/api/coin_details url script-request-header https://gitee.com/passerby-b/javascript/raw/master/unipay.js
 //Loon:http-request https://youhui.95516.com/newsign/api/coin_details script-path=https://gitee.com/passerby-b/javascript/raw/master/unipay.js, requires-body=true, timeout=10, tag=云闪付签到
