@@ -548,12 +548,13 @@ function userInfo() {
                 console.log(`当前电力：${data.user.electric}`)
                 console.log(`当前等级：${data.user.currentLevel}`)
                 console.log(`分享码: ${data.user.encryptPin}`);
-                $.get({url: `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`}, (err, resp, data) => {
-                    console.log(`http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`)
+                console.log(`🍎http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`);
+                 $.get({url: `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`}, (err, resp, data) => {
+                    
                     try {
                         if (err) {
                                 console.log(`${JSON.stringify(err)}`)
-                                console.log(`${$.name} 🍎上传互助码API请求失败，请检查网路重试`)
+                                console.log(`🍎上传互助码API请求失败，请检查网路重试`)
                         } else {
                                 if (data) {
                                     console.log('🍎上传互助码成功:' + data);
