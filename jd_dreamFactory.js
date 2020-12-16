@@ -548,8 +548,8 @@ function userInfo() {
                 console.log(`当前电力：${data.user.electric}`)
                 console.log(`当前等级：${data.user.currentLevel}`)
                 console.log(`分享码: ${data.user.encryptPin}`);
-                $.get({url: `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${$.farmInfo.farmUserPro.shareCode}/`}, (err, resp, data) => {
-                    console.log(`http://api.turinglabs.net/api/v1/jd/jxfactory/create/${$.farmInfo.farmUserPro.shareCode}/`)
+                $.get({url: `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`}, (err, resp, data) => {
+                    console.log(`http://api.turinglabs.net/api/v1/jd/jxfactory/create/${data.user.encryptPin}/`)
                     try {
                         if (err) {
                                 console.log(`${JSON.stringify(err)}`)
