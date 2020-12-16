@@ -548,6 +548,23 @@ function userInfo() {
                 console.log(`当前电力：${data.user.electric}`)
                 console.log(`当前等级：${data.user.currentLevel}`)
                 console.log(`分享码: ${data.user.encryptPin}`);
+                $.get({url: `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${$.farmInfo.farmUserPro.shareCode}/`}, (err, resp, data) => {
+                    console.log(`http://api.turinglabs.net/api/v1/jd/jxfactory/create/${$.farmInfo.farmUserPro.shareCode}/`)
+                    try {
+                        if (err) {
+                                console.log(`${JSON.stringify(err)}`)
+                                console.log(`${$.name} 🍎上传互助码API请求失败，请检查网路重试`)
+                        } else {
+                                if (data) {
+                                    console.log('🍎上传互助码成功:' + data);
+                                }
+                            }
+                    } catch (e) {
+                        $.logErr(e, resp)
+                    } finally {
+                        resolve(data);
+                    }
+                });
                 console.log(`已投入电力：${production.investedElectric}`);
                 console.log(`所需电力：${production.needElectric}`);
                 console.log(`生产进度：${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%`);
