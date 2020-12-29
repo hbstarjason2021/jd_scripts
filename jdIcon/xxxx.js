@@ -66,7 +66,7 @@ async function jd_sign() {
         else {
             $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
         }
-        return Promise.resolve("ok");
+        //return Promise.resolve("ok");
     });
 }
 
