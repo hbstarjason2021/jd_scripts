@@ -25,7 +25,7 @@ init();
 // setTimeout(nz_sign, 5000);
 
 console.log("🍎执行完成!!!!");
-//$done();
+$done();
 
 //京东金豆签到
  function jd_sign() {
@@ -136,22 +136,28 @@ console.log("🍎执行完成!!!!");
         }
         setTimeout(() => {
             $tool.get(params, function (e, r, d) {
-                d = unescape(d.replace(/\\u/gi, '%u'));
-                console.log("逆战签到***********************************");
-                console.log("错误:" + e);
-                console.log("返回:" + d);
-                console.log("逆战签到***********************************");
-    
-                var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
+                try{
+                    d = unescape(d.replace(/\\u/gi, '%u'));
+                    console.log("逆战签到***********************************");
+                    console.log("错误:" + e);
+                    console.log("返回:" + d);
+                    console.log("逆战签到***********************************");
+        
+                    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
+                    
+                    var obj = JSON.parse(d);
+                    if (d.indexOf('经验') > -1) {
+                        $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
+                    }
+                    else {
+                        $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
+                    }
+                }catch(e){
+                    console.log("🍎🍎"+e);
+                }finally{
+                    resolve(d);
+                }
                 
-                var obj = JSON.parse(d);
-                if (d.indexOf('经验') > -1) {
-                    $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
-                }
-                else {
-                    $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
-                }
-                resolve(d);
             });
         }, 500);
         
@@ -190,7 +196,7 @@ console.log("🍎执行完成!!!!");
                     $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
                 }
             }catch(e){
-                console.log(e);
+                console.log("🍎🍎"+e);
             }finally{
                 resolve(d);
             }
@@ -278,7 +284,7 @@ function unipay_sign() {
                 var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
                 $tool.notify('掌火领取任务积分!', d, d, { img: img });
             } catch(e){
-                console.log(e);
+                console.log("🍎🍎"+e);
 
             }finally{
                 resolve(d);
