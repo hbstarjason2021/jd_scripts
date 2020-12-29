@@ -10,6 +10,8 @@ async function init(){
     await nz_sign();
 }
 
+init();
+
 // setTimeout(cf_sign, 500);
 
 // setTimeout(feng_sign, 1500);
