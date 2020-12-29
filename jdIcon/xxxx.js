@@ -46,10 +46,10 @@ async function jd_sign() {
         console.log("返回:" + d);
         console.log("京东签到***********************************");
 
-        var d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
-        var obj = JSON.parse(d);
+        const d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
+        const obj = JSON.parse(d);
 
-        var img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
+        const img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
 
         if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
             //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
