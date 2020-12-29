@@ -83,7 +83,7 @@ console.log("🍎执行完成!!!!");
 //掌火签到
  function cf_sign() {
     return new Promise(async resolve => {
-        var cfnz_token = $tool.getkeyval("cfnztoken");
+        
         console.log("🍎掌火签到脚本开始!");
 
         var params = {
