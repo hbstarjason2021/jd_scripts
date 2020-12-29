@@ -93,26 +93,32 @@ console.log("🍎执行完成!!!!");
             }
         }
         $tool.get(params, function (e, r, d) {
-            d = unescape(d.replace(/\\u/gi, '%u'));
+            try{
+                d = unescape(d.replace(/\\u/gi, '%u'));
 
-            console.log("掌火签到***********************************");
-            console.log("错误:" + e);
-            console.log("返回:" + d);
-            console.log("掌火签到***********************************");
-
-            var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
-
-            var obj = JSON.parse(d);
-            if (d.indexOf("签到成功") > -1 || d.indexOf("经验") > -1) {
-                $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
+                console.log("掌火签到***********************************");
+                console.log("错误:" + e);
+                console.log("返回:" + d);
+                console.log("掌火签到***********************************");
+    
+                var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+    
+                var obj = JSON.parse(d);
+                if (d.indexOf("签到成功") > -1 || d.indexOf("经验") > -1) {
+                    $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
+                }
+                else if (d.indexOf("已签到") > -1) {
+                    $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
+                }
+                else {
+                    $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
+                }
+            }catch(e){
+                console.log(e);
+            }finally{
+                resolve(d);
             }
-            else if (d.indexOf("已签到") > -1) {
-                $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
-            }
-            else {
-                $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
-            }
-            resolve(d);
+            
         });
     });
 }
