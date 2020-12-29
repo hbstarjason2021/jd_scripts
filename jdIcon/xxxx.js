@@ -4,7 +4,7 @@ var  $tool = tool();
 
 async function init(){
   var  a=  await cf_sign();
-  console.log(a);
+  console.log("🍎:"+a);
     await feng_sign();
     await jd_sign();
     await cf_task();
@@ -78,36 +78,38 @@ async function jd_sign() {
 //掌火签到
 
 async function cf_sign() {
-    var cfnz_token = $tool.getkeyval("cfnztoken");
-    console.log("🍎掌火签到脚本开始!");
+    return new Promise(function(resolve){
+        var cfnz_token = $tool.getkeyval("cfnztoken");
+        console.log("🍎掌火签到脚本开始!");
 
-    var params = {
-        url: "https://mwegame.qq.com/cfip/score_sign/doSign?serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&appid=1101817502&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&gameName=%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF&nickname=%E3%80%80%E3%80%80&isMainRole=1&roleJob=%E5%85%83%E5%B8%85&areaId=85&roleId=717785320&gameId=10011&toUin=717785320&subGameId=10011&serverId=328&cGameId=1001&token=" + cfnz_token + "&uniqueRoleId=1760005752041800&acctype=qq&uin=717785320&roleLevel=100&userId=362446817&gift_id=9036",
-        headers: {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
+        var params = {
+            url: "https://mwegame.qq.com/cfip/score_sign/doSign?serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&appid=1101817502&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&gameName=%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF&nickname=%E3%80%80%E3%80%80&isMainRole=1&roleJob=%E5%85%83%E5%B8%85&areaId=85&roleId=717785320&gameId=10011&toUin=717785320&subGameId=10011&serverId=328&cGameId=1001&token=" + cfnz_token + "&uniqueRoleId=1760005752041800&acctype=qq&uin=717785320&roleLevel=100&userId=362446817&gift_id=9036",
+            headers: {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
+            }
         }
-    }
-    $tool.get(params, function (e, r, d) {
-        d = unescape(d.replace(/\\u/gi, '%u'));
+        $tool.get(params, function (e, r, d) {
+            d = unescape(d.replace(/\\u/gi, '%u'));
 
-        console.log("掌火签到***********************************");
-        console.log("错误:" + e);
-        console.log("返回:" + d);
-        console.log("掌火签到***********************************");
+            console.log("掌火签到***********************************");
+            console.log("错误:" + e);
+            console.log("返回:" + d);
+            console.log("掌火签到***********************************");
 
-        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+            var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
 
-        var obj = JSON.parse(d);
-        if (d.indexOf("签到成功") > -1 || d.indexOf("经验") > -1) {
-            $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
-        }
-        else if (d.indexOf("已签到") > -1) {
-            $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
-        }
-        else {
-            $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
-        }
-        Promise.resolve("ok");
+            var obj = JSON.parse(d);
+            if (d.indexOf("签到成功") > -1 || d.indexOf("经验") > -1) {
+                $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
+            }
+            else if (d.indexOf("已签到") > -1) {
+                $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
+            }
+            else {
+                $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
+            }
+            resolve(d);
+        });
     });
 }
 
