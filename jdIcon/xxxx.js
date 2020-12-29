@@ -244,8 +244,8 @@ async function cf_task() {
 
 //loon/quanx通用方法
 function tool() {
-    const isLoon = typeof $httpClient != "undefined";
-    const isQuanX = typeof $task != "undefined";
+    var isLoon = typeof $httpClient != "undefined";
+    var isQuanX = typeof $task != "undefined";
 
     const obj = {
         //通知
