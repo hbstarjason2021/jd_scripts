@@ -1,9 +1,9 @@
 
 console.log("🍎签到脚本开始!");
-const $tool = tool();
+var  $tool = tool();
 
 async function init(){
-  const a=  await cf_sign();
+  var  a=  await cf_sign();
   console.log(a);
     await feng_sign();
     await jd_sign();
@@ -30,45 +30,49 @@ $done();
 
 //京东金豆签到
 async function jd_sign() {
-    console.log("🍎京东签到金豆脚本开始!");
+    return new Promise(function(resolve){
+        console.log("🍎京东签到金豆脚本开始!");
 
-    const Cookie = 'pin=717785320_m;wskey=AAJdrSW2AEB_x8gpN4YY67LMwreL46CJS6AsHwT6V1LuvajnGAaq4RYekVh4qeM9GAM7gfMDf-gsKiv5dwHnEdC_N_7X3GVr;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
+        var  Cookie = 'pin=717785320_m;wskey=AAJdrSW2AEB_x8gpN4YY67LMwreL46CJS6AsHwT6V1LuvajnGAaq4RYekVh4qeM9GAM7gfMDf-gsKiv5dwHnEdC_N_7X3GVr;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
+    
+        var  params = {
+            url: "https://api.m.jd.com/client.action?functionId=signBeanIndex&appid=ld",
+            headers: {
+                Cookie: Cookie
+            }
+        }
+        $tool.get(params, function (e, r, d) {
+            console.log("京东签到***********************************");
+            console.log("错误:" + e);
+            console.log("返回:" + d);
+            console.log("京东签到***********************************");
+    
+            var  d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
+            var  obj = JSON.parse(d);
+    
+            var  img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
+    
+            if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
+                //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+                //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
+                $tool.notify('京东签到成功!', '京东签到成功', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
+            }
+            else if (d.indexOf("已签到") > -1) {
+                //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+                //$notification.post('京东今天已签到!', '京东今天已签到', "获得" + jdnum + "个金豆");
+                $tool.notify('京东今天已签到!', '京东今天已签到', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
+            }
+            else if (d.indexOf("用户未登录") > -1) {
+                $tool.notify('京东用户未登录!', 'Cookie过期', d, { img: img });
+            }
+            else {
+                $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
+            }
+            resolve(d);
+        });
 
-    const params = {
-        url: "https://api.m.jd.com/client.action?functionId=signBeanIndex&appid=ld",
-        headers: {
-            Cookie: Cookie
-        }
-    }
-    $tool.get(params, function (e, r, d) {
-        console.log("京东签到***********************************");
-        console.log("错误:" + e);
-        console.log("返回:" + d);
-        console.log("京东签到***********************************");
-
-        const d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
-        const obj = JSON.parse(d);
-
-        const img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
-
-        if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
-            //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
-            //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
-            $tool.notify('京东签到成功!', '京东签到成功', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
-        }
-        else if (d.indexOf("已签到") > -1) {
-            //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
-            //$notification.post('京东今天已签到!', '京东今天已签到', "获得" + jdnum + "个金豆");
-            $tool.notify('京东今天已签到!', '京东今天已签到', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
-        }
-        else if (d.indexOf("用户未登录") > -1) {
-            $tool.notify('京东用户未登录!', 'Cookie过期', d, { img: img });
-        }
-        else {
-            $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
-        }
-        Promise.resolve("ok");
-    });
+    })
+    
 }
 
 //掌火签到
