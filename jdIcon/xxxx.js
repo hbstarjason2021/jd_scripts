@@ -29,8 +29,8 @@ console.log("🍎执行完成!!!!");
 $done();
 
 //京东金豆签到
-async function jd_sign() {
-    return new Promise(function(resolve){
+ function jd_sign() {
+    return new Promise(async resolve => {
         console.log("🍎京东签到金豆脚本开始!");
 
         var  Cookie = 'pin=717785320_m;wskey=AAJdrSW2AEB_x8gpN4YY67LMwreL46CJS6AsHwT6V1LuvajnGAaq4RYekVh4qeM9GAM7gfMDf-gsKiv5dwHnEdC_N_7X3GVr;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
@@ -114,38 +114,41 @@ async function jd_sign() {
 }
 
 //逆战签到
-async function nz_sign() {
-    var cfnz_token = $tool.getkeyval("cfnztoken");
-    console.log("🍎逆战签到脚本开始!");
+ function nz_sign() {
+    return new Promise(async resolve => {
+        var cfnz_token = $tool.getkeyval("cfnztoken");
+        console.log("🍎逆战签到脚本开始!");
 
-    var params = {
-        url: "https://mwegame.qq.com/cfip/score_sign/doSign?uin=717785320&areaId=379&roleId=717785320&gameId=10012&serverName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleLevel=48&toUin=717785320&userId=362446817&token=" + cfnz_token + "&areaName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleName=%E7%BB%9D%E5%9C%B0%E8%8B%8D%E9%BE%99&isMainRole=1&nickname=%E3%80%80%E3%80%80&uniqueRoleId=183230734&serverId=1&roleJob=%E4%B8%8A%E5%B0%89%E4%B8%89%E7%BA%A7&gift_id=7283",
-        headers: {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
+        var params = {
+            url: "https://mwegame.qq.com/cfip/score_sign/doSign?uin=717785320&areaId=379&roleId=717785320&gameId=10012&serverName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleLevel=48&toUin=717785320&userId=362446817&token=" + cfnz_token + "&areaName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleName=%E7%BB%9D%E5%9C%B0%E8%8B%8D%E9%BE%99&isMainRole=1&nickname=%E3%80%80%E3%80%80&uniqueRoleId=183230734&serverId=1&roleJob=%E4%B8%8A%E5%B0%89%E4%B8%89%E7%BA%A7&gift_id=7283",
+            headers: {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
+            }
         }
-    }
-    $tool.get(params, function (e, r, d) {
-        d = unescape(d.replace(/\\u/gi, '%u'));
-        console.log("逆战签到***********************************");
-        console.log("错误:" + e);
-        console.log("返回:" + d);
-        console.log("逆战签到***********************************");
+        $tool.get(params, function (e, r, d) {
+            d = unescape(d.replace(/\\u/gi, '%u'));
+            console.log("逆战签到***********************************");
+            console.log("错误:" + e);
+            console.log("返回:" + d);
+            console.log("逆战签到***********************************");
 
-        var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
-        
-        var obj = JSON.parse(d);
-        if (d.indexOf('经验') > -1) {
-            $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
-        }
-        else {
-            $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
-        }
-        Promise.resolve("ok");
+            var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
+            
+            var obj = JSON.parse(d);
+            if (d.indexOf('经验') > -1) {
+                $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
+            }
+            else {
+                $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
+            }
+            Promise.resolve("ok");
+        });
     });
 }
 
 //威锋签到
-async function feng_sign() {
+ function feng_sign() {
+    return new Promise(async resolve => {
     console.log("🍎威锋签到脚本开始!");
 
     var params = {
@@ -175,6 +178,7 @@ async function feng_sign() {
         }
         Promise.resolve("ok");
     });
+});
 }
 
 //云闪付签到
@@ -226,7 +230,8 @@ function unipay_sign() {
 }
 
 //cf玩一局游戏领积分
-async function cf_task() {
+ function cf_task() {
+    return new Promise(async resolve => {
     console.log("🍎掌火任务积分脚本开始!");
 
     var params = {
@@ -246,6 +251,7 @@ async function cf_task() {
         $tool.notify('掌火领取任务积分!', d, d, { img: img });
         Promise.resolve("ok");
     });
+});
 }
 
 //loon/quanx通用方法
