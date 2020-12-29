@@ -3,8 +3,7 @@ console.log("🍎签到脚本开始!");
 var  $tool = tool();
 
 async function init(){
-  var  a=  await cf_sign();
-  console.log(a);
+    await cf_sign();
     await feng_sign();
     await jd_sign();
     await cf_task();
@@ -26,7 +25,7 @@ init();
 // setTimeout(nz_sign, 5000);
 
 console.log("🍎执行完成!!!!");
-$done();
+//$done();
 
 //京东金豆签到
  function jd_sign() {
@@ -141,7 +140,7 @@ $done();
             else {
                 $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
             }
-            Promise.resolve("ok");
+            resolve(d);
         });
     });
 }
@@ -176,7 +175,7 @@ $done();
         else {
             $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
         }
-        Promise.resolve("ok");
+        resolve(d);
     });
 });
 }
@@ -232,26 +231,26 @@ function unipay_sign() {
 //cf玩一局游戏领积分
  function cf_task() {
     return new Promise(async resolve => {
-    console.log("🍎掌火任务积分脚本开始!");
+        console.log("🍎掌火任务积分脚本开始!");
 
-    var params = {
-        url: "https://mwegame.qq.com/cfip/growth/ajax/getGameTaskScore",
-        headers: {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814",
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: "userId=362446817&openid=&appOpenid=&areaId=85&serverId=328&gameId=10011&cGameId=1001&subGameId=10011&roleId=717785320&uniqueRoleId=1760005752041800&token=" + cfnz_token + "&uin=717785320&toUin=717785320&nickname=%E3%80%80%E3%80%80&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&page=0&isother=0&env=prod&openId=&type=3"
-    }
-    $tool.post(params, function (e, r, d) {
-        console.log("🍎掌火任务积分***********************************");
-        console.log("🍎错误:" + e);
-        console.log("🍎返回:" + d);
-        console.log("🍎掌火任务积分***********************************");
-        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
-        $tool.notify('掌火领取任务积分!', d, d, { img: img });
-        Promise.resolve("ok");
+        var params = {
+            url: "https://mwegame.qq.com/cfip/growth/ajax/getGameTaskScore",
+            headers: {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "userId=362446817&openid=&appOpenid=&areaId=85&serverId=328&gameId=10011&cGameId=1001&subGameId=10011&roleId=717785320&uniqueRoleId=1760005752041800&token=" + cfnz_token + "&uin=717785320&toUin=717785320&nickname=%E3%80%80%E3%80%80&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&page=0&isother=0&env=prod&openId=&type=3"
+        }
+        $tool.post(params, function (e, r, d) {
+            console.log("🍎掌火任务积分***********************************");
+            console.log("🍎错误:" + e);
+            console.log("🍎返回:" + d);
+            console.log("🍎掌火任务积分***********************************");
+            var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+            $tool.notify('掌火领取任务积分!', d, d, { img: img });
+            resolve(d);
+        });
     });
-});
 }
 
 //loon/quanx通用方法
