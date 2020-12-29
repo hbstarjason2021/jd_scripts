@@ -32,12 +32,12 @@ console.log("🍎执行完成!!!!");
     return new Promise(async resolve => {
         console.log("🍎京东签到金豆脚本开始!");
 
-        var  Cookie = 'pin=717785320_m;wskey=AAJdrSW2AEB_x8gpN4YY67LMwreL46CJS6AsHwT6V1LuvajnGAaq4RYekVh4qeM9GAM7gfMDf-gsKiv5dwHnEdC_N_7X3GVr;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
+        var  Cookie = 'pin=717785320_m;wskey=AAJf2YDxAEA8_zt6kUPy5cXiW3SbNzGeNpm4c7Gt5kcs0xXWzq7SH1fLElTc78Pruak2IBXg4OtBbZ2KTUgUA-mAYr0ZK4PA;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
     
         var  params = {
             url: "https://api.m.jd.com/client.action?functionId=signBeanIndex&appid=ld",
             headers: {
-                Cookie: 'pin=717785320_m;wskey=AAJdrSW2AEB_x8gpN4YY67LMwreL46CJS6AsHwT6V1LuvajnGAaq4RYekVh4qeM9GAM7gfMDf-gsKiv5dwHnEdC_N_7X3GVr;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}'
+                Cookie: Cookie
             }
         }
         $tool.get(params, function (e, r, d) {
@@ -70,14 +70,10 @@ console.log("🍎执行完成!!!!");
 
             } catch(e){
                 console.log(e);
-
             }  finally{
                 resolve(d);
-
             }
-    
-            
-            
+
         });
 
     })
@@ -199,50 +195,59 @@ console.log("🍎执行完成!!!!");
 
 //云闪付签到
 function unipay_sign() {
-    console.log("🍎云闪付签到脚本开始!");
-    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
-    var url = 'https://youhui.95516.com/newsign/api/daily_sign_in';
-    var method = 'POST';
-    var headers = {
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Origin': 'https://youhui.95516.com',
-        'Cookie': !!$tool.getkeyval("UniCookie") ? $tool.getkeyval("UniCookie") : "",
-        'Connection': 'keep-alive',
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 807) (UnionPay/1.0 CloudPay) (clientVersion 137) (language zh_CN)',
-        'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
-        'Accept-Language': 'zh-cn'
-    };
-    var body = '';
+    return new Promise(async resolve => {
+        console.log("🍎云闪付签到脚本开始!");
+        var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
+        var url = 'https://youhui.95516.com/newsign/api/daily_sign_in';
+        var method = 'POST';
+        var headers = {
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Origin': 'https://youhui.95516.com',
+            'Cookie': !!$tool.getkeyval("UniCookie") ? $tool.getkeyval("UniCookie") : "",
+            'Connection': 'keep-alive',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 807) (UnionPay/1.0 CloudPay) (clientVersion 137) (language zh_CN)',
+            'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
+            'Accept-Language': 'zh-cn'
+        };
+        var body = '';
 
-    var myRequest = {
-        url: url,
-        method: method,
-        headers: headers,
-        body: body
-    };
+        var myRequest = {
+            url: url,
+            method: method,
+            headers: headers,
+            body: body
+        };
 
-    $tool.post(myRequest, function (e, r, d) {
-        console.log("🍎云闪付:" + d);
-        var obj = JSON.parse(d);
-        if (!!obj.signedIn) {
-            if (obj.signedIn == true) {
-                var days = 0;
-                for (var item in obj.days) {
-                    if (obj.days[item] == 1) {
-                        days++;
+        $tool.post(myRequest, function (e, r, d) {
+            try{
+                console.log("🍎云闪付:" + d);
+                var obj = JSON.parse(d);
+                if (!!obj.signedIn) {
+                    if (obj.signedIn == true) {
+                        var days = 0;
+                        for (var item in obj.days) {
+                            if (obj.days[item] == 1) {
+                                days++;
+                            }
+                        }
+                        $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt, "已签到:" + days + "天!", { img: img });
+                    }
+                    else {
+                        $tool.notify("云闪付签到失败!", d, d, { img: img });
                     }
                 }
-                $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt, "已签到:" + days + "天!", { img: img });
+                else {
+                    $tool.notify("云闪付签到失败!", d, d, { img: img });
+                }
+            }catch(e){
+                console.log(e);
+            }finally{
+                resolve(d);
             }
-            else {
-                $tool.notify("云闪付签到失败!", d, d, { img: img });
-            }
-        }
-        else {
-            $tool.notify("云闪付签到失败!", d, d, { img: img });
-        }
-    })
+            
+        })
+    });
 }
 
 //cf玩一局游戏领积分
