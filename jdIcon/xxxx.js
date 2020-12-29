@@ -108,7 +108,7 @@ $done();
                     $tool.notify('掌火签到成功!', obj.data.exp, d);
                 }
                 else if (d.indexOf("已签到") > -1) {
-                    $tool.notify('掌火已签到!', obj.data.exp, d);
+                    $tool.notify('掌火已签到!', obj.data.exp, d,{img:img});
                 }
                 else {
                     $tool.notify('掌火签到失败!', '掌火签到失败', d);
