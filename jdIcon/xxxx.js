@@ -72,8 +72,8 @@ async function jd_sign() {
 }
 
 //掌火签到
-var cfnz_token = $tool.getkeyval("cfnztoken");
 async function cf_sign() {
+    var cfnz_token = $tool.getkeyval("cfnztoken");
     console.log("🍎掌火签到脚本开始!");
 
     var params = {
@@ -108,6 +108,7 @@ async function cf_sign() {
 
 //逆战签到
 async function nz_sign() {
+    var cfnz_token = $tool.getkeyval("cfnztoken");
     console.log("🍎逆战签到脚本开始!");
 
     var params = {
