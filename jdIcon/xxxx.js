@@ -45,29 +45,39 @@ console.log("🍎执行完成!!!!");
             console.log("错误:" + e);
             console.log("返回:" + d);
             console.log("京东签到***********************************");
+            try{
+                var  d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
+                var  obj = JSON.parse(d);
+        
+                var  img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
+        
+                if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
+                    //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+                    //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
+                    $tool.notify('京东签到成功!', '京东签到成功', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
+                }
+                else if (d.indexOf("已签到") > -1) {
+                    //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+                    //$notification.post('京东今天已签到!', '京东今天已签到', "获得" + jdnum + "个金豆");
+                    $tool.notify('京东今天已签到!', '京东今天已签到', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
+                }
+                else if (d.indexOf("用户未登录") > -1) {
+                    $tool.notify('京东用户未登录!', 'Cookie过期', d, { img: img });
+                }
+                else {
+                    $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
+                }
+
+            } catch(e){
+                console.log(e);
+
+            }  finally{
+                resolve(d);
+
+            }
     
-            var  d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
-            var  obj = JSON.parse(d);
-    
-            var  img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
-    
-            if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
-                //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
-                //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
-                $tool.notify('京东签到成功!', '京东签到成功', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
-            }
-            else if (d.indexOf("已签到") > -1) {
-                //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
-                //$notification.post('京东今天已签到!', '京东今天已签到', "获得" + jdnum + "个金豆");
-                $tool.notify('京东今天已签到!', '京东今天已签到', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
-            }
-            else if (d.indexOf("用户未登录") > -1) {
-                $tool.notify('京东用户未登录!', 'Cookie过期', d, { img: img });
-            }
-            else {
-                $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
-            }
-            resolve(d);
+            
+            
         });
 
     })
