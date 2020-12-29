@@ -115,11 +115,10 @@ console.log("🍎执行完成!!!!");
 //逆战签到
  function nz_sign() {
     return new Promise(async resolve => {
-        var cfnz_token = $tool.getkeyval("cfnztoken");
         console.log("🍎逆战签到脚本开始!");
 
         var params = {
-            url: "https://mwegame.qq.com/cfip/score_sign/doSign?uin=717785320&areaId=379&roleId=717785320&gameId=10012&serverName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleLevel=48&toUin=717785320&userId=362446817&token=" + cfnz_token + "&areaName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleName=%E7%BB%9D%E5%9C%B0%E8%8B%8D%E9%BE%99&isMainRole=1&nickname=%E3%80%80%E3%80%80&uniqueRoleId=183230734&serverId=1&roleJob=%E4%B8%8A%E5%B0%89%E4%B8%89%E7%BA%A7&gift_id=7283",
+            url: "https://mwegame.qq.com/cfip/score_sign/doSign?uin=717785320&areaId=379&roleId=717785320&gameId=10012&serverName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleLevel=48&toUin=717785320&userId=362446817&token=" + $tool.getkeyval("cfnztoken") + "&areaName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleName=%E7%BB%9D%E5%9C%B0%E8%8B%8D%E9%BE%99&isMainRole=1&nickname=%E3%80%80%E3%80%80&uniqueRoleId=183230734&serverId=1&roleJob=%E4%B8%8A%E5%B0%89%E4%B8%89%E7%BA%A7&gift_id=7283",
             headers: {
                 "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
             }
