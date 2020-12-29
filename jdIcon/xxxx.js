@@ -5,7 +5,7 @@ var  $tool = tool();
 async function init(){
     await cf_sign();
     await feng_sign();
-    await jd_sign();
+    //await jd_sign();
     await cf_task();
     await nz_sign();
 }
