@@ -95,7 +95,7 @@ console.log("🍎执行完成!!!!");
         $tool.get(params, function (e, r, d) {
             try{
                 d = unescape(d.replace(/\\u/gi, '%u'));
-
+                $tool.notify('掌火签到成功!', d, d);
                 console.log("掌火签到***********************************");
                 console.log("错误:" + e);
                 console.log("返回:" + d);
