@@ -20,12 +20,12 @@ init();
 
 // setTimeout(cf_task, 3500);
 
-// setTimeout(unipay_sign, 4500);
+// //setTimeout(unipay_sign, 4500);
 
 // setTimeout(nz_sign, 5000);
 
 console.log("🍎执行完成!!!!");
-//$done();
+$done();
 
 //京东金豆签到
 async function jd_sign() {
@@ -66,7 +66,6 @@ async function jd_sign() {
         else {
             $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
         }
-        //return Promise.resolve("ok");
     });
 }
 
@@ -101,7 +100,6 @@ async function cf_sign() {
         else {
             $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
         }
-        return Promise.resolve("ok");
     });
 }
 
@@ -131,7 +129,6 @@ async function nz_sign() {
         else {
             $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
         }
-        return Promise.resolve("ok");
     });
 }
 
@@ -164,24 +161,24 @@ async function feng_sign() {
         else {
             $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
         }
-        return Promise.resolve("ok");
     });
 }
 
 //云闪付签到
 function unipay_sign() {
+    console.log("🍎云闪付签到脚本开始!");
+    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
     var url = 'https://youhui.95516.com/newsign/api/daily_sign_in';
     var method = 'POST';
     var headers = {
-        'Connection': 'keep-alive',
+        'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br',
         'Origin': 'https://youhui.95516.com',
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 810) (UnionPay/1.0 CloudPay) (clientVersion 140) (language zh_CN)',
-        'Authorization': !!$tool.getkeyval("authorization") ? $tool.getkeyval("authorization") : Authorization,
+        'Cookie': !!$tool.getkeyval("UniCookie") ? $tool.getkeyval("UniCookie") : "",
+        'Connection': 'keep-alive',
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/sa-sdk-ios  (com.unionpay.chsp) (cordova 4.5.4) (updebug 0) (version 807) (UnionPay/1.0 CloudPay) (clientVersion 137) (language zh_CN)',
         'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
-        'Host': 'youhui.95516.com',
-        'Accept-Language': 'zh-cn',
-        'Accept': 'application/json, text/plain'
+        'Accept-Language': 'zh-cn'
     };
     var body = '';
 
@@ -193,7 +190,7 @@ function unipay_sign() {
     };
 
     $tool.post(myRequest, function (e, r, d) {
-        console.log(d);
+        console.log("🍎云闪付:" + d);
         var obj = JSON.parse(d);
         if (!!obj.signedIn) {
             if (obj.signedIn == true) {
@@ -203,17 +200,14 @@ function unipay_sign() {
                         days++;
                     }
                 }
-                $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt.split('T')[0], "已签到:" + days + "天!", { img: img });
-                $done();
+                $tool.notify("云闪付签到成功!", "首次签到时间:" + obj.startedAt, "已签到:" + days + "天!", { img: img });
             }
             else {
                 $tool.notify("云闪付签到失败!", d, d, { img: img });
-                $done();
             }
         }
         else {
             $tool.notify("云闪付签到失败!", d, d, { img: img });
-            $done();
         }
     })
 }
@@ -237,7 +231,7 @@ async function cf_task() {
         console.log("🍎掌火任务积分***********************************");
         var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
         $tool.notify('掌火领取任务积分!', d, d, { img: img });
-        return Promise.resolve("ok");
+        
     });
 }
 
