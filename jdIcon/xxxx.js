@@ -257,13 +257,21 @@ function unipay_sign() {
             body: "userId=362446817&openid=&appOpenid=&areaId=85&serverId=328&gameId=10011&cGameId=1001&subGameId=10011&roleId=717785320&uniqueRoleId=1760005752041800&token=" + cfnz_token + "&uin=717785320&toUin=717785320&nickname=%E3%80%80%E3%80%80&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&page=0&isother=0&env=prod&openId=&type=3"
         }
         $tool.post(params, function (e, r, d) {
-            console.log("🍎掌火任务积分***********************************");
-            console.log("🍎错误:" + e);
-            console.log("🍎返回:" + d);
-            console.log("🍎掌火任务积分***********************************");
-            var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
-            $tool.notify('掌火领取任务积分!', d, d, { img: img });
-            resolve(d);
+            try{
+                console.log("🍎掌火任务积分***********************************");
+                console.log("🍎错误:" + e);
+                console.log("🍎返回:" + d);
+                console.log("🍎掌火任务积分***********************************");
+                var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+                $tool.notify('掌火领取任务积分!', d, d, { img: img });
+            } catch(e){
+                console.log(e);
+
+            }finally{
+                resolve(d);
+            }
+            
+            
         });
     });
 }
