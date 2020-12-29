@@ -4,7 +4,7 @@ var  $tool = tool();
 
 async function init(){
   var  a=  await cf_sign();
-  console.log("🍎:"+a);
+  console.log("🍎🍎🍎:"+a);
     await feng_sign();
     await jd_sign();
     await cf_task();
