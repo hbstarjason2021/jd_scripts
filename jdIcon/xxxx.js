@@ -2,7 +2,7 @@
 console.log("🍎签到脚本开始!");
 const $tool = tool();
 const cfnztoken = $tool.getkeyval("cfnztoken");
-async function init(){
+async function init() {
     await cf_sign();
     await feng_sign();
     await jd_sign();
@@ -12,29 +12,17 @@ async function init(){
 
 init();
 
-// setTimeout(cf_sign, 500);
-
-// setTimeout(feng_sign, 1500);
-
-// setTimeout(jd_sign, 2500);
-
-// setTimeout(cf_task, 3500);
-
-// //setTimeout(unipay_sign, 4500);
-
-// setTimeout(nz_sign, 5000);
-
 console.log("🍎执行完成!!!!");
 $done();
 
 //京东金豆签到
- function jd_sign() {
+function jd_sign() {
     return new Promise(async resolve => {
         console.log("🍎京东签到金豆脚本开始!");
 
-        var  Cookie = 'pin=717785320_m;wskey=AAJf2YDxAEA8_zt6kUPy5cXiW3SbNzGeNpm4c7Gt5kcs0xXWzq7SH1fLElTc78Pruak2IBXg4OtBbZ2KTUgUA-mAYr0ZK4PA;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
-    
-        var  params = {
+        var Cookie = 'pin=717785320_m;wskey=AAJf2YDxAEA8_zt6kUPy5cXiW3SbNzGeNpm4c7Gt5kcs0xXWzq7SH1fLElTc78Pruak2IBXg4OtBbZ2KTUgUA-mAYr0ZK4PA;whwswswws=hRTtb5W/D/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT/FC82Mb3kw31Gh1maJx/uu9DgU97mUoQkQA==;unionwsws={"jmafinger":"hRTtb5W\/D\/vXUu2Kx9k7LpAVWIvlMgRPu8ZN+EAl3YMJTPQTSNRT\/FC82Mb3kw31Gh1maJx\/uu9DgU97mUoQkQA==","devicefinger":"eidI3A740111RTI2MjAyRTAtNjMxOC00Rg==S383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG\/7luhyvqmrkir+bs0zK4OE\/+g56nSlNx7xkOsxELNC0"}';
+
+        var params = {
             url: "https://api.m.jd.com/client.action?functionId=signBeanIndex&appid=ld",
             headers: {
                 Cookie: Cookie
@@ -45,12 +33,12 @@ $done();
             console.log("错误:" + e);
             console.log("返回:" + d);
             console.log("京东签到***********************************");
-            try{
-                var  d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
-                var  obj = JSON.parse(d);
-        
-                var  img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
-        
+            try {
+                var d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
+                var obj = JSON.parse(d);
+
+                var img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
+
                 if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
                     //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
                     //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
@@ -68,22 +56,22 @@ $done();
                     $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
                 }
 
-            } catch(e){
+            } catch (e) {
                 console.log(e);
-            }  finally{
+            } finally {
                 resolve(d);
             }
 
         });
 
     })
-    
+
 }
 
 //掌火签到
- function cf_sign() {
+function cf_sign() {
     return new Promise(async resolve => {
-        
+
         console.log("🍎掌火签到脚本开始!");
 
         var params = {
@@ -93,38 +81,38 @@ $done();
             }
         }
         $tool.get(params, function (e, r, d) {
-            try{
+            try {
                 d = unescape(d.replace(/\\u/gi, '%u'));
-               
+
                 console.log("掌火签到***********************************");
                 console.log("错误:" + e);
                 console.log("返回:" + d);
                 console.log("掌火签到***********************************");
-    
+
                 var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
-    
+
                 var obj = JSON.parse(d);
                 if (d.indexOf("签到成功") > -1 && d.indexOf("经验") > -1) {
-                    $tool.notify('掌火签到成功!', obj.data.exp, d);
+                    $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
                 }
                 else if (d.indexOf("已签到") > -1) {
-                    $tool.notify('掌火已签到!', obj.data.exp, d,{img:img});
+                    $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
                 }
                 else {
-                    $tool.notify('掌火签到失败!', '掌火签到失败', d);
+                    $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
                 }
-            }catch(e){
-                console.log("🍎🍎"+e);
-            }finally{
+            } catch (e) {
+                console.log("🍎🍎" + e);
+            } finally {
                 resolve(d);
             }
-            
+
         });
     });
 }
 
 //逆战签到
- function nz_sign() {
+function nz_sign() {
     return new Promise(async resolve => {
         console.log("🍎逆战签到脚本开始!");
 
@@ -136,15 +124,15 @@ $done();
         }
         setTimeout(() => {
             $tool.get(params, function (e, r, d) {
-                try{
+                try {
                     d = unescape(d.replace(/\\u/gi, '%u'));
                     console.log("逆战签到***********************************");
                     console.log("错误:" + e);
                     console.log("返回:" + d);
                     console.log("逆战签到***********************************");
-        
+
                     var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
-                    
+
                     var obj = JSON.parse(d);
                     if (d.indexOf('经验') > -1) {
                         $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
@@ -152,20 +140,20 @@ $done();
                     else {
                         $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
                     }
-                }catch(e){
-                    console.log("🍎🍎"+e);
-                }finally{
+                } catch (e) {
+                    console.log("🍎🍎" + e);
+                } finally {
                     resolve(d);
                 }
-                
+
             });
         }, 500);
-        
+
     });
 }
 
 //威锋签到
- function feng_sign() {
+function feng_sign() {
     return new Promise(async resolve => {
         console.log("🍎威锋签到脚本开始!");
 
@@ -177,14 +165,14 @@ $done();
             }
         }
         $tool.post(params, function (e, r, d) {
-            try{
+            try {
                 console.log("威锋签到***********************************");
                 console.log("错误:" + e);
                 console.log("返回:" + d);
                 console.log("威锋签到***********************************");
-        
+
                 var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/1f/f6/69/1ff66978-acce-f026-1661-0d7eac3e96d7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.png";
-        
+
                 var obj = JSON.parse(d);
                 if (d.indexOf("success") > -1) {
                     $tool.notify('威锋签到成功!', "", d, { img: img });
@@ -195,12 +183,12 @@ $done();
                 else {
                     $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
                 }
-            }catch(e){
-                console.log("🍎🍎"+e);
-            }finally{
+            } catch (e) {
+                console.log("🍎🍎" + e);
+            } finally {
                 resolve(d);
             }
-            
+
         });
     });
 }
@@ -232,7 +220,7 @@ function unipay_sign() {
         };
 
         $tool.post(myRequest, function (e, r, d) {
-            try{
+            try {
                 console.log("🍎云闪付:" + d);
                 var obj = JSON.parse(d);
                 if (!!obj.signedIn) {
@@ -252,18 +240,18 @@ function unipay_sign() {
                 else {
                     $tool.notify("云闪付签到失败!", d, d, { img: img });
                 }
-            }catch(e){
+            } catch (e) {
                 console.log(e);
-            }finally{
+            } finally {
                 resolve(d);
             }
-            
+
         })
     });
 }
 
 //cf玩一局游戏领积分
- function cf_task() {
+function cf_task() {
     return new Promise(async resolve => {
         console.log("🍎掌火任务积分脚本开始!");
 
@@ -276,21 +264,21 @@ function unipay_sign() {
             body: "userId=362446817&openid=&appOpenid=&areaId=85&serverId=328&gameId=10011&cGameId=1001&subGameId=10011&roleId=717785320&uniqueRoleId=1760005752041800&token=" + cfnztoken + "&uin=717785320&toUin=717785320&nickname=%E3%80%80%E3%80%80&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&page=0&isother=0&env=prod&openId=&type=3"
         }
         $tool.post(params, function (e, r, d) {
-            try{
+            try {
                 console.log("🍎掌火任务积分***********************************");
                 console.log("🍎错误:" + e);
                 console.log("🍎返回:" + d);
                 console.log("🍎掌火任务积分***********************************");
                 var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
                 $tool.notify('掌火领取任务积分!', d, d, { img: img });
-            } catch(e){
-                console.log("🍎🍎"+e);
+            } catch (e) {
+                console.log("🍎🍎" + e);
 
-            }finally{
+            } finally {
                 resolve(d);
             }
-            
-            
+
+
         });
     });
 }
@@ -313,7 +301,7 @@ function tool() {
                 }
                 else {
                     $notify(title, subtitle, message);
-                } 
+                }
             }
             if (isLoon) {
                 if (!!option) {
