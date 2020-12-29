@@ -46,18 +46,18 @@ async function jd_sign() {
         console.log("返回:" + d);
         console.log("京东签到***********************************");
 
-        const d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
-        const obj = JSON.parse(d);
+        var d = d.replace(/"{/g, "{").replace(/}"/g, "}").replace(/\\/g, "");
+        var obj = JSON.parse(d);
 
-        const img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
+        var img = "https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/4b/ce/15/4bce15af-bf57-6e19-add1-121077da94c2/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-85-220.png/230x0w.png";
 
         if (d.indexOf("签到成功") > -1 || d.indexOf("连签") > -1) {
-            //const jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+            //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
             //$notification.post('京东签到成功!', '京东签到成功', "获得" + jdnum + "个金豆");
             $tool.notify('京东签到成功!', '京东签到成功', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
         }
         else if (d.indexOf("已签到") > -1) {
-            //const jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
+            //var jdnum = d.substring((d.indexOf("beanCount") + 12), (d.indexOf("beanImgUrl") - 3));
             //$notification.post('京东今天已签到!', '京东今天已签到', "获得" + jdnum + "个金豆");
             $tool.notify('京东今天已签到!', '京东今天已签到', "获得" + obj.data.dailyAward.beanAward.beanCount + "个金豆", { img: img });
         }
@@ -74,10 +74,10 @@ async function jd_sign() {
 //掌火签到
 
 async function cf_sign() {
-    const cfnz_token = $tool.getkeyval("cfnztoken");
+    var cfnz_token = $tool.getkeyval("cfnztoken");
     console.log("🍎掌火签到脚本开始!");
 
-    const params = {
+    var params = {
         url: "https://mwegame.qq.com/cfip/score_sign/doSign?serverName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1%E4%B8%80%E5%8C%BA&appid=1101817502&areaName=%E6%B9%96%E5%8C%97%E7%94%B5%E4%BF%A1&roleName=%E7%B5%95%E5%9C%B0%E9%9D%92%E9%BE%8D&gameName=%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF&nickname=%E3%80%80%E3%80%80&isMainRole=1&roleJob=%E5%85%83%E5%B8%85&areaId=85&roleId=717785320&gameId=10011&toUin=717785320&subGameId=10011&serverId=328&cGameId=1001&token=" + cfnz_token + "&uniqueRoleId=1760005752041800&acctype=qq&uin=717785320&roleLevel=100&userId=362446817&gift_id=9036",
         headers: {
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
@@ -91,9 +91,9 @@ async function cf_sign() {
         console.log("返回:" + d);
         console.log("掌火签到***********************************");
 
-        const img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
 
-        const obj = JSON.parse(d);
+        var obj = JSON.parse(d);
         if (d.indexOf("签到成功") > -1 || d.indexOf("经验") > -1) {
             $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
         }
@@ -109,10 +109,10 @@ async function cf_sign() {
 
 //逆战签到
 async function nz_sign() {
-    const cfnz_token = $tool.getkeyval("cfnztoken");
+    var cfnz_token = $tool.getkeyval("cfnztoken");
     console.log("🍎逆战签到脚本开始!");
 
-    const params = {
+    var params = {
         url: "https://mwegame.qq.com/cfip/score_sign/doSign?uin=717785320&areaId=379&roleId=717785320&gameId=10012&serverName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleLevel=48&toUin=717785320&userId=362446817&token=" + cfnz_token + "&areaName=%E7%94%B5%E4%BF%A1%E5%8C%BA&roleName=%E7%BB%9D%E5%9C%B0%E8%8B%8D%E9%BE%99&isMainRole=1&nickname=%E3%80%80%E3%80%80&uniqueRoleId=183230734&serverId=1&roleJob=%E4%B8%8A%E5%B0%89%E4%B8%89%E7%BA%A7&gift_id=7283",
         headers: {
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814"
@@ -125,9 +125,9 @@ async function nz_sign() {
         console.log("返回:" + d);
         console.log("逆战签到***********************************");
 
-        const img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
+        var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/95/54/28/955428db-76e1-ec28-b0ba-9733386f8537/NzAppIcon-1x_U007emarketing-0-3-85-220.png/230x0w.png";
         
-        const obj = JSON.parse(d);
+        var obj = JSON.parse(d);
         if (d.indexOf('经验') > -1) {
             $tool.notify('逆战签到成功!', obj.data.exp, d, { img: img });
         }
@@ -142,7 +142,7 @@ async function nz_sign() {
 async function feng_sign() {
     console.log("🍎威锋签到脚本开始!");
 
-    const params = {
+    var params = {
         url: "https://api.wfdata.club/v1/attendance/userSignIn",
         headers: {
             "X-Access-Token": $tool.getkeyval("weifengCookie"),
@@ -155,9 +155,9 @@ async function feng_sign() {
         console.log("返回:" + d);
         console.log("威锋签到***********************************");
 
-        const img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/1f/f6/69/1ff66978-acce-f026-1661-0d7eac3e96d7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.png";
+        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/1f/f6/69/1ff66978-acce-f026-1661-0d7eac3e96d7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.png";
 
-        const obj = JSON.parse(d);
+        var obj = JSON.parse(d);
         if (d.indexOf("success") > -1) {
             $tool.notify('威锋签到成功!', "", d, { img: img });
         }
@@ -174,10 +174,10 @@ async function feng_sign() {
 //云闪付签到
 function unipay_sign() {
     console.log("🍎云闪付签到脚本开始!");
-    const img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
-    const url = 'https://youhui.95516.com/newsign/api/daily_sign_in';
-    const method = 'POST';
-    const headers = {
+    var img = "https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/53/bc/b5/53bcb52a-6c33-67cc-0c70-faf4ffbdb71e/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-85-220.png/230x0w.png";
+    var url = 'https://youhui.95516.com/newsign/api/daily_sign_in';
+    var method = 'POST';
+    var headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br',
         'Origin': 'https://youhui.95516.com',
@@ -187,9 +187,9 @@ function unipay_sign() {
         'Referer': 'https://youhui.95516.com/newsign/public/app/index.html',
         'Accept-Language': 'zh-cn'
     };
-    const body = '';
+    var body = '';
 
-    const myRequest = {
+    var myRequest = {
         url: url,
         method: method,
         headers: headers,
@@ -198,11 +198,11 @@ function unipay_sign() {
 
     $tool.post(myRequest, function (e, r, d) {
         console.log("🍎云闪付:" + d);
-        const obj = JSON.parse(d);
+        var obj = JSON.parse(d);
         if (!!obj.signedIn) {
             if (obj.signedIn == true) {
-                const days = 0;
-                for (const item in obj.days) {
+                var days = 0;
+                for (var item in obj.days) {
                     if (obj.days[item] == 1) {
                         days++;
                     }
@@ -223,7 +223,7 @@ function unipay_sign() {
 async function cf_task() {
     console.log("🍎掌火任务积分脚本开始!");
 
-    const params = {
+    var params = {
         url: "https://mwegame.qq.com/cfip/growth/ajax/getGameTaskScore",
         headers: {
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 GameHelper_1001/3.3.10814.2103030814",
@@ -236,7 +236,7 @@ async function cf_task() {
         console.log("🍎错误:" + e);
         console.log("🍎返回:" + d);
         console.log("🍎掌火任务积分***********************************");
-        const img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
+        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
         $tool.notify('掌火领取任务积分!', d, d, { img: img });
         Promise.resolve("ok");
     });
@@ -247,10 +247,10 @@ function tool() {
     var isLoon = typeof $httpClient != "undefined";
     var isQuanX = typeof $task != "undefined";
 
-    const obj = {
+    var obj = {
         //通知
         notify: function (title, subtitle, message, option) {
-            const option_obj = {};
+            var option_obj = {};
             if (isQuanX) {
                 if (!!option) {
                     if (typeof option == "string") option_obj["open-url"] = option;
