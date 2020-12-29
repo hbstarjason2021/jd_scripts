@@ -3,7 +3,8 @@ console.log("🍎签到脚本开始!");
 var $tool = tool();
 
 async function init(){
-    await cf_sign();
+  var a=  await cf_sign();
+  console.log(a);
     await feng_sign();
     await jd_sign();
     await cf_task();
@@ -66,6 +67,7 @@ async function jd_sign() {
         else {
             $tool.notify('京东签到失败!', '京东签到失败', d, { img: img });
         }
+        Promise.resolve("ok");
     });
 }
 
@@ -100,6 +102,7 @@ async function cf_sign() {
         else {
             $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
         }
+        Promise.resolve("ok");
     });
 }
 
@@ -129,6 +132,7 @@ async function nz_sign() {
         else {
             $tool.notify('逆战签到失败!', '逆战签到失败', d, { img: img });
         }
+        Promise.resolve("ok");
     });
 }
 
@@ -161,6 +165,7 @@ async function feng_sign() {
         else {
             $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
         }
+        Promise.resolve("ok");
     });
 }
 
@@ -231,7 +236,7 @@ async function cf_task() {
         console.log("🍎掌火任务积分***********************************");
         var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png";
         $tool.notify('掌火领取任务积分!', d, d, { img: img });
-        
+        Promise.resolve("ok");
     });
 }
 
