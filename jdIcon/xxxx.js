@@ -5,7 +5,7 @@ var  $tool = tool();
 async function init(){
     await cf_sign();
     await feng_sign();
-    //await jd_sign();
+    await jd_sign();
     await cf_task();
     await nz_sign();
 }
@@ -157,36 +157,42 @@ console.log("🍎执行完成!!!!");
 //威锋签到
  function feng_sign() {
     return new Promise(async resolve => {
-    console.log("🍎威锋签到脚本开始!");
+        console.log("🍎威锋签到脚本开始!");
 
-    var params = {
-        url: "https://api.wfdata.club/v1/attendance/userSignIn",
-        headers: {
-            "X-Access-Token": $tool.getkeyval("weifengCookie"),
-            "X-Request-Id": "WDQKt2+dxMxPlIA4Wz5yf9l2x4N3rKqe65uuHK/BejnFuQijHRjbLWEv0y78XWuFmSddurDmS8IbUVl49XMKyw=="
+        var params = {
+            url: "https://api.wfdata.club/v1/attendance/userSignIn",
+            headers: {
+                "X-Access-Token": $tool.getkeyval("weifengCookie"),
+                "X-Request-Id": "WDQKt2+dxMxPlIA4Wz5yf9l2x4N3rKqe65uuHK/BejnFuQijHRjbLWEv0y78XWuFmSddurDmS8IbUVl49XMKyw=="
+            }
         }
-    }
-    $tool.post(params, function (e, r, d) {
-        console.log("威锋签到***********************************");
-        console.log("错误:" + e);
-        console.log("返回:" + d);
-        console.log("威锋签到***********************************");
-
-        var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/1f/f6/69/1ff66978-acce-f026-1661-0d7eac3e96d7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.png";
-
-        var obj = JSON.parse(d);
-        if (d.indexOf("success") > -1) {
-            $tool.notify('威锋签到成功!', "", d, { img: img });
-        }
-        else if (d.indexOf("不能重复签到") > -1) {
-            $tool.notify('威锋已签到!', "不能重复签到", d, { img: img });
-        }
-        else {
-            $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
-        }
-        resolve(d);
+        $tool.post(params, function (e, r, d) {
+            try{
+                console.log("威锋签到***********************************");
+                console.log("错误:" + e);
+                console.log("返回:" + d);
+                console.log("威锋签到***********************************");
+        
+                var img = "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/1f/f6/69/1ff66978-acce-f026-1661-0d7eac3e96d7/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.png";
+        
+                var obj = JSON.parse(d);
+                if (d.indexOf("success") > -1) {
+                    $tool.notify('威锋签到成功!', "", d, { img: img });
+                }
+                else if (d.indexOf("不能重复签到") > -1) {
+                    $tool.notify('威锋已签到!', "不能重复签到", d, { img: img });
+                }
+                else {
+                    $tool.notify('威锋签到失败!', '威锋签到失败', d, { img: img });
+                }
+            }catch(e){
+                console.log(e);
+            }finally{
+                resolve(d);
+            }
+            
+        });
     });
-});
 }
 
 //云闪付签到
