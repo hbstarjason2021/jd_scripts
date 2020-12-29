@@ -95,7 +95,7 @@ console.log("🍎执行完成!!!!");
         $tool.get(params, function (e, r, d) {
             try{
                 d = unescape(d.replace(/\\u/gi, '%u'));
-                $tool.notify('掌火签到成功!', d, d,{ img: "https://is2-ssl.mzstatic.com/image/thumb/Purple124/v4/85/dd/01/85dd01be-e1dc-cb26-4d20-be75e44cb979/CFGroupAppIcon-0-0-1x_U007emarketing-0-0-4-0-0-85-220.png/230x0w.png" });
+               
                 console.log("掌火签到***********************************");
                 console.log("错误:" + e);
                 console.log("返回:" + d);
@@ -105,13 +105,13 @@ console.log("🍎执行完成!!!!");
     
                 var obj = JSON.parse(d);
                 if (d.indexOf("签到成功") > -1 && d.indexOf("经验") > -1) {
-                    $tool.notify('掌火签到成功!', obj.data.exp, d, { img: img });
+                    $tool.notify('掌火签到成功!', obj.data.exp, d);
                 }
                 else if (d.indexOf("已签到") > -1) {
-                    $tool.notify('掌火已签到!', obj.data.exp, d, { img: img });
+                    $tool.notify('掌火已签到!', obj.data.exp, d);
                 }
                 else {
-                    $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
+                    $tool.notify('掌火签到失败!', '掌火签到失败', d);
                 }
             }catch(e){
                 console.log("🍎🍎"+e);
