@@ -114,7 +114,7 @@ console.log("🍎执行完成!!!!");
                     $tool.notify('掌火签到失败!', '掌火签到失败', d, { img: img });
                 }
             }catch(e){
-                console.log(e);
+                console.log("🍎🍎"+e);
             }finally{
                 resolve(d);
             }
