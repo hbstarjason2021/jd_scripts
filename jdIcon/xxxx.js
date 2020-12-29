@@ -4,7 +4,7 @@ var  $tool = tool();
 
 async function init(){
   var  a=  await cf_sign();
-  console.log("🍎🍎🍎:"+a);
+  console.log(a);
     await feng_sign();
     await jd_sign();
     await cf_task();
@@ -77,8 +77,8 @@ async function jd_sign() {
 
 //掌火签到
 
-async function cf_sign() {
-    return new Promise(function(resolve){
+ function cf_sign() {
+    return new Promise(async resolve => {
         var cfnz_token = $tool.getkeyval("cfnztoken");
         console.log("🍎掌火签到脚本开始!");
 
