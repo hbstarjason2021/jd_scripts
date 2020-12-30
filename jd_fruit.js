@@ -95,9 +95,7 @@ async function jdFruit() {
         }
       } catch (e) {
         $.logErr(e, resp)
-      } finally {
-        resolve(data);
-      }
+      } 
     });
     console.log(`\n【已成功兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n`);
     message += `【已兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n`;
