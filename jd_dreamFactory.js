@@ -561,8 +561,6 @@ function userInfo() {
                             }
                     } catch (e) {
                         $.logErr(e, resp)
-                    } finally {
-                        resolve(data);
                     }
                 });
                 console.log(`已投入电力：${production.investedElectric}`);
