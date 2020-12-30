@@ -1,4 +1,4 @@
 var body=$response.body;
 var obj=JSON.parse(body);
-obj.hasRailSet=true;
+obj.data.hasRailSet=true;
 $done({body:JSON.stringify(obj)});
