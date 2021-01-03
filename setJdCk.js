@@ -21,6 +21,7 @@ for (var i = 0; i < cklist.length; i++) {
             $tool.setkeyval(cklist[i + 1][0], 'CookieJD');
             $tool.setkeyval(cklist[i + 1][1], 'CookieJD2');
         }
+        break;
     }
 }
 if (!isfirst) {
