@@ -3,7 +3,7 @@ console.log("🍎抖音极速脚本开始!");
 var $tool = tool();
 
 try {
-    if (!!$request) {
+    if (typeof $request != "undefined") {
         var headers = $request.headers;
         var headlist = $tool.getkeyval("dyheadlist");
         if (!!headers) {
