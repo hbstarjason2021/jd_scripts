@@ -51,7 +51,7 @@ try {
             var myRequest = {
                 url: url,
                 headers: JSON.parse($tool.getkeyval("thishead")),
-                body: '{"in_sp_time" : 0,"task_key" : "read"}'
+                body: '{\n"in_sp_time" : 0,\n"task_key" : "read"\n}'
             };
             $tool.post(myRequest, function (e, r, d) {
                 console.log("🍎" + d);
