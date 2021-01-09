@@ -27,6 +27,7 @@ try {
         var headlist = $tool.getkeyval("dyheadlist");
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
+            console.log("🍎" + headlist);
             var list = JSON.parse(headlist);
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
