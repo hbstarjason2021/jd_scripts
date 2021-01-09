@@ -1,9 +1,10 @@
 
-console.log("🍎抖音极速脚本开始!");
+
 var $tool = tool();
 
 try {
     if (typeof $request != "undefined") {
+        console.log("🍎抖音极速获取headers脚本开始!");
         var headers = $request.headers;
         var headlist = $tool.getkeyval("dyheadlist");
         if (!!headers) {
@@ -22,7 +23,7 @@ try {
         $done();
     }
     else {
-
+        console.log("🍎抖音极速刷视频脚本开始!");
         var headlist = $tool.getkeyval("dyheadlist");
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
