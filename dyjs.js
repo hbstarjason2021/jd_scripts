@@ -31,6 +31,7 @@ try {
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thishead) {
+                        console.log("🍎第" + (i + 1) + "个headers!");
                         if (list.length - 1 == i) {
                             $tool.setkeyval(JSON.stringify(list[0]), "thishead");
                         }
