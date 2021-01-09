@@ -6,6 +6,7 @@ try {
         console.log("🍎抖音极速获取headers脚本开始!");
         var headers = $request.headers;
         var headlist = $tool.getkeyval("dyheadlist");
+        $tool.setkeyval($request.url, "dyurl");
         if (!!headers) {
             if (!!headlist) {
                 var list = JSON.parse(headlist);
@@ -52,7 +53,7 @@ try {
 //  "task_key" : "read"
 //}`;
             var myRequest = {
-                url: url,
+                url: $tool.getkeyval("dyurl"),
                 headers: JSON.parse($tool.getkeyval("thishead")),
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
