@@ -19,15 +19,48 @@ try {
             $tool.setkeyval(JSON.stringify(list), "dyheadlist");
             console.log("🍎" + JSON.stringify(list));
         }
+        $done();
     }
     else {
 
+        var headlist = $tool.getkeyval("dyheadlist");
+        var thishead = $tool.getkeyval("thishead");
+        if (!!headlist) {
+            var list = JSON.parse(headlist);
+            if (!!thishead) {
+                for (var i = 0; i < list.length; i++) {
+                    if (JSON.stringify(list[i]) == thishead) {
+                        if (list.length - 1 == i) {
+                            $tool.setkeyval(JSON.stringify(list[0]), "thishead");
+                        }
+                        else {
+                            $tool.setkeyval(JSON.stringify(list[i + 1]), "thishead");
+                        }
+                        break;
+                    }
+                }
+            }
+
+            var url = 'https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/read?version_code=13.2.0&js_sdk_version=1.77.0.2&tma_jssdk_version=1.77.0.2&app_name=douyin_lite&app_version=13.2.0&vid=EC47716C-499A-468E-939B-E88153DE5BDA&device_id=58019842405&channel=App%20Store&mcc_mnc=46001&aid=2329&screen_width=1242&openudid=51dde9612de490a2a6e3f7f01f1b1c08ff159384&cdid=2E5FBF3D-B629-432C-86A2-A786BB4F6696&os_api=18&ac=WIFI&os_version=14.1&client_niu_ready=0&device_platform=iphone&build_number=132004&iid=1231106148139966&device_type=iPhone11,6&idfa=00000000-0000-0000-0000-000000000000';
+
+            var myRequest = {
+                url: url,
+                headers: JSON.parse($tool.getkeyval("thishead")),
+                body: '{"in_sp_time" : 0,"task_key" : "read"}'
+            };
+            $tool.post(myRequest, function (e, r, d) {
+                console.log("🍎" + d);
+                $done();
+            })
+        }
+        else {
+            $tool.notify("请先刷视频获取headers", "多多益善", "");
+            $done();
+        }
     }
 } catch (e) {
-
+    $done();
 }
-
-$done({});
 
 //loon/quanx通用方法
 function tool() {
