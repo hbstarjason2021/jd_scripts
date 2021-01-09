@@ -51,6 +51,7 @@ const body = `{
   "in_sp_time" : 0,
   "task_key" : "read"
 }`;
+console.log('{\n"in_sp_time" : 0,\n"task_key" : "read"\n}');
 
             var myRequest = {
                 url: url,
