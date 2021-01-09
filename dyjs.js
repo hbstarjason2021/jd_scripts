@@ -55,7 +55,10 @@ const body = `{
             var myRequest = {
                 url: url,
                 headers: JSON.parse($tool.getkeyval("thishead")),
-                body: body
+                body: `{
+                    "in_sp_time" : 0,
+                    "task_key" : "read"
+                }`
             };
 
             $tool.post(myRequest, function (e, r, d) {
