@@ -53,6 +53,7 @@ try {
 
             const myRequest = {
                 url: url,
+                method: "POST",
                 headers: JSON.parse($tool.getkeyval("thishead")),
                 body:  body
             };
