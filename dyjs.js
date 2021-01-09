@@ -59,6 +59,7 @@ try {
         }
     }
 } catch (e) {
+    console.log("🍎错误:" + e);
     $done();
 }
 
