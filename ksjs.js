@@ -24,7 +24,7 @@ try {
     else {
         console.log("🍎快手极速刷视频脚本开始!");
         var urllist = $tool.getkeyval("ksurllist");
-        var thisurl = $tool.getkeyval("ksthisurl");
+        var thisurl = $tool.getkeyval("ksthisurl").replace(/"/g, '');
         //console.log(urllist);
         //console.log(thisurl);
         if (!!urllist) {
@@ -58,12 +58,12 @@ try {
                 'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9'
             };
             var myRequest = {
-                url: $tool.getkeyval("ksthisurl").replace(/"/g, ''),
+                url: $tool.getkeyval("ksthisurl"),
                 headers: headers
             };
 
             $tool.get(myRequest, function (e, r, d) {
-                console.log("✳️" + r);
+                console.log("✳️" + JSON.stringify(r));
                 $done();
             })
         }
