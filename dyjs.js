@@ -6,7 +6,7 @@ try {
         console.log("🍎抖音极速获取headers脚本开始!");
         var headers = $request.headers;
         var headlist = $tool.getkeyval("dyheadlist");
-        $tool.setkeyval($request.url, "dyurl");
+        //$tool.setkeyval($request.url, "dyurl");
         if (!!headers) {
             if (!!headlist) {
                 var list = JSON.parse(headlist);
