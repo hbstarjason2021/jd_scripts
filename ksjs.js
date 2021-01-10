@@ -58,7 +58,7 @@ try {
                 'Accept-Language' : 'zh-Hans-CN;q=1, en-CN;q=0.9'
         };
             var myRequest = {
-                url: $tool.getkeyval("ksthisurl"),
+                url: 'http://js2.a.yximgs.com/ksc1/wumgz-al9jjLG2PrL3tqh9_4wQAXrDeNaJBncAufsawPghs7LogqECTAQDkcoyxulZwmqdzBqP5KRbI9RV-yODBDZzoBm0MnWACiPttBgBFpcU0eW-d1Ex9qAvIfRqSjndyDyIp2AOsPrvH8ji61Lxyu8EaZ2OFSYAIFIhPeXcBBEGanNLpeh_3xm7YjOOac.kpg?tag=1-1610212184-h-0-shhnfpmihc-6acac3e396fec9b6&type=hot&clientCacheKey=3xzynjsx94i2uw9_ff.kpg&di=3bac7f69&bp=10052',
                 headers: headers
             };
 
