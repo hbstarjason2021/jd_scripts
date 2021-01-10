@@ -29,20 +29,20 @@ try {
             var list = JSON.parse(urllist);
             if (!!thisurl) {
                 for (var i = 0; i < list.length; i++) {
-                    if (JSON.stringify(list[i]) == thisurl) {
+                    if (list[i] == thisurl) {
                         console.log("☢️第" + (i + 1) + "个url!");
                         if (list.length - 1 == i) {
-                            $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
+                            $tool.setkeyval(list[0], "ksthisurl");
                         }
                         else {
-                            $tool.setkeyval(JSON.stringify(list[i + 1]), "ksthisurl");
+                            $tool.setkeyval(list[i + 1], "ksthisurl");
                         }
                         break;
                     }
                 }
             }
             else {
-                $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
+                $tool.setkeyval(list[0], "ksthisurl");
             }
 
             var headers = {
