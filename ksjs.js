@@ -24,12 +24,11 @@ try {
     else {
         console.log("🍎快手极速刷视频脚本开始!");
         var urllist = $tool.getkeyval("ksurllist");
-        var thisurl = $tool.getkeyval("ksthisurl").replace(/"/g, '');
-        //console.log(urllist);
-        //console.log(thisurl);
+        var thisurl = $tool.getkeyval("ksthisurl");
         if (!!urllist) {
             var list = JSON.parse(urllist);
             if (!!thisurl) {
+                if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
                     if (list[i] == thisurl) {
                         console.log("☢️第" + (i + 1) + "个url!");
