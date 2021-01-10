@@ -25,8 +25,8 @@ try {
         console.log("🍎快手极速刷视频脚本开始!");
         var urllist = $tool.getkeyval("ksurllist");
         var thisurl = $tool.getkeyval("ksthisurl");
-        console.log(urllist);
-        console.log(thisurl);
+        //console.log(urllist);
+        //console.log(thisurl);
         if (!!urllist) {
             var list = JSON.parse(urllist);
             if (!!thisurl) {
@@ -49,18 +49,19 @@ try {
             }
 
             var headers = {
-                'Accept-Encoding' : 'gzip, deflate',
-                'X-REQUESTID' : '161021324052898354',
-                'Connection' : 'keep-alive',
-                'Accept' : 'application/json',
-                'Host' : 'js2.a.yximgs.com',
-                'User-Agent' : 'kwai-ios',
-                'Accept-Language' : 'zh-Hans-CN;q=1, en-CN;q=0.9'
-        };
+                'Accept-Encoding': 'gzip, deflate',
+                'X-REQUESTID': '161021324052898354',
+                'Connection': 'keep-alive',
+                'Accept': 'application/json',
+                'Host': 'js2.a.yximgs.com',
+                'User-Agent': 'kwai-ios',
+                'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9'
+            };
             var myRequest = {
-                url: 'http://js2.a.yximgs.com/ksc1/wumgz-al9jjLG2PrL3tqh9_4wQAXrDeNaJBncAufsawPghs7LogqECTAQDkcoyxulZwmqdzBqP5KRbI9RV-yODBDZzoBm0MnWACiPttBgBFpcU0eW-d1Ex9qAvIfRqSjndyDyIp2AOsPrvH8ji61Lxyu8EaZ2OFSYAIFIhPeXcBBEGanNLpeh_3xm7YjOOac.kpg?tag=1-1610212184-h-0-shhnfpmihc-6acac3e396fec9b6&type=hot&clientCacheKey=3xzynjsx94i2uw9_ff.kpg&di=3bac7f69&bp=10052',
+                url: $tool.getkeyval("ksthisurl"),
                 headers: headers
             };
+            console.log($tool.getkeyval("ksthisurl"));
 
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
