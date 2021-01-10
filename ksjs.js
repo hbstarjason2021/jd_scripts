@@ -63,7 +63,7 @@ try {
             };
 
             $tool.get(myRequest, function (e, r, d) {
-                console.log("✳️" + d);
+                console.log("✳️" + r);
                 $done();
             })
         }
