@@ -44,6 +44,7 @@ try {
             }
             else {
                 $tool.setkeyval(list[0], "ksthisurl");
+                console.log("☢️第" + (i + 1) + "个url!");
             }
 
             var headers = {
