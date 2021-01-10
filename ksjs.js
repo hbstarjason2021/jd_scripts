@@ -61,7 +61,7 @@ try {
                 url: $tool.getkeyval("ksthisurl"),
                 headers: headers
             };
-            console.log($tool.getkeyval("ksthisurl"), replace('"', ''));
+           console.log($tool.getkeyval("ksthisurl").replace('"', ''));
 
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
