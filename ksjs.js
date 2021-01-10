@@ -60,7 +60,7 @@ try {
             };
 
             $tool.get(myRequest, function (e, r, d) {
-                console.log("✳️" + r);
+                console.log("✳️" + d);
                 $done();
             })
         }
