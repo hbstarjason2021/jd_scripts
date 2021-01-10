@@ -25,6 +25,7 @@ try {
         console.log("🍎快手极速刷视频脚本开始!");
         var urllist = $tool.getkeyval("ksurllist");
         var thisurl = $tool.getkeyval("ksthisurl");
+        console.log(thisurl);
         if (!!urllist) {
             var list = JSON.parse(urllist);
             if (!!thisurl) {
