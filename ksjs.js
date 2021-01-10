@@ -58,10 +58,9 @@ try {
                 'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9'
             };
             var myRequest = {
-                url: $tool.getkeyval("ksthisurl"),
+                url: $tool.getkeyval("ksthisurl").replace(/"/g, ''),
                 headers: headers
             };
-           console.log($tool.getkeyval("ksthisurl").replace('"', ''));
 
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
