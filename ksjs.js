@@ -27,7 +27,7 @@ try {
         var thisurl = $tool.getkeyval("ksthisurl");
         if (!!urllist) {
             var list = JSON.parse(urllist);
-            if (!!urllist) {
+            if (!!thisurl) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thisurl) {
                         console.log("☢️第" + (i + 1) + "个url!");
