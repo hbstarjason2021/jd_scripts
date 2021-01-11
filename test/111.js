@@ -1,6 +1,6 @@
 
 
-var $tool = tool();
+var $tool = await tool();
 console.log(11111);
 async function init() {
         await  $tool.wait(5000);
