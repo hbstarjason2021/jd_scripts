@@ -44,7 +44,6 @@ try {
             else {
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
-
             var headers = JSON.parse($tool.getkeyval("thishead"));
             headers['X-Khronos'] = Math.round(new Date() / 1000);
             headers['tt-request-time'] = Math.round(new Date());
