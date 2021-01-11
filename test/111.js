@@ -8,6 +8,7 @@ async function init() {
     console.log(2222);
 }
 init();
+done();
 
         
 
@@ -111,7 +112,7 @@ function tool() {
             }
         },
         //等待
-        wait:async function (time) {
+        wait:function (time) {
             return new Promise(function (resolve) {
                 setTimeout(function () {
                     console.log("🕒等待" + time + "毫秒");
