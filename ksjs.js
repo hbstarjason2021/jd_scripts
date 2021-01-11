@@ -63,6 +63,12 @@ try {
 
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
+                if (r.statusCode == "200") {
+                    console.log("♥️" + "请求成功!");
+                }
+                else {
+                    console.log("🚫" + "请求失败!");
+                }
                 $done();
             })
         }
