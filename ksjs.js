@@ -49,10 +49,9 @@ try {
 
             var headers = {
                 'Accept-Encoding': 'gzip, deflate',
-                'X-REQUESTID': '161021324052898354',
+                'X-REQUESTID': Math.round(new Date())+'85627',
                 'Connection': 'keep-alive',
                 'Accept': 'application/json',
-                'Host': 'js2.a.yximgs.com',
                 'User-Agent': 'kwai-ios',
                 'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9'
             };
