@@ -1,6 +1,6 @@
 
 
-await $tool = tool();
+var $tool = tool();
 console.log(11111);
 async function init() {
         await  $tool.wait(5000);
@@ -107,12 +107,8 @@ function tool() {
             }
         },
         //等待
-        wait:function(time) {
-            return new Promise(async resolve=> {
-                setTimeout(function(){
-                    resolve (true);
-                },time);
-            };
+        wait(t) {
+            return new Promise(e => setTimeout(e, t))
         }
 
     };
