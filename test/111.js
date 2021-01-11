@@ -112,7 +112,7 @@ function tool() {
         },
         //等待
         wait: function(time) {
-            return new Promise(function(resolve ){
+            return new Promise(function(async resolve ){
                 setTimeout(function(){
                     resolve (true);
                 },time);
