@@ -1,14 +1,16 @@
 
 
 var $tool = tool();
-console.log(11111);
-async function init() {
-        await  $tool.wait(3000);
-}
 
+async function init() {
+    console.log(11111);
+    await  $tool.wait(3000);
+    console.log(2222);
+}
 init();
+
         
-console.log(2222);
+
 function tool() {
     var isLoon = typeof $httpClient != "undefined";
     var isQuanX = typeof $task != "undefined";
