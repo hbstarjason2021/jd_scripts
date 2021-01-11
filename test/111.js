@@ -111,8 +111,8 @@ function tool() {
             }
         },
         //等待
-        wait: function(time) {
-            return new Promise(function(async resolve ){
+        wait: async  function(time) {
+            return new Promise(function( resolve ){
                 setTimeout(function(){
                     resolve (true);
                 },time);
