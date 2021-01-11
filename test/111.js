@@ -6,9 +6,10 @@ async function init() {
     console.log(11111);
     await  $tool.wait(3000);
     console.log(2222);
+    $done();
 }
 init();
-$done();
+
 
         
 
