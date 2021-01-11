@@ -111,7 +111,7 @@ function tool() {
             }
         },
         //等待
-        wait: function (time) {
+        wait:async function (time) {
             return new Promise(function (resolve) {
                 setTimeout(function () {
                     console.log("🕒等待" + time + "毫秒");
