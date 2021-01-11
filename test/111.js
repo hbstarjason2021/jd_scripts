@@ -8,7 +8,7 @@ async function init() {
     console.log(2222);
 }
 init();
-done();
+$done();
 
         
 
