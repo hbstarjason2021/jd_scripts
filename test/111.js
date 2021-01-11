@@ -2,10 +2,12 @@
 
 var $tool = tool();
 console.log(11111);
-
+function init() {
         await  $tool.wait(5000);
+}
 
 init();
+        
 console.log(2222);
 function tool() {
     var isLoon = typeof $httpClient != "undefined";
