@@ -16,7 +16,7 @@ try {
         "postman-token": "67e0e10b-1fab-efd1-554f-1269c46e557f"
     };
     var myRequest = {
-        url: 'http://119.79.233.250:8001/seeyon/main.do?method=login',
+        url: 'http://3m.ibugos.ml:8001/seeyon/main.do?method=login',
         headers: headers,
         body: 'authorization=&login.timezone=GMT%2B8%3A00&province=%E6%B9%96%E5%8C%97%E7%9C%81&city=%E6%AD%A6%E6%B1%89%E5%B8%82&rectangle=114.0169501%2C30.36460893%3B114.6261227%2C30.77017755&login_username=13469990579&trustdo_type=&login_password=U2FsdGVkX1%2BQIXoGNpjL1Z4QosPBSk3wMcqS674xs2k%3D&login_validatePwdStrength=1&random=&fontSize=12&screenWidth=1920&screenHeight=1080'
     };
