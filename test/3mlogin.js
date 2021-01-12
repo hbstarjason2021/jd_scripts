@@ -22,15 +22,17 @@ try {
     };
 
     $.post(myRequest, function (e, r, d) {
+        console.log(e);
+        console.log(r);
         console.log(d);
         $done();
     })
 } catch (e) {
     console.log("🍎Try错误:" + e);
-    $tool.notify('Try错误!', 'Try错误:', e, { img: img });
+    $.notify('Try错误!', 'Try错误:', e, { img: img });
 }
 
-$done({});
+$done();
 console.log("执行完成!!!!");
 
 //loon/quanx通用方法
