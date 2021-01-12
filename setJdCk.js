@@ -11,14 +11,14 @@ var cklist = [
         'ck6']
 ];
 
-//惊喜农场token
+//惊喜农场token url,要和上面cookie一一对应
 var tokenlist = [
-    ['tk1',
-         'tk2'],
-    ['tk3',
-        'tk4'],
-    ['tk5',
-        'tk6']
+    ['url1',
+         'url2'],
+    ['url3',
+        'url4'],
+    ['url5',
+        'url6']
 ];
 
 var $tool = tool();
