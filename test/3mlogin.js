@@ -1,6 +1,6 @@
 
 console.log("🍎dylike脚本开始!");
-var $ = tool();
+var $tool = tool();
 
 try {
     var headers = {
@@ -21,7 +21,7 @@ try {
         body: 'authorization=&login.timezone=GMT%2B8%3A00&province=%E6%B9%96%E5%8C%97%E7%9C%81&city=%E6%AD%A6%E6%B1%89%E5%B8%82&rectangle=114.0169501%2C30.36460893%3B114.6261227%2C30.77017755&login_username=13469990579&trustdo_type=&login_password=U2FsdGVkX1%2BQIXoGNpjL1Z4QosPBSk3wMcqS674xs2k%3D&login_validatePwdStrength=1&random=&fontSize=12&screenWidth=1920&screenHeight=1080'
     };
     console.log(JSON.stringify(myRequest));
-    $.post(myRequest, function (e, r, d) {
+    $tool.post(myRequest, function (e, r, d) {
         console.log(e);
         console.log(r);
         console.log(d);
@@ -29,7 +29,7 @@ try {
     })
 } catch (e) {
     console.log("🍎Try错误:" + e);
-    $.notify('Try错误!', 'Try错误:', e, { img: img });
+    $tool.notify('Try错误!', 'Try错误:', e, { img: img });
 }
 
 $done();
