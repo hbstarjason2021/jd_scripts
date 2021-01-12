@@ -69,6 +69,9 @@ function getToken4Url(url) {
             }
             return JSON.stringify({ 'farm_jstoken': obj['farm_jstoken'], phoneid: obj.phoneid, timestamp: obj.timestamp });
         }
+        else {
+            return '';
+        }
     } catch (e) {
         return '';
     }
