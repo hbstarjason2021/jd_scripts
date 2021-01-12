@@ -13,7 +13,7 @@ var cklist = [
 
 //惊喜农场token
 var tokenlist = [
-    ['https://wq.jd.com/cubeactive/farm/dotask?active=jdnc_1_shibing210108_2&joinnum=1&tasklevel=1&answer=&ch=7&farm_jstoken=d7b620c7be84427c01e44a0d771973d3&timestamp=1610419808841&phoneid=cbc3c1686b2149366a682d61b0b43e160ab7dd99&_=1610419808844&sceneval=2&g_login_type=1&callback=jsonpCBKH&g_ty=ls',
+    ['tk1',
          'tk2'],
     ['tk3',
         'tk4'],
