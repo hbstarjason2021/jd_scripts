@@ -78,11 +78,16 @@ if (getTokenRegex.test(url)) {
       $.log(`账号: ${pin} token: ${result}`);
       $.logErr($.name, '更新京东Cookie失败, 非历史写入账号 ‼️, 去日志查看token');
     }
+    
+    console.log("token1:"+$.getdata("jxnc_token1"));
+    console.log("token2:"+$.getdata("jxnc_token2"));
+
   } catch (err) {
     $.logErr(`京喜农场写入Token失败，执行异常：${err}。`);
     $.msg($.name, "❌京喜农场写入Token失败");
   }
 }
+
 
 $.done()
 
