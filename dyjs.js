@@ -69,6 +69,7 @@ try {
             var thisheaders = JSON.parse($tool.getkeyval("thishead"));
             thisheaders['X-Khronos'] = Math.round(new Date() / 1000);
             thisheaders['tt-request-time'] = Math.round(new Date());
+            console.log(JSON.stringify(thisheaders));
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
                 headers: JSON.parse($tool.getkeyval("thishead")),
