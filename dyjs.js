@@ -76,7 +76,7 @@ try {
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
                 if (d.indexOf("spam check not pass") > -1) {
-                    list.remove($tool.getkeyval("thishead"));
+                    //list.remove($tool.getkeyval("thishead"));
                 }
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
