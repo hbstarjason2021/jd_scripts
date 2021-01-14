@@ -67,6 +67,7 @@ try {
                 console.log("☢️第1个headers!");
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
+            console.log($tool.getkeyval("thishead"));
             var thisheaders = JSON.parse($tool.getkeyval("thishead"));
             thisheaders['X-Khronos'] = Math.round(new Date() / 1000);
             thisheaders['tt-request-time'] = Math.round(new Date());
