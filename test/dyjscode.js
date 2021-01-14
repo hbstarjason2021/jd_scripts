@@ -29,7 +29,7 @@ try {
     var myRequest = {
         url: url,
         headers: headers,
-        body: '{\n  "in_sp_time" : 0,\n  "invite" : "8254851731"\n}'
+        body: '{\n  "in_sp_time" : 0,\n  "invite_code" : "8254851731"\n}'
     };
 
     $tool.post(myRequest, function (e, r, d) {
