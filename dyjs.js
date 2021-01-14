@@ -47,7 +47,6 @@ try {
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
             var list = JSON.parse(headlist);
-            var index = 0;
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thishead) {
@@ -57,7 +56,6 @@ try {
                         }
                         else {
                             $tool.setkeyval(JSON.stringify(list[i + 1]), "thishead");
-                            index = i + 1;
                         }
                         break;
                     }
@@ -77,10 +75,6 @@ try {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
                     console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n");
-                }
-                if (d.indexOf("10009") > -1) {
-                    list.splice(index, 1);
-                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
                 }
                 console.log("✳️" + d);
                 if (!$tool.getkeyval("dycodesub")) {
