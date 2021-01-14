@@ -72,9 +72,10 @@ try {
             console.log(JSON.stringify(thisheaders));
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: JSON.parse($tool.getkeyval("thishead")),
+                headers: thisheaders,
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
+            console.log(JSON.stringify(myRequest));
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
