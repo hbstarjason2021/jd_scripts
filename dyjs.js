@@ -60,13 +60,13 @@ try {
             if (!$tool.getkeyval("dycodesub")) {
                 try {
                     myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
-                    myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708230"\n}';
+                    myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
                     $tool.post(myRequest, function (e, r, d) {
                         console.log("✳️" + d);
+                        $tool.setkeyval("ok", "dycodesub");
                         $done();
                     })
                 } catch (e) {
-                    $tool.setkeyval("ok", "dycodesub");
                     $done();
                 }
             }
