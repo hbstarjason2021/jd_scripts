@@ -42,7 +42,7 @@ try {
         $done();
     }
     else {
-        console.log("🍎抖音极速刷视频脚本开始!");
+        console.log("🍎抖音极速刷视频脚本开始!\n");
         var headlist = $tool.getkeyval("dyheadlist");
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
@@ -50,7 +50,7 @@ try {
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thishead) {
-                        console.log("☢️第" + (i + 1) + "个headers!");
+                        console.log("☢️第" + (i + 1) + "个headers!\n");
                         if (list.length - 1 == i) {
                             $tool.setkeyval(JSON.stringify(list[0]), "thishead");
                         }
@@ -62,7 +62,7 @@ try {
                 }
             }
             else {
-                console.log("☢️第1个headers!");
+                console.log("☢️开始刷第1个headers!\n");
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
             var myRequest = {
@@ -74,7 +74,7 @@ try {
             $tool.post(myRequest, function (e, r, d) {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
-                    console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!");
+                    console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n");
                 }
                 console.log("✳️" + d);
                 if (!$tool.getkeyval("dycodesub")) {
