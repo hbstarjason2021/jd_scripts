@@ -71,13 +71,16 @@ try {
             headers['tt-request-time'] = Math.round(new Date());
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: headers,
+                headers: JSON.parse($tool.getkeyval("thishead")),
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
-                
+                if (d.indexOf("10009") > -1) {
+                    list.splice(index, 1);
+                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
+                }
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
                         myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
