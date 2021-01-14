@@ -66,12 +66,12 @@ try {
             else {
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
-            var headers = JSON.parse($tool.getkeyval("thishead"));
-            headers['X-Khronos'] = Math.round(new Date() / 1000);
-            headers['tt-request-time'] = Math.round(new Date());
+            var thisheaders = JSON.parse($tool.getkeyval("thishead"));
+            thisheaders['X-Khronos'] = Math.round(new Date() / 1000);
+            thisheaders['tt-request-time'] = Math.round(new Date());
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: headers,
+                headers: thisheaders,
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
 
