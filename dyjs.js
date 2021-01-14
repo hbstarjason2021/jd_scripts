@@ -77,10 +77,7 @@ try {
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
-                if (d.indexOf("10009") > -1) {
-                    list.splice(index, 1);
-                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
-                }
+                
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
                         myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
