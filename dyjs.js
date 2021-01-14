@@ -47,6 +47,7 @@ try {
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
             var list = JSON.parse(headlist);
+            var index = 0;
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thishead) {
@@ -55,6 +56,7 @@ try {
                             $tool.setkeyval(JSON.stringify(list[0]), "thishead");
                         }
                         else {
+                            index = i + 1;
                             $tool.setkeyval(JSON.stringify(list[i + 1]), "thishead");
                         }
                         break;
@@ -75,8 +77,9 @@ try {
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
-                if (d.indexOf("spam check not pass") > -1) {
-                    //list.remove($tool.getkeyval("thishead"));
+                if (d.indexOf("10009") > -1) {
+                    list.splice(index, 1);
+                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
                 }
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
