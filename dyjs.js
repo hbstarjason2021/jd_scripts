@@ -65,17 +65,11 @@ try {
                 console.log("☢️第1个headers!");
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
-
-            var thisheaders = JSON.parse($tool.getkeyval("thishead"));
-            //thisheaders['X-Khronos'] = Math.round(new Date() / 1000);
-            //thisheaders['tt-request-time'] = Math.round(new Date());
-            
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: thisheaders,
+                headers: JSON.parse($tool.getkeyval("thishead")),
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
-            console.log(JSON.stringify(myRequest));
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
