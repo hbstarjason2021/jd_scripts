@@ -28,7 +28,7 @@ try {
     console.log(url);
     
     var myRequest = {
-        url: url.split('?'),
+        url: url,
         headers: headers,
         body: '{\n  "in_sp_time" : 0,\n  "invite_code" : "8254851731"\n}'
     };
