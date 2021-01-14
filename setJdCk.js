@@ -3,12 +3,42 @@
 //几组账号就设置签到脚本几遍循环,一遍循环执行两个账号
 
 var cklist = [
-    ['ck1',
-         'ck2'],
-    ['ck3',
-        'ck4'],
-    ['ck5',
-        'ck6']
+    [{
+        'name': '',
+        'cookie': '',
+        'jxtoken': '',
+        'fruitcode': ''
+    },
+         {
+             'name': '',
+             'cookie': '',
+             'jxtoken': '',
+             'fruitcode': ''
+         }],
+    [{
+        'name': '',
+        'cookie': '',
+        'jxtoken': '',
+        'fruitcode': ''
+    },
+        {
+            'name': '',
+            'cookie': '',
+            'jxtoken': '',
+            'fruitcode': ''
+        }],
+    [{
+        'name': '',
+        'cookie': '',
+        'jxtoken': '',
+        'fruitcode': ''
+    },
+        {
+            'name': '',
+            'cookie': '',
+            'jxtoken': '',
+            'fruitcode': ''
+        }]
 ];
 
 //惊喜农场token url,要和上面cookie一一对应
@@ -22,39 +52,49 @@ var tokenlist = [
 ];
 
 var $tool = tool();
-var isfirst = false;
+var isfirst = false, index = 0;
 for (var i = 0; i < cklist.length; i++) {
     if (cklist[i][0] == $tool.getkeyval('CookieJD')) {
         isfirst = true;
         if (i == cklist.length - 1) {
-            $tool.setkeyval(cklist[0][0], 'CookieJD');
-            $tool.setkeyval(cklist[0][1], 'CookieJD2');
+            $tool.setkeyval(cklist[0][0].cookie, 'CookieJD');
+            $tool.setkeyval(cklist[0][1].cookie, 'CookieJD2');
 
-            $tool.setkeyval(getToken4Url(tokenlist[0][0]), 'jxnc_token1');
-            $tool.setkeyval(getToken4Url(tokenlist[0][1]), 'jxnc_token2');
+            $tool.setkeyval(getToken4Url(cklist[0][0].jxtoken), 'jxnc_token1');
+            $tool.setkeyval(getToken4Url(cklist[0][1].jxtoken), 'jxnc_token2');
         }
         else {
-            $tool.setkeyval(cklist[i + 1][0], 'CookieJD');
-            $tool.setkeyval(cklist[i + 1][1], 'CookieJD2');
+            index = i + 1;
+            $tool.setkeyval(cklist[i + 1][0].cookie, 'CookieJD');
+            $tool.setkeyval(cklist[i + 1][1].cookie, 'CookieJD2');
 
-            $tool.setkeyval(getToken4Url(tokenlist[i + 1][0]), 'jxnc_token1');
-            $tool.setkeyval(getToken4Url(tokenlist[i + 1][1]), 'jxnc_token2');
+            $tool.setkeyval(getToken4Url(cklist[i + 1][0].jxtoken), 'jxnc_token1');
+            $tool.setkeyval(getToken4Url(cklist[i + 1][1].jxtoken), 'jxnc_token2');
         }
         break;
     }
 }
 if (!isfirst) {
-    $tool.setkeyval(cklist[0][0], 'CookieJD');
-    $tool.setkeyval(cklist[0][1], 'CookieJD2');
+    $tool.setkeyval(cklist[0][0].cookie, 'CookieJD');
+    $tool.setkeyval(cklist[0][1].cookie, 'CookieJD2');
 
-    $tool.setkeyval(getToken4Url(tokenlist[0][0]), 'jxnc_token1');
-    $tool.setkeyval(getToken4Url(tokenlist[0][1]), 'jxnc_token2');
+    $tool.setkeyval(getToken4Url(cklist[0][0].jxtoken), 'jxnc_token1');
+    $tool.setkeyval(getToken4Url(cklist[0][1].jxtoken), 'jxnc_token2');
 }
-console.log("🍎CK1:" + $tool.getkeyval('CookieJD'));
-console.log("🍎CK2:" + $tool.getkeyval('CookieJD2'));
 
-console.log("🍎TK1:" + $tool.getkeyval('jxnc_token1'));
-console.log("🍎TK2:" + $tool.getkeyval('jxnc_token2'));
+console.log('🍎Name1:' + cklist[index][0].name);
+console.log('🍎Name2:' + cklist[index][1].name);
+
+console.log('🍎CK1:' + cklist[index][0].cookie);
+console.log('🍎CK2:' + cklist[index][1].cookie);
+
+console.log('🍎TK1:' + cklist[index][0].jxtoken);
+console.log('🍎TK2:' + cklist[index][1].jxtoken);
+
+console.log('🍎fCode1:' + cklist[index][0].fruitcode);
+console.log('🍎fCode2:' + cklist[index][1].fruitcode);
+
+
 $done();
 
 //根据url获取惊喜农场种子token对象
