@@ -71,7 +71,7 @@ try {
             headers['tt-request-time'] = Math.round(new Date());
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: JSON.parse($tool.getkeyval("thishead")),
+                headers: headers,
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
 
