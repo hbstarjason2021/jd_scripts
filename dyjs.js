@@ -47,7 +47,6 @@ try {
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
             var list = JSON.parse(headlist);
-            var index = 0;
             if (!!thishead) {
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thishead) {
@@ -56,7 +55,6 @@ try {
                             $tool.setkeyval(JSON.stringify(list[0]), "thishead");
                         }
                         else {
-                            index = i + 1;
                             $tool.setkeyval(JSON.stringify(list[i + 1]), "thishead");
                         }
                         break;
@@ -67,7 +65,7 @@ try {
                 console.log("☢️第1个headers!");
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead");
             }
-            console.log($tool.getkeyval("thishead"));
+
             var thisheaders = JSON.parse($tool.getkeyval("thishead"));
             thisheaders['X-Khronos'] = Math.round(new Date() / 1000);
             thisheaders['tt-request-time'] = Math.round(new Date());
@@ -79,10 +77,6 @@ try {
 
             $tool.post(myRequest, function (e, r, d) {
                 console.log("✳️" + d);
-                if (d.indexOf("10009") > -1) {
-                    list.splice(index, 1);
-                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
-                }
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
                         myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
