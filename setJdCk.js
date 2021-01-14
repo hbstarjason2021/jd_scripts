@@ -41,16 +41,6 @@ var cklist = [
         }]
 ];
 
-//惊喜农场token url,要和上面cookie一一对应
-var tokenlist = [
-    ['url1',
-         'url2'],
-    ['url3',
-        'url4'],
-    ['url5',
-        'url6']
-];
-
 var $tool = tool();
 var isfirst = false, index = 0;
 for (var i = 0; i < cklist.length; i++) {
