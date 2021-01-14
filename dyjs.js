@@ -72,6 +72,10 @@ try {
             };
 
             $tool.post(myRequest, function (e, r, d) {
+                if (d.indexOf("成功") > -1) {
+                    var obj = JSON.parse(d);
+                    console.log("♥️获得" + obj.data.score_amount + "个音符!");
+                }
                 console.log("✳️" + d);
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
