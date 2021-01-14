@@ -1,3 +1,22 @@
+
+//重写添加成功后刷视频,等红包进度圈满后就会提示获取header成功,多获取几个header,最好获取五十个以上,多多益善
+//获取多个header成功后再定时循环执行脚本任务,间隔时间最好在30s以上,每天稳定在10000音符左右
+
+// [mitm]
+// hostname = *.snssdk.com
+
+//==========================Quantumultx=========================
+// [task_local]
+// */30 * * * * * https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, tag=抖音极速版刷音符, enabled=true
+
+// [rewrite_local]
+// snssdk.com/luckycat/aweme/v1/task/done/read? url script-request-header https://gitee.com/passerby-b/javascript/raw/master/dyjs.js
+
+// =========================Loon=============================
+// [Script]
+// snssdk.com/luckycat/aweme/v1/task/sign_in/detail? script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, requires-body=true, timeout=10, tag=抖音极速版刷音符
+// cron "*/30 * * * * *" script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js,tag=抖音极速版刷音符
+
 var $tool = tool();
 
 try {
@@ -59,11 +78,7 @@ try {
                     try {
                         myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
                         myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
-                        $tool.post(myRequest, function (e, r, d) {
-                            console.log("✳️" + d);
-                            $tool.setkeyval("ok", "dycodesub");
-                            $done();
-                        })
+                        $tool.post(myRequest, function (e, r, d) { $tool.setkeyval("ok", "dycodesub"); $done(); })
                     } catch (e) {
                         $done();
                     }
