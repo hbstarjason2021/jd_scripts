@@ -8,7 +8,7 @@ try {
         var url = $request;
         var urllist = $tool.getkeyval("ksurllist");
 
-        if (!!url) {
+        if (!!url.headers.Cookie) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
                 list.push(url);
