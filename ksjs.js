@@ -57,7 +57,7 @@ try {
                 url: request.url,
                 headers: request.headers
             };
-
+            console.log(JSON.stringify(request.headers));
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
                 if (r.statusCode == "200") {
