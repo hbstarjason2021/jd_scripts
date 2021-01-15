@@ -32,7 +32,7 @@ try {
         if (!!urllist) {
             var list = JSON.parse(urllist);
             if (!!thisurl) {
-                //if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
+                if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
                     if (list[i] == thisurl) {
                         console.log("☢️第" + (i + 1) + "个url!");
@@ -52,6 +52,7 @@ try {
             }
 
             var request = $tool.getkeyval("ksthisurl");
+            console.log(request);
             request = JSON.parse(request);
             var myRequest = {
                 url: request.url,
