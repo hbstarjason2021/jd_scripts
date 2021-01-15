@@ -52,10 +52,10 @@ try {
                 $tool.setkeyval(list[0], "ksthisurl");
                 console.log("☢️第0个url!");
             }
-
+            console.log($tool.getkeyval("ksthisurl"));
             var request = $tool.getkeyval("ksthisurl");
             console.log(1111);
-            console.log($tool.getkeyval("ksthisurl"));
+            
             request = JSON.parse(request);
             console.log(2222);
             var myRequest = {
