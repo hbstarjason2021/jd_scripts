@@ -5,10 +5,11 @@ try {
     if (typeof $request != "undefined") {
         console.log("🍎快手极速获取url脚本开始!");
 
-        var url = $request.url;
-        var headers = $request.headers;
+        var url = $request;
+        //var headers = $request.headers;
+
         var urllist = $tool.getkeyval("ksurllist");
-        $tool.setkeyval(JSON.stringify(headers), "ksheaders");
+        //$tool.setkeyval(JSON.stringify(headers), "ksheaders");
         if (!!url) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
@@ -50,20 +51,12 @@ try {
                 console.log("☢️第0个url!");
             }
 
-            //var headers = {
-            //    'Accept-Encoding': 'gzip, deflate',
-            //    'X-REQUESTID': Math.round(new Date()) + '85627',
-            //    'Connection': 'keep-alive',
-            //    'Accept': 'application/json',
-            //    'User-Agent': 'kwai-ios',
-            //    'Accept-Language': 'zh-Hans-CN;q=1, en-CN;q=0.9'
-            //};
-            var headers = $tool.getkeyval("ksheaders");
-            headers = JSON.parse(headers);
+            var request = $tool.getkeyval("ksthisurl");
+            request = JSON.parse(request);
             headers['X-REQUESTID'] = Math.round(new Date()) + '85627';
             var myRequest = {
-                url: $tool.getkeyval("ksthisurl"),
-                headers: headers
+                url: request.url,
+                headers: request.headers
             };
 
             $tool.get(myRequest, function (e, r, d) {
