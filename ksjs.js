@@ -7,7 +7,6 @@ try {
 
         var url = $request;
         var urllist = $tool.getkeyval("ksurllist");
-        console.log("🍎🍎🍎🍎🍎" + JSON.stringify($request));
         if (!!url) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
@@ -23,7 +22,6 @@ try {
             }
             $tool.notify("获取url成功", "个数:" + list.length, "");
             $tool.setkeyval(JSON.stringify(list), "ksurllist");
-            console.log("✳️" + JSON.stringify(list));
         }
         $done();
     }
