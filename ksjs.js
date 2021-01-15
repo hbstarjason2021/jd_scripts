@@ -7,7 +7,7 @@ try {
 
         var url = $request;
         var urllist = $tool.getkeyval("ksurllist");
-        console.log("🍎🍎🍎🍎🍎" + url.headers['Cookie']);
+        console.log("🍎🍎🍎🍎🍎" + $request.headers.Cookie);
         if (typeof url.headers['Cookie'] != "undefined" && !!url.headers['Cookie']) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
