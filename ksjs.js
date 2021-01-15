@@ -61,12 +61,21 @@ try {
             $tool.get(myRequest, function (e, r, d) {
                 console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
                 if (r.statusCode == "200") {
-                    console.log("♥️" + "请求成功!");
+                    console.log("♥️请求成功!");
+
+                    myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
+                    $tool.get(myRequest, function (e, r, d) {
+                        d = JSON.parse(d);
+                        console.log("♥️总金币:" + d.data.totalCoin);
+                        $done();
+                    })
+
                 }
                 else {
                     console.log("🚫" + "请求失败!");
+                    $done();
                 }
-                $done();
+                
             })
         }
         else {
