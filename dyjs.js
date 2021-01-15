@@ -67,11 +67,9 @@ try {
             }
             console.log("☢️开始刷第" + index + "个headers!\n");
 
-            var thishead = JSON.parse($tool.getkeyval("thishead"));
-            thishead['tt-request-time'] = "1610674459674";
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
-                headers: thishead,
+                headers: JSON.parse($tool.getkeyval("thishead")),
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
 
@@ -81,8 +79,15 @@ try {
                     console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n");
                 }
                 if (d.indexOf("10009") > -1) {
-                    //list.splice(index, 1);
-                    //$tool.setkeyval(JSON.stringify(list), "dyheadlist");
+                    if (index == list.length - 1) {
+                        $tool.setkeyval(JSON.stringify(list[0]), "thishead");
+                    }
+                    else {
+                        $tool.setkeyval(JSON.stringify(list[index + 1]), "thishead");
+                    }
+
+                    list.splice(index, 1);
+                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
                 }
                 console.log("✳️" + d);
                 if (!$tool.getkeyval("dycodesub")) {
