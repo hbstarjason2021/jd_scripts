@@ -68,7 +68,7 @@ try {
                         $tool.get(myRequest, function (e2, r2, d2) {
                             //d = JSON.parse(d);
                             //console.log("♥️总金币:" + d.data.totalCoin);
-                            console.log("♥️总金币:" + d);
+                            console.log("♥️总金币:" + d2);
                             $done();
                         })
                         //$done();
