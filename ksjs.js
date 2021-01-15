@@ -53,7 +53,6 @@ try {
 
             var request = $tool.getkeyval("ksthisurl");
             request = JSON.parse(request);
-            headers['X-REQUESTID'] = Math.round(new Date()) + '85627';
             var myRequest = {
                 url: request.url,
                 headers: request.headers
