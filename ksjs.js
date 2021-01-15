@@ -36,26 +36,26 @@ try {
             if (!!thisurl) {
                 if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
-                    if (list[i] == thisurl) {
+                    if (JSON.stringify(list[i]) == thisurl) {
                         console.log("☢️第" + (i + 1) + "个url!");
                         if (list.length - 1 == i) {
-                            $tool.setkeyval(list[0], "ksthisurl");
+                            $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
                         }
                         else {
-                            $tool.setkeyval(list[i + 1], "ksthisurl");
+                            $tool.setkeyval(JSON.stringify(list[i + 1]), "ksthisurl");
                         }
                         break;
                     }
                 }
             }
             else {
-                $tool.setkeyval(list[0], "ksthisurl");
+                $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
                 console.log("☢️第0个url!");
             }
             console.log($tool.getkeyval("ksthisurl"));
             var request = $tool.getkeyval("ksthisurl");
             console.log(1111);
-            
+
             request = JSON.parse(request);
             console.log(2222);
             var myRequest = {
