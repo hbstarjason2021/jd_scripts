@@ -63,12 +63,18 @@ try {
                 if (r.statusCode == "200") {
                     console.log("♥️请求成功!");
 
-                    myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
-                    $tool.get(myRequest, function (e, r, d) {
-                        d = JSON.parse(d);
-                        console.log("♥️总金币:" + d.data.totalCoin);
+                    try {
+                        myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
+                        $tool.get(myRequest, function (e, r, d) {
+                            d = JSON.parse(d);
+                            console.log("♥️总金币:" + d.data.totalCoin);
+                            $done();
+                        })
+                    } catch (e) {
+                        console.log("❌错误:" + e);
                         $done();
-                    })
+                    }
+                    
 
                 }
                 else {
