@@ -61,6 +61,8 @@ try {
                 url: request.url,
                 headers: request.headers
             };
+            myRequest.headers['X-REQUESTID'] = Math.round(new Date()) + "39313";
+
             //console.log(JSON.stringify(request.headers));
             $tool.get(myRequest, function (e, r, d) {
                 //console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
