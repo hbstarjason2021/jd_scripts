@@ -3,7 +3,7 @@ var $tool = tool();
 
 try {
     if (typeof $request != "undefined") {
-        console.log("🍎快手极速获取url脚本开始!");
+        console.log("🍎快手极速获取url脚本开始!\n");
 
         var url = $request;
         var urllist = $tool.getkeyval("ksurllist");
@@ -28,7 +28,7 @@ try {
         $done();
     }
     else {
-        console.log("🍎快手极速刷视频脚本开始!");
+        console.log("🍎快手极速刷视频脚本开始!\n");
         var urllist = $tool.getkeyval("ksurllist");
         var thisurl = $tool.getkeyval("ksthisurl");
 
@@ -39,7 +39,7 @@ try {
                 if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thisurl) {
-                        console.log("☢️第" + (i + 1) + "个url!");
+                        console.log("☢️第" + (i + 1) + "个url!\n");
                         if (list.length - 1 == i) {
                             $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
                         }
@@ -52,7 +52,7 @@ try {
             }
             else {
                 $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
-                console.log("☢️第0个url!");
+                console.log("☢️第0个url!\n");
             }
 
             var request = $tool.getkeyval("ksthisurl");
@@ -65,7 +65,7 @@ try {
             $tool.get(myRequest, function (e, r, d) {
                 //console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
                 if (r.statusCode == "200") {
-                    console.log("♥️请求成功!");
+                    console.log("♥️请求成功!\n");
 
                     try {
                         myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
@@ -74,18 +74,18 @@ try {
 
                         $tool.get(myRequest, function (e2, r2, d2) {
                             d2 = JSON.parse(d2);
-                            console.log("♥️总现金:" + d2.data.totalCash + "♥️总金币:" + d2.data.totalCoin);
+                            console.log("♥️总现金:" + d2.data.totalCash + "♥️总金币:" + d2.data.totalCoin + "\n");
                             //console.log("♥️总金币:" + d2);
                             $done();
                         })
                         //$done();
                     } catch (e) {
-                        console.log("❌错误:" + e);
+                        console.log("❌错误:" + e + "\n");
                         $done();
                     }
                 }
                 else {
-                    console.log("🚫" + "请求失败!");
+                    console.log("🚫" + "请求失败!\n");
                     $done();
                 }
 
@@ -97,7 +97,7 @@ try {
         }
     }
 } catch (e) {
-    console.log("❌错误:" + e);
+    console.log("❌错误:" + e + "\n");
     $done();
 }
 
