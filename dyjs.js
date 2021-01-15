@@ -91,7 +91,6 @@ try {
                     console.log("❌删除此条header,还剩" + list.length + "个");
                 }
                 console.log("✳️" + d);
-                console.log($tool.getkeyval("dycodesub"));
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
                         myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
