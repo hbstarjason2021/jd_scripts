@@ -71,12 +71,11 @@ try {
                             console.log("♥️总金币:" + d);
                             $done();
                         })
+                        $done();
                     } catch (e) {
                         console.log("❌错误:" + e);
                         $done();
                     }
-                    
-
                 }
                 else {
                     console.log("🚫" + "请求失败!");
