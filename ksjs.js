@@ -6,10 +6,8 @@ try {
         console.log("🍎快手极速获取url脚本开始!");
 
         var url = $request;
-        //var headers = $request.headers;
-
         var urllist = $tool.getkeyval("ksurllist");
-        //$tool.setkeyval(JSON.stringify(headers), "ksheaders");
+
         if (!!url) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
@@ -29,10 +27,10 @@ try {
         console.log("🍎快手极速刷视频脚本开始!");
         var urllist = $tool.getkeyval("ksurllist");
         var thisurl = $tool.getkeyval("ksthisurl");
-        //console.log(urllist);
+
         if (!!urllist) {
             var list = JSON.parse(urllist);
-            //console.log(0000);
+
             if (!!thisurl) {
                 if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
@@ -52,12 +50,9 @@ try {
                 $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
                 console.log("☢️第0个url!");
             }
-            console.log($tool.getkeyval("ksthisurl"));
-            var request = $tool.getkeyval("ksthisurl");
-            console.log(1111);
 
+            var request = $tool.getkeyval("ksthisurl");
             request = JSON.parse(request);
-            console.log(2222);
             var myRequest = {
                 url: request.url,
                 headers: request.headers
