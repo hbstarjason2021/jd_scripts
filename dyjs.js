@@ -88,6 +88,7 @@ try {
 
                     list.splice(index, 1);
                     $tool.setkeyval(JSON.stringify(list), "dyheadlist");
+                    console.log("❌删除此条header,还剩" + list.length + "个");
                 }
                 console.log("✳️" + d);
                 if (!$tool.getkeyval("dycodesub")) {
