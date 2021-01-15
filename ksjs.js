@@ -61,7 +61,11 @@ try {
                 url: request.url,
                 headers: request.headers
             };
-            myRequest.headers['X-REQUESTID'] = Math.round(new Date()) + "39313";
+            var Num = "";
+            for (var i = 0; i < 5; i++) {
+                Num += Math.floor(Math.random() * 10);
+            }
+            myRequest.headers['X-REQUESTID'] = Math.round(new Date()) + Num;
 
             //console.log(JSON.stringify(request.headers));
             $tool.get(myRequest, function (e, r, d) {
