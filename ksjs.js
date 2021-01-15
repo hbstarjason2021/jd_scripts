@@ -65,6 +65,7 @@ try {
 
                     try {
                         myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
+                        myRequest.headers['Host'] = "nebula.kuaishou.com";
                         $tool.get(myRequest, function (e2, r2, d2) {
                             //d = JSON.parse(d);
                             //console.log("♥️总金币:" + d.data.totalCoin);
@@ -81,7 +82,7 @@ try {
                     console.log("🚫" + "请求失败!");
                     $done();
                 }
-                
+
             })
         }
         else {
