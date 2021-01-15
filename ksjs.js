@@ -56,6 +56,7 @@ try {
             var request = $tool.getkeyval("ksthisurl");
             console.log(request);
             request = JSON.parse(request);
+            console.log(2222);
             var myRequest = {
                 url: request.url,
                 headers: request.headers
