@@ -68,7 +68,7 @@ try {
             console.log("☢️开始刷第" + index + "个headers!\n");
 
             var thishead = JSON.parse($tool.getkeyval("thishead"));
-            thishead['tt-request-time'] = Math.round(new Date());
+            //thishead['tt-request-time'] = Math.round(new Date());
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
                 headers: thishead,
