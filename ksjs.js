@@ -32,7 +32,7 @@ try {
         //console.log(urllist);
         if (!!urllist) {
             var list = JSON.parse(urllist);
-            //console.log(1111);
+            //console.log(0000);
             if (!!thisurl) {
                 if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
@@ -55,7 +55,7 @@ try {
 
             var request = $tool.getkeyval("ksthisurl");
             console.log(1111);
-            console.log(request);
+            console.log($tool.getkeyval("ksthisurl"));
             request = JSON.parse(request);
             console.log(2222);
             var myRequest = {
