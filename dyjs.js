@@ -39,7 +39,7 @@ try {
         }
         $done()
     } else {
-        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本开始!\n");
+        console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本开始!\n");
         var headlist = $tool.getkeyval("dyheadlist");
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
@@ -60,7 +60,7 @@ try {
             } else {
                 $tool.setkeyval(JSON.stringify(list[0]), "thishead")
             }
-            console.log("☢️开始刷第" + index + "个headers,共" + list.length + "个headers\n");
+            console.log("\n☢️开始刷第" + index + "个headers,共" + list.length + "个headers\n");
             var myRequest = {
                 url: $tool.getkeyval("dyurl"),
                 headers: JSON.parse($tool.getkeyval("thishead")),
@@ -69,7 +69,7 @@ try {
             $tool.post(myRequest, function (e, r, d) {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
-                    console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
+                    console.log("\n♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
                 }
                 else if (d.indexOf("10009") > -1) {
                     if (index == list.length - 1) {
@@ -79,7 +79,7 @@ try {
                     }
                     list.splice(index, 1);
                     $tool.setkeyval(JSON.stringify(list), "dyheadlist");
-                    console.log("❌删除此条header,还剩" + list.length + "个\n")
+                    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
                 }
                 else {
                     console.log("✳️" + d + "\n");
@@ -89,9 +89,9 @@ try {
                     myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
                     $tool.get(myRequest, function (e, r, d) {
                         d = JSON.parse(d);
-                        console.log("🎁总音符:" + d.data.income_data.amount1 + "个!");
-                        console.log("🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
-                        console.log("🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
+                        console.log("\n🎁总音符:" + d.data.income_data.amount1 + "个!");
+                        console.log("\n🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
+                        console.log("\n🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
                     })
                 } catch (e) { }
 
@@ -101,30 +101,30 @@ try {
                         myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
                         $tool.post(myRequest, function (e, r, d) {
                             $tool.setkeyval("ok", "dycodesub");
-                            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+                            console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
                             $done()
                         })
                     } catch (e) {
-                        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+                        console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
                         $done()
                     }
                 } else {
                     setTimeout(function () {
-                        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+                        console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
                         $done()
-                    }, 500);
+                    }, 300);
                 }
 
             })
         } else {
             $tool.notify("请先刷视频获取headers", "多多益善", "");
-            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+            console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
             $done()
         }
     }
 } catch (e) {
     console.log("❌错误:" + e);
-    console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+    console.log("\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
     $done()
 }
 function tool() {
