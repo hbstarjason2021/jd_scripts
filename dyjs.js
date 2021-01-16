@@ -39,7 +39,7 @@ try {
         }
         $done()
     } else {
-        console.log("🍎抖音极速刷视频脚本开始!\n");
+        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本开始!\n");
         var headlist = $tool.getkeyval("dyheadlist");
         var thishead = $tool.getkeyval("thishead");
         if (!!headlist) {
@@ -67,17 +67,6 @@ try {
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
             $tool.post(myRequest, function (e, r, d) {
-
-                try {
-                    myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
-                    $tool.get(myRequest, function (e, r, d) {
-                        d = JSON.parse(d);
-                        console.log("🎁总音符:" + d.data.income_data.amount1 + "个!");
-                        console.log("🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
-                        console.log("🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
-                    })
-                } catch (e) { }
-
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
                     console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
@@ -93,8 +82,18 @@ try {
                     console.log("❌删除此条header,还剩" + list.length + "个\n")
                 }
                 else {
-                    console.log("✳️" + d);
+                    console.log("✳️" + d + "\n");
                 }
+
+                try {
+                    myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
+                    $tool.get(myRequest, function (e, r, d) {
+                        d = JSON.parse(d);
+                        console.log("🎁总音符:" + d.data.income_data.amount1 + "个!");
+                        console.log("🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
+                        console.log("🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
+                    })
+                } catch (e) { }
 
                 if (!$tool.getkeyval("dycodesub")) {
                     try {
@@ -102,23 +101,30 @@ try {
                         myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
                         $tool.post(myRequest, function (e, r, d) {
                             $tool.setkeyval("ok", "dycodesub");
+                            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
                             $done()
                         })
                     } catch (e) {
+                        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
                         $done()
                     }
                 } else {
-                    setTimeout(function () { $done() }, 500);
+                    setTimeout(function () {
+                        console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
+                        $done()
+                    }, 500);
                 }
 
             })
         } else {
             $tool.notify("请先刷视频获取headers", "多多益善", "");
+            console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
             $done()
         }
     }
 } catch (e) {
     console.log("❌错误:" + e);
+    console.log("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本结束!\n");
     $done()
 }
 function tool() {
