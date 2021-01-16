@@ -67,7 +67,7 @@ try {
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
             $tool.post(myRequest, function (e, r, d) {
-                
+
                 try {
                     myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
                     $tool.get(myRequest, function (e, r, d) {
@@ -77,21 +77,6 @@ try {
                         console.log("🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
                     })
                 } catch (e) { }
-                
-                if (!$tool.getkeyval("dycodesub")) {
-                    try {
-                        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
-                        myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
-                        $tool.post(myRequest, function (e, r, d) {
-                            $tool.setkeyval("ok", "dycodesub");
-                            $done()
-                        })
-                    } catch (e) {
-                        $done()
-                    }
-                } else {
-                    setTimeout(function () { $done() }, 500);
-                }
 
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
@@ -110,6 +95,22 @@ try {
                 else {
                     console.log("✳️" + d);
                 }
+
+                if (!$tool.getkeyval("dycodesub")) {
+                    try {
+                        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
+                        myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
+                        $tool.post(myRequest, function (e, r, d) {
+                            $tool.setkeyval("ok", "dycodesub");
+                            $done()
+                        })
+                    } catch (e) {
+                        $done()
+                    }
+                } else {
+                    setTimeout(function () { $done() }, 500);
+                }
+
             })
         } else {
             $tool.notify("请先刷视频获取headers", "多多益善", "");
