@@ -108,7 +108,7 @@ try {
                 } else {
                     setTimeout(function () {
                         $done()
-                    }, 100);
+                    }, 500);
                 }
             })
         } else {
