@@ -67,23 +67,7 @@ try {
                 body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
             $tool.post(myRequest, function (e, r, d) {
-                if (d.indexOf("成功") > -1) {
-                    var dataobj = JSON.parse(d);
-                    console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
-                }
-                else if (d.indexOf("10009") > -1) {
-                    if (index == list.length - 1) {
-                        $tool.setkeyval(JSON.stringify(list[0]), "thishead")
-                    } else {
-                        $tool.setkeyval(JSON.stringify(list[index + 1]), "thishead")
-                    }
-                    list.splice(index, 1);
-                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
-                    console.log("❌删除此条header,还剩" + list.length + "个\n")
-                }
-                else {
-                    console.log("✳️" + d);
-                }
+                
                 try {
                     myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("dyurl").split('?')[1];
                     $tool.get(myRequest, function (e, r, d) {
@@ -106,9 +90,25 @@ try {
                         $done()
                     }
                 } else {
-                    setTimeout(function () {
-                        $done()
-                    }, 500);
+                    setTimeout(function () { $done() }, 500);
+                }
+
+                if (d.indexOf("成功") > -1) {
+                    var dataobj = JSON.parse(d);
+                    console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
+                }
+                else if (d.indexOf("10009") > -1) {
+                    if (index == list.length - 1) {
+                        $tool.setkeyval(JSON.stringify(list[0]), "thishead")
+                    } else {
+                        $tool.setkeyval(JSON.stringify(list[index + 1]), "thishead")
+                    }
+                    list.splice(index, 1);
+                    $tool.setkeyval(JSON.stringify(list), "dyheadlist");
+                    console.log("❌删除此条header,还剩" + list.length + "个\n")
+                }
+                else {
+                    console.log("✳️" + d);
                 }
             })
         } else {
