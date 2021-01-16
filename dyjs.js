@@ -71,7 +71,7 @@ try {
                     var dataobj = JSON.parse(d);
                     console.log("♥️获得" + dataobj.data['score_amount'] + "个音符!\n")
                 }
-                if (d.indexOf("10009") > -1) {
+                else if (d.indexOf("10009") > -1) {
                     if (index == list.length - 1) {
                         $tool.setkeyval(JSON.stringify(list[0]), "thishead")
                     } else {
