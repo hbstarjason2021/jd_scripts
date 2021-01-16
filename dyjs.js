@@ -106,7 +106,9 @@ try {
                         $done()
                     }
                 } else {
-                    $done()
+                    setTimeout(function () {
+                        $done()
+                    }, 100);
                 }
             })
         } else {
