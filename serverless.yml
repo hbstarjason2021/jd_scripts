@@ -19,7 +19,7 @@ inputs:
     - timer: # 白条领券
         parameters:
           name:jd_baiTiao.js
-          cronExpression: "0 0 0 * * * *"
+          cronExpression: "0 0 0,9 * * * *"
           enable: true
           argument: jd_baiTiao.js
   environment: #  环境变量
