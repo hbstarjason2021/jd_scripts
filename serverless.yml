@@ -16,7 +16,7 @@ inputs:
   memorySize: 128 # 内存大小，单位MB
   timeout: 900 # 超时时间，单位秒
   events: # 触发器
-    - timer: # 签到
+    - timer: # 白条领券
         parameters:
           name:jd_baiTiao.js
           cronExpression: "0 0 0 * * * *"
