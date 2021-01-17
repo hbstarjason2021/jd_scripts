@@ -18,10 +18,10 @@ inputs:
   events: # 触发器
     - timer: # 白条领券
         parameters:
-          name:jd_baiTiao.js
+          name:jd_baiTiao
           cronExpression: "0 0 0,9 * * * *"
           enable: true
-          argument: jd_baiTiao.js
+          argument: jd_baiTiao
   environment: #  环境变量
     variables: #  环境变量对象
       AAA: BBB # 不要删除，用来格式化对齐追加的变量的
