@@ -22,7 +22,6 @@ inputs:
           cronExpression: "0 0 0 * * * *"
           enable: true
           argument: jd_baiTiao.js
-
   environment: #  环境变量
     variables: #  环境变量对象
       AAA: BBB # 不要删除，用来格式化对齐追加的变量的
