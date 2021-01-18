@@ -84,6 +84,7 @@ try {
                     //    console.log("❌错误:" + e + "\n");
                     //    $done();
                     //}
+                    $done();
                 }
                 else {
                     console.log("🚫" + "请求失败!\n");
