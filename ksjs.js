@@ -34,17 +34,17 @@ try {
 
         if (!!urllist) {
             var list = JSON.parse(urllist);
-
+            var index = 0;
             if (!!thisurl) {
                 if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == thisurl) {
-                        console.log("\n☢️第" + (i + 1) + "个url!\n");
                         if (list.length - 1 == i) {
                             $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
                         }
                         else {
                             $tool.setkeyval(JSON.stringify(list[i + 1]), "ksthisurl");
+                            index = i + 1;
                         }
                         break;
                     }
@@ -52,8 +52,8 @@ try {
             }
             else {
                 $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
-                console.log("\n☢️第0个url!\n");
             }
+            console.log("\n☢️第" + (index + 1) + "个url!\n");
 
             var request = $tool.getkeyval("ksthisurl");
             request = JSON.parse(request);
@@ -85,6 +85,7 @@ try {
                     //    console.log("\n❌错误:" + e + "\n");
                     //    $done();
                     //}
+                    $done();
                 }
                 else {
                     console.log("\n🚫" + "请求失败!\n");
