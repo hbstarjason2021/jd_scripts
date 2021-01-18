@@ -8,7 +8,7 @@ try {
         var url = $request;
         var urllist = $tool.getkeyval("ksurllist");
         //console.log("🍎🍎🍎🍎🍎" + JSON.stringify($request));
-        if (!!url && (url.headers['User-Agent'].indexOf("kwai") > -1 || url.headers['User-Agent'].indexOf("快手") > -1)) {
+        if (!!url && !!url.headers['User-Agent'] && (url.headers['User-Agent'].indexOf("kwai") > -1 || url.headers['User-Agent'].indexOf("快手") > -1)) {
             if (!!urllist) {
                 var list = JSON.parse(urllist);
                 list.push(url);
@@ -61,7 +61,7 @@ try {
                 url: request.url,
                 headers: request.headers
             };
-            
+
             //console.log(JSON.stringify(request.headers));
             $tool.get(myRequest, function (e, r, d) {
                 //console.log("✳️" + JSON.stringify(r.headers) + r.statusCode);
