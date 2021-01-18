@@ -37,12 +37,12 @@ try {
             var index = 0;
             if (!!thisurl) {
                 for (var i = 0; i < list.length; i++) {
-                    if (i == Number(thisurl)) {
+                    if (i == thisurl) {
                         if (list.length - 1 == i) {
                             $tool.setkeyval("0", "ksthisurl");
                         }
                         else {
-                            $tool.setkeyval((i + 1), "ksthisurl");
+                            $tool.setkeyval((i + 1).toString(), "ksthisurl");
                             index = i + 1;
                         }
                         break;
