@@ -63,6 +63,7 @@ try {
             //};
             var myRequest = list[index - 1];
             //request.headers['X-REQUESTID'] = Math.round(new Date()) + "25926";
+            console.log(JSON.stringify(myRequest));
 
             //console.log(JSON.stringify(request.headers));
             $tool.get(myRequest, function (e, r, d) {
