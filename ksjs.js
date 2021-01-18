@@ -61,7 +61,7 @@ try {
             //    url: request.url,
             //    headers: request.headers
             //};
-            var myRequest = list[index - 1];
+            var myRequest = list[index];
             //request.headers['X-REQUESTID'] = Math.round(new Date()) + "25926";
             console.log(JSON.stringify(list));
 
