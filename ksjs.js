@@ -17,7 +17,7 @@ try {
                 var list = [];
                 list.push(url);
             }
-            if (typeof url.headers['Cookie'] != "undefined" && !!url.headers['Cookie'] && url.url.indexOf("clientEvent/sync") > -1) {
+            if (typeof url.headers['Cookie'] != "undefined" && !!url.headers['Cookie']) {
                 $tool.setkeyval(JSON.stringify(url.headers['Cookie']), "kscookie");
                 $tool.notify("获取Cookie成功", "", "");
             }
