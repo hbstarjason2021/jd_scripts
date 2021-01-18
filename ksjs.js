@@ -36,14 +36,14 @@ try {
             var list = JSON.parse(urllist);
             var index = 0;
             if (!!thisurl) {
-                if (thisurl.indexOf('"') > -1) thisurl = thisurl.replace(/"/g, '');
+                if (!thisurl) 
                 for (var i = 0; i < list.length; i++) {
-                    if (JSON.stringify(list[i]) == thisurl) {
+                    if (i == Number(thisurl)) {
                         if (list.length - 1 == i) {
-                            $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
+                            $tool.setkeyval("0", "ksthisurl");
                         }
                         else {
-                            $tool.setkeyval(JSON.stringify(list[i + 1]), "ksthisurl");
+                            $tool.setkeyval(i + 1, "ksthisurl");
                             index = i + 1;
                         }
                         break;
@@ -51,16 +51,17 @@ try {
                 }
             }
             else {
-                $tool.setkeyval(JSON.stringify(list[0]), "ksthisurl");
+                $tool.setkeyval("0", "ksthisurl");
             }
             console.log("\n☢️第" + (index + 1) + "个url!\n");
 
-            var request = $tool.getkeyval("ksthisurl");
-            request = JSON.parse(request);
-            var myRequest = {
-                url: request.url,
-                headers: request.headers
-            };
+            //var request = $tool.getkeyval("ksthisurl");
+            //request = JSON.parse(request);
+            //var myRequest = {
+            //    url: request.url,
+            //    headers: request.headers
+            //};
+            var myRequest = list[index - 1];
             //request.headers['X-REQUESTID'] = Math.round(new Date()) + "25926";
 
             //console.log(JSON.stringify(request.headers));
