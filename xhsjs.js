@@ -33,7 +33,7 @@ try {
                 var list = [];
                 list.push(headers)
             }
-            $tool.notify("获取headers成功", "个数:" + list.length, "");
+            $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
             $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
             console.log("✳️" + JSON.stringify(list))
         }
