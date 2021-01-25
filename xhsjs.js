@@ -22,11 +22,12 @@ var $tool = tool();
 try {
     if (typeof $request != "undefined") {
         console.log("🍇小火山极速获取headers脚本开始!");
+        console.log("body:" + $response.body);
         var headers = $request.headers;
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
         if (!!headers) {
-            console.log("body:" + $response.body);
+            
             if ($response.body.indexOf("成功") > -1) {
                 if (!!headlist) {
                     var list = JSON.parse(headlist);
