@@ -1,6 +1,6 @@
 // JavaScript source code
 
-document.write('²âÊÔ:<input type="text"/><input type="button" id="btn" value="²âÊÔ" />');
+document.write('æµ‹è¯•:<input type="text"/><input type="button" id="btn" value="" />');
 $("#btn").click(function () {
     console.log(1111111);
 })
