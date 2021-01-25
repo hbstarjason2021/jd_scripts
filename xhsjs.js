@@ -20,7 +20,7 @@
 
 var $tool = tool();
 try {
-    if (typeof $request != "undefined") {
+    if (typeof $response != "undefined") {
         console.log("🍇小火山极速获取headers脚本开始!");
         console.log("body:" + $response.body);
         console.log("headers:" + $request);
