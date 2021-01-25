@@ -80,6 +80,7 @@ try {
                     } else {
                         $tool.setkeyval(JSON.stringify(list[index + 1]), "xhsthishead")
                     }
+                    console.log("✳️" + d + "\n");
                     list.splice(index, 1);
                     $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
                     console.log("\n❌删除此条header,还剩" + list.length + "个\n")
