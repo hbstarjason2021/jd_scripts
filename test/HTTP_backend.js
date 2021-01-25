@@ -6,7 +6,7 @@ $.get({ url: "https://gitee.com/passerby-b/javascript/raw/master/test/HTTP_backe
     $done(d);
 });
 
-$done(html);
+$done("");
 
 function tool() {
     var isLoon = typeof $httpClient != "undefined";
