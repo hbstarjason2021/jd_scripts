@@ -23,7 +23,7 @@ try {
     if (typeof $response != "undefined") {
         console.log("🍇小火山极速获取headers脚本开始!");
         console.log("body:" + $response.body);
-        console.log("headers:" + $request.headers);
+        console.log("headers:" + JSON.stringify($request));
         var headers = $request.headers;
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
