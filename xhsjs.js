@@ -25,7 +25,7 @@ try {
         console.log("body:" + $response.body);
         console.log("headers:" + JSON.stringify($request));
         var headers = $request.headers;
-        console.log("headerssssss:" + headers);
+        console.log("headerssssss:" + JSON.stringify(headers));
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
         if (!!headers) {
