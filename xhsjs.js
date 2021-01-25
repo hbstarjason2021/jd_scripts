@@ -30,17 +30,21 @@ try {
             if ($response.body.indexOf("成功") > -1) {
                 if (!!headlist) {
                     var list = JSON.parse(headlist);
-                    list.push(headers)
+                    list.push(headers);
                 } else {
                     var list = [];
-                    list.push(headers)
+                    list.push(headers);
                 }
                 $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
                 $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
-                console.log("✳️" + JSON.stringify(list))
+                console.log("✳️" + JSON.stringify(list));
+
+                $done();
             }
+            else $done();
         }
-        $done()
+        else $done();
+        
     } else {
         console.log("\n🍇🍇🍇🍇🍇🍇小火山极速刷视频脚本开始!\n");
         var headlist = $tool.getkeyval("xhsheadlist");
