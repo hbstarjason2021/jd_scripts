@@ -27,7 +27,7 @@ try {
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
         if (!!headers) {
-            
+            console.log("xxxxxx:");
             if ($response.body.indexOf("成功") > -1) {
                 if (!!headlist) {
                     var list = JSON.parse(headlist);
