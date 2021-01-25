@@ -119,8 +119,9 @@ try {
                 //}
 
             })
-        } else {
-            $tool.notify("请先刷视频获取headers", "多多益善", "");
+        }
+        else if (!headlist || headlist.length == 0) {
+            $tool.notify("请先刷小火山视频获取headers", "多多益善", "");
             $done()
         }
     }
