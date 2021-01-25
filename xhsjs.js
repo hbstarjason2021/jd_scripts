@@ -26,16 +26,18 @@ try {
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
         if (!!headers) {
-            if (!!headlist) {
-                var list = JSON.parse(headlist);
-                list.push(headers)
-            } else {
-                var list = [];
-                list.push(headers)
+            if ($response.body.indexOf("成功") > -1) {
+                if (!!headlist) {
+                    var list = JSON.parse(headlist);
+                    list.push(headers)
+                } else {
+                    var list = [];
+                    list.push(headers)
+                }
+                $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
+                $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
+                console.log("✳️" + JSON.stringify(list))
             }
-            $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
-            $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
-            console.log("✳️" + JSON.stringify(list))
         }
         $done()
     } else {
