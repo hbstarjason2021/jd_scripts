@@ -38,7 +38,7 @@ try {
             console.log(vurl);
 
             delete headers.Host;
-            $tool.get({ url: vurl, headers: headers }, function (e, r, d) {
+            $tool.get({ url: vurl }, function (e, r, d) {
                 console.log("\n🍎" + r.statusCode);
                 $done();
             })
