@@ -74,11 +74,10 @@ try {
                 headers: JSON.parse($tool.getkeyval("xhsthishead")),
                 //body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
-            $tool.post(myRequest,
-            function (e, r, d) {
+            $tool.post(myRequest, function (e, r, d) {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
-                    console.log("\n♥️获得🍒" + dataobj.data['score_amount'] + "🍒个金币!\n");
+                    console.log("\n♥️获得🍒" + dataobj.data['amount'] + "🍒个金币!\n");
                     $done();
                 }
                     //else if (d.indexOf("10009") > -1) {
