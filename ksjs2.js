@@ -35,7 +35,7 @@ try {
 
             var obj = JSON.parse(d);
             var vurl = obj.feeds[0]['cover_thumbnail_urls'][0].url
-            //console.log(url);
+            console.log(url);
 
             $tool.get({ url: vurl, headers: headers }, function (e, r, d) {
                 console.log("\n🍎" + JSON.stringify(r));
