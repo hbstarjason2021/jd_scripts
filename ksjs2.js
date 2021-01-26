@@ -38,7 +38,7 @@ try {
             console.log(vurl);
 
             $tool.get({ url: vurl }, function (e, r, d) {
-                console.log("\n🍎" + JSON.stringify(r));
+                console.log("\n🍎" + r.statusCode);
                 $done();
             })
 
