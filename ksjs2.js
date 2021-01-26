@@ -37,7 +37,7 @@ try {
             var vurl = obj.feeds[0]['cover_thumbnail_urls'][0].url
             console.log(vurl);
 
-            $tool.get({ url: vurl, headers: headers }, function (e, r, d) {
+            $tool.get({ url: vurl }, function (e, r, d) {
                 console.log("\n🍎" + JSON.stringify(r));
                 $done();
             })
