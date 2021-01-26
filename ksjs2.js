@@ -34,10 +34,10 @@ try {
             //$done();
 
             var obj = JSON.parse(d);
-            var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
+            var vurl = obj.feeds[0]['cover_thumbnail_urls'][0].url
             //console.log(url);
 
-            $tool.get({ url: url, headers: headers }, function (e, r, d) {
+            $tool.get({ url: vurl, headers: headers }, function (e, r, d) {
                 console.log("\n🍎" + JSON.stringify(r));
                 $done();
             })
