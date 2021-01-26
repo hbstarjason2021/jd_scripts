@@ -87,7 +87,7 @@ try {
                     //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
                     //}
                 else {
-                    console.log("✳️" + d + "\n")
+                    console.log("♨️" + d + "\n")
                     $done();
                 }
                 //try {
