@@ -53,7 +53,7 @@ try {
                     if (JSON.stringify(list[i]) == xhsthishead) {
                         isexist = true;
                         if (list.length - 1 == i) {
-                            $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
+                            $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
                         } else {
                             $tool.setkeyval(JSON.stringify(list[i + 1]), "xhsthishead");
                             index = i + 1
@@ -68,6 +68,7 @@ try {
                 $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
             }
             console.log("\n🥩开始刷第" + (index + 1) + "个headers,共" + list.length + "个headers\n");
+            console.log("xxxxx" + $tool.getkeyval("xhsthishead"));
             var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_60m?" + $tool.getkeyval("xhsurl").split('?')[1];
             var myRequest = {
                 url: urlreplace,
@@ -91,39 +92,10 @@ try {
                     //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
                     //}
                 else {
-                    console.log("\n♨️" + d + "\n")
+                    console.log("\n♨️" + d + "\n");
                     $done();
                 }
-                //try {
-                //    if (isShowCionDetail) {
-                //        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("xhsurl").split('?')[1];
-                //        $tool.get(myRequest,
-                //        function (e, r, d) {
-                //            d = JSON.parse(d);
-                //            console.log("\n🎁总音符:" + d.data.income_data.amount1 + "个!");
-                //            console.log("\n🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
-                //            console.log("\n🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n")
-                //        })
-                //    }
-                //} catch (e) { }
-                //if (!$tool.getkeyval("dycodesub")) {
-                //    try {
-                //        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("xhsurl").split('?')[1];
-                //        myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
-                //        $tool.post(myRequest,
-                //        function (e, r, d) {
-                //            $tool.setkeyval("ok", "dycodesub");
-                //            $done()
-                //        })
-                //    } catch (e) {
-                //        $done()
-                //    }
-                //} else {
-                //    setTimeout(function () {
-                //        $done()
-                //    },
-                //    500)
-                //}
+
             })
         }
         else if (headlist == "[]") {
