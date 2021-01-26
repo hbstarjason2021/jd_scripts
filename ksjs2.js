@@ -24,8 +24,13 @@ try {
         body: body
     };
     $tool.post(myRequest, function (e, r, d) {
-        console.log(d);
-        $done();
+        try {
+            var obj = JSON.parse(d);
+            console.log(obj.feeds[0]['cover_thumbnail_urls'][0].url);
+            $done();
+        } catch (e) {
+            $done();
+        }
     })
 
 
