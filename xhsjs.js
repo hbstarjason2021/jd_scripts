@@ -68,8 +68,8 @@ try {
                 $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
             }
             console.log("\n🥩开始刷第" + (index + 1) + "个headers,共" + list.length + "个headers\n");
-            console.log("xxxxx" + $tool.getkeyval("xhsthishead"));
-            var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_60m?" + $tool.getkeyval("xhsurl").split('?')[1];
+            console.log("xxxxx" + JSON.parse($tool.getkeyval("xhsthishead"))['tt-request-time']);
+            var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_30m?" + $tool.getkeyval("xhsurl").split('?')[1];
             var myRequest = {
                 url: urlreplace,
                 headers: JSON.parse($tool.getkeyval("xhsthishead")),
