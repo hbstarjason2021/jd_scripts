@@ -18,21 +18,26 @@ try {
         "Accept-Encoding": "gzip, deflate"
     };
     var body = '__NS_sig3=b9a8e6eb3c4c87cef5f1f2f3080ad86ce534e58bece0eef8&__NStokensig=8fd7af06b7dcf986a1afc3a9192b2981f8f34ca0a5e64bb7ef22afc6acfbe4fc&autoRefresh=true&client_key=63b2bdd7&coldStart=true&count=20&country_code=cn&cs=false&global_id=DFPBE776E06915E260042BF1A5030782131EE36C54E68EE55F68A47E37C1F1DC&id=1&kuaishou.api_st=Cg9rdWFpc2hvdS5hcGkuc3QSsAHo3R4wTXI-IDan_hOWXKSbxIsdu-iEFmubACjHfGlTlUDrppJPWXFF6GWsrsvDnKPBGNieynpp3lDRfZBEN3YLoLflnNaKTHztyVEcE0UI7wzkjzYgzrPu0tYTMrl6bwMojyYmOwbCEaHyRz2Qvi7Gg_7_JZG7j6P-n7TfDuq0daGnpg7OzLLb1i6bIPBIUDIyA01MB15rKmi0T8h0sY5GwM6_K1Gj51mSJuTG8nYxCRoST0L-mU7dTea6BfqLSFmBumSbIiCNJ7baMjaaCl6MxpLltOarQt9662MVs_tLgMqCYgZ5GCgFMAE&language=zh-Hans-CN%3Bq%3D1%2C%20en-CN%3Bq%3D0.9&needInterestTag=0&newUserRefreshTimes=-1&page=1&power_mode=0&pv=false&realtimePlayStats=&recoReportContext=%7B%22adClientInfo%22%3A%7B%22deviceStatDiskfree%22%3A45395%2C%22unexposedAds%22%3A%22%5B%5D%22%2C%22playedDurationInterval%22%3A%5B%5B0%2C0%2C0%2C0%2C0%2C0%2C0%5D%2C%5B0%2C0%2C0%2C0%2C0%2C0%2C0%5D%2C%5B0%2C0%2C0%2C0%2C0%2C0%2C0%5D%5D%7D%7D&refreshTimes=0&seid=3CDD3D57-9E3D-4DA7-9806-51E689137FBB&sig=8387ac06c3e87de7a9e156c3250a2adc&source=1&type=7';
+    var bodyFilter = 'var result = JSON.parse(body); return result.feeds[0]["cover_thumbnail_urls"][0].url;';
     var myRequest = {
         url: url,
         headers: headers,
-        body: body
+        body: body,
+        opts: { 'filter': bodyFilter }
     };
+    
     $tool.post(myRequest, function (e, r, d) {
         try {
-            var obj = JSON.parse(d);
-            var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
-            //console.log(url);
+            //var obj = JSON.parse(d);
+            //var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
+            ////console.log(url);
 
-            $tool.post({ url: url, headers: headers }, function (e, r, d) {
-                console.log("🍎" + JSON.stringify(r));
-                $done();
-            })
+            //$tool.post({ url: url, headers: headers }, function (e, r, d) {
+            //    console.log("🍎" + JSON.stringify(r));
+            //    $done();
+            //})
+            console.log(d);
+            $done();
             
         } catch (e) {
             $done();
