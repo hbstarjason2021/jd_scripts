@@ -8,49 +8,40 @@
 
 //==========================Quantumultx=========================
 // [task_local]
-// */30 * * * * * https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, tag=抖音极速版刷音符, enabled=true
+// */30 * * * * * https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, tag=小火山极速版刷音符, enabled=true
 
 // [rewrite_local]
 // snssdk.com/luckycat/aweme/v1/task/done/read? url script-request-header https://gitee.com/passerby-b/javascript/raw/master/dyjs.js
 
 // =========================Loon=============================
 // [Script]
-// snssdk.com/luckycat/aweme/v1/task/done/read? script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, requires-body=true, timeout=10, tag=抖音极速版刷音符
-// cron "*/30 * * * * *" script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js,tag=抖音极速版刷音符
+// snssdk.com/luckycat/aweme/v1/task/done/read? script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, requires-body=true, timeout=10, tag=小火山极速版刷音符
+// cron "*/30 * * * * *" script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js,tag=小火山极速版刷音符
+
+var isShowCionDetail = false;//显示收益详情
 
 var $tool = tool();
 try {
-    if (typeof $response != "undefined") {
-        console.log("🍇小火山极速获取headers脚本开始!");
+    if (typeof $request != "undefined") {
+        console.log("🍓🍓🍓🍓小火山极速获取headers脚本开始!");
         var headers = $request.headers;
         var headlist = $tool.getkeyval("xhsheadlist");
         $tool.setkeyval($request.url, "xhsurl");
-
-        console.log("hxxxxxx:" + JSON.stringify($request));
-        console.log("bxxxxxx:" + $response.body);
-
         if (!!headers) {
-            console.log("xxxxxx:");
-            if ($response.body.indexOf("成功") > -1) {
-                if (!!headlist) {
-                    var list = JSON.parse(headlist);
-                    list.push(headers);
-                } else {
-                    var list = [];
-                    list.push(headers);
-                }
-                $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
-                $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
-                console.log("✳️" + JSON.stringify(list));
-
-                $done();
+            if (!!headlist) {
+                var list = JSON.parse(headlist);
+                list.push(headers)
+            } else {
+                var list = [];
+                list.push(headers)
             }
-            else $done();
+            $tool.notify("获取headers成功", "个数:" + list.length, "");
+            $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
+            console.log("✳️" + JSON.stringify(list))
         }
-        else $done();
-        
+        $done()
     } else {
-        console.log("\n🍇🍇🍇🍇🍇🍇小火山极速刷视频脚本开始!\n");
+        console.log("\n🍓🍓🍓🍓🍓🍓小火山极速刷视频脚本开始!\n");
         var headlist = $tool.getkeyval("xhsheadlist");
         var xhsthishead = $tool.getkeyval("xhsthishead");
         if (!!headlist) {
@@ -71,52 +62,50 @@ try {
             } else {
                 $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
             }
-            console.log("\n🍑开始刷第" + index + "个headers,共" + list.length + "个headers\n");
+            console.log("\n☢️开始刷第" + index + "个headers,共" + list.length + "个headers\n");
             var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_60m?" + $tool.getkeyval("xhsurl").split('?')[1];
             var myRequest = {
                 url: urlreplace,
                 headers: JSON.parse($tool.getkeyval("xhsthishead")),
                 //body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
-                body: ''
             };
-            $tool.post(myRequest, function (e, r, d) {
+            $tool.post(myRequest,
+            function (e, r, d) {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
-                    console.log("\n🍭获得" + dataobj.data['amount'] + "个金币!\n");
-                    $done();
+                    console.log("\n♥️获得🍒" + dataobj.data['score_amount'] + "🍒个金币!\n")
                 }
-                else if (d.indexOf("10009") > -1) {
-                    if (index == list.length - 1) {
-                        $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
-                    } else {
-                        $tool.setkeyval(JSON.stringify(list[index + 1]), "xhsthishead");
-                    }
-                    console.log("✳️" + d + "\n");
-                    list.splice(index, 1);
-                    $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
-                    console.log("\n❌删除此条header,还剩" + list.length + "个\n");
-                    $done();
-                }
+                //else if (d.indexOf("10009") > -1) {
+                //    if (index == list.length - 1) {
+                //        $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
+                //    } else {
+                //        $tool.setkeyval(JSON.stringify(list[index + 1]), "xhsthishead")
+                //    }
+                //    list.splice(index, 1);
+                //    $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
+                //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
+                //}
                 else {
-                    console.log("✳️" + d + "\n");
-                    $done();
+                    console.log("✳️" + d + "\n")
                 }
-
                 //try {
-                //    myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("xhsurl").split('?')[1];
-                //    $tool.get(myRequest, function (e, r, d) {
-                //        d = JSON.parse(d);
-                //        console.log("\n🎁总音符:" + d.data.income_data.amount1 + "个!");
-                //        console.log("\n🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
-                //        console.log("\n🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n");
-                //    })
+                //    if (isShowCionDetail) {
+                //        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?_request_from=web&" + $tool.getkeyval("xhsurl").split('?')[1];
+                //        $tool.get(myRequest,
+                //        function (e, r, d) {
+                //            d = JSON.parse(d);
+                //            console.log("\n🎁总音符:" + d.data.income_data.amount1 + "个!");
+                //            console.log("\n🎁现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
+                //            console.log("\n🎁累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\n")
+                //        })
+                //    }
                 //} catch (e) { }
-
                 //if (!$tool.getkeyval("dycodesub")) {
                 //    try {
                 //        myRequest.url = "https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/done/post_invite_code?_request_from=web&" + $tool.getkeyval("xhsurl").split('?')[1];
                 //        myRequest.body = '{\n  "in_sp_time" : 0,\n  "invite_code" : "8085708231"\n}';
-                //        $tool.post(myRequest, function (e, r, d) {
+                //        $tool.post(myRequest,
+                //        function (e, r, d) {
                 //            $tool.setkeyval("ok", "dycodesub");
                 //            $done()
                 //        })
@@ -126,13 +115,12 @@ try {
                 //} else {
                 //    setTimeout(function () {
                 //        $done()
-                //    }, 500);
+                //    },
+                //    500)
                 //}
-
             })
-        }
-        if (!headlist || headlist == "[]") {
-            $tool.notify("请先刷小火山视频获取headers", "多多益善", "");
+        } else {
+            $tool.notify("请先刷视频获取headers", "多多益善", "");
             $done()
         }
     }
@@ -189,12 +177,14 @@ function tool() {
                 options["method"] = "GET";
                 $task.fetch(options).then(function (response) {
                     callback(null, adapterStatus(response), response.body)
-                }, function (reason) {
+                },
+                function (reason) {
                     callback(reason.error, null, null)
                 })
             }
             if (isLoon) {
-                $httpClient.get(options, function (error, response, body) {
+                $httpClient.get(options,
+                function (error, response, body) {
                     callback(error, adapterStatus(response), body)
                 })
             }
@@ -209,12 +199,14 @@ function tool() {
                 options["method"] = "POST";
                 $task.fetch(options).then(function (response) {
                     callback(null, adapterStatus(response), response.body)
-                }, function (reason) {
+                },
+                function (reason) {
                     callback(reason.error, null, null)
                 })
             }
             if (isLoon) {
-                $httpClient.post(options, function (error, response, body) {
+                $httpClient.post(options,
+                function (error, response, body) {
                     callback(error, adapterStatus(response), body)
                 })
             }
@@ -248,7 +240,6 @@ function tool() {
             }
         }
     };
-
     function adapterStatus(response) {
         if (response) {
             if (response.status) {
@@ -263,4 +254,5 @@ function tool() {
     }
     return obj
 };
+
 
