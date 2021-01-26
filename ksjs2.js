@@ -34,7 +34,7 @@ try {
             //$done();
 
             var obj = JSON.parse(d);
-            var vurl = obj.feeds[0]['cover_thumbnail_urls'][1].url
+            var vurl = obj.feeds[1]['ff_cover_thumbnail_urls'][0].url;
             console.log(vurl);
 
             delete headers.Host;
