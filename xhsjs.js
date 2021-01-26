@@ -48,8 +48,10 @@ try {
             var index = 0;
             var list = JSON.parse(headlist);
             if (!!xhsthishead) {
+                var isexist = false;
                 for (var i = 0; i < list.length; i++) {
                     if (JSON.stringify(list[i]) == xhsthishead) {
+                        isexist = true;
                         if (list.length - 1 == i) {
                             $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
                         } else {
@@ -59,8 +61,11 @@ try {
                         break
                     }
                 }
+                if (!isexist) {
+                    $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
+                }
             } else {
-                $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
+                $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
             }
             console.log("\n☢️开始刷第" + index + "个headers,共" + list.length + "个headers\n");
             var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_60m?" + $tool.getkeyval("xhsurl").split('?')[1];
