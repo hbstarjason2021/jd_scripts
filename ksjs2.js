@@ -26,8 +26,14 @@ try {
     $tool.post(myRequest, function (e, r, d) {
         try {
             var obj = JSON.parse(d);
-            console.log(obj.feeds[0]['cover_thumbnail_urls'][0].url);
-            $done();
+            var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
+            //console.log(url);
+
+            $tool.post({ url: url, headers: headers }, function (e, r, d) {
+                console.log("🍎" + JSON.stringify(r));
+                $done();
+            })
+            
         } catch (e) {
             $done();
         }
