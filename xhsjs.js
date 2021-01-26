@@ -71,7 +71,7 @@ try {
             console.log("xxxxx" + JSON.parse($tool.getkeyval("xhsthishead"))['tt-request-time']);
             var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_30m?" + $tool.getkeyval("xhsurl").split('?')[1];
             var myRequest = {
-                url: urlreplace,
+                url: 'https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_30m?version_code=7.6.4&app_name=live_stream_lite&vid=EC47716C-499A-468E-939B-E88153DE5BDA&device_id=58019842405&new_nav=0&channel=App%20Store&aid=1350&screen_width=1242&client_request_id=8df648afed849eb6e5276a5e608f25a5&openudid=34cb85857d1f88e6de60249e44497d9c38b3ba2e&live_sdk_version=7.6.4&update_version_code=7642&os_api=18&ws_status=CONNECTED&ac=WIFI&mccmnc=46002&os_version=14.1&client_version_code=764&device_platform=iphone&iid=3536445627444782&device_type=iPhone11,6&idfa=00000000-0000-0000-0000-000000000000',
                 headers: JSON.parse($tool.getkeyval("xhsthishead")),
                 //body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
             };
