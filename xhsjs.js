@@ -67,7 +67,7 @@ try {
             } else {
                 $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead");
             }
-            console.log("\n☢️开始刷第" + index + "个headers,共" + list.length + "个headers\n");
+            console.log("\n☢️开始刷第" + (index + 1) + "个headers,共" + list.length + "个headers\n");
             var urlreplace = "https://ib-hl.snssdk.com/luckycat/hotsoon/v1/task/done/daily_read_60m?" + $tool.getkeyval("xhsurl").split('?')[1];
             var myRequest = {
                 url: urlreplace,
@@ -92,7 +92,7 @@ try {
                     //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
                     //}
                 else {
-                    console.log("♨️" + d + "\n")
+                    console.log("\n♨️" + d + "\n")
                     $done();
                 }
                 //try {
