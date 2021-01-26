@@ -21,7 +21,7 @@ try {
         url: url,
         headers: headers
     };
-    $tool.get(myRequest, function (e, r, d) {
+    $tool.post(myRequest, function (e, r, d) {
         console.log(d);
         $done();
     })
