@@ -21,28 +21,38 @@ try {
     var bodyFilter = 'var result = JSON.parse(body); return result.feeds[0]["cover_thumbnail_urls"][0].url;';
     var myRequest = {
         url: url,
+        method: "POST",
         headers: headers,
         body: body,
         opts: { 'filter': bodyFilter }
     };
-    
-    $tool.post(myRequest, function (e, r, d) {
-        try {
-            //var obj = JSON.parse(d);
-            //var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
-            ////console.log(url);
 
-            //$tool.post({ url: url, headers: headers }, function (e, r, d) {
-            //    console.log("🍎" + JSON.stringify(r));
-            //    $done();
-            //})
-            console.log(d);
-            $done();
-            
-        } catch (e) {
-            $done();
-        }
-    })
+    $task.fetch(myRequest).then(function (response) {
+        console.log(response.body);
+
+        $done();
+    }, function (reason) {
+        $done();
+        // reason.error
+    });
+
+    //$tool.post(myRequest, function (e, r, d) {
+    //    try {
+    //        //var obj = JSON.parse(d);
+    //        //var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
+    //        ////console.log(url);
+
+    //        //$tool.post({ url: url, headers: headers }, function (e, r, d) {
+    //        //    console.log("🍎" + JSON.stringify(r));
+    //        //    $done();
+    //        //})
+    //        console.log(d);
+    //        $done();
+
+    //    } catch (e) {
+    //        $done();
+    //    }
+    //})
 
 
 } catch (e) {
