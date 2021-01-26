@@ -30,15 +30,15 @@ try {
     $tool.post(myRequest, function (e, r, d) {
         try {
 
-            console.log(d);
-            $done();
+            //console.log(d);
+            //$done();
 
             var obj = JSON.parse(d);
             var url = obj.feeds[0]['cover_thumbnail_urls'][0].url
             //console.log(url);
 
             $tool.post({ url: url, headers: headers }, function (e, r, d) {
-                console.log("🍎" + JSON.stringify(r));
+                console.log("\n🍎" + JSON.stringify(r));
                 $done();
             })
 
