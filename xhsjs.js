@@ -35,7 +35,7 @@ try {
                 var list = [];
                 list.push(headers)
             }
-            $tool.notify("获取headers成功", "个数:" + list.length, "");
+            $tool.notify("小火山获取headers成功", "个数:" + list.length, "");
             $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
             console.log("✳️" + JSON.stringify(list))
         }
@@ -73,20 +73,22 @@ try {
             function (e, r, d) {
                 if (d.indexOf("成功") > -1) {
                     var dataobj = JSON.parse(d);
-                    console.log("\n♥️获得🍒" + dataobj.data['score_amount'] + "🍒个金币!\n")
+                    console.log("\n♥️获得🍒" + dataobj.data['score_amount'] + "🍒个金币!\n");
+                    $done();
                 }
-                //else if (d.indexOf("10009") > -1) {
-                //    if (index == list.length - 1) {
-                //        $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
-                //    } else {
-                //        $tool.setkeyval(JSON.stringify(list[index + 1]), "xhsthishead")
-                //    }
-                //    list.splice(index, 1);
-                //    $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
-                //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
-                //}
+                    //else if (d.indexOf("10009") > -1) {
+                    //    if (index == list.length - 1) {
+                    //        $tool.setkeyval(JSON.stringify(list[0]), "xhsthishead")
+                    //    } else {
+                    //        $tool.setkeyval(JSON.stringify(list[index + 1]), "xhsthishead")
+                    //    }
+                    //    list.splice(index, 1);
+                    //    $tool.setkeyval(JSON.stringify(list), "xhsheadlist");
+                    //    console.log("\n❌删除此条header,还剩" + list.length + "个\n")
+                    //}
                 else {
                     console.log("✳️" + d + "\n")
+                    $done();
                 }
                 //try {
                 //    if (isShowCionDetail) {
@@ -119,9 +121,14 @@ try {
                 //    500)
                 //}
             })
-        } else {
+        }
+        else if (headlist == "[]") {
             $tool.notify("请先刷视频获取headers", "多多益善", "");
-            $done()
+            $done();
+        }
+        else {
+            $tool.notify("请先刷视频获取headers", "多多益善", "");
+            $done();
         }
     }
 } catch (e) {
