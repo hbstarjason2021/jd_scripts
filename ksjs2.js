@@ -81,7 +81,7 @@ try {
                         $done();
                     }
 
-                }, 1000 * obj.feeds.length);
+                }, 1010 * obj.feeds.length);
 
             }
 
