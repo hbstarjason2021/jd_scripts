@@ -33,11 +33,11 @@ try {
 
             for (var i = 0; i < obj.feeds.length; i++) {
 
-                var vurl = obj.feeds[i]['cover_thumbnail_urls'][0].url;
-                var vurl2 = obj.feeds[i]['cover_thumbnail_urls'][1].url;
+                var vurl = obj.feeds[i]['main_mv_urls'][0].url;
+                var vurl2 = obj.feeds[i]['main_mv_urls'][1].url;
                 try {
-                    vurl = obj.feeds[i]['ff_cover_thumbnail_urls'][0].url;
-                    vurl2 = obj.feeds[i]['ff_cover_thumbnail_urls'][1].url;
+                    vurl = obj.feeds[i]['main_mv_urls_h265'][0].url;
+                    vurl2 = obj.feeds[i]['main_mv_urls_h265'][1].url;
                 } catch (e) {}
                 //console.log("\n" + vurl);
                 //console.log("\n" + vurl2);
