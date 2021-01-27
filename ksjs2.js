@@ -50,7 +50,7 @@ try {
                     'X-Client-Info' : 'model=iPhone11,6;os=iOS;nqe-score=96;network=WIFI;',
                     'Accept-Language' : 'en-US,en',
                     'user-agent' : 'i/com.kuaishou.nebula/9.0.40/r4.2.5.4.0.a94012b/852989JGwCS2AKLspzmfDWGZPShcvFVx/889628gv7m4feMpsjMlzHuXbmOMHO9Jb/cache',
-                    'Range' : 'bytes=0-1048575',
+                    //'Range' : 'bytes=0-1048575',
                     'Request-Id' : '889628gv7m4feMpsjMlzHuXbmOMHO9Jb'
                 };
                 setTimeout(function () {
