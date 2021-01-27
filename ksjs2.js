@@ -33,12 +33,12 @@ try {
 
             for (var i = 0; i < obj.feeds.length; i++) {
 
-                var vurl = obj.feeds[i]['main_mv_urls'][0].url;
-                var vurl2 = obj.feeds[i]['main_mv_urls'][1].url;
-                try {
-                    vurl = obj.feeds[i]['main_mv_urls_h265'][0].url;
-                    vurl2 = obj.feeds[i]['main_mv_urls_h265'][1].url;
-                } catch (e) {}
+                var url_mp4 = obj.feeds[i]['main_mv_urls'][0].url;
+                var url2_mp4 = obj.feeds[i]['main_mv_urls'][1].url;
+
+                var url_kpg = obj.feeds[i]['cover_thumbnail_urls'][0].url;
+                var url2_kpg = obj.feeds[i]['cover_thumbnail_urls'][1].url;
+                
                 //console.log("\n" + vurl);
                 //console.log("\n" + vurl2);
 
@@ -54,16 +54,25 @@ try {
                 };
                 setTimeout(function () {
 
-                    $tool.get({ url: vurl, headers: heade }, function (e2, r2, d2) {
+                    $tool.get({ url: url_mp4, headers: heade }, function (e2, r2, d2) {
                         console.log("\n🍎" + r2.statusCode);
                         //$done();
                     })
 
-                    $tool.get({ url: vurl2, headers: heade }, function (e2, r2, d2) {
+                    $tool.get({ url: url2_mp4, headers: heade }, function (e2, r2, d2) {
                         console.log("\n🍎🍎" + r2.statusCode);
                         //$done();
                     })
-                    //console.log("\n🍎🍎🍎");
+                    
+                    $tool.get({ url: url_kpg, headers: heade }, function (e2, r2, d2) {
+                        console.log("\n🍎🍎🍎" + r2.statusCode);
+                        //$done();
+                    })
+
+                    $tool.get({ url: url2_kpg, headers: heade }, function (e2, r2, d2) {
+                        console.log("\n🍎🍎🍎🍎" + r2.statusCode);
+                        //$done();
+                    })
 
                 }, 1000 * (i + 1));
 
