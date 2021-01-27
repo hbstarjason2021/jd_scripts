@@ -61,27 +61,26 @@ try {
                         //$done();
                     })
 
-                }, 1000 * (i + 1));
+                }, 2000 * (i + 1));
 
                 setTimeout(function () {
 
-                    //try {
-                    //    myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
+                    try {
+                        myRequest.url = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview?addressBookAccessStatus=false";
 
-                    //    $tool.get(myRequest, function (e2, r2, d2) {
-                    //        d2 = JSON.parse(d2);
-                    //        console.log("\n🎁总现金:" + d2.data.totalCash + "\n");
-                    //        console.log("\n🎁总金币:" + d2.data.totalCoin + "\n");
-                    //        //console.log("♥️总金币:" + d2);
+                        $tool.get(myRequest, function (e2, r2, d2) {
+                            d2 = JSON.parse(d2);
+                            console.log("\n🎁总现金:" + d2.data.totalCash + "\n");
+                            console.log("\n🎁总金币:" + d2.data.totalCoin + "\n");
+                            //console.log("♥️总金币:" + d2);
 
-                    //        $done();
-                    //    })
-                    //} catch (e) {
-                    //    console.log("\n❌错误:" + e + "\n");
-                    //    $done();
-                    //}
-                    $done();
-                }, 1010 * obj.feeds.length);
+                            $done();
+                        })
+                    } catch (e) {
+                        console.log("\n❌错误:" + e + "\n");
+                        $done();
+                    }
+                }, 2010 * obj.feeds.length);
 
             }
 
