@@ -74,7 +74,7 @@ try {
                         //$done();
                     })
 
-                }, 1000 * (i + 1));
+                }, 5000 * (i + 1));
 
                 setTimeout(function () {
 
@@ -93,7 +93,7 @@ try {
                         console.log("\n❌错误:" + e + "\n");
                         $done();
                     }
-                }, 1010 * obj.feeds.length);
+                }, 5010 * obj.feeds.length);
 
             }
 
