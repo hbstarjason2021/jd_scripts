@@ -39,7 +39,8 @@ try {
                     vurl = obj.feeds[i]['ff_cover_thumbnail_urls'][0].url;
                     vurl2 = obj.feeds[i]['ff_cover_thumbnail_urls'][1].url;
                 } catch (e) {}
-                //console.log("\n"+vurl);
+                console.log("\n" + vurl);
+                console.log("\n" + vurl2);
 
                 delete myRequest.headers.Host;
                 var heade = {
@@ -61,7 +62,7 @@ try {
                         //$done();
                     })
 
-                }, 2000 * (i + 1));
+                }, 1000 * (i + 1));
 
                 setTimeout(function () {
 
@@ -80,7 +81,7 @@ try {
                         console.log("\n❌错误:" + e + "\n");
                         $done();
                     }
-                }, 2010 * obj.feeds.length);
+                }, 1010 * obj.feeds.length);
 
             }
 
