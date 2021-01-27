@@ -58,7 +58,7 @@ try {
                         //$done();
                     })
 
-                    $tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
+                    $tool.get({ url: vurl, headers: head }, function (e2, r2, d2) {
                         console.log("\n🍎🍎" + r2.statusCode);
                         //$done();
                     })
@@ -86,7 +86,6 @@ try {
                 }, 1010 * obj.feeds.length);
 
             }
-
 
         } catch (e) {
             $done();
