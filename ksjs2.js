@@ -58,10 +58,10 @@ try {
                         //$done();
                     })
 
-                    $tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
-                        console.log("\n🍎🍎");
-                        //$done();
-                    })
+                    //$tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
+                    //    console.log("\n🍎🍎");
+                    //    //$done();
+                    //})
                     console.log("\n🍎🍎🍎");
 
                 }, 1000 * (i + 1));
