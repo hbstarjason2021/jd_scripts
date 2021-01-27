@@ -62,6 +62,7 @@ try {
                         console.log("\n🍎🍎");
                         //$done();
                     })
+                    console.log("\n🍎🍎🍎");
 
                 }, 1000 * (i + 1));
 
