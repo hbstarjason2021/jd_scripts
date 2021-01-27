@@ -44,11 +44,12 @@ try {
 
                 delete headers.Host;
                 var heade = {
+                    "X-REQUESTID": "161165236540702679",
                     "Accept": "image/*,*/*;q=0.8",
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "zh-cn",
                     "Connection": "close",
-                    "User-Agent": "com_kwai_nebula/9.0.30 (iPhone; iOS 14.1; Scale/3.00)",
+                    "User-Agent": "kwai-ios",
                     "Cookie": headers.Cookie
                 };
                 setTimeout(function () {
@@ -62,7 +63,7 @@ try {
                         console.log("\n🍎🍎" + r2.statusCode);
                         //$done();
                     })
-                    console.log("\n🍎🍎🍎");
+                    //console.log("\n🍎🍎🍎");
 
                 }, 1000 * (i + 1));
 
