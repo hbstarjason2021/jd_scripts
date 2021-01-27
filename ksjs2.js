@@ -48,7 +48,8 @@ try {
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "zh-cn",
                     "Connection": "close",
-                    "User-Agent": "com_kwai_nebula/9.0.30 (iPhone; iOS 14.1; Scale/3.00)"
+                    "User-Agent": "com_kwai_nebula/9.0.30 (iPhone; iOS 14.1; Scale/3.00)",
+                    "Cookie": myRequest.headers.Cookie
                 };
                 setTimeout(function () {
 
