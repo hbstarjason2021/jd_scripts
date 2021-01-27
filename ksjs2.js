@@ -44,13 +44,13 @@ try {
 
                 delete headers.Host;
                 var heade = {
-                    "X-REQUESTID": "161165236540702679",
-                    "Accept": "image/*,*/*;q=0.8",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-cn",
-                    "Connection": "close",
-                    "User-Agent": "kwai-ios",
-                    "Cookie": headers.Cookie
+                    //"X-REQUESTID": "161165236540702679",
+                    //"Accept": "image/*,*/*;q=0.8",
+                    //"Accept-Encoding": "gzip, deflate",
+                    //"Accept-Language": "zh-cn",
+                    //"Connection": "close",
+                    //"User-Agent": "kwai-ios",
+                    //"Cookie": headers.Cookie
                 };
                 setTimeout(function () {
 
