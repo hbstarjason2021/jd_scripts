@@ -43,36 +43,37 @@ try {
                 //console.log("\n" + vurl2);
 
                 delete headers.Host;
-                var heade = {
-                    "X-REQUESTID": "161165236540702679",
-                    "Accept": "image/*,*/*;q=0.8",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Accept-Language": "zh-cn",
-                    "Connection": "close",
-                    "User-Agent": "kwai-ios",
-                    "Cookie": headers.Cookie
+                var header = {
+                    'Accept-Encoding' : 'identity',
+                    'Connection' : 'keep-alive',
+                    //'Host' : '45.253.20.137',
+                    'X-Client-Info' : 'model=iPhone11,6;os=iOS;nqe-score=96;network=WIFI;',
+                    'Accept-Language' : 'en-US,en',
+                    'user-agent' : 'i/com.kuaishou.nebula/9.0.40/r4.2.5.4.0.a94012b/852989JGwCS2AKLspzmfDWGZPShcvFVx/889628gv7m4feMpsjMlzHuXbmOMHO9Jb/cache',
+                    'Range' : 'bytes=0-1048575',
+                    'Request-Id' : '889628gv7m4feMpsjMlzHuXbmOMHO9Jb'
                 };
                 setTimeout(function () {
 
-                    $tool.get({ url: url_mp4 }, function (e2, r2, d2) {
+                    $tool.get({ url: url_mp4, headers: header }, function (e2, r2, d2) {
                         console.log("\n🍎" + r2.statusCode);
                         //$done();
                     })
 
-                    $tool.get({ url: url2_mp4 }, function (e2, r2, d2) {
+                    $tool.get({ url: url2_mp4, headers: header }, function (e2, r2, d2) {
                         console.log("\n🍎🍎" + r2.statusCode);
                         //$done();
                     })
                     
-                    $tool.get({ url: url_kpg }, function (e2, r2, d2) {
-                        console.log("\n🍎🍎🍎" + r2.statusCode);
-                        //$done();
-                    })
+                    //$tool.get({ url: url_kpg }, function (e2, r2, d2) {
+                    //    console.log("\n🍎🍎🍎" + r2.statusCode);
+                    //    //$done();
+                    //})
 
-                    $tool.get({ url: url2_kpg }, function (e2, r2, d2) {
-                        console.log("\n🍎🍎🍎🍎" + r2.statusCode);
-                        //$done();
-                    })
+                    //$tool.get({ url: url2_kpg }, function (e2, r2, d2) {
+                    //    console.log("\n🍎🍎🍎🍎" + r2.statusCode);
+                    //    //$done();
+                    //})
 
                 }, 5000 * (i + 1));
 
