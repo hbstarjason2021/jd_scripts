@@ -58,7 +58,7 @@ try {
                         //$done();
                     })
 
-                    $tool.get({ url: vurl, headers: heade }, function (e2, r2, d2) {
+                    $tool.get({ url: vurl2, headers: heade }, function (e2, r2, d2) {
                         console.log("\n🍎🍎" + r2.statusCode);
                         //$done();
                     })
