@@ -56,14 +56,12 @@ try {
                     $tool.get({ url: vurl, headers: heade }, function (e2, r2, d2) {
                         console.log("\n🍎" + r2.statusCode);
                         //$done();
-
-                        $tool.get({ url: vurl2, headers: head }, function (e3, r3, d3) {
-                            console.log("\n🍎🍎" + r3.statusCode);
-                            //$done();
-                        })
                     })
 
-                    
+                    $tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
+                        console.log("\n🍎🍎");
+                        //$done();
+                    })
 
                 }, 1000 * (i + 1));
 
