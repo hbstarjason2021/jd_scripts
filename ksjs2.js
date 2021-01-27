@@ -35,6 +35,10 @@ try {
 
                 var vurl = obj.feeds[i]['cover_thumbnail_urls'][0].url;
                 var vurl2 = obj.feeds[i]['cover_thumbnail_urls'][1].url;
+                try {
+                    vurl = obj.feeds[i]['ff_cover_thumbnail_urls'][0].url;
+                    vurl2 = obj.feeds[i]['ff_cover_thumbnail_urls'][1].url;
+                } catch (e) {}
                 //console.log("\n"+vurl);
 
                 delete headers.Host;
