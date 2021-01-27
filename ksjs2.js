@@ -49,7 +49,7 @@ try {
                     "Accept-Language": "zh-cn",
                     "Connection": "close",
                     "User-Agent": "com_kwai_nebula/9.0.30 (iPhone; iOS 14.1; Scale/3.00)",
-                    "Cookie": myRequest.headers.Cookie
+                    //"Cookie": myRequest.headers.Cookie
                 };
                 setTimeout(function () {
 
@@ -58,10 +58,10 @@ try {
                         //$done();
                     })
 
-                    //$tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
-                    //    console.log("\n🍎🍎");
-                    //    //$done();
-                    //})
+                    $tool.get({ url: vurl2, headers: head }, function (e2, r2, d2) {
+                        console.log("\n🍎🍎" + r2.statusCode);
+                        //$done();
+                    })
                     console.log("\n🍎🍎🍎");
 
                 }, 1000 * (i + 1));
