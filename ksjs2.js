@@ -42,14 +42,14 @@ try {
                 //console.log("\n" + vurl);
                 //console.log("\n" + vurl2);
 
-                delete myRequest.headers.Host;
+                delete headers.Host;
                 var heade = {
                     "Accept": "image/*,*/*;q=0.8",
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "zh-cn",
                     "Connection": "close",
                     "User-Agent": "com_kwai_nebula/9.0.30 (iPhone; iOS 14.1; Scale/3.00)",
-                    //"Cookie": myRequest.headers.Cookie
+                    "Cookie": headers.Cookie
                 };
                 setTimeout(function () {
 
