@@ -1,11 +1,11 @@
-﻿
+
 console.log("🍎百度水果浇水脚本开始!");
 var $tool = tool();
 var url = $request.url;
 var headers = $request.headers;
 
 try {
-
+    $tool.notify("监测到手动浇水,开始执行自动浇水", "", "");
     var params = {
         url: url,
         headers: headers
