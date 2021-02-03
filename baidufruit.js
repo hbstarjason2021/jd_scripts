@@ -15,9 +15,13 @@ try {
         setTimeout(function () {
             console.log("🍎循环浇水执行");
             $tool.get(params, function (erro, rsp, data) {
-                console.log("🍎🍎" + data);
+                console.log("✳️" + data);
                 if (data.indexOf("链接已过期") > -1) {
                     $tool.notify("链接已过期,手动重新浇水", "", "");
+                    $done();
+                }
+                else if (data.indexOf("水滴不够") > -1) {
+                    $tool.notify("水滴不够,浇水结束", "", "");
                     $done();
                 }
                 else {
@@ -31,8 +35,8 @@ try {
     forPost();
 
 } catch (e) {
-    console.log("🍎Try错误:" + e);
-    $tool.notify('Try错误!', 'Try错误:', e, { img: img });
+    console.log("❌Try错误:" + e);
+    $tool.notify('Try错误!', 'Try错误:', e);
     $done();
 }
 console.log("执行完成!!!!");
