@@ -1,6 +1,6 @@
 //yy在线麦序
 var aaa=args.widgetParameter;
-console.log(aaaa);
+console.log(aaa);
 let data = await getData()
 let widget = await createWidget(data)
 if (!config.runsInWidget) {
@@ -39,11 +39,11 @@ async function createWidget(data) {
   date1.textColor = Color.white()
   w.addSpacer(8)
   // 话费
-  //let huafei = data.data.dataList[1]; 
-  //let date2 = w.addText((huafei.remainTitle)+':'+(huafei.number)+(huafei.unit))
-  //date2.font = Font.heavySystemFont(12)
-  //date2.textColor =Color.white()
-  //w.addSpacer(8)
+  let huafei = aaa; 
+  let date2 = w.addText((huafei.remainTitle)+':'+(huafei.number)+(huafei.unit))
+  date2.font = Font.heavySystemFont(12)
+  date2.textColor =Color.white()
+  w.addSpacer(8)
 
   // 语音
   //let yuyin = data.data.dataList[2]; 
