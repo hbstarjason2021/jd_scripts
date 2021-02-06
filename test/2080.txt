@@ -80,6 +80,7 @@ async function getData() {
   var req = new Request(url)
   
     //req.headers = {'cookie': Cookie }
+  req.method='POST';
   req.body='{"head":{"seq":1607394178305,"appidstr":"0","bidstr":"121","cidstr":"400000","sidstr":"230134800","uid64":0,"client_type":108,"client_ver":"2.21.24","stream_sys_ver":1,"app":"www.yy.com","playersdk_ver":"2012011808","thundersdk_ver":"0","streamsdk_ver":"1.8.1"},"client_attribute":{"client":"web","model":"","cpu":"","graphics_card":"","os":"chrome","osversion":"86.0.4240.198","vsdk_version":"","app_identify":"","app_version":"","business":"","width":"1920","height":"1080","scale":"","client_type":8,"h265":1},"avp_parameter":{"version":1,"client_type":8,"service_type":0,"imsi":0,"send_time":1607394178,"line_seq":-1,"gear":4,"ssl":1,"stream_format":0}}';
   console.log(req);
   var data = await req.loadJSON();
