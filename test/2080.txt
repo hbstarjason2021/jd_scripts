@@ -40,7 +40,7 @@ async function createWidget(data) {
   w.addSpacer(8)
   // 话费
   let huafei = aaa; 
-  let date2 = w.addText((huafei.remainTitle)+':'+(huafei.number)+(huafei.unit))
+  let date2 = huafei+"xxx";
   date2.font = Font.heavySystemFont(12)
   date2.textColor =Color.white()
   w.addSpacer(8)
