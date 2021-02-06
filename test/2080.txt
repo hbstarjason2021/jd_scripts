@@ -29,22 +29,22 @@ async function createWidget(data) {
   w.addSpacer(8)
 
   // 音符
-  let liuliang = "总音符:" + data.data.income_data.amount1 + "个";
-  let date1 = w.addText(liuliang)
+  let yinfu = "总音符:" + data.data.income_data.amount1 + "个";
+  let date1 = w.addText(yinfu)
   date1.font = Font.semiboldSystemFont(12)
   date1.textColor = Color.white()
   w.addSpacer(8)
 
   // 收益
-  let huafei = "现金收益:" + Number(data.data.income_data.amount2) / 100 + "元";
-  let date2 = w.addText(huafei)
+  let shouyi = "现金收益:" + Number(data.data.income_data.amount2) / 100 + "元";
+  let date2 = w.addText(shouyi)
   date2.font = Font.heavySystemFont(12)
   date2.textColor = Color.white()
   w.addSpacer(8)
 
   // 总收益
-  let yuyin = "累计收益" + Number(data.data.income_data.amount2_total) / 100 + "元";
-  let date3 = w.addText(yuyin)
+  let leiji = "累计收益" + Number(data.data.income_data.amount2_total) / 100 + "元";
+  let date3 = w.addText(leiji)
   date3.font = Font.heavySystemFont(12)
   date3.textColor = Color.white()
   w.addSpacer(8)
@@ -67,10 +67,7 @@ async function getData() {
     'Accept-Encoding': 'gzip, deflate, br',
     'x-Tt-Token': token,
     'Host': 'api3-normal-lite-act-hl.amemv.com',
-    // 'x-tt-trace-id': '00-5d5cab2b09d82408965b344f00220919-5d5cab2b09d82408-01',
     'passport-sdk-version': '5.12.1',
-    // 'X-Khronos': '1612179089',
-    // 'X-SS-Cookie': 'excgd=20210201; install_id=3096641375045208; ttreq=1$dcc9182f03095374eb579a0688e8ac20d8e278c4; MONITOR_WEB_ID=58019842405; d_ticket=725421e1a5bc9ce03745e7a57bf56eeae5dc4; n_mh=m0oKiz98USQUmLaYnIywdG_TqxQzF0WGLA1V497lgec; odin_tt=c2d0787c43b61a4f6c49748d9fe1e2967f532b1a0b1db43b04938dd5906a578f9b4b34cd4ccedd57f213fd15afa4347d; sessionid=ecb56d2c92207dae4806c2efd258eea4; sessionid_ss=ecb56d2c92207dae4806c2efd258eea4; sid_guard=ecb56d2c92207dae4806c2efd258eea4%7C1611665963%7C5184000%7CSat%2C+27-Mar-2021+12%3A59%3A23+GMT; sid_tt=ecb56d2c92207dae4806c2efd258eea4; uid_tt=f75e5edbac380c9fee7c4d69cd1ea88a; uid_tt_ss=f75e5edbac380c9fee7c4d69cd1ea88a; passport_csrf_token=e973b1f9eec69d294d04b81c5d33e9ec; passport_csrf_token_default=e973b1f9eec69d294d04b81c5d33e9ec',
     'Connection': 'keep-alive',
     'X-SS-STUB': 'FB9613E49BC1669D908E1516EBF9F7B5',
     'X-Tyhon': 'AyAC7z3/L9Ez3jPVGvh04SbbC9Rt6iT1ZvcxWRw=',
@@ -79,10 +76,7 @@ async function getData() {
     'Accept-Language': 'en-us',
     'Accept': 'application/json',
     'sdk-version': '2',
-    'X-SS-DP': '2329',
-    // 'tt-request-time': '1612179089842',
-    // 'Cookie': 'passport_csrf_token=e973b1f9eec69d294d04b81c5d33e9ec; passport_csrf_token_default=e973b1f9eec69d294d04b81c5d33e9ec; d_ticket=725421e1a5bc9ce03745e7a57bf56eeae5dc4; n_mh=m0oKiz98USQUmLaYnIywdG_TqxQzF0WGLA1V497lgec; odin_tt=c2d0787c43b61a4f6c49748d9fe1e2967f532b1a0b1db43b04938dd5906a578f9b4b34cd4ccedd57f213fd15afa4347d; sessionid=ecb56d2c92207dae4806c2efd258eea4; sessionid_ss=ecb56d2c92207dae4806c2efd258eea4; sid_guard=ecb56d2c92207dae4806c2efd258eea4%7C1611665963%7C5184000%7CSat%2C+27-Mar-2021+12%3A59%3A23+GMT; sid_tt=ecb56d2c92207dae4806c2efd258eea4; uid_tt=f75e5edbac380c9fee7c4d69cd1ea88a; uid_tt_ss=f75e5edbac380c9fee7c4d69cd1ea88a; install_id=3096641375045208; ttreq=1$dcc9182f03095374eb579a0688e8ac20d8e278c4',
-    // 'X-Gorgon': '8404607610000447769de4dc1883d71144e77e0d1df21f53a4e2'
+    'X-SS-DP': '2329'
   };
   req.method = 'GET';
   //console.log(req);
