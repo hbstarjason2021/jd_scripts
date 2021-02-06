@@ -5,7 +5,7 @@
 //支持自动签到
 
 //修改为你的手机号
-const Tel = '填写你的手机号'
+const Tel = ''
 //修改为你的cookie，cookie获取方法，需安装Stream在联通客户端中进行抓包，不会操作请关注微信公众号：kzddck，回复201027获取使用方法
 const Cookie = '填写cookie'
 
@@ -17,71 +17,71 @@ if (!config.runsInWidget) {
 Script.setWidget(widget)
 Script.complete()
 async function createWidget(data) {
-  let title = "中国联通"
+  let title = ""
   let w = new ListWidget()
   bg = new LinearGradient()
-  bg.locations = [0,1]
-  bg.colors = [  
-  new Color("#6fa8dc"),
-  new Color("#a4c2f4")
-]
+  bg.locations = [0, 1]
+  bg.colors = [
+    new Color("#6fa8dc"),
+    new Color("#a4c2f4")
+  ]
 
   w.backgroundGradient = bg
   w.addSpacer(8)
-// 显示图标和标题
- let titleStack = w.addStack()
+  // 显示图标和标题
+  let titleStack = w.addStack()
   titleStack.addSpacer(4)
   let titleElement = titleStack.addText(title)
   titleElement.textColor = Color.white()
   titleElement.font = Font.mediumSystemFont(15)
   w.addSpacer(8)
-// 流量
+  // 流量
   //let liuliang = data.data.dataList[0];
   //let date1 = w.addText((liuliang.remainTitle)+':'+(liuliang.number)+(liuliang.unit))
   //date1.font = Font.semiboldSystemFont(12)
   //date1.textColor = Color.white()
-    //w.addSpacer(8)
+  //w.addSpacer(8)
   let liuliang = data.head.seq;
   let date1 = w.addText(liuliang)
   date1.font = Font.semiboldSystemFont(12)
   date1.textColor = Color.white()
   w.addSpacer(8)
-// 话费
+  // 话费
   //let huafei = data.data.dataList[1]; 
   //let date2 = w.addText((huafei.remainTitle)+':'+(huafei.number)+(huafei.unit))
   //date2.font = Font.heavySystemFont(12)
   //date2.textColor =Color.white()
   //w.addSpacer(8)
 
-// 语音
+  // 语音
   //let yuyin = data.data.dataList[2]; 
   //let date3 = w.addText((yuyin.remainTitle)+':'+(yuyin.number)+(yuyin.unit))
   //date3.font = Font.heavySystemFont(12)
   //date3.textColor =Color.white()
   //w.addSpacer(8)
 
-// 积分
+  // 积分
   //let jifen = data.data.dataList[3];
   //let date4 = w.addText((jifen.remainTitle)+':'+(jifen.number)+(jifen.unit))
   //date4.font = Font.heavySystemFont(12)
   //date4.textColor =Color.white()
   //w.addSpacer(8)
-// 签到
-  //let gx = '更新'+data.flush_date_time;
-  //let body = w.addText(gx)
-  //body.font = Font.mediumRoundedSystemFont(9)
-  //body.textColor = Color.white()
-  //w.addSpacer(15)
+  // 签到
+  let gx = '更新' + new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+  let body = w.addText(gx)
+  body.font = Font.mediumRoundedSystemFont(9)
+  body.textColor = Color.white()
+  w.addSpacer(15)
   return w
 }
 async function getData() {
-    var url= 'http://stream-manager.yy.com/v3/channel/streams?uid=0&cid=400000&sid=230134800&appid=0&sequence=1607313461655&encode=json';
-  
+  var url = 'http://stream-manager.yy.com/v3/channel/streams?uid=0&cid=400000&sid=230134800&appid=0&sequence=1607313461655&encode=json';
+
   var req = new Request(url)
-  
-    //req.headers = {'cookie': Cookie }
-  req.method='POST';
-  req.body='{"head":{"seq":1607394178305,"appidstr":"0","bidstr":"121","cidstr":"400000","sidstr":"230134800","uid64":0,"client_type":108,"client_ver":"2.21.24","stream_sys_ver":1,"app":"www.yy.com","playersdk_ver":"2012011808","thundersdk_ver":"0","streamsdk_ver":"1.8.1"},"client_attribute":{"client":"web","model":"","cpu":"","graphics_card":"","os":"chrome","osversion":"86.0.4240.198","vsdk_version":"","app_identify":"","app_version":"","business":"","width":"1920","height":"1080","scale":"","client_type":8,"h265":1},"avp_parameter":{"version":1,"client_type":8,"service_type":0,"imsi":0,"send_time":1607394178,"line_seq":-1,"gear":4,"ssl":1,"stream_format":0}}';
+
+  //req.headers = {'cookie': Cookie }
+  req.method = 'POST';
+  req.body = '{"head":{"seq":1607394178305,"appidstr":"0","bidstr":"121","cidstr":"400000","sidstr":"230134800","uid64":0,"client_type":108,"client_ver":"2.21.24","stream_sys_ver":1,"app":"www.yy.com","playersdk_ver":"2012011808","thundersdk_ver":"0","streamsdk_ver":"1.8.1"},"client_attribute":{"client":"web","model":"","cpu":"","graphics_card":"","os":"chrome","osversion":"86.0.4240.198","vsdk_version":"","app_identify":"","app_version":"","business":"","width":"1920","height":"1080","scale":"","client_type":8,"h265":1},"avp_parameter":{"version":1,"client_type":8,"service_type":0,"imsi":0,"send_time":1607394178,"line_seq":-1,"gear":4,"ssl":1,"stream_format":0}}';
   console.log(req);
   var data = await req.loadJSON();
   console.log(data)
