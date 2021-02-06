@@ -1,19 +1,81 @@
+//yy在线麦序
+var aaa=args.widgetParameter;
+console.log(aaaa);
+let data = await getData()
+let widget = await createWidget(data)
+if (!config.runsInWidget) {
+  await widget.presentLarge()
+}
+Script.setWidget(widget)
+Script.complete()
+async function createWidget(data) {
+  let title = ""
+  let w = new ListWidget()
+  bg = new LinearGradient()
+  bg.locations = [0, 1]
+  bg.colors = [
+    new Color("#6fa8dc"),
+    new Color("#a4c2f4")
+  ]
 
-var html='
-<!DOCTYPE html>
+  w.backgroundGradient = bg
+  w.addSpacer(8)
+  // 显示图标和标题
+  let titleStack = w.addStack()
+  titleStack.addSpacer(4)
+  let titleElement = titleStack.addText(title)
+  titleElement.textColor = Color.white()
+  titleElement.font = Font.mediumSystemFont(15)
+  w.addSpacer(8)
+  // 流量
+  //let liuliang = data.data.dataList[0];
+  //let date1 = w.addText((liuliang.remainTitle)+':'+(liuliang.number)+(liuliang.unit))
+  //date1.font = Font.semiboldSystemFont(12)
+  //date1.textColor = Color.white()
+  //w.addSpacer(8)
+  let liuliang = data.head.app;
+  let date1 = w.addText(liuliang)
+  date1.font = Font.semiboldSystemFont(12)
+  date1.textColor = Color.white()
+  w.addSpacer(8)
+  // 话费
+  //let huafei = data.data.dataList[1]; 
+  //let date2 = w.addText((huafei.remainTitle)+':'+(huafei.number)+(huafei.unit))
+  //date2.font = Font.heavySystemFont(12)
+  //date2.textColor =Color.white()
+  //w.addSpacer(8)
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    <div id="test1"></div>
-</body>
-</html>
-<script>
-    document.getElementById("test1").innerText = new Date();
-</script>
-';
-WebView.loadHTML(html,null,new Size(0,100));
-Script.complete();
+  // 语音
+  //let yuyin = data.data.dataList[2]; 
+  //let date3 = w.addText((yuyin.remainTitle)+':'+(yuyin.number)+(yuyin.unit))
+  //date3.font = Font.heavySystemFont(12)
+  //date3.textColor =Color.white()
+  //w.addSpacer(8)
+
+  // 积分
+  //let jifen = data.data.dataList[3];
+  //let date4 = w.addText((jifen.remainTitle)+':'+(jifen.number)+(jifen.unit))
+  //date4.font = Font.heavySystemFont(12)
+  //date4.textColor =Color.white()
+  //w.addSpacer(8)
+  // 签到
+  let gx = '更新' + new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+  let body = w.addText(gx)
+  body.font = Font.mediumRoundedSystemFont(9)
+  body.textColor = Color.white()
+  w.addSpacer(15)
+  return w
+}
+async function getData() {
+  var url = 'https://stream-manager.yy.com/v3/channel/streams?uid=0&cid=54880976&sid=54880976&appid=0&sequence=1612595340840&encode=json';
+
+  var req = new Request(url)
+
+  //req.headers = {'cookie': Cookie }
+  req.method = 'POST';
+  req.body = '{"head":{"seq":1612595340840,"appidstr":"0","bidstr":"121","cidstr":"54880976","sidstr":"54880976","uid64":0,"client_type":108,"client_ver":"3.0.16","stream_sys_ver":1,"app":"www.yy.com","playersdk_ver":"3.0.16","thundersdk_ver":"0","streamsdk_ver":"1.9.4"},"client_attribute":{"client":"web","model":"","cpu":"","graphics_card":"","os":"chrome","osversion":"87.0.4280.141","vsdk_version":"","app_identify":"","app_version":"","business":"","width":"1920","height":"1080","scale":"","client_type":8,"h265":1},"avp_parameter":{"version":1,"client_type":8,"service_type":0,"imsi":0,"send_time":1612595340,"line_seq":-1,"gear":4,"ssl":1,"stream_format":0}}';
+  console.log(req);
+  var data = await req.loadJSON();
+  console.log(data);
+  return data
+}
