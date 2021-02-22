@@ -9,19 +9,7 @@ var cookies = [
   {
     "name": "",
     "cookie": ""
-  },
-  {
-    "name": "",
-    "cookie": ""
-  },
-  {
-    "name": "",
-    "cookie": ""
-  },
-  {
-    "name": "",
-    "cookie": ""
-  },
+  }
 
 ];
 
@@ -38,8 +26,9 @@ async function createWidget() {
   bg = new LinearGradient()
   bg.locations = [0, 1]
   bg.colors = [
-    new Color("#6fa8dc"),
-    new Color("#a4c2f4")
+    //new Color("#6fa8dc"),
+    //new Color("#a4c2f4")
+    new Color("#ffffff")
   ]
 
   w.backgroundGradient = bg
@@ -49,7 +38,7 @@ async function createWidget() {
   let titleStack = w.addStack()
   titleStack.addSpacer(4)
   let titleElement = titleStack.addText(title)
-  titleElement.textColor = Color.white()
+  titleElement.textColor = Color.orange();
   titleElement.font = Font.mediumSystemFont(15)
   w.addSpacer(8)
 
@@ -76,8 +65,8 @@ async function createWidget() {
     }
 
     let date1 = w.addText(msgstr)
-    date1.font = Font.semiboldSystemFont(12)
-    date1.textColor = Color.white()
+    date1.font = Font.semiboldSystemFont(12);
+    date1.textColor = Color.black();
     w.addSpacer(5)
 
   }
@@ -86,7 +75,7 @@ async function createWidget() {
   let gx = '更新' + new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
   let body = w.addText(gx)
   body.font = Font.mediumRoundedSystemFont(9)
-  body.textColor = Color.white()
+  body.textColor = Color.blue()
   w.addSpacer(15)
   return w
 }
