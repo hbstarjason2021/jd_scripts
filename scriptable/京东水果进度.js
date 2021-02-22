@@ -4,7 +4,7 @@
 var cookies = [
   {
     "name": "",
-    "cookie": ""
+    "cookie": ''
   },
   {
     "name": "",
@@ -21,7 +21,7 @@ if (!config.runsInWidget) {
 Script.setWidget(widget)
 Script.complete()
 async function createWidget() {
-  let title = "京东水果成熟进度"
+  let title = "东东农场进度"
   let w = new ListWidget()
   bg = new LinearGradient()
   bg.locations = [0, 1]
@@ -42,6 +42,7 @@ async function createWidget() {
   titleElement.font = Font.mediumSystemFont(15)
   w.addSpacer(8)
 
+  let sharecode = "";
   for (var i = 0; i < cookies.length; i++) {
     let data = await getData(cookies[i].cookie);
     let msgstr = "";
@@ -61,7 +62,8 @@ async function createWidget() {
       msgstr = cookies[i].name + ": " + str + str2 + str3;
     }
     if (!!data.farmUserPro && !!data.farmUserPro.shareCode) {
-      console.log(cookies[i].name + "分享码: " + data.farmUserPro.shareCode);
+      //console.log(cookies[i].name + "分享码: " + data.farmUserPro.shareCode);
+      sharecode += data.farmUserPro.shareCode + "@";
     }
 
     let date1 = w.addText(msgstr)
@@ -70,6 +72,7 @@ async function createWidget() {
     w.addSpacer(5)
 
   }
+  console.log("/submit_activity_codes farm " + sharecode.substr(0, sharecode.length - 1));
 
   // 更新时间
   let gx = '更新' + new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
