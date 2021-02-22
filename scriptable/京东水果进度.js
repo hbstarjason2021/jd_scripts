@@ -13,7 +13,6 @@ var cookies = [
 
 ];
 
-
 let widget = await createWidget()
 if (!config.runsInWidget) {
   await widget.presentLarge()
@@ -21,7 +20,7 @@ if (!config.runsInWidget) {
 Script.setWidget(widget)
 Script.complete()
 async function createWidget() {
-  let title = "东东农场进度"
+  let title = "东东农场成熟进度"
   let w = new ListWidget()
   bg = new LinearGradient()
   bg.locations = [0, 1]
@@ -60,6 +59,9 @@ async function createWidget() {
       var str2 = "进度" + ((data.farmUserPro.treeEnergy / data.farmUserPro.treeTotalEnergy) * 100).toFixed(2) + "%，";
       var str3 = "还剩" + (data.farmUserPro.treeTotalEnergy - data.farmUserPro.treeEnergy) / 10 + "次";
       msgstr = cookies[i].name + ": " + str + str2 + str3;
+      if (config.widgetFamily == "small") {
+        msgstr = cookies[i].name + ": " + str2.replace("进度", "").replace("，", "");
+      }
     }
     if (!!data.farmUserPro && !!data.farmUserPro.shareCode) {
       //console.log(cookies[i].name + "分享码: " + data.farmUserPro.shareCode);
@@ -75,7 +77,7 @@ async function createWidget() {
   console.log("/submit_activity_codes farm " + sharecode.substr(0, sharecode.length - 1));
 
   // 更新时间
-  let gx = '更新' + new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay() + " " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+  let gx = dateFtt("yyyy-MM-dd hh:mm:ss", new Date(new Date().toLocaleString('chinese', { hour12: false })));
   let body = w.addText(gx)
   body.font = Font.mediumRoundedSystemFont(9)
   body.textColor = Color.blue()
@@ -99,3 +101,22 @@ async function getData(cookie) {
   //console.log(data);
   return data
 }
+
+/**************************************时间格式化处理************************************/
+function dateFtt(fmt, date) { //author: meizz   
+  var o = {
+    "M+": date.getMonth() + 1,                 //月份   
+    "d+": date.getDate(),                    //日   
+    "h+": date.getHours(),                   //小时   
+    "m+": date.getMinutes(),                 //分   
+    "s+": date.getSeconds(),                 //秒   
+    "q+": Math.floor((date.getMonth() + 3) / 3), //季度   
+    "S": date.getMilliseconds()             //毫秒   
+  };
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt))
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+} 
