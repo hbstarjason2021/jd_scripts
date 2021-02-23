@@ -11,8 +11,10 @@ try {
         }
     }
     $tool.get(params, function (e, r, d) {
+        d = d.replace(/</, "$").replace(/>/, "#");
         var s = d.indexOf('liveLineUrl');
-        var e = d.indexOf('</script>');
+        var e = d.indexOf('$/script#');
+        console.log(s, e);
         console.log(d.substring(s, e));
         $done();
     })
