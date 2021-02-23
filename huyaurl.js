@@ -17,7 +17,9 @@ try {
         console.log("ssss" + s);
         console.log("eeee" + e);
         //console.log(d);
-        console.log(d.substring(s + 15, e - 23));
+        var url="https:" + d.substring(s + 15, e - 23);
+        console.log(url);
+        $tool.notify("虎牙", "绵绵半声", "", { url: url });
         $done();
     })
 
