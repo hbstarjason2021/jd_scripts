@@ -13,10 +13,10 @@ try {
     $tool.get(params, function (e, r, d) {
         d = d.replace(/</g, "$").replace(/>/g, "#");
         var s = d.indexOf('liveLineUrl');
-        var e = d.indexOf('$/script#');
+        var e = d.indexOf('$div class="wrapper"#');
         console.log("ssss" + s);
         console.log("eeee" + e);
-        console.log(d);
+        //console.log(d);
         console.log(d.substring(s, e));
         $done();
     })
