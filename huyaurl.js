@@ -3,7 +3,7 @@
 
 var $tool = tool();
 try {
-    
+
     var params = {
         url: "https://www.huya.com/20319891?",
         headers: {
@@ -14,7 +14,9 @@ try {
         d = d.replace(/</g, "$").replace(/>/g, "#");
         var s = d.indexOf('liveLineUrl');
         var e = d.indexOf('$/script#');
-        console.log(s, e);
+        console.log("ssss" + s);
+        console.log("eeee" + e);
+        console.log(d);
         console.log(d.substring(s, e));
         $done();
     })
