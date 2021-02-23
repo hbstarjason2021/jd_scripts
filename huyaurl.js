@@ -17,7 +17,7 @@ try {
         console.log("ssss" + s);
         console.log("eeee" + e);
         //console.log(d);
-        console.log(d.substring(s + 15, e - 25));
+        console.log(d.substring(s + 15, e - 23));
         $done();
     })
 
