@@ -32,12 +32,12 @@ jobs:
       run: |
         git clone -b master git@gitee.com:lxk0301/jd_scripts.git master
 
-    - name: Push Master
-      uses: ad-m/github-push-action@master
-      with:
-        directory: master
-        github_token: ${{ secrets.PAT }}
-        branch: master
+    #- name: Push Master
+    #  uses: ad-m/github-push-action@master
+    #  with:
+    #    directory: master
+    #    github_token: ${{ secrets.PAT }}
+    #    branch: master
 
     - name: Clone Main
       run: |
