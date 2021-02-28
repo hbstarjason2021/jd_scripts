@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
-    if: github.repository == 'RikudouPatrickstar/jd_scripts'
+    if: github.repository == 'hbstarjason/jd_scripts'
     timeout-minutes: 2
 
     steps:
