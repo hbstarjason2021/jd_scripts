@@ -14,8 +14,8 @@ try {
         d = d.replace(/</g, "$").replace(/>/g, "#");
         var s = d.indexOf('liveLineUrl');
         var e = d.indexOf('$div class="wrapper"#');
-        console.log("ssss" + s);
-        console.log("eeee" + e);
+        //console.log("ssss" + s);
+        //console.log("eeee" + e);
         //console.log(d);
         var url="https:" + d.substring(s + 15, e - 23);
         console.log(url);
