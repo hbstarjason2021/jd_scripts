@@ -11,7 +11,7 @@ try{
  $done(str.sub(0,100));
 }
 catch(e){
- $done(e);
+ $done('xxxx');
 }
 
 
