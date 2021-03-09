@@ -7,7 +7,7 @@ var html = '<!DOCTYPE html><html lang="en"xmlns="http://www.w3.org/1999/xhtml"><
     //$done(d);
 //});
 try{
- var str=$tool.getdata('dyheadlist');
+ var str= $prefs.valueForKey('dyheadlist');
  $done(str.sub(0,100));
 }
 catch(e){
