@@ -8,7 +8,7 @@ var html = '<!DOCTYPE html><html lang="en"xmlns="http://www.w3.org/1999/xhtml"><
 //});
 try{
  var str= $prefs.valueForKey('dyheadlist');
- $done(str.sub(0,100));
+ $done(str);
 }
 catch(e){
  $done('xxxx');
