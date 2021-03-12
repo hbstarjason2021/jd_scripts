@@ -3,6 +3,28 @@
 var cookie = '';//cookie填写处
 
 const $ = API("unicom", true);
+!(async () => {
+    var aaa = await finishVideo();
+    console.log('视频:' + aaa + '\r\n');
+
+    await $.wait(1000);
+    var bbb = await daySign();
+    console.log('签到:' + bbb + '\r\n');
+
+    await $.wait(1000);
+    var ccc = await getPrize();
+    console.log('领流量:' + ccc + '\r\n');
+
+    if (!$.env.isNode) $.notify('联通签到领取流量', JSON.parse(ccc).data.returnStr, '');
+    $.done();
+})()
+    .catch((e) => {
+        $.log('', `❌失败! 原因: ${e}!`, '');
+    })
+    .finally(() => {
+
+    })
+
 var headers = {
     "Origin": "https:\/\/img.client.10010.com",
     "Cookie": cookie,
@@ -14,31 +36,6 @@ var headers = {
     "Referer": "https:\/\/img.client.10010.com\/SigininApp\/index.html",
     "Accept-Language": "zh-cn"
 }
-
-
-!(async () => {
-    var aaa = await finishVideo();
-    console.log(aaa);
-
-    await $.wait(1000);
-    var bbb = await daySign();
-    console.log(bbb);
-
-    await $.wait(1000);
-    var ccc = await getPrize();
-    console.log(ccc);
-
-    if (!$.env.isNode) {
-        $.notify('联通签到领取流量', JSON.parse(ccc).data.returnStr, '');
-    }
-    $.done();
-})()
-    .catch((e) => {
-        $.log('', `❌失败! 原因: ${e}!`, '');
-    })
-    .finally(() => {
-        
-    })
 
 //每日签到    
 async function daySign() {
