@@ -6,6 +6,11 @@ const $ = API("unicom", true);
 !(async () => {
     var aaa = await finishVideo();
     console.log('视频:' + aaa + '\r\n');
+    if (aaa.indexOf('没有登录') > -1) {
+        if (!$.env.isNode) $.notify('cookie失效', JSON.parse(aaa).msg, '');
+        $.done();
+        return 0;
+    }
 
     await $.wait(1000);
     var bbb = await daySign();
