@@ -31,8 +31,8 @@ var headers = {
 
     if (!$.env.isNode) {
         $.notify('联通签到领取流量', JSON.parse(ccc).data.returnStr, '');
-        $done();
     }
+    $.done();
 
 })()
     .catch((e) => {
