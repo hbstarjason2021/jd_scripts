@@ -43,7 +43,6 @@ var headers = {
 //每日签到    
 async function daySign() {
     var option = {
-        method: 'post',
         url: 'https://act.10010.com/SigninApp/signin/daySign',
         headers: headers
     };
@@ -57,7 +56,6 @@ async function daySign() {
 //视频结束
 async function finishVideo() {
     var option = {
-        method: 'post',
         url: 'https://act.10010.com/SigninApp/doTask/finishVideo',
         headers: headers
     };
@@ -71,7 +69,6 @@ async function finishVideo() {
 //领流量
 async function getPrize() {
     var option = {
-        method: 'post',
         url: 'https://act.10010.com/SigninApp/doTask/getPrize',
         headers: headers
     };
