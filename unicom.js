@@ -1,27 +1,30 @@
-﻿
+//联通每日签到领取1G流量,支持nodejs,quantumultx,loon,surge,shadowrocket
+
 const $ = API("unicom", true);
 
-var cookie = 'https://act.10010.com/SigninApp/signin/daySign';
+var cookie = '';//cookie填写处,抓包获取
+
 var headers = {
     "Origin": "https:\/\/img.client.10010.com",
-    "Cookie": "channel=GGPD; city=071|710; cw_mutual=7064d003eb3c8934e769e430ecf3d64a91246651671794c1a45e99ee80d5d0dbc3fe4956af2ade259ce451f7cefd55f722cad68c1cce783b594fe6d766c69f65; devicedId=D8FB8E44-B5C9-42D5-8C27-6272AB130495; ecs_acc=hY\/mgGen0aGxbHQLLSwHabIzhUXvAeISC2U9b9YXLwg98vJxLRM73lR9pQKGh\/2g926xyIrl3K1cirSPswPB4EWWaGdwYEAf5vP4XrLj4Kl1mZs9j15KOCI2W6N5RmWPXmpBed2RBDKI2sVFsOAVbF9++Bbxyo7GZkMuk9MKkZk=; ecs_token=eyJkYXRhIjoiNWVjMzc1MzNjZDhiYmJhZTEwYWQ1NDMzYjIyNDJkODc1YThhMjBiZmJjYWIwZDNhOTI4NTNkYTcwODBmZGRlYjVjNDY2MjRiYjE3NzU4ODAxZDQxMWMzNjAzYjY4NzNiNjU1NDc4ZTUzMjgwZjQzMjllNmY3YjNiNzU3YTk0ZjQ0ZmJiMzcyMmViMWQyMTFjN2MzYTc4NDc3OTk4MWZhYjhlNThhNTQxNmJiYTBmZTIwMTI5MjM0NDBmYzM1NDY1IiwidmVyc2lvbiI6IjAwIn0=; jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGUiOiIxNzYwNzExMjg4NyIsInBybyI6IjA3MSIsImNpdHkiOiI3MTAiLCJpZCI6ImY2NTM1YjNiMjhmM2QxNTM3ZTA0N2JiMjJmYTk4ZWU5In0.TageOG22ykM8wDH_xjztez-hVqkbhMHVJZxQSBDjIas; SigninApp=405034ebd63240e35e36c1ba7f058d2645c0e0ed; route=6d9186e36a8fb76ad1842faabac61309; req_mobile=17607112887; req_serial=; req_wheel=ssss; clientid=71|710; WT_FPC=id=2d58673c1b3a48f7eab1598081970728:lv=1608985369717:ss=1608985211198; UID=sUV6LKFSQ08YArnj5R6SGNjkmv2DPUOk",
+    "Cookie": cookie,
     "Connection": "keep-alive",
     "Content-Type": "application\/x-www-form-urlencoded",
     "Accept": "application\/json, text\/plain, *\/*",
     "Host": "act.10010.com",
     "User-Agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
     "Referer": "https:\/\/img.client.10010.com\/SigininApp\/index.html",
-    "Accept-Language": "zh-cn",
-    //"Accept-Encoding": "gzip, deflate, br"
+    "Accept-Language": "zh-cn"
 }
 
 
 !(async () => {
     var aaa = await daySign();
     console.log(aaa);
+
     await $.wait(2000);
     var bbb = await finishVideo();
     console.log(bbb);
+    
     await $.wait(2000);
     var ccc = await getPrize();
     console.log(ccc);
