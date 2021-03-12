@@ -3,6 +3,19 @@
 var cookie = '';//cookie填写处
 
 const $ = API("unicom", true);
+
+var headers = {
+    "Origin": "https:\/\/img.client.10010.com",
+    "Cookie": cookie,
+    "Connection": "keep-alive",
+    "Content-Type": "application\/x-www-form-urlencoded",
+    "Accept": "application\/json, text\/plain, *\/*",
+    "Host": "act.10010.com",
+    "User-Agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
+    "Referer": "https:\/\/img.client.10010.com\/SigininApp\/index.html",
+    "Accept-Language": "zh-cn"
+}
+
 !(async () => {
     var aaa = await finishVideo();
     console.log('视频:' + aaa + '\r\n');
@@ -30,22 +43,10 @@ const $ = API("unicom", true);
 
     })
 
-var headers = {
-    "Origin": "https:\/\/img.client.10010.com",
-    "Cookie": cookie,
-    "Connection": "keep-alive",
-    "Content-Type": "application\/x-www-form-urlencoded",
-    "Accept": "application\/json, text\/plain, *\/*",
-    "Host": "act.10010.com",
-    "User-Agent": "Mozilla\/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
-    "Referer": "https:\/\/img.client.10010.com\/SigininApp\/index.html",
-    "Accept-Language": "zh-cn"
-}
-
-//每日签到    
-async function daySign() {
+//视频结束
+async function finishVideo() {
     var option = {
-        url: 'https://act.10010.com/SigninApp/signin/daySign',
+        url: 'https://act.10010.com/SigninApp/doTask/finishVideo',
         headers: headers
     };
     return new Promise(function (resolve) {
@@ -55,10 +56,10 @@ async function daySign() {
     })
 }
 
-//视频结束
-async function finishVideo() {
+//每日签到    
+async function daySign() {
     var option = {
-        url: 'https://act.10010.com/SigninApp/doTask/finishVideo',
+        url: 'https://act.10010.com/SigninApp/signin/daySign',
         headers: headers
     };
     return new Promise(function (resolve) {
