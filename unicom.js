@@ -1,9 +1,8 @@
 //联通每日签到领取1G流量,支持nodejs,quantumultx,loon,surge,shadowrocket
 
+var cookie = '';//cookie填写处
+
 const $ = API("unicom", true);
-
-var cookie = '';//cookie填写处,抓包获取
-
 var headers = {
     "Origin": "https:\/\/img.client.10010.com",
     "Cookie": cookie,
@@ -18,14 +17,14 @@ var headers = {
 
 
 !(async () => {
-    var aaa = await daySign();
+    var aaa = await finishVideo();
     console.log(aaa);
 
-    await $.wait(2000);
-    var bbb = await finishVideo();
+    await $.wait(1000);
+    var bbb = await daySign();
     console.log(bbb);
-    
-    await $.wait(2000);
+
+    await $.wait(1000);
     var ccc = await getPrize();
     console.log(ccc);
 
@@ -33,13 +32,12 @@ var headers = {
         $.notify('联通签到领取流量', JSON.parse(ccc).data.returnStr, '');
     }
     $.done();
-
 })()
     .catch((e) => {
-        $.log('', `❌失败! 原因: ${e}!`, '')
+        $.log('', `❌失败! 原因: ${e}!`, '');
     })
     .finally(() => {
-        $.done();
+        
     })
 
 //每日签到    
