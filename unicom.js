@@ -1,4 +1,4 @@
-//联通每日签到领取1G流量,支持nodejs,quantumultx,loon,surge,shadowrocket
+//联通每日签到领取1G流量,支持nodejs,quantumultx,loon,surge,shadowrocket,jsbox
 
 var cookie = '';//cookie填写处
 
