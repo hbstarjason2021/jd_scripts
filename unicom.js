@@ -1,9 +1,8 @@
 //联通每日签到领取1G流量,支持nodejs,quantumultx,loon,surge,shadowrocket,jsbox
 
-var cookie = '';//cookie填写处
+const $ = API("联通领1G");
 
-const $ = API("unicom", true);
-
+var cookie = '';
 var headers = {
     "Origin": "https:\/\/img.client.10010.com",
     "Cookie": cookie,
@@ -16,8 +15,12 @@ var headers = {
     "Accept-Language": "zh-cn"
 }
 
+var myDate = new Date();
+var month = (myDate.getMonth() + 1) < 10 ? '0' + (myDate.getMonth() + 1) : (myDate.getMonth() + 1);
+var date = myDate.getFullYear() + '-' + month + '-' + myDate.getDate() + ' ' + myDate.getHours() + ':' + myDate.getMinutes() + ':' + myDate.getSeconds();
+let mobileNum = '13412345678';
 !(async () => {
-    var aaa = await finishVideo();
+    let aaa = await finishVideo();
     console.log('视频:' + aaa + '\r\n');
     if (aaa.indexOf('没有登录') > -1) {
         if (!$.env.isNode) $.notify('cookie失效', JSON.parse(aaa).msg, '');
@@ -26,15 +29,18 @@ var headers = {
     }
 
     await $.wait(1000);
-    var bbb = await daySign();
+    let bbb = await daySign();
     console.log('签到:' + bbb + '\r\n');
 
     await $.wait(1000);
-    var ccc = await getPrize();
+    let ccc = await getPrize();
     console.log('领流量:' + ccc + '\r\n');
 
     if (!$.env.isNode) $.notify('联通签到领取流量', JSON.parse(ccc).data.returnStr, '');
-    $.done();
+
+    await $.wait(1000);
+    await mygiftbag();
+
 })()
     .catch((e) => {
         $.log('', `❌失败! 原因: ${e}!`, '');
@@ -49,7 +55,7 @@ async function finishVideo() {
         url: 'https://act.10010.com/SigninApp/doTask/finishVideo',
         headers: headers
     };
-    return new Promise(function (resolve) {
+    return new Promise((resolve) => {
         $.http.post(option).then(response => {
             resolve(response.body);
         })
@@ -62,7 +68,7 @@ async function daySign() {
         url: 'https://act.10010.com/SigninApp/signin/daySign',
         headers: headers
     };
-    return new Promise(function (resolve) {
+    return new Promise((resolve) => {
         $.http.post(option).then(response => {
             resolve(response.body);
         })
@@ -75,10 +81,116 @@ async function getPrize() {
         url: 'https://act.10010.com/SigninApp/doTask/getPrize',
         headers: headers
     };
-    return new Promise(function (resolve) {
+    return new Promise((resolve) => {
         $.http.post(option).then(response => {
             resolve(response.body);
         })
+    })
+}
+
+//查询流量礼包
+async function mygiftbag() {
+    return new Promise(resolve => {
+        try {
+            var option = {
+                url: 'https://m.client.10010.com:443/myPrizeForActivity/mygiftbag.htm',
+                headers: {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Origin": "https://m.client.10010.com",
+                    //"Accept-Encoding": "gzip, deflate, br",
+                    "Cookie": headers['Cookie'],
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Host": "m.client.10010.com",
+                    "Connection": "keep-alive",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
+                    "Referer": "https://m.client.10010.com/myPrizeForActivity/querywinninglist.htm?version=iphone_c@8.0200&amp;desmobile=17607112887&amp;yw_code=&amp;time=1615863151",
+                    "Content-Length": "142",
+                    "Accept-Language": "zh-cn"
+                },
+                body: 'typeScreenCondition=2&category=FFLOWPACKET&pageSign=1&CALLBACKURL=https%3A%2F%2Fm.client.10010.com%2FmyPrizeForActivity%2Fquerywinninglist.htm'
+            };
+
+            $.http.post(option).then(response => {
+                var data = response.body;
+
+                //******解析HTML信息***********
+                var s = data.indexOf('id="prizeRecord"');
+                var e = data.indexOf('class="tanceng"');
+                data = data.substring(s + 100, e);
+                data = data.replace(/\t/g, " ").replace(/\r/g, " ").replace(/\n/g, " ").replace(/<!--(\s|\w+)*-->/g, ' ');
+
+                var giftlist = [];
+                var list = data.split('<a href="javascript:void(0)"');
+                for (let index = 0; index < list.length; index++) {
+                    const element = list[index];
+                    if (element.indexOf('<p class="activeBt">待激活＞＞</p>') > -1) {
+                        var s2 = element.indexOf('toDetailPage(') + 13;
+                        var e2 = element.indexOf(',\'' + mobileNum + '\'');
+
+                        var str2 = element.substring(s2, e2);
+                        if (!!str2.replace(/ /g, '')) {
+                            var s3 = element.indexOf('&nbsp;-&nbsp;') + 13;
+                            var e3 = s3 + 19;
+                            var str3 = element.substring(s3, e3);
+                            var o = '' + str2.replace(/'/g, '') + ',' + str3;
+                            giftlist.push(o);
+                        }
+                    }
+                }
+                //******解析HTML信息***********
+
+                //console.log(retlist);
+                giftlist.forEach(async gift => {
+                    console.log('待激活礼包:' + gift);
+                    var thisgift = gift.split(',');
+                    if (thisgift[2].split(' ')[0] == myDate.getFullYear() + '-' + month + '-' + myDate.getDate()) {
+                        console.log('开始激活:' + thisgift[2] + " 到期的礼包");
+                        let act = await activegift(thisgift[0], thisgift[1]);
+                        //let act = await activegift(1111, 2222);
+                        if (!act) {
+                            resolve(1);
+                        }
+                    }
+                });
+            })
+        } catch (error) {
+            resolve(error);
+        }
+
+    })
+}
+
+//激活当天过期的流量礼包
+async function activegift(code, recordid) {
+    return new Promise(resolve => {
+        try {
+            var option = {
+                url: 'https://m.client.10010.com/myPrizeForActivity/myPrize/activationFlowPackages.htm',
+                headers: {
+                    //"Accept-Encoding":"gzip, deflate, br",
+                    "Origin": "https://m.client.10010.com",
+                    "Connection": "keep-alive",
+                    "Cookie": headers['Cookie'],
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Host": "m.client.10010.com",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
+                    "Referer": "https://m.client.10010.com/myPrizeForActivity/queryPrizeDetails.htm",
+                    "Accept-Language": "zh-cn",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Accept": "application/json, text/javascript, */*; q=0.01"
+                },
+                body: 'activeCode=' + code + '&prizeRecordID=' + recordid + '&activeName=%E5%81%9A%E4%BB%BB%E5%8A%A1%E9%A2%86%E5%A5%96%E5%93%81'
+            };
+
+            $.http.post(option).then(response => {
+                console.log(response.body);
+                $.notify('联通', '激活流量礼包', response.body);
+                resolve(response.body);
+            })
+        } catch (error) {
+            resolve();
+        }
+
     })
 }
 
