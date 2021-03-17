@@ -140,18 +140,18 @@ async function mygiftbag() {
                 //******解析HTML信息***********
 
                 //console.log(retlist);
-                giftlist.forEach(async gift => {
+                for (let index = 0; index < Object.keys(giftlist).length; index++) {
+                    const gift = giftlist[index];
                     console.log('待激活礼包:' + gift);
                     var thisgift = gift.split(',');
                     if (thisgift[2].split(' ')[0] == myDate.getFullYear() + '-' + month + '-' + myDate.getDate()) {
                         console.log('开始激活:' + thisgift[2] + " 到期的礼包");
-                        let act = await activegift(thisgift[0], thisgift[1]);
-                        //let act = await activegift(1111, 2222);
-                        if (!act) {
-                            resolve(1);
-                        }
+                        await activegift(thisgift[0], thisgift[1]);
+                        //await activegift(1111, 2222);
+                        break;
                     }
-                });
+                }
+                resolve();
             })
         } catch (error) {
             resolve(error);
