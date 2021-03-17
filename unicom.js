@@ -2,7 +2,7 @@
 
 const $ = API("联通领1G");
 
-var cookie = '';
+var cookie = '';//cookie填写此处
 var headers = {
     "Origin": "https:\/\/img.client.10010.com",
     "Cookie": cookie,
