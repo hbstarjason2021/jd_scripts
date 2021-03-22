@@ -103,7 +103,6 @@ async function mygiftbag() {
                     "Host": "m.client.10010.com",
                     "Connection": "keep-alive",
                     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 unicom{version:iphone_c@8.0200}{systemVersion:dis}{yw_code:}",
-                    "Referer": "https://m.client.10010.com/myPrizeForActivity/querywinninglist.htm?version=iphone_c@8.0200&amp;desmobile=17607112887&amp;yw_code=&amp;time=1615863151",
                     "Content-Length": "142",
                     "Accept-Language": "zh-cn"
                 },
