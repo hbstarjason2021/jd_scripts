@@ -110,7 +110,7 @@ async function mygiftbag() {
                 body: 'typeScreenCondition=2&category=FFLOWPACKET&pageSign=1&CALLBACKURL=https%3A%2F%2Fm.client.10010.com%2FmyPrizeForActivity%2Fquerywinninglist.htm'
             };
 
-            $.http.post(option).then(response => {
+            $.http.post(option).then(async response => {
                 var data = response.body;
 
                 //******解析HTML信息***********
