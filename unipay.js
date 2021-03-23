@@ -6,6 +6,9 @@
 //经测试authorization有效期为3天,自行决定是否需要折腾
 //云闪付app最好别升级,有可能导致签到失效
 
+
+//******已弃坑,不再维护***** */
+
 var Authorization = '';//手动获取authorization填写此处
 var $tool = tool();
 try {
