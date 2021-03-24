@@ -2,17 +2,29 @@
 
 var CookieJDs = [];//cookie数组
 
-var $ = new API();
-if ($.env.isNode) CookieJDs = require('./jdCookie.js');
-(async () => {
-    for (let i = 0; i < CookieJDs.CookieJDs.length; i++) {
+const $ = new API();
+if ($.env.isNode) CookieJDs = require('./jdCookie.js').CookieJDs;
+!(async () => {
 
-        let nickname = await getUserInfo(CookieJDs.CookieJDs[i]);
-        var options = {
-            "method": "POST",
-            url: 'https://106.39.169.231:443/client.action?functionId=wait4Delivery',
+    for (let i = 0; i < CookieJDs.length; i++) {
+        let nickname = await getUserInfo(CookieJDs[i]);
+        await wait4Delivery(CookieJDs[i], nickname);
+    }
+})()
+    .catch((e) => {
+        console.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '');
+        $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+        $.done();
+    })
+
+async function wait4Delivery(cookie, nickname) {
+    return new Promise(resolve => {
+        let options = {
+            url: 'https://api.m.jd.com/client.action?functionId=wait4Delivery',
             headers: {
-                "Cookie": CookieJDs.CookieJDs[i],
+                "Cookie": cookie,
                 "Accept": "*/*",
                 "Connection": "keep-alive",
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -25,24 +37,30 @@ if ($.env.isNode) CookieJDs = require('./jdCookie.js');
             body: 'area=17_1381_3079_50776&body=%7B%22newUiSwitch%22%3A%221%22%2C%22deis%22%3A%22dy%22%2C%22dateTimeIndex%22%3A%22%22%2C%22pass%22%3A%22%22%2C%22pagesize%22%3A%2210%22%2C%22page%22%3A%221%22%7D&build=167588&client=apple&clientVersion=9.4.4&d_brand=apple&d_model=iPhone11%2C6&eid=eidI3A740111RTI2MjAyRTAtNjMxOC00Rg%3D%3DS383seL61Kq8IRd1wsJ1jmQZxCvjQ5jy5C5qG/7luhyvqmrkir%2Bbs0zK4OE/%2Bg56nSlNx7xkOsxELNC0&isBackground=N&joycious=4&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&openudid=5589835845d694f665675375218de18b46c6ad27&osVersion=14.1&partner=apple&rfs=0000&scope=11&screen=1242%2A2688&sign=22c3d8257cd8288918a87ba884cafecd&st=1616552354789&sv=122&uts=0f31TVRjBSsqndu4/jgUPz6uymy50MQJ6xzM6leehkg71dvzbpcFqnebbSIoQiz7xSbHdrfU18tKx2lDWPoffND6lgAMChL0pTTY2qkk12qHruzKZFF1Q2F8FwHpYHwH1PEfDcfHQfMXW898hk9U%2B2aZ3TQTdLgCmeAsiIt5ai4qXPr3A5BEtbqwVEfhmI5SiPmJg9ZLCauvS5tZHwqECA%3D%3D&uuid=hjudwgohxzVu96krv/T6Hg%3D%3D&wifiBssid=3d6e696f46a52bb20ed0de232f820824'
         };
 
-        $.http.post(options).then(function (response) {
-            //console.log(body);
-            var data = JSON.parse(response.body);
-
-            for (let index = 0; index < data.orderList.length; index++) {
-                const element = data.orderList[index];
-                var str = nickname + ':★ ' + element.orderMsg.wareInfoList[0].wname + '★ --' + element.message + '\r\n';
-                console.log(str);
+        $.http.post(options).then(response => {
+            try {
+                //console.log(response.body);
+                var data = JSON.parse(response.body);
+                for (let index = 0; index < data.orderList.length; index++) {
+                    const element = data.orderList[index];
+                    var str = nickname + ':★ ' + element.orderMsg.wareInfoList[0].wname + '★ -->>' + element.message + '\r\n';
+                    console.log(str);
+                }
+                resolve();
+            } catch (error) {
+                console.log(error);
+                resolve();
             }
         })
-    }
-})()
+    })
 
-function getUserInfo(cookie) {
-    return new Promise(async resolve => {
-        const options = {
-            "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
-            "headers": {
+}
+
+async function getUserInfo(cookie) {
+    return new Promise(resolve => {
+        let options = {
+            url: `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
+            headers: {
                 "Accept": "application/json,text/plain, */*",
                 "Content-Type": "application/x-www-form-urlencoded",
                 //"Accept-Encoding": "gzip, deflate, br",
@@ -53,8 +71,8 @@ function getUserInfo(cookie) {
                 "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
             }
         }
-        $.http.post(options).then(function (response) {
-            //console.log(body);
+        $.http.get(options).then(function (response) {
+            //console.log(response.body);
             var data = JSON.parse(response.body);
             try {
                 if (data['retcode'] === 0) {
