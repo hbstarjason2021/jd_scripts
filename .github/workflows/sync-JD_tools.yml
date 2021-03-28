@@ -1,0 +1,25 @@
+name: sync-Zero-S1/JD_tools
+on:
+  schedule:
+  - cron:  "4 * * * *"
+  workflow_dispatch:
+  watch:
+    types: started
+  push:
+    branches: [main]
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: "https://github.com/Zero-S1/JD_tools.git"
+        source_branch: "master"
+        destination_branch: "JD_tools"
+        github_token: ${{ secrets.PAT }}
