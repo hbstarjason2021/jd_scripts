@@ -2,7 +2,7 @@ name: sync-lxk0301/jd_scripts
 
 on:
   schedule:
-  - cron:  "*/15 * * * *"
+  - cron:  "*/45 * * * *"
   workflow_dispatch:
   watch:
     types: started
@@ -33,25 +33,25 @@ jobs:
 
     - name: Clone master
       run: |
-        git clone -b master git@gitee.com:lxk0301/jd_scripts.git master
+        git clone -b master git@gitee.com:lxk0301/jd_scripts.git jd_scripts
 
     - name: Push master
       uses: ad-m/github-push-action@master
       with:
-        directory: master
+        directory: jd_scripts
         github_token: ${{ secrets.PAT }}
-        branch: master
+        branch: jd_scripts
 
-    - name: Clone main
-      run: |
-        git clone -b main git@gitee.com:lxk0301/jd_scripts.git main
+    #- name: Clone main
+    #  run: |
+    #    git clone -b main git@gitee.com:lxk0301/jd_scripts.git main
 
-    - name: Push main
-      uses: ad-m/github-push-action@master
-      with:
-        directory: main
-        github_token: ${{ secrets.PAT }}
-        branch: main
+    #- name: Push main
+    #  uses: ad-m/github-push-action@master
+    #  with:
+    #    directory: main
+    #    github_token: ${{ secrets.PAT }}
+    #    branch: main
 
     - name: Delete Workflow Runs
       uses: Mattraks/delete-workflow-runs@main
