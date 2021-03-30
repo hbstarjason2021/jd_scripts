@@ -1,6 +1,5 @@
 var res = JSON.parse($response.body);
 
-var res = JSON.parse(str);
 res.info.drama.pay_type = 0;
 res.info.drama.type = 0;
 res.info.drama.need_pay = 0;
