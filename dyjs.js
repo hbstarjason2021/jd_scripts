@@ -1,6 +1,8 @@
 
 //重写添加成功后刷视频,等红包进度圈满后就会提示获取header成功,多获取几个header,最好获取五十个以上,多多益善
 //获取多个header成功后再定时循环执行脚本任务,间隔时间最好在30s以上,每天稳定在10000音符左右
+//且刷且珍惜,刷的别太嚣张,说不定过几天就封了
+//如果是nodejs则需要把手机里的headers导出到dyheadlist.json文件中
 
 // [mitm]
 // hostname = *.snssdk.com
@@ -17,6 +19,164 @@
 // snssdk.com/luckycat/aweme/v1/task/done/read? script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js, requires-body=true, timeout=10, tag=抖音极速版刷音符
 // cron "*/30 * * * * *" script-path=https://gitee.com/passerby-b/javascript/raw/master/dyjs.js,tag=抖音极速版刷音符
 
-var isShowCionDetail = true;//显示收益详情
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([2-9a-cf-hj-mo-qstv-zA-Z]|1\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7 $3=3();W{2(t $X!="Y"){f.g("🍎抖音极速获取h脚本开始!");7 h=$X.h;7 x=$3.m("O");$3.j($X.b,"P");2(!!h){2(!!x){7 4=8.y(x);4.17(h)}c{7 4=[];4.17(h)}$3.I("获取h成功","个数:"+4.z,"");$3.j(8.k(4),"O");f.g("✳️"+8.k(4))}$v()}c{f.g("\\n🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎抖音极速刷视频脚本开始!\\n");7 x=$3.m("O");7 l=$3.m("l");2(!!x){7 A=0;7 4=8.y(x);2(!!l){7 Z=false;for(7 i=0;i<4.z;i++){2(8.k(4[i])==l){Z=true;2(4.z-1==i){$3.j(8.k(4[0]),"l")}c{$3.j(8.k(4[i+1]),"l");A=i+1}break}}2(!Z){$3.j(8.k(4[0]),"l")}}c{$3.j(8.k(4[0]),"l")}f.g("\\n☢️开始刷第"+A+"个h,共"+4.z+"个h\\n");7 w={b:$3.m("P"),h:8.y($3.m("l")),p:\'{\\n  "18" : 0,\\n  "task_key" : "19"\\n}\'};$3.B(w,5(e,r,d){2(d.1a("成功")>-1){7 1b=8.y(d);f.g("\\n♥️获得"+1b.Q[\'score_amount\']+"个音符!\\n")}c 2(d.1a("10009")>-1){2(A==4.z-1){$3.j(8.k(4[0]),"l")}c{$3.j(8.k(4[A+1]),"l")}4.splice(A,1);$3.j(8.k(4),"O");f.g("\\n❌删除此条header,还剩"+4.z+"个\\n")}c{f.g("✳️"+d+"\\n")}W{2(isShowCionDetail){w.b="1c://R-hl.1e.1f/1g/R/v1/J/page?1i=1j&"+$3.m("P").1k(\'?\')[1];$3.10(w,5(e,r,d){d=8.y(d);f.g("\\n🎁总音符:"+d.Q.11.amount1+"个!");f.g("\\n🎁现金收益:"+1l(d.Q.11.amount2)/1m+"元!");f.g("\\n🎁累计收益"+1l(d.Q.11.amount2_total)/1m+"元!\\n")})}}12(e){}2(!$3.m("1n")){W{w.b="1c://R-hl.1e.1f/1g/R/v1/J/v/post_invite_code?1i=1j&"+$3.m("P").1k(\'?\')[1];w.p=\'{\\n  "18" : 0,\\n  "invite_code" : "8085708231"\\n}\';$3.B(w,5(e,r,d){$3.j("ok","1n");$v()})}12(e){$v()}}c{setTimeout(5(){$v()},500)}})}c{$3.I("请先刷视频获取h","多多益善","");$v()}}}12(e){f.g("❌错误:"+e);$v()}5 3(){7 C=t $13!="Y";7 D=t $J!="Y";7 S={I:5(K,L,M,9){7 o={};2(D){2(!!9){2(t 9=="T"){o["1o-b"]=9}2(!!9.b){o["1o-b"]=9.b}2(!!9.U){o["media-b"]=9.U}$I(K,L,M,o)}c{$I(K,L,M)}}2(C){2(!!9){2(t 9=="T"){o["1p"]=9}2(!!9.b){o["1p"]=9.b}2(!!9.U){o["mediaUrl"]=9.U}$1q.B(K,L,M,o)}c{$1q.B(K,L,M)}}},10:5(a,q){2(D){2(t a=="T"){a={b:a}}a["1r"]="GET";$J.1s(a).1t(5(6){q(E,N(6),6.p)},5(V){q(V.F,E,E)})}2(C){$13.10(a,5(F,6,p){q(F,N(6),p)})}},B:5(a,q){2(D){2(t a=="T"){a={b:a}}a["1r"]="POST";$J.1s(a).1t(5(6){q(E,N(6),6.p)},5(V){q(V.F,E,E)})}2(C){$13.B(a,5(F,6,p){q(F,N(6),p)})}},unicode:5(G){s unescape(G.replace(/\\\\u/gi,"%u"))},decodeurl:5(G){s decodeURIComponent(G)},json2str:5(S){s 8.k(S)},str2json:5(G){s 8.y(G)},j:5(14,H){2(D){$1u.setValueForKey(14,H)}2(C){$1v.write(14,H)}},m:5(H){2(D){s $1u.valueForKey(H)}2(C){s $1v.19(H)}}};5 N(6){2(6){2(6.15){6["16"]=6.15}c{2(6.16){6["15"]=6.16}}}s 6}s S};',[],94,'||if|tool|list|function|response|var|JSON|option|options|url|else|||console|log|headers||setkeyval|stringify|thishead|getkeyval||option_obj|body|callback||return|typeof||done|myRequest|headlist|parse|length|index|post|isLoon|isQuanX|null|error|str|key|notify|task|title|subtitle|message|adapterStatus|dyheadlist|dyurl|data|aweme|obj|string|img|reason|try|request|undefined|isHas|get|income_data|catch|httpClient|value|status|statusCode|push|in_sp_time|read|indexOf|dataobj|https||snssdk|com|luckycat||_request_from|web|split|Number|100|dycodesub|open|openUrl|notification|method|fetch|then|prefs|persistentStore'.split('|'),0,{}))
+var thisurl = '';//填写url,nodejs专用
+
+var isShowCionDetail = false;//显示收益详情
+
+const $ = API("dyjs");
+function main() {
+    
+    try {
+        if (typeof $request != "undefined") {
+            console.log("\r\n抖音极速获取headers脚本开始!\r\n");
+            var headers = $request.headers;
+            var headlist = $.read("dyheadlist");
+            $.write($request.url, "dyurl");
+            if (!!headers) {
+                if (!!headlist) {
+                    var list = JSON.parse(headlist);
+                    list.push(headers)
+                } else {
+                    var list = [];
+                    list.push(headers)
+                }
+                $.notify("获取headers成功", "个数:" + list.length, "");
+                $.write(JSON.stringify(list), "dyheadlist");
+                console.log("" + JSON.stringify(list))
+            }
+            if (!$.env.isNode) $done();
+
+        } else {
+            console.log("\r\n*************抖音极速刷视频脚本开始!************\r\n");
+            var headlist = $.read("dyheadlist");
+            if ($.env.isNode) {
+                const fs = require('fs');
+                let rawdata = fs.readFileSync('dyheadlist.json');
+                headlist = rawdata;// JSON.parse(rawdata);
+            }
+            var thishead = $.read("thishead");
+            if (!!headlist) {
+                var index = 0;
+                var list = JSON.parse(headlist);
+                if (!!thishead) {
+                    var isHas = false;
+                    for (var i = 0; i < list.length; i++) {
+                        if (JSON.stringify(list[i]) == thishead) {
+                            isHas = true;
+                            if (list.length - 1 == i) {
+                                $.write(JSON.stringify(list[0]), "thishead")
+                            } else {
+                                $.write(JSON.stringify(list[i + 1]), "thishead");
+                                index = i + 1
+                            }
+                            break
+                        }
+                    }
+                    if (!isHas) {
+                        $.write(JSON.stringify(list[0]), "thishead");
+                    }
+                } else {
+                    $.write(JSON.stringify(list[0]), "thishead");
+                }
+                console.log("\r\n开始刷第" + index + "个headers,共" + list.length + "个headers\r\n");
+                var thishead_obj = JSON.parse($.read("thishead"));
+                thishead_obj['tt-request-time'] = Math.round(new Date());
+                var myRequest = {
+                    url: $.env.isNode ? thisurl : $.read("dyurl"),
+                    headers: thishead_obj,
+                    body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
+                };
+                //console.log(myRequest);
+                delete myRequest.headers['Accept-Encoding'];
+                $.http.post(myRequest).then(function (response) {
+                    var d = response.body;
+                    if (d.indexOf("成功") > -1) {
+                        var dataobj = JSON.parse(d);
+                        console.log("\r\n获得" + dataobj.data['score_amount'] + "个音符!\r\n")
+                    } else if (d.indexOf("10009") > -1) {
+                        if (index == list.length - 1) {
+                            $.write(JSON.stringify(list[0]), "thishead");
+                        } else {
+                            $.write(JSON.stringify(list[index + 1]), "thishead");
+                        }
+                        list.splice(index, 1);
+                        if ($.env.isNode) {
+                            const fs = require('fs');
+                            fs.writeFile('./dyheadlist.json', JSON.stringify(list), function (err) {
+                                if (err) {
+                                    console.error(err);
+                                } else {
+                                    console.log('----------修改成功-------------');
+                                }
+
+                            });
+                        } else {
+                            $.write(JSON.stringify(list), "dyheadlist");
+                        }
+                        console.log("\r\n删除此条header,还剩" + list.length + "个\r\n");
+                    } else {
+                        console.log("" + d + "\n");
+                    }
+                    try {
+                        if (isShowCionDetail) {
+                            var headers2 = {
+                                //'Accept-Encoding': 'gzip, deflate, br',
+                                'x-Tt-Token': myRequest.headers['x-Tt-Token'],
+                                'Host': 'api3-normal-lite-act-hl.amemv.com',
+                                'passport-sdk-version': '5.12.1',
+                                'Connection': 'keep-alive',
+                                'X-SS-STUB': 'FB9613E49BC1669D908E1516EBF9F7B5',
+                                'X-Tyhon': 'AyAC7z3/L9Ez3jPVGvh04SbbC9Rt6iT1ZvcxWRw=',
+                                'User-Agent': 'AwemeLite 13.2.0 rv:132004 (iPhone; iOS 14.1; zh_CN) Cronet',
+                                'Content-Type': 'application/json; encoding=utf-8',
+                                'Accept-Language': 'en-us',
+                                'Accept': 'application/json',
+                                'sdk-version': '2',
+                                'X-SS-DP': '2329'
+                            };
+                            var myRequest2 = {
+                                url: 'https://aweme-hl.snssdk.com/luckycat/aweme/v1/task/page?' + thisurl.split('?')[1],
+                                headers: headers2
+                            }
+                            //console.log(myRequest2);
+                            $.http.get(myRequest2).then(function (response2) {
+                                var d = JSON.parse(response2.body);
+                                console.log("\r\n总音符:" + d.data.income_data.amount1 + "个!");
+                                console.log("\r\n现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
+                                console.log("\r\n累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\r\n");
+                                if (!$.env.isNode) $done();
+                            })
+                        }
+                    } catch (e) {
+                        if (!$.env.isNode()) $done();
+                    }
+
+                })
+            } else {
+                $.notify("请先刷视频获取headers", "多多益善", "");
+                if (!$.env.isNode()) $done();
+            }
+        }
+    } catch (e) {
+        console.log("\r\n错误:" + e);
+        if (!$.env.isNode) $done();
+    }
+}
+
+main();
+
+if ($.env.isNode) {
+    var cronJob = require("cron").CronJob;
+    var sd = require('silly-datetime');
+    new cronJob('*/20 * * * * *', function () {
+        console.log("\r\n" + sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss') + "\r\n");
+        main();
+    }, null, true);
+}
+
+// prettier-ignore
+/*********************************** API *************************************/
+function ENV() { const e = "undefined" != typeof $task, t = "undefined" != typeof $loon, s = "undefined" != typeof $httpClient && !t, i = "function" == typeof require && "undefined" != typeof $jsbox; return { isQX: e, isLoon: t, isSurge: s, isNode: "function" == typeof require && !i, isJSBox: i, isRequest: "undefined" != typeof $request, isScriptable: "undefined" != typeof importModule } } function HTTP(e = { baseURL: "" }) { const { isQX: t, isLoon: s, isSurge: i, isScriptable: n, isNode: o } = ENV(), r = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/; const u = {}; return ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "PATCH"].forEach(l => u[l.toLowerCase()] = (u => (function (u, l) { l = "string" == typeof l ? { url: l } : l; const h = e.baseURL; h && !r.test(l.url || "") && (l.url = h ? h + l.url : l.url); const a = (l = { ...e, ...l }).timeout, c = { onRequest: () => { }, onResponse: e => e, onTimeout: () => { }, ...l.events }; let f, d; if (c.onRequest(u, l), t) f = $task.fetch({ method: u, ...l }); else if (s || i || o) f = new Promise((e, t) => { (o ? require("request") : $httpClient)[u.toLowerCase()](l, (s, i, n) => { s ? t(s) : e({ statusCode: i.status || i.statusCode, headers: i.headers, body: n }) }) }); else if (n) { const e = new Request(l.url); e.method = u, e.headers = l.headers, e.body = l.body, f = new Promise((t, s) => { e.loadString().then(s => { t({ statusCode: e.response.statusCode, headers: e.response.headers, body: s }) }).catch(e => s(e)) }) } const p = a ? new Promise((e, t) => { d = setTimeout(() => (c.onTimeout(), t(`${u} URL: ${l.url} exceeds the timeout ${a} ms`)), a) }) : null; return (p ? Promise.race([p, f]).then(e => (clearTimeout(d), e)) : f).then(e => c.onResponse(e)) })(l, u))), u } function API(e = "untitled", t = !1) { const { isQX: s, isLoon: i, isSurge: n, isNode: o, isJSBox: r, isScriptable: u } = ENV(); return new class { constructor(e, t) { this.name = e, this.debug = t, this.http = HTTP(), this.env = ENV(), this.node = (() => { if (o) { return { fs: require("fs") } } return null })(), this.initCache(); Promise.prototype.delay = function (e) { return this.then(function (t) { return ((e, t) => new Promise(function (s) { setTimeout(s.bind(null, t), e) }))(e, t) }) } } initCache() { if (s && (this.cache = JSON.parse($prefs.valueForKey(this.name) || "{}")), (i || n) && (this.cache = JSON.parse($persistentStore.read(this.name) || "{}")), o) { let e = "root.json"; this.node.fs.existsSync(e) || this.node.fs.writeFileSync(e, JSON.stringify({}), { flag: "wx" }, e => console.log(e)), this.root = {}, e = `${this.name}.json`, this.node.fs.existsSync(e) ? this.cache = JSON.parse(this.node.fs.readFileSync(`${this.name}.json`)) : (this.node.fs.writeFileSync(e, JSON.stringify({}), { flag: "wx" }, e => console.log(e)), this.cache = {}) } } persistCache() { const e = JSON.stringify(this.cache, null, 2); s && $prefs.setValueForKey(e, this.name), (i || n) && $persistentStore.write(e, this.name), o && (this.node.fs.writeFileSync(`${this.name}.json`, e, { flag: "w" }, e => console.log(e)), this.node.fs.writeFileSync("root.json", JSON.stringify(this.root, null, 2), { flag: "w" }, e => console.log(e))) } write(e, t) { if (this.log(`SET ${t}`), -1 !== t.indexOf("#")) { if (t = t.substr(1), n || i) return $persistentStore.write(e, t); if (s) return $prefs.setValueForKey(e, t); o && (this.root[t] = e) } else this.cache[t] = e; this.persistCache() } read(e) { return this.log(`READ ${e}`), -1 === e.indexOf("#") ? this.cache[e] : (e = e.substr(1), n || i ? $persistentStore.read(e) : s ? $prefs.valueForKey(e) : o ? this.root[e] : void 0) } delete(e) { if (this.log(`DELETE ${e}`), -1 !== e.indexOf("#")) { if (e = e.substr(1), n || i) return $persistentStore.write(null, e); if (s) return $prefs.removeValueForKey(e); o && delete this.root[e] } else delete this.cache[e]; this.persistCache() } notify(e, t = "", l = "", h = {}) { const a = h["open-url"], c = h["media-url"]; if (s && $notify(e, t, l, h), n && $notification.post(e, t, l + `${c ? "\n多媒体:" + c : ""}`, { url: a }), i) { let s = {}; a && (s.openUrl = a), c && (s.mediaUrl = c), "{}" === JSON.stringify(s) ? $notification.post(e, t, l) : $notification.post(e, t, l, s) } if (o || u) { const s = l + (a ? `\n点击跳转: ${a}` : "") + (c ? `\n多媒体: ${c}` : ""); if (r) { require("push").schedule({ title: e, body: (t ? t + "\n" : "") + s }) } else console.log(`${e}\n${t}\n${s}\n\n`) } } log(e) { this.debug && console.log(`[${this.name}] LOG: ${this.stringify(e)}`) } info(e) { console.log(`[${this.name}] INFO: ${this.stringify(e)}`) } error(e) { console.log(`[${this.name}] ERROR: ${this.stringify(e)}`) } wait(e) { return new Promise(t => setTimeout(t, e)) } done(e = {}) { s || i || n ? $done(e) : o && !r && "undefined" != typeof $context && ($context.headers = e.headers, $context.statusCode = e.statusCode, $context.body = e.body) } stringify(e) { if ("string" == typeof e || e instanceof String) return e; try { return JSON.stringify(e, null, 2) } catch (e) { return "[object Object]" } } }(e, t) }
+/*****************************************************************************/
+
 
