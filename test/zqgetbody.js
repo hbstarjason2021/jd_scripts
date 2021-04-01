@@ -1,9 +1,14 @@
 
 
 const $ = new API("中青看点阅读");
-var body = $request.body;
+var body = $request.url.split('?')[1];
 var zqgetbody_body = $.read('zqgetbody_body');
-zqgetbody_body = zqgetbody_body + '&' + body;
+if(!!zqgetbody_body){
+    zqgetbody_body = zqgetbody_body + '&' + body;
+}
+else{
+    zqgetbody_body =  body;
+}
 $.write(zqgetbody_body, 'zqgetbody_body');
 
 $.notify('中青阅读获取body成功!', '总个数:' + zqgetbody_body.split('&').length, '');
