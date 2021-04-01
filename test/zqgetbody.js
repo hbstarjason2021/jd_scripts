@@ -1,5 +1,6 @@
 
 try{
+    console.log("xxxxxxxxx");
 const $ = new API("中青看点阅读");
 var body = $request.url.split('?')[1];
 var zqgetbody_body = $.read('zqgetbody_body');
