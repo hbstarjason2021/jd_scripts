@@ -1,7 +1,7 @@
 var cookies = [
-    'uuid=eb38108130480496828311ce4304aa54&sign=a7b0ad5cb972db0c4aee9d4ec9618b82&channel_code=80000000&uid=51790208&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=b606c68c5e828e05ec2360ef26298223&openudid=eb38108130480496828311ce4304aa54&device_type=1&device_brand=iphone&sm_device_id=20201129184144818c5120232f611d212157c3e403c72e013bcfcd01e3cd3a&device_id=48549901&version_code=202&os_version=14.1&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwt5duhHx-3bCoqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFonqZrs-6ZoKvjW6EY2Ft&device_model=iPhone_6_Plus&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwt5duhHx-3bCoqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFonqZrs-6ZoKvjW6EY2Ft&cookie_id=b606c68c5e828e05ec2360ef26298223',
+    '',
 
-    'uuid=55ed76ec11a2e52d75b8e1db9fc67c47&sign=b5a8a284059ec96e4d143cc706336722&channel_code=80000000&uid=54798035&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=069d45bd9ca511a8b951067f390b0b66&openudid=55ed76ec11a2e52d75b8e1db9fc67c47&device_type=1&device_brand=iphone&sm_device_id=20210401194315a49eabab2d27c9537924cefe7f107eab01a58bde3e2f3556&device_id=51473048&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl691x2eyp3WzhYyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLC3l7KFspiWrqm2apqGcXY&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl691x2eyp3WzhYyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLC3l7KFspiWrqm2apqGcXY&cookie_id=069d45bd9ca511a8b951067f390b0b66'
+    ''
 ];
 console.log('中青阅读共' + cookies.length + '个账号!');
 module.exports = cookies;
