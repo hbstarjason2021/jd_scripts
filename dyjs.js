@@ -76,13 +76,13 @@ function main() {
                         $.write(JSON.stringify(list[0]), "#thishead");
                     }
                 } else {
-                    $.write(JSON.stringify(list[0]), "thishead");
+                    $.write(JSON.stringify(list[0]), "#thishead");
                 }
                 console.log("\r\n开始刷第" + index + "个headers,共" + list.length + "个headers\r\n");
                 var thishead_obj = JSON.parse($.read("#thishead"));
                 thishead_obj['tt-request-time'] = Math.round(new Date());
                 var myRequest = {
-                    url: $.env.isNode ? thisurl : $.read("dyurl"),
+                    url: $.env.isNode ? thisurl : $.read("#dyurl"),
                     headers: thishead_obj,
                     body: '{\n  "in_sp_time" : 0,\n  "task_key" : "read"\n}'
                 };
@@ -96,9 +96,9 @@ function main() {
                         console.log("\r\n获得" + dataobj.data['score_amount'] + "个音符!\r\n")
                     } else if (d.indexOf("10009") > -1) {
                         if (index == list.length - 1) {
-                            $.write(JSON.stringify(list[0]), "thishead");
+                            $.write(JSON.stringify(list[0]), "#thishead");
                         } else {
-                            $.write(JSON.stringify(list[index + 1]), "thishead");
+                            $.write(JSON.stringify(list[index + 1]), "#thishead");
                         }
                         list.splice(index, 1);
                         if ($.env.isNode) {
@@ -112,7 +112,7 @@ function main() {
 
                             });
                         } else {
-                            $.write(JSON.stringify(list), "dyheadlist");
+                            $.write(JSON.stringify(list), "#dyheadlist");
                         }
                         console.log("\r\n删除此条header,还剩" + list.length + "个\r\n");
                     } else {
