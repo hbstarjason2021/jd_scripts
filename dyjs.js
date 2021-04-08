@@ -148,13 +148,13 @@ function main() {
                             })
                         }
                     } catch (e) {
-                        if (!$.env.isNode()) $done();
+                        if (!$.env.isNode) $done();
                     }
 
                 })
             } else {
                 $.notify("请先刷视频获取headers", "多多益善", "");
-                if (!$.env.isNode()) $done();
+                if (!$.env.isNode) $done();
             }
         }
     } catch (e) {
