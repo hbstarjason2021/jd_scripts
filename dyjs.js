@@ -79,7 +79,7 @@ function main() {
                     $.write(JSON.stringify(list[0]), "thishead");
                 }
                 console.log("\r\n开始刷第" + index + "个headers,共" + list.length + "个headers\r\n");
-                var thishead_obj = JSON.parse($.read("thishead"));
+                var thishead_obj = JSON.parse($.read("#thishead"));
                 thishead_obj['tt-request-time'] = Math.round(new Date());
                 var myRequest = {
                     url: $.env.isNode ? thisurl : $.read("dyurl"),
