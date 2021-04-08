@@ -90,6 +90,7 @@ function main() {
                 delete myRequest.headers['Accept-Encoding'];
                 $.http.post(myRequest).then(function (response) {
                     var d = response.body;
+                    console.log(d);
                     if (d.indexOf("成功") > -1) {
                         var dataobj = JSON.parse(d);
                         console.log("\r\n获得" + dataobj.data['score_amount'] + "个音符!\r\n")
