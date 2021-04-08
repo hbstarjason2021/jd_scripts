@@ -48,13 +48,13 @@ function main() {
 
         } else {
             console.log("\r\n*************抖音极速刷视频脚本开始!************\r\n");
-            var headlist = $.read("dyheadlist");
+            var headlist = $.read("#dyheadlist");
             if ($.env.isNode) {
                 const fs = require('fs');
                 let rawdata = fs.readFileSync('dyheadlist.json');
                 headlist = rawdata;// JSON.parse(rawdata);
             }
-            var thishead = $.read("thishead");
+            var thishead = $.read("#thishead");
             if (!!headlist) {
                 var index = 0;
                 var list = JSON.parse(headlist);
@@ -64,16 +64,16 @@ function main() {
                         if (JSON.stringify(list[i]) == thishead) {
                             isHas = true;
                             if (list.length - 1 == i) {
-                                $.write(JSON.stringify(list[0]), "thishead")
+                                $.write(JSON.stringify(list[0]), "#thishead")
                             } else {
-                                $.write(JSON.stringify(list[i + 1]), "thishead");
+                                $.write(JSON.stringify(list[i + 1]), "#thishead");
                                 index = i + 1
                             }
                             break
                         }
                     }
                     if (!isHas) {
-                        $.write(JSON.stringify(list[0]), "thishead");
+                        $.write(JSON.stringify(list[0]), "#thishead");
                     }
                 } else {
                     $.write(JSON.stringify(list[0]), "thishead");
