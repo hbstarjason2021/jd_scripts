@@ -48,7 +48,7 @@ function main() {
 
         } else {
             console.log("\r\n*************抖音极速刷视频脚本开始!************\r\n");
-            var headlist = $.read("#dyheadlist");
+            var headlist = $.read("dyheadlist");
             if ($.env.isNode) {
                 const fs = require('fs');
                 let rawdata = fs.readFileSync('dyheadlist.json');
