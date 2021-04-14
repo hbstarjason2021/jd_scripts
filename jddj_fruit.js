@@ -10,7 +10,7 @@ let thiscookie = '', deviceid = '';
     if (cookies.length == 0) {
         //console.log($.read('jddj_cookies'));
         console.log($.read('#jddj_cookies'));
-        cookies = JSON.parse($.read('jddj_cookies'));
+        cookies = JSON.parse($.read('#jddj_cookies'));
     }
 
     for (let i = 0; i < cookies.length; i++) {
