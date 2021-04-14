@@ -1,11 +1,13 @@
 //京东到家果园任务脚本,支持qx,loon,shadowrocket,surge,nodejs
-//用抓包抓https://daojia.jd.com/html/index.html页面cookie填写到下面
+//用抓包抓 https://daojia.jd.com/html/index.html 页面cookie填写到下面
+//抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
+//8,11,16整点各运行一次
 
 const $ = new API("djgy");
 let cookies = [
     '',//账号1
 
-    '',//账号1
+    '',//账号2
 ];
 let thiscookie = '', deviceid = '';
 !(async () => {
@@ -50,6 +52,9 @@ let thiscookie = '', deviceid = '';
         await $.wait(1000);
 
         _10timesGetWater();
+        await $.wait(1000);
+
+        await treeInfo();
         await $.wait(1000);
 
     }
@@ -193,7 +198,7 @@ async function timeGetWater() {
     })
 }
 
-//秒杀商品浏览十秒钟
+//秒杀商品浏览10s
 async function _10sGetWater() {
     return new Promise(async resolve => {
         try {
@@ -225,7 +230,7 @@ async function _10sGetWater() {
     })
 }
 
-//通用浏览10任务
+//通用浏览10s任务
 async function view10sTask(tslist) {
     return new Promise(async resolve => {
         try {
@@ -330,6 +335,26 @@ async function _10timesGetWater() {
     })
 }
 
+//当前果树详情
+async function treeInfo() {
+    return new Promise(async resolve => {
+        try {
+            let option = urlTask('https://daojia.jd.com:443/client?_jdrandom=' + Math.round(new Date()), 'functionId=fruit%2FinitFruit&isNeedDealError=true&method=POST&body=%7B%22cityId%22%3A1381%2C%22longitude%22%3A114.32204%2C%22latitude%22%3A30.470556%7D&lat=30.470556&lng=114.32204&lat_pos=30.470556&lng_pos=114.32204&city_id=1381&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid);
+            await $.http.post(option).then(async response => {
+                let data = JSON.parse(response.body);
+                if (data.code == 0) {
+                    console.log('\n【果树信息】:' + data.result.activityInfoResponse.fruitName + ',还需浇水' + data.result.activityInfoResponse.curStageLeftProcess + '次开花,还剩' + data.result.userResponse.waterBalance + '滴水');
+                }
+                resolve();
+            })
+        } catch (error) {
+            console.log('\n【果树信息】:' + error);
+            resolve();
+        }
+
+    })
+}
+
 
 function urlTask(url, body) {
     let option = {
@@ -341,7 +366,7 @@ function urlTask(url, body) {
             'Cookie': thiscookie,
             'Connection': 'keep-alive',
             'Accept': '*/*',
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148________appName=jdLocal&platform=iOS&commonParams={"sharePackageVersion":"2"}&djAppVersion=8.7.5&supportDJSHWK',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148________appName=jdLocal&platform=iOS&commonParams={"sharePackageVersion":"2"}&djAppVersion=8.7.5&supportDJSHWK',
             'Accept-Language': 'zh-cn'
         },
         body: body
