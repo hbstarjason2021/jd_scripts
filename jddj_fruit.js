@@ -2,6 +2,7 @@
 //用抓包抓 https://daojia.jd.com/html/index.html 页面cookie填写到下面,暂时不知cookie有效期
 //抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
 //8,11,16整点各运行一次
+//boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json
 
 const $ = new API("djgy");
 let cookies = [];//多账号cookie用,分开
