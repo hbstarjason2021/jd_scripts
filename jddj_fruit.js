@@ -4,14 +4,13 @@
 //8,11,16整点各运行一次
 
 const $ = new API("djgy");
-let cookies = [
-    '',//账号1
-
-    '',//账号2
-];
+let cookies = [];//多账号cookie用,分开
 let thiscookie = '', deviceid = '';
 !(async () => {
-    cookies = JSON.parse($.read('#cookies'));
+    if (cookies.length == 0) {
+        cookies = JSON.parse($.read('#jddj_cookies'));
+    }
+
     for (let i = 0; i < cookies.length; i++) {
         console.log(`\n★★★★★开始执行第${i + 1}个账号,共${cookies.length}个账号★★★★★`);
         thiscookie = cookies[i];
