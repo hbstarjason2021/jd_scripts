@@ -11,6 +11,7 @@ let thiscookie = '', deviceid = '';
         //console.log($.read('jddj_cookies'));
         console.log($.read('#jddj_cookies'));
         cookies = JSON.parse($.read('#jddj_cookies'));
+        console.log(cookies);
     }
 
     for (let i = 0; i < cookies.length; i++) {
