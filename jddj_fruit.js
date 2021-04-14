@@ -8,7 +8,7 @@ let cookies = [];//多账号cookie用,分开
 let thiscookie = '', deviceid = '';
 !(async () => {
     if (cookies.length == 0) {
-        let ckstr = $.read('#jddj_cookies').split(',');
+        let ckstr = $.read('#jddj_cookies');
         if (ckstr.indexOf(',') < 0) {
             cookies.push(ckstr);
         } else {
