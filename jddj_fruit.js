@@ -11,6 +11,7 @@ let cookies = [
 ];
 let thiscookie = '', deviceid = '';
 !(async () => {
+    cookies = JSON.parse($.read('#cookies'));
     for (let i = 0; i < cookies.length; i++) {
         console.log(`\n★★★★★开始执行第${i + 1}个账号,共${cookies.length}个账号★★★★★`);
         thiscookie = cookies[i];
