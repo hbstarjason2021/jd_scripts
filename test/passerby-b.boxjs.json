@@ -1,0 +1,37 @@
+{
+  "id": "lxk0301.app.sub",
+  "name": "lxk0301脚本订阅",
+  "author": "@lxk0301",
+  "icon": "https://avatars0.githubusercontent.com/u/21308593?s=52&v=4",
+  "repo": "https://gitee.com/passerby-b/javascript",
+  "apps": [
+    {
+      "id": "jddj_fruit",
+      "name": "京东到家果园任务",
+      "keys": [
+        "cookies"
+      ],
+      "descs_html": [
+        "多个用逗号分开"
+      ],
+      "settings": [
+        {
+          "id": "cookies",
+          "name": "CK 列表",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 8,
+          "desc": "CK 列表 (JSON 格式)"
+        }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/jd.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
+      ],
+      "author": "@dompling",
+      "repo": "https://gitee.com/passerby-b/javascript",
+      "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_fruit.js"
+    }
+  ]
+}
