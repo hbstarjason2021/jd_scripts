@@ -9,7 +9,7 @@
       "id": "jddj_fruit",
       "name": "京东到家果园任务",
       "keys": [
-        "cookies"
+        "jddj_cookies"
       ],
       "descs_html": [
         "多个用逗号分开"
