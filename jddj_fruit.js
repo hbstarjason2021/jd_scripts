@@ -8,7 +8,7 @@ let cookies = [];//多账号cookie用,分开
 let thiscookie = '', deviceid = '';
 !(async () => {
     if (cookies.length == 0) {
-        cookies = JSON.parse($.read('#jddj_cookies'));
+        cookies = JSON.parse($.read('jddj_cookies'));
     }
 
     for (let i = 0; i < cookies.length; i++) {
