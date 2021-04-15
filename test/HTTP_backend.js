@@ -7,7 +7,8 @@ var html = '<!DOCTYPE html><html lang="en"xmlns="http://www.w3.org/1999/xhtml"><
     //$done(d);
 //});
 try{
-  var str= $prefs.valueForKey('dyheadlist');
+  //var str= $prefs.valueForKey('dyheadlist');
+  var str= $prefs.valueForKey('dyjs2');
   //var str= $prefs.valueForKey('zqgetbody_body');
   //var str= $prefs.valueForKey('中青看点阅读');
   $done(str);
