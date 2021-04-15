@@ -30,6 +30,11 @@ let thiscookie = '', deviceid = '';
         deviceid = jsonlist.deviceid_pdj_jd;
 
         let tslist = await taskList();
+        if (tslist.code == 1) {
+            console.log('第' + (i + 1) + '个账号cookie过期!');
+            $.notify('第' + (i + 1) + '个账号cookie过期', ',请访问https://daojia.jd.com/html/index.html抓取cookie', { url: 'https://daojia.jd.com/html/index.html' });
+            continue;
+        }
 
         await dailySign();
         await $.wait(1000);
@@ -55,8 +60,8 @@ let thiscookie = '', deviceid = '';
         await water();
         await $.wait(1000);
 
-        _5timesGetWater();
-        await $.wait(1000);
+        //_5timesGetWater();
+        //await $.wait(1000);
 
         _10timesGetWater();
         await $.wait(1000);
