@@ -1,11 +1,12 @@
 //京东到家果园任务脚本,支持qx,loon,shadowrocket,surge,nodejs
 //用抓包抓 https://daojia.jd.com/html/index.html 页面cookie填写到下面,暂时不知cookie有效期
 //抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
+//cookie只要里面的deviceid_pdj_jd=xxx-xxx-xxx;o2o_m_h5_sid=xxx-xxx-xxx关键信息
 //8,11,16整点各运行一次
 //boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json
 
 const $ = new API("djgy");
-let cookies = [];//多账号cookie用,分开
+let cookies = [];
 let thiscookie = '', deviceid = '';
 !(async () => {
     if (cookies.length == 0) {
@@ -16,22 +17,24 @@ let thiscookie = '', deviceid = '';
             cookies = str.split(',');
         }
     }
-
     for (let i = 0; i < cookies.length; i++) {
         console.log(`\n★★★★★开始执行第${i + 1}个账号,共${cookies.length}个账号★★★★★`);
         thiscookie = cookies[i];
+
         if (!thiscookie.trim()) continue;
 
         var jsonlist = {};
         var params = thiscookie.split(';');
         params.forEach(item => {
-            jsonlist[item.split('=')[0].trim()] = item.split('=')[1].trim();
+            if (item.indexOf('=') > -1) {
+                jsonlist[item.split('=')[0].trim()] = item.split('=')[1].trim();
+            }
         });
         deviceid = jsonlist.deviceid_pdj_jd;
 
         let tslist = await taskList();
         if (tslist.code == 1) {
-            console.log('第' + (i + 1) + '个账号cookie过期!');
+            console.log('\n第' + (i + 1) + '个账号cookie过期!');
             $.notify('第' + (i + 1) + '个账号cookie过期', ',请访问https://daojia.jd.com/html/index.html抓取cookie', { url: 'https://daojia.jd.com/html/index.html' });
             continue;
         }
