@@ -35,8 +35,6 @@ let thiscookie = '', deviceid = '';
         await getPoints();
         await $.wait(1000);
 
-        await watering();
-
     }
 
 })().catch((e) => {
@@ -53,9 +51,17 @@ async function getPoints() {
         try {
             let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()), 'functionId=plantBeans%2FgetWater&isNeedDealError=true&method=POST&body=%7B%22activityId%22%3A%2223e4a58bca00bef%22%7D&lat=&lng=&lat_pos=&lng_pos=&city_id=&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '');
 
-            $.http.post(option).then(response => {
+            $.http.post(option).then(async response => {
                 let data = JSON.parse(response.body);
-                console.log('\n【收水车水滴】:' + data.msg + ',' + data.result.addWater);
+                //console.log(data);
+                if (data.code == 0) {
+                    console.log('\n【收水车水滴】:' + data.msg + '->当前收取:' + data.result.addWater + ',当前剩余:' + data.result.water + ',当日累计:' + data.result.dailyWater);
+                    if (data.result.water >= 100) {
+                        await watering();
+                    }
+                } else {
+                    console.log('\n【收水车水滴】:cookie失效!');
+                }
                 resolve();
             })
 
