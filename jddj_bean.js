@@ -11,7 +11,7 @@ let thiscookie = '', deviceid = '';
 !(async () => {
     if ($.env.isNode) cookies = require('./jddj_cookie.js');
     if (cookies.length == 0) {
-        let ckstr = $.read('#jddj_cookies').split(',');
+        let ckstr = $.read('#jddj_cookies');
         if (ckstr.indexOf(',') < 0) {
             cookies.push(ckstr);
         } else {
