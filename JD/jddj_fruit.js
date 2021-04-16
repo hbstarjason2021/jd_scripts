@@ -8,6 +8,9 @@
 const $ = new API("djgy");
 let cookies = [];
 let thiscookie = '', deviceid = '';
+let lat = Math.round(Math.random() * (35 - 30) + 30) + '.' + Math.round(Math.random() * (99999 - 10000) + 10000);
+let lng = Math.round(Math.random() * (125 - 120) + 120) + '.' + Math.round(Math.random() * (99999 - 10000) + 10000);
+let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
 !(async () => {
     if ($.env.isNode) cookies = require('./jddj_cookie.js');
     if (cookies.length == 0) {
@@ -111,7 +114,7 @@ async function water() {
 async function sign() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=signin%2FuserSigninNew&isNeedDealError=true&body=%7B%22channel%22%3A%22daojiaguoyuan%22%2C%22cityId%22%3A1381%2C%22longitude%22%3A114.32204%2C%22latitude%22%3A30.470556%2C%22ifCic%22%3A0%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, ``);
+            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=signin%2FuserSigninNew&isNeedDealError=true&body=%7B%22channel%22%3A%22daojiaguoyuan%22%2C%22cityId%22%3A' + cityid + '%2C%22longitude%22%3A' + lng + '%2C%22latitude%22%3A' + lat + '%2C%22ifCic%22%3A0%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, ``);
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
                 console.log('\n【到家签到】:' + data.msg);
@@ -190,7 +193,7 @@ async function runTask(tslist) {
 async function treeInfo() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com:443/client?_jdrandom=' + Math.round(new Date()), 'functionId=fruit%2FinitFruit&isNeedDealError=true&method=POST&body=%7B%22cityId%22%3A1381%2C%22longitude%22%3A114.32204%2C%22latitude%22%3A30.470556%7D&lat=30.470556&lng=114.32204&lat_pos=30.470556&lng_pos=114.32204&city_id=1381&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid);
+            let option = urlTask('https://daojia.jd.com:443/client?_jdrandom=' + Math.round(new Date()), 'functionId=fruit%2FinitFruit&isNeedDealError=true&method=POST&body=%7B%22cityId%22%3A' + cityid + '%2C%22longitude%22%3A' + lng + '%2C%22latitude%22%3A' + lat + '%7D&lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid);
             await $.http.post(option).then(async response => {
                 let data = JSON.parse(response.body);
                 if (data.code == 0) {
