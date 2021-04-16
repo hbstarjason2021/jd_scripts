@@ -9,6 +9,7 @@ const $ = new API("djgy");
 let cookies = [];
 let thiscookie = '', deviceid = '';
 !(async () => {
+    if ($.env.isNode) cookies = require('./jddj_cookie.js');
     if (cookies.length == 0) {
         let ckstr = $.read('#jddj_cookies');
         if (ckstr.indexOf(',') < 0) {
@@ -34,39 +35,17 @@ let thiscookie = '', deviceid = '';
 
         let tslist = await taskList();
         if (tslist.code == 1) {
-            console.log('\n第' + (i + 1) + '个账号cookie过期!');
             $.notify('第' + (i + 1) + '个账号cookie过期', ',请访问https://daojia.jd.com/html/index.html抓取cookie', { url: 'https://daojia.jd.com/html/index.html' });
             continue;
         }
 
-        await dailySign();
+        await sign();
         await $.wait(1000);
 
-        await continuitySign();
-        await $.wait(1000);
-
-        await signGetWater();
-        await $.wait(1000);
-
-        await timeGetWater();
-        await $.wait(1000);
-
-        await _10sGetWater();
-        await $.wait(1000);
-
-        await view10sTask(tslist);
-        await $.wait(1000);
-
-        await gcGetWater();
+        await runTask(tslist);
         await $.wait(1000);
 
         await water();
-        await $.wait(1000);
-
-        //_5timesGetWater();
-        //await $.wait(1000);
-
-        _10timesGetWater();
         await $.wait(1000);
 
         await treeInfo();
@@ -128,65 +107,16 @@ async function water() {
 
 }
 
-//果园每日签到
-async function dailySign() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223eee25fa676300%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【果园每日签到领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【果园每日签到领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//连续签到
-async function continuitySign() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223dd5f3d1ae4dc5%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【果园连续签到领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【果园连续签到领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//到家签到浏览10s领水滴
-async function signGetWater() {
+//到家签到
+async function sign() {
     return new Promise(async resolve => {
         try {
             let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=signin%2FuserSigninNew&isNeedDealError=true&body=%7B%22channel%22%3A%22daojiaguoyuan%22%2C%22cityId%22%3A1381%2C%22longitude%22%3A114.32204%2C%22latitude%22%3A30.470556%2C%22ifCic%22%3A0%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, ``);
-            await $.http.get(option).then(response => {
+            $.http.get(option).then(response => {
                 console.log('\n【到家签到】:' + response.body);
-            })
-
-            console.log('\n【到家签到】:开始浏览商品10s...');
-            for (let t = 0; t < 10; t++) {
-                await $.wait(1000);
-                console.log('计时:' + (t + 1) + '秒...');
-            }
-
-            option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223dec596e901e11%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【到家签到开始浏览10s结束】:' + response.body);
-            })
-
-            option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223dec596e901e11%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【到家签到领水滴】:' + response.body);
                 resolve();
             })
+
         } catch (error) {
             console.log('\n【到家签到领水滴】:' + error);
             resolve();
@@ -196,154 +126,58 @@ async function signGetWater() {
 
 }
 
-//定时领水滴
-async function timeGetWater() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223deb230555aefd%22%2C%22taskType%22%3A1102%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【定时领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【定时领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//秒杀商品浏览10s
-async function _10sGetWater() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Freceived&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223df26089e7f180%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【开始逛十秒.....】:' + response.body);
-            })
-
-            for (let t = 0; t < 10; t++) {
-                await $.wait(1000);
-                console.log('计时:' + (t + 1) + '秒...');
-            }
-
-            option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223df26089e7f180%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【逛十秒结束】:' + response.body);
-            })
-
-            option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223df26089e7f180%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【逛十秒钟领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【逛十秒钟领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//通用浏览10s任务
-async function view10sTask(tslist) {
+async function runTask(tslist) {
     return new Promise(async resolve => {
         try {
             for (let index = 0; index < tslist.result.taskInfoList.length; index++) {
                 const item = tslist.result.taskInfoList[index];
-                if (item.taskType == '307') {
-                    //领取任务
-                    let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Freceived&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-                    await $.http.get(option).then(response => {
-                        console.log('\n【' + item.taskName + '开始逛十秒.....】:' + response.body);
-                    })
 
-                    for (let t = 0; t < 10; t++) {
+                //领取任务
+                let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Freceived&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                await $.http.get(option).then(response => {
+                    var data = JSON.parse(response.body), msg = '';
+                    if (data.code == 0) {
+                        msg = data.msg + ',奖励:' + data.result.awardValue;
+                    } else {
+                        msg = data.msg;
+                    }
+                    console.log('\n领取任务【' + item.taskName + '】:' + msg);
+                })
+
+                if (item.browseTime > -1) {
+                    for (let t = 0; t < parseInt(item.browseTime); t++) {
                         await $.wait(1000);
                         console.log('计时:' + (t + 1) + '秒...');
                     }
-
-                    //结束任务
-                    option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-                    await $.http.get(option).then(response => {
-                        console.log('\n【' + item.taskName + '逛十秒结束】:' + response.body);
-                    })
-
-                    //领取奖励
-                    option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-                    await $.http.get(option).then(response => {
-                        console.log('\n【' + item.taskName + '逛十秒钟领水滴】:' + response.body);
-                    })
-
                 }
+
+                //结束任务
+                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                await $.http.get(option).then(response => {
+                    var data = JSON.parse(response.body), msg = '';
+                    if (data.code == 0) {
+                        msg = data.msg + ',奖励:' + data.result.awardValue;
+                    } else {
+                        msg = data.msg;
+                    }
+                    console.log('\n任务完成【' + item.taskName + '】:' + msg);
+                })
+
+                //领取奖励
+                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                await $.http.get(option).then(response => {
+                    var data = JSON.parse(response.body), msg = '';
+                    if (data.code == 0) {
+                        msg = data.msg + ',奖励:' + data.result.awardValue;
+                    } else {
+                        msg = data.msg;
+                    }
+                    console.log('\n领取奖励【' + item.taskName + '】:' + msg);
+                })
             }
             resolve();
         } catch (error) {
-            console.log('\n【逛十秒钟领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//打开惊喜工厂领水滴
-async function gcGetWater() {
-    return new Promise(async resolve => {
-        try {
-            //先打开再领
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223e48fe307c9f37%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【打开惊喜工厂】:' + response.body);
-            })
-
-            await $.wait(2000);
-
-            option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223e48fe307c9f37%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【打开惊喜工厂领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【打开惊喜工厂领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//浇水五次领水滴
-async function _5timesGetWater() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223eee302d05e132%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(response => {
-                console.log('\n【浇水五次领水滴】:' + response.body);
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【浇水五次领水滴】:' + error);
-            resolve();
-        }
-
-    })
-}
-
-//浇水十次领水滴
-async function _10timesGetWater() {
-    return new Promise(async resolve => {
-        try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%2223ded2577aa9fbf%22%2C%22taskType%22%3A901%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
-            await $.http.get(option).then(async response => {
-                let data = JSON.parse(response.body);
-                console.log('\n【浇水十次领水滴】:' + response.body);
-                if (data.code == 0) {
-                    console.log('开始重新浇水.........');
-                    await water();
-                }
-                resolve();
-            })
-        } catch (error) {
-            console.log('\n【浇水十次领水滴】:' + error);
+            console.log('\n【执行任务】:' + error);
             resolve();
         }
 
