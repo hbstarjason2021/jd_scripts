@@ -1,37 +1,65 @@
 {
-  "id": "com.passerby-b",
-  "name": "passerby-b脚本订阅",
-  "author": "@passerby-b",
-  "icon": "https://portrait.gitee.com/uploads/avatars/user/2721/8163312_passerby-b_1605061011.png",
-  "repo": "https://gitee.com/passerby-b/javascript",
-  "apps": [
-    {
-      "id": "jddj_fruit",
-      "name": "京东到家果园任务",
-      "keys": [
-        "jddj_cookies"
-      ],
-      "descs_html": [
-        "多个用逗号分开"
-      ],
-      "settings": [
-        {
-          "id": "jddj_cookies",
-          "name": "CK列表",
-          "val": "",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 8,
-          "desc": "CK 列表 "
-        }
-      ],
-      "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/jd.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
-      ],
-      "author": "@passerby-b",
-      "repo": "https://gitee.com/passerby-b/javascript",
-      "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_fruit.js"
-    }
-  ]
-}
+    "id": "com.passerby-b",
+    "name": "passerby-b脚本订阅",
+    "author": "@passerby-b",
+    "icon": "https://portrait.gitee.com/uploads/avatars/user/2721/8163312_passerby-b_1605061011.png",
+    "repo": "https://gitee.com/passerby-b/javascript",
+    "apps": [
+      {
+        "id": "jddj_fruit",
+        "name": "京东到家果园任务",
+        "keys": [
+          "jddj_cookies"
+        ],
+        "descs_html": [
+          "多个用逗号分开"
+        ],
+        "settings": [
+          {
+            "id": "jddj_cookies",
+            "name": "CK列表",
+            "val": "",
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 8,
+            "desc": "CK 列表 "
+          }
+        ],
+        "icons": [
+          "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/jd.png",
+          "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
+        ],
+        "author": "@passerby-b",
+        "repo": "https://gitee.com/passerby-b/javascript",
+        "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_fruit.js"
+      },
+      {
+        "id": "jddj_bean",
+        "name": "京东到家鲜豆任务",
+        "keys": [
+          "jddj_cookies"
+        ],
+        "descs_html": [
+          "多个用逗号分开"
+        ],
+        "settings": [
+          {
+            "id": "jddj_cookies",
+            "name": "CK列表",
+            "val": "",
+            "type": "textarea",
+            "autoGrow": true,
+            "rows": 8,
+            "desc": "CK 列表 "
+          }
+        ],
+        "icons": [
+          "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/jd.png",
+          "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
+        ],
+        "author": "@passerby-b",
+        "repo": "https://gitee.com/passerby-b/javascript",
+        "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_bean.js"
+      }
+    ]
+  }
