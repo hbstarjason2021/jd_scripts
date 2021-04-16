@@ -3,7 +3,7 @@
 //抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
 //cookie只要里面的deviceid_pdj_jd=xxx-xxx-xxx;o2o_m_h5_sid=xxx-xxx-xxx关键信息
 //一天运行一次
-//boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json
+//boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/JD/passerby-b.boxjs.json
 
 const $ = new API("jddj_bean");
 let cookies = [];
