@@ -12,14 +12,12 @@ let thiscookie = '', deviceid = '';
     if ($.env.isNode) cookies = require('./jddj_cookie.js');
     if (cookies.length == 0) {
         let ckstr = $.read('#jddj_cookies');
-        console.log(ckstr);
         if (ckstr.indexOf(',') < 0) {
             cookies.push(ckstr);
         } else {
             cookies = str.split(',');
         }
     }
-    console.log(cookies);
     for (let i = 0; i < cookies.length; i++) {
         console.log(`\n★★★★★开始执行第${i + 1}个账号,共${cookies.length}个账号★★★★★`);
         thiscookie = cookies[i];
