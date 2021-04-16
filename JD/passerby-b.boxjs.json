@@ -3,7 +3,7 @@
     "name": "passerby-b脚本订阅",
     "author": "@passerby-b",
     "icon": "https://portrait.gitee.com/uploads/avatars/user/2721/8163312_passerby-b_1605061011.png",
-    "repo": "https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json",
+    "repo": "https://gitee.com/passerby-b/javascript/raw/master/jd/passerby-b.boxjs.json",
     "apps": [
       {
         "id": "jddj_fruit",
@@ -30,8 +30,8 @@
           "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
         ],
         "author": "@passerby-b",
-        "repo": "https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json",
-        "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_fruit.js"
+        "repo": "https://gitee.com/passerby-b/javascript/raw/master/jd/passerby-b.boxjs.json",
+        "script": "https://gitee.com/passerby-b/javascript/raw/master/jd/jddj_fruit.js"
       },
       {
         "id": "jddj_bean",
@@ -58,8 +58,8 @@
           "https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png"
         ],
         "author": "@passerby-b",
-        "repo": "https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json",
-        "script": "https://gitee.com/passerby-b/javascript/raw/master/jddj_bean.js"
+        "repo": "https://gitee.com/passerby-b/javascript/raw/master/jd/passerby-b.boxjs.json",
+        "script": "https://gitee.com/passerby-b/javascript/raw/master/jd/jddj_bean.js"
       }
     ]
   }
