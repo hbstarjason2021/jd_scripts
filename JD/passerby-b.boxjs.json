@@ -12,7 +12,7 @@
           "jddj_cookies"
         ],
         "descs_html": [
-          "多个用逗号分开,单个cookie需要单引号包起来"
+          "多个用逗号分开"
         ],
         "settings": [
           {
@@ -40,7 +40,7 @@
           "jddj_cookies"
         ],
         "descs_html": [
-          "多个用逗号分开,单个cookie需要单引号包起来"
+          "多个用逗号分开"
         ],
         "settings": [
           {
