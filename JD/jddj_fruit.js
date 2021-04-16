@@ -66,7 +66,7 @@ async function taskList() {
             let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Flist&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22plateCode%22%3A1%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, '');
 
             $.http.get(option).then(response => {
-                var data = JSON.parse(response.body);
+                let data = JSON.parse(response.body);
                 resolve(data);
             })
 
@@ -90,8 +90,8 @@ async function water() {
                 console.log(`\n**********开始执行第${waterCount}次浇水**********`);
 
                 $.http.post(option).then(response => {
-                    var data = JSON.parse(response.body);
-                    console.log('\n【浇水】:' + response.body);
+                    let data = JSON.parse(response.body);
+                    console.log('\n【浇水】:' + data.msg);
                     waterStatus = data.code;
                 })
                 await $.wait(1000);
@@ -113,7 +113,8 @@ async function sign() {
         try {
             let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=signin%2FuserSigninNew&isNeedDealError=true&body=%7B%22channel%22%3A%22daojiaguoyuan%22%2C%22cityId%22%3A1381%2C%22longitude%22%3A114.32204%2C%22latitude%22%3A30.470556%2C%22ifCic%22%3A0%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, ``);
             $.http.get(option).then(response => {
-                console.log('\n【到家签到】:' + response.body);
+                let data = JSON.parse(response.body);
+                console.log('\n【到家签到】:' + data.msg);
                 resolve();
             })
 
@@ -126,6 +127,7 @@ async function sign() {
 
 }
 
+//运行任务列表
 async function runTask(tslist) {
     return new Promise(async resolve => {
         try {
@@ -133,7 +135,7 @@ async function runTask(tslist) {
                 const item = tslist.result.taskInfoList[index];
 
                 //领取任务
-                let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Freceived&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Freceived&isNeedDealError=true&body=%7B%22modelId%22%3A%22' + item.modelId + '%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
                 await $.http.get(option).then(response => {
                     var data = JSON.parse(response.body), msg = '';
                     if (data.code == 0) {
@@ -152,7 +154,7 @@ async function runTask(tslist) {
                 }
 
                 //结束任务
-                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Ffinished&isNeedDealError=true&body=%7B%22modelId%22%3A%22' + item.modelId + '%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
                 await $.http.get(option).then(response => {
                     var data = JSON.parse(response.body), msg = '';
                     if (data.code == 0) {
@@ -164,7 +166,7 @@ async function runTask(tslist) {
                 })
 
                 //领取奖励
-                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
+                option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2FsendPrize&isNeedDealError=true&body=%7B%22modelId%22%3A%22' + item.modelId + '%22%2C%22taskId%22%3A%22' + item.taskId + '%22%2C%22taskType%22%3A' + item.taskType + '%2C%22plateCode%22%3A1%2C%22subNode%22%3Anull%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '', ``);
                 await $.http.get(option).then(response => {
                     var data = JSON.parse(response.body), msg = '';
                     if (data.code == 0) {
