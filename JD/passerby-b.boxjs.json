@@ -21,7 +21,7 @@
             "val": "",
             "type": "textarea",
             "autoGrow": true,
-            "rows": 8,
+            "rows": 20,
             "desc": "CK 列表 "
           }
         ],
@@ -49,7 +49,7 @@
             "val": "",
             "type": "textarea",
             "autoGrow": true,
-            "rows": 8,
+            "rows": 20,
             "desc": "CK 列表 "
           }
         ],
