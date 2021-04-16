@@ -3,7 +3,7 @@
     "name": "passerby-b脚本订阅",
     "author": "@passerby-b",
     "icon": "https://portrait.gitee.com/uploads/avatars/user/2721/8163312_passerby-b_1605061011.png",
-    "repo": "https://gitee.com/passerby-b/javascript",
+    "repo": "https://gitee.com/passerby-b/javascript/raw/master/test/passerby-b.boxjs.json",
     "apps": [
       {
         "id": "jddj_fruit",
