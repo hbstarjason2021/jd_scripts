@@ -62,7 +62,7 @@
       "script": "https://gitee.com/passerby-b/javascript/raw/master/JD/jddj_bean.js"
     },
     {
-      "id": "jddj_bean",
+      "id": "jddj_plantBeans",
       "name": "京东到家鲜豆庄园",
       "keys": [
         "jddj_cookies"
@@ -90,7 +90,7 @@
       "script": "https://gitee.com/passerby-b/javascript/raw/master/JD/jddj_plantBeans.js"
     },
     {
-      "id": "jddj_bean",
+      "id": "jddj_getPoints",
       "name": "京东到家鲜豆庄园收水滴",
       "keys": [
         "jddj_cookies"
