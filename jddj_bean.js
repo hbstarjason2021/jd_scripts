@@ -27,7 +27,9 @@ let thiscookie = '', deviceid = '';
         var jsonlist = {};
         var params = thiscookie.split(';');
         params.forEach(item => {
-            jsonlist[item.split('=')[0].trim()] = item.split('=')[1].trim();
+            if (item.indexOf('=') > -1) {
+                jsonlist[item.split('=')[0].trim()] = item.split('=')[1].trim();
+            }
         });
         deviceid = jsonlist.deviceid_pdj_jd;
 
