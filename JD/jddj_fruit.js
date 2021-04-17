@@ -8,8 +8,8 @@
 const $ = new API("djgy");
 let cookies = [];
 let thiscookie = '', deviceid = '';
-let lat = Math.round(Math.random() * (35 - 30) + 30) + '.' + Math.round(Math.random() * (99999 - 10000) + 10000);
-let lng = Math.round(Math.random() * (125 - 120) + 120) + '.' + Math.round(Math.random() * (99999 - 10000) + 10000);
+let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
+let lng = '114.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
 !(async () => {
     if ($.env.isNode) cookies = require('./jddj_cookie.js');
