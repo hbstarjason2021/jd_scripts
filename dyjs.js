@@ -21,7 +21,7 @@
 
 var isShowCionDetail = false;//显示收益详情
 
-const $ = API("dyjs");
+const $ = API("dyjs2");
 !(async () => {
     if (typeof $request != "undefined") {
         console.log("\r\n抖音极速获取headers脚本开始!\r\n");
