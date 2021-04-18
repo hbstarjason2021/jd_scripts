@@ -21,7 +21,7 @@
 
 var isShowCionDetail = false;//显示收益详情
 
-const $ = API("dyjs2");
+const $ = API("dyjs");
 !(async () => {
     if (typeof $request != "undefined") {
         console.log("\r\n抖音极速获取headers脚本开始!\r\n");
@@ -97,7 +97,6 @@ const $ = API("dyjs2");
                     console.log("\r\n【" + $.name + "】" + d + "\n");
                 }
             })
-            //await $.wait(500);
 
             if (isShowCionDetail) {
                 var headers2 = {
@@ -125,7 +124,6 @@ const $ = API("dyjs2");
                     console.log("\r\n现金收益:" + Number(d.data.income_data.amount2) / 100 + "元!");
                     console.log("\r\n累计收益" + Number(d.data.income_data.amount2_total) / 100 + "元!\r\n");
                 })
-                //await $.wait(500);
             }
         } else {
             $.notify("请先刷视频获取headers", "多多益善", "");
