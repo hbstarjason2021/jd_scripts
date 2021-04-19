@@ -2,14 +2,14 @@
 ============Quantumultx===============
 [task_local]
 #店铺签到
-0 0 0 * * * https://raw.githubusercontent.com/Misaka09982/AutoSignMachine/master/diy_shopsign.js, tag=店铺签到, enabled=true
+0 0 0 * * * https://raw.githubusercontent.com/ljqailym/JD/main/dpqd3.js, tag=店铺签到, enabled=true
 ===========Loon============
 [Script]
-cron "0 0 0 * * *" script-path=https://raw.githubusercontent.com/Misaka09982/AutoSignMachine/master/diy_shopsign.js,tag=店铺签到
+cron "0 0 0 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/dpqd3.js,tag=店铺签到
 ============Surge=============
-店铺签到 = type=cron,cronexp="0 0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Misaka09982/AutoSignMachine/master/diy_shopsign.js
+店铺签到 = type=cron,cronexp="0 0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/dpqd3.js
 ===========小火箭========
-店铺签到 = type=cron,script-path=https://raw.githubusercontent.com/Misaka09982/AutoSignMachine/master/diy_shopsign.jss, cronexpr="0 0 0 * * *", timeout=3600, enable=true
+店铺签到 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/dpqd3.js, cronexpr="0 0 0 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env('店铺签到');
