@@ -1,6 +1,6 @@
 /*
 只能用一天。需每天寻找直播抓包
-1 8-23 * * * live_redrain.js
+0 0,12-23 * * * live_redrain.js
 */
 const $ = new Env('红人直播间京豆雨');
 let allMessage = '';
