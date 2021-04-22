@@ -6,17 +6,17 @@
 ==============Quantumult X==============
 [task_local]
 #超级直播间盲盒抽京豆
-0,30,31 20-23/1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_live_redrain.js, tag=超级直播间红包雨, enabled=true
+30,31 20-23/1 23 4 * https://raw.githubusercontent.com/ljqailym/JD/main/jd_super_mh.js, tag=超级直播间红包雨, enabled=true
 
 ==============Loon==============
 [Script]
-cron "0,30,31 20-23/1 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_live_redrain.js,tag=超级直播间盲盒抽京豆
+cron "30,31 20-23/1 23 4 *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/jd_super_mh.js,tag=超级直播间盲盒抽京豆
 
 ================Surge===============
-超级直播间盲盒抽京豆 = type=cron,cronexp="0,30,31 20-23/1 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_live_redrain.js
+超级直播间盲盒抽京豆 = type=cron,cronexp="30,31 20-23/1 23 4 *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/jd_super_mh.js
 
 ===============小火箭==========
-超级直播间盲盒抽京豆 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_live_redrain.js, cronexpr="0,30,31 20-23/1 * * *", timeout=3600, enable=true
+超级直播间盲盒抽京豆 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/jd_super_mh.js, cronexpr="30,31 20-23/1 23 4 *", timeout=3600, enable=true
 */
 
 
