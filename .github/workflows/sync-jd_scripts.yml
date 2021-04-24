@@ -34,22 +34,22 @@ jobs:
     - name: Clone master
       run: |
         git clone -b master git@gitee.com:lxk0301/jd_scripts.git jd_scripts
-    - name: Pull
-      run: |
-         echo "###########pwd #######"
-         pwd 
-         ls
-         cd jd_scripts 
-         echo "###########pwd #######"
-         pwd
-         git pull 
+    #- name: Pull
+    #  run: |
+    #     echo "###########pwd #######"
+    #     pwd 
+    #     ls
+    #     cd jd_scripts 
+    #     echo "###########pwd #######"
+    #     pwd
+    #     git pull 
          
     - name: Push master
       uses: ad-m/github-push-action@master
       with:
         directory: jd_scripts
         github_token: ${{ secrets.PAT }}
-        branch: jd_scripts
+        branch: jd_scripts-new
 
     #- name: Clone main
     #  run: |
