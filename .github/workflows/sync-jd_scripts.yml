@@ -38,7 +38,10 @@ jobs:
       run: |
          echo "###########pwd #######"
          pwd 
-         ls -l
+         ls
+         cd jd_scripts 
+         echo "###########pwd #######"
+         pwd
          git pull 
          
     - name: Push master
