@@ -38,6 +38,8 @@ jobs:
       run: |
          echo "###########pwd #######"
          pwd 
+         ls -l
+         git pull 
          
     - name: Push master
       uses: ad-m/github-push-action@master
