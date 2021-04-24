@@ -1,8 +1,17 @@
 /*
-只能用一天。需每天寻找直播抓包
-1 8-23 * * * lxk0301_live_redrain.js
+============Quantumultx===============
+[task_local]
+#行业京豆雨
+0 0,12-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js, tag=行业京豆雨, enabled=true
+===========Loon============
+[Script]
+cron "0 0,12-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js,tag=行业京豆雨
+============Surge=============
+行业京豆雨 = type=cron,cronexp="0 0,12-23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js
+===========小火箭========
+行业京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js, cronexpr="0 0,12-23 * * *", timeout=3600, enable=true
 */
-const $ = new Env('整点京豆雨');
+const $ = new Env('行业京豆雨');
 let allMessage = '';
 let bodyList = {
   '20': {
