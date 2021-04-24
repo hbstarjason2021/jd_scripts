@@ -2,14 +2,14 @@
 ============Quantumultx===============
 [task_local]
 #红人京豆雨
-0 0,12-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js, tag=红人京豆雨, enabled=true
+0 0,12-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hr.js, tag=红人京豆雨, enabled=true
 ===========Loon============
 [Script]
-cron "0 0,12-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js,tag=红人京豆雨
+cron "0 0,12-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hr.js,tag=红人京豆雨
 ============Surge=============
-红人京豆雨 = type=cron,cronexp="0 0,12-23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js
+红人京豆雨 = type=cron,cronexp="0 0,12-23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hr.js
 ===========小火箭========
-红人京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain.js, cronexpr="0 0,12-23 * * *", timeout=3600, enable=true
+红人京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hr.js, cronexpr="0 0,12-23 * * *", timeout=3600, enable=true
 */
 
 
