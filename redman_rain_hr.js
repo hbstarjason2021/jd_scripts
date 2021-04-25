@@ -13,7 +13,7 @@ cron "0 0,12-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD
 */
 
 
-const $ = new Env('红人直播间京豆雨');
+const $ = new Env('红人京豆雨');
 let allMessage = '';
 let bodyList = {
   '20': {
