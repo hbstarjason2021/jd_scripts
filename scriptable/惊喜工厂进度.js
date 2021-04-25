@@ -1,19 +1,7 @@
-
 //京东水果成熟进度
 //var token = args.widgetParameter;
 
-var cookies = [
-  {
-    "name": "xxx",
-    "cookie": 'xxxx'
-  },
-  {
-    "name": "xxx2",
-    "cookie": "xxx2"
-  }
-];
-Keychain.set('jdcookies', JSON.stringify(cookies));//写到缓存中
-
+var cookies = JSON.parse(Keychain.get('jdcookies'));//读取缓存cookies
 
 let widget = await createWidget()
 if (!config.runsInWidget) {
@@ -22,86 +10,150 @@ if (!config.runsInWidget) {
 Script.setWidget(widget)
 Script.complete()
 async function createWidget() {
-  let title = "东东农场进度"
+  let title = "惊喜工厂进度"
   let w = new ListWidget()
   bg = new LinearGradient()
   bg.locations = [0, 1]
   bg.colors = [
     //new Color("#6fa8dc"),
     //new Color("#a4c2f4")
-    new Color("#ffffff")
+    new Color('ffffff')
   ]
 
   w.backgroundGradient = bg
   w.addSpacer(5)
 
   // 显示图标和标题
-  let titleStack = w.addStack()
-  titleStack.addSpacer(4)
-  let titleElement = titleStack.addText(title)
+  let titleStack = w.addStack();
+  titleStack.addSpacer(4);
+  let titleElement = titleStack.addText(title);
   titleElement.textColor = Color.orange();
   titleElement.font = Font.mediumSystemFont(15);
-  w.addSpacer(3);
+  w.addSpacer(5);
 
-  let sharecode = "";
+  let msgstr = "", sharecode = "";
   for (var i = 0; i < cookies.length; i++) {
     let data = await getData(cookies[i].cookie);
-    let msgstr = "";
-    if (!!data.msg && data.msg == "not login") {
+    //console.log("🍎🍎🍎" + JSON.stringify(data));
+    msgstr = cookies[i].name + ":";
+    if (!!data.ret && data.ret == "10001") {
       msgstr = cookies[i].name + ": cookie失效";
     }
-    else if (data.farmUserPro.treeState == 2 || data.farmUserPro.treeState == 3) {
-      msgstr = cookies[i].name + ": 可领取";
-    }
-    else if (data.farmUserPro.treeState == 0) {
-      msgstr = cookies[i].name + ": 请种植水果";
-    }
-    else {
-      var str = data.farmUserPro.name + "，";
-      var str2 = "进度" + ((data.farmUserPro.treeEnergy / data.farmUserPro.treeTotalEnergy) * 100).toFixed(2) + "%，";
-      var str3 = "还剩" + (data.farmUserPro.treeTotalEnergy - data.farmUserPro.treeEnergy) / 10 + "次";
-      msgstr = cookies[i].name + ": " + str + str2 + str3;
-      if (config.widgetFamily == "small") {
-        msgstr = cookies[i].name + ": " + str2.replace("进度", "").replace("，", "");
+    if (!!data.data && !!data.data.productionList && !!data.data.productionList[0].investedElectric) {
+      let data2 = await GetCommodityDetails(cookies[i].cookie, data.data.productionList[0].commodityDimId);
+      let data3 = await QueryFriendList(cookies[i].cookie);
+      var zgxx = "";
+      if (data['ret'] === 0) {
+        const { assistListToday = [], assistNumMax, hireListToday = [], hireNumMax } = data3.data;
+        zgxx = ",招工进度" + hireListToday.length + '/' + hireNumMax;
       }
-    }
-    if (!!data.farmUserPro && !!data.farmUserPro.shareCode) {
-      //console.log(cookies[i].name + "分享码: " + data.farmUserPro.shareCode);
-      sharecode += data.farmUserPro.shareCode + "&";
+      var str = data2.data['commodityList'][0].name;
+      var str2 = "生产进度" + ((data.data.productionList[0].investedElectric / data.data.productionList[0].needElectric) * 100).toFixed(2) + "%";
+      msgstr = cookies[i].name + ": " + str + "," + str2 + zgxx;
+      if (config.widgetFamily == "small") {
+        msgstr = cookies[i].name + ": " + ((data.data.productionList[0].investedElectric / data.data.productionList[0].needElectric) * 100).toFixed(2) + "%";
+      }
+
+      //msgstr=data.data.productionList[0].needElectric.toString();
+      //console.log("🍓🍓🍓🍓"+data.data.productionList[0].needElectric);
+      //console.log(data.data.user.encryptPin);
+      sharecode += data.data.user.encryptPin + "&";
     }
 
     let date1 = w.addText(msgstr)
     date1.font = Font.semiboldSystemFont(12);
+    //date1.textColor = Color.white()
     date1.textColor = Color.black();
     w.addSpacer(3)
 
   }
-  console.log("/submit_activity_codes farm " + sharecode.substr(0, sharecode.length - 1));
+  console.log("/submit_activity_codes jxfactory " + sharecode.substr(0, sharecode.length - 1));
 
   // 更新时间
   var df = new DateFormatter();
   df.dateFormat = 'yyyy-MM-dd hh:mm:ss';
   let gx = df.string(new Date());
   let body = w.addText(gx)
-  body.font = Font.mediumRoundedSystemFont(9);
+  body.font = Font.mediumRoundedSystemFont(9)
   body.textColor = Color.blue()
   w.addSpacer(3)
   return w
 }
+
+//个人信息
 async function getData(cookie) {
-  var url = 'https://api.m.jd.com/client.action?functionId=initForFarm';
+  var url = 'https://m.jingxi.com/dreamfactory/userinfo/GetUserInfo?zone=dream_factory&pin=&sharePin=&shareType=&materialTuanPin=&materialTuanId=&sceneval=2&g_login_type=1&_time=' + Date.now() + '&_=' + Date.now();
 
   var req = new Request(url)
 
   req.headers = {
-    'User-Agent': 'jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    "cookie": cookie
-  };
-  req.method = 'POST';
-  req.body = "body=version:4&appid=wh5&clientVersion=9.1.0";
+    "Cookie": cookie,
+    "Host": "m.jingxi.com",
+    "Connection": "keep-alive", "User-Agent": "jdpingou;iPhone;3.14.4;14.0;ae75259f6ca8378672006fc41079cd8c90c53be8;network/wifi;model/iPhone10,2;appBuild/100351;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/62;pap/JA2015_311210;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "Accept-Language": "zh-cn", "Referer": "https://wqsd.jd.com/pingou/dream_factory/index.html", "Accept-Encoding": "gzip, deflate, br"
+  }
+  req.method = 'GET';
+  //req.body = "body=version:4&appid=wh5&clientVersion=9.1.0";
   //console.log(req);
   var data = await req.loadJSON();
   //console.log(data);
   return data
+}
+
+//商品信息
+async function GetCommodityDetails(cookie, commodityDimId) {
+  var url = 'https://m.jingxi.com/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&sceneval=2&g_login_type=1&commodityId=' + commodityDimId + '&_time=' + Date.now() + '&_=' + Date.now();
+
+  var req = new Request(url)
+
+  req.headers = {
+    "Cookie": cookie,
+    "Host": "m.jingxi.com",
+    "Connection": "keep-alive", "User-Agent": "jdpingou;iPhone;3.14.4;14.0;ae75259f6ca8378672006fc41079cd8c90c53be8;network/wifi;model/iPhone10,2;appBuild/100351;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/62;pap/JA2015_311210;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "Accept-Language": "zh-cn", "Referer": "https://wqsd.jd.com/pingou/dream_factory/index.html", "Accept-Encoding": "gzip, deflate, br"
+  }
+  req.method = 'GET';
+  //req.body = "body=version:4&appid=wh5&clientVersion=9.1.0";
+  //console.log(req);
+  var data = await req.loadJSON();
+  //console.log(data);
+  return data
+
+}
+
+//招工信息
+async function QueryFriendList(cookie) {
+  var url = 'https://m.jingxi.com/dreamfactory/friend/QueryFriendList?zone=dream_factory&pin=&sharePin=&shareType=&materialTuanPin=&materialTuanId=&sceneval=2&g_login_type=1&_time=' + Date.now() + '&_=' + Date.now();
+
+  var req = new Request(url)
+
+  req.headers = {
+    "Cookie": cookie,
+    "Host": "m.jingxi.com",
+    "Connection": "keep-alive", "User-Agent": "jdpingou;iPhone;3.14.4;14.0;ae75259f6ca8378672006fc41079cd8c90c53be8;network/wifi;model/iPhone10,2;appBuild/100351;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/1;hasOCPay/0;supportBestPay/0;session/62;pap/JA2015_311210;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "Accept-Language": "zh-cn", "Referer": "https://wqsd.jd.com/pingou/dream_factory/index.html", "Accept-Encoding": "gzip, deflate, br"
+  }
+  req.method = 'GET';
+  //req.body = "body=version:4&appid=wh5&clientVersion=9.1.0";
+  //console.log(req);
+  var data = await req.loadJSON();
+  //console.log(data);
+  return data
+
+}
+
+/**************************************时间格式化处理************************************/
+function dateFtt(fmt, date) { //author: meizz   
+  var o = {
+    "M+": date.getMonth() + 1,                 //月份   
+    "d+": date.getDate(),                    //日   
+    "h+": date.getHours(),                   //小时   
+    "m+": date.getMinutes(),                 //分   
+    "s+": date.getSeconds(),                 //秒   
+    "q+": Math.floor((date.getMonth() + 3) / 3), //季度   
+    "S": date.getMilliseconds()             //毫秒   
+  };
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt))
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
 }
