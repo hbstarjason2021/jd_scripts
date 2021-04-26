@@ -113,7 +113,7 @@ async function taskList() {
                     let element = data.result.taskInfoList[index];
                     if (element.taskId == '23eee1c043c01bc') {
                         shareCode += '@' + element.uniqueId;
-                        console.log('好友互助码' + shareCode);
+                        console.log('好友互助码:' + shareCode);
                     }
                 }
                 resolve(data);
@@ -179,7 +179,7 @@ async function sign() {
 async function zhuLi() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '&channel=wx_xcx&mpChannel=wx_xcx&platform=5.0.0&platCode=mini&appVersion=5.0.0&appName=paidaojia&deviceModel=appmodel&xcxVersion=9.2.0&isNeedDealError=true&business=djgyzhuli&functionId=task%2Ffinished&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskType%22%3A1201%2C%22taskId%22%3A%2223eee1c043c01bc%22%2C%22plateCode%22%3A5%2C%22assistTargetPin%22%3A%22JD_b8bbd041af18000%22%2C%22uniqueId%22%3A%2223f50910e61605c%22%7D', ``);
+            let option = urlTask('https://daojia.jd.com/client?lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '&channel=wx_xcx&mpChannel=wx_xcx&platform=5.0.0&platCode=mini&appVersion=5.0.0&appName=paidaojia&deviceModel=appmodel&xcxVersion=9.2.0&isNeedDealError=true&business=djgyzhuli&functionId=task%2Ffinished&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskType%22%3A1201%2C%22taskId%22%3A%2223eee1c043c01bc%22%2C%22plateCode%22%3A5%2C%22assistTargetPin%22%3A%22JD_b8b3c7d14339000%22%2C%22uniqueId%22%3A%2223f508cda277ab2%22%7D', ``);
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
                 console.log('\n【助力】:' + data.msg);
