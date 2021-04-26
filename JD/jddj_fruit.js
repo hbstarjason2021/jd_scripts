@@ -15,7 +15,6 @@ let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
     if (cookies.length == 0) {
         if ($.env.isNode) { delete require.cache['./jddj_cookie.js']; cookies = require('./jddj_cookie.js') }
         else {
-            console.log($.read('#jddj_cookies'));
             let ckstr = $.read('#jddj_cookies');
             if (!!ckstr) {
                 if (ckstr.indexOf(',') < 0) {
