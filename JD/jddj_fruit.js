@@ -12,14 +12,16 @@ let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let lng = '114.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
 !(async () => {
-    if ($.env.isNode) delete require.cache['./jddj_cookie.js']; cookies = require('./jddj_cookie.js');
     if (cookies.length == 0) {
-        let ckstr = $.read('#jddj_cookies');
-        if (!!ckstr) {
-            if (ckstr.indexOf(',') < 0) {
-                cookies.push(ckstr);
-            } else {
-                cookies = ckstr.split(','); 
+        if (!$.env.isNode) { delete require.cache['./jddj_cookie.js']; cookies = require('./jddj_cookie.js') }
+        else {
+            let ckstr = $.read('#jddj_cookies');
+            if (!!ckstr) {
+                if (ckstr.indexOf(',') < 0) {
+                    cookies.push(ckstr);
+                } else {
+                    cookies = ckstr.split(',');
+                }
             }
         }
     }
