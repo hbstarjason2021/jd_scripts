@@ -111,13 +111,6 @@ async function taskList() {
 
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
-                for (let index = 0; index < data.result.taskInfoList.length; index++) {
-                    let element = data.result.taskInfoList[index];
-                    if (element.taskId == '23eee1c043c01bc') {
-                        shareCode += '@' + element.uniqueId;
-                        console.log('好友互助码:' + shareCode);
-                    }
-                }
                 resolve(data);
             })
 
