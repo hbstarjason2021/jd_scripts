@@ -179,11 +179,11 @@ async function zhuLi() {
             let option = urlTask(`https://daojia.jd.com/client?lat=${lat}&lng=${lng}&lat_pos=${lat}&lng_pos=${lng}&city_id=${cityid}&deviceToken=${deviceid}&deviceId=${deviceid}&channel=wx_xcx&mpChannel=wx_xcx&platform=5.0.0&platCode=mini&appVersion=5.0.0&appName=paidaojia&deviceModel=appmodel&xcxVersion=9.2.0&isNeedDealError=true&business=djgyzhuli&functionId=task%2Ffinished&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskType%22%3A1201%2C%22taskId%22%3A%2223eee1c043c01bc%22%2C%22plateCode%22%3A5%2C%22assistTargetPin%22%3A%22${scode.split('@')[0]}%22%2C%22uniqueId%22%3A%22${scode.split('@')[1]}%22%7D`, ``);
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
-                console.log('\n【助力】:' + data.msg);
+                //console.log('\n【助力】:' + data.msg);
                 resolve();
             })
         } catch (error) {
-            console.log('\n【助力】:' + error);
+            //console.log('\n【助力】:' + error);
             resolve();
         }
     })
