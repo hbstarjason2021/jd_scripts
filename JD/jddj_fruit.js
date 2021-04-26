@@ -181,20 +181,19 @@ async function sign() {
 async function zhuLi() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '&channel=wx_xcx&mpChannel=wx_xcx&platform=5.0.0&platCode=mini&appVersion=5.0.0&appName=paidaojia&deviceModel=appmodel&xcxVersion=9.2.0&isNeedDealError=true&business=djgyzhuli&functionId=task%2Ffinished&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskType%22%3A1201%2C%22taskId%22%3A%2223eee1c043c01bc%22%2C%22plateCode%22%3A5%2C%22assistTargetPin%22%3A%22JD_b8b5c4ac7d29000%22%2C%22uniqueId%22%3A%2223f508e3dc1659a%22%7D', ``);
+            let scodes = 'JD_b8b3c7d14339000@23f508cda277ab2,JD_b8b5c4ac7d29000@23f508e3dc1659a,JD_b8b85dad1f5a000@23f508fa5dd37c1,JD_b8bbd041af18000@23f50910e61605c,JD_b8bcfa8f7842000@23f509277089b98,JD_b8fa483e8739000@23f5093ddb2afc8'.split(',');
+            let scode = scodes[Math.round(Math.random() * (scodes.length - 0) + 0)];
+            let option = urlTask(`https://daojia.jd.com/client?lat=${lat}&lng=${lng}&lat_pos=${lat}&lng_pos=${lng}&city_id=${cityid}&deviceToken=${deviceid}&deviceId=${deviceid}&channel=wx_xcx&mpChannel=wx_xcx&platform=5.0.0&platCode=mini&appVersion=5.0.0&appName=paidaojia&deviceModel=appmodel&xcxVersion=9.2.0&isNeedDealError=true&business=djgyzhuli&functionId=task%2Ffinished&body=%7B%22modelId%22%3A%22M10007%22%2C%22taskType%22%3A1201%2C%22taskId%22%3A%2223eee1c043c01bc%22%2C%22plateCode%22%3A5%2C%22assistTargetPin%22%3A%22${scode.split('@')[0]}%22%2C%22uniqueId%22%3A%22${scode.split('@')[1]}%22%7D`, ``);
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
                 console.log('\n【助力】:' + data.msg);
                 resolve();
             })
-
         } catch (error) {
             console.log('\n【助力】:' + error);
             resolve();
         }
-
     })
-
 }
 
 //运行任务列表
