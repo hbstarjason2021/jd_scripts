@@ -34,15 +34,6 @@
           "autoGrow": true,
           "rows": 1,
           "desc": "是否开启通知"
-        },
-        {
-          "id": "jddj_barkKey",
-          "name": "barkKey",
-          "val": "",
-          "type": "text",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": "barkKey"
         }
       ],
       "icons": [
