@@ -1,9 +1,14 @@
-//京东到家果园任务脚本,支持qx,loon,shadowrocket,surge,nodejs
-//用抓包抓 https://daojia.jd.com/html/index.html 页面cookie填写到下面,暂时不知cookie有效期
-//抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
-//cookie只要里面的deviceid_pdj_jd=xxx-xxx-xxx;o2o_m_h5_sid=xxx-xxx-xxx关键信息
-//8,11,16整点各运行一次
-//boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/JD/passerby-b.boxjs.json
+/*
+京东到家果园任务脚本,支持qx,loon,shadowrocket,surge,nodejs
+用抓包抓 https://daojia.jd.com/html/index.html 页面cookie填写到下面,暂时不知cookie有效期
+抓多账号直接清除浏览器缓存再登录新账号,千万别点退出登录,否则cookie失效
+cookie只要里面的deviceid_pdj_jd=xxx-xxx-xxx;o2o_m_h5_sid=xxx-xxx-xxx关键信息
+boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/JD/passerby-b.boxjs.json
+
+[task_local]
+0 8,11,17 * * * https://gitee.com/passerby-b/javascript/raw/master/JD/jddj_fruit.js
+
+*/
 
 const $ = new API("djgy");
 let cookies = [];
