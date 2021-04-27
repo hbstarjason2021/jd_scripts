@@ -5,7 +5,7 @@
 //一天运行一次
 //boxjs订阅地址:https://gitee.com/passerby-b/javascript/raw/master/JD/passerby-b.boxjs.json
 
-const $ = new API("jddj_bean");
+const $ = new API(" jddj_plantBeans");
 let cookies = [];
 let thiscookie = '', deviceid = '';
 let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
