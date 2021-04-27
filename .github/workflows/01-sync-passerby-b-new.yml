@@ -1,4 +1,4 @@
-name: sync-passerby-b
+name: sync-passerby-b-new
 on:
   schedule:
   - cron:  "1 * * * *"
