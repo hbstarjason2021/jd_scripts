@@ -1,12 +1,12 @@
 name: sync-passerby-b-new
 on:
   schedule:
-  - cron:  "1 * * * *"
+  - cron:  "11 * * * *"
   workflow_dispatch:
   watch:
     types: started
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
 jobs:
   repo-sync:
