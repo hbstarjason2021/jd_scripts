@@ -1,12 +1,12 @@
 name: sync-jinboyigu/lazy_script
 on:
-  schedule:
-  - cron:  "7 * * * *"
+  #schedule:
+  #- cron:  "7 * * * *"
   workflow_dispatch:
   watch:
     types: started
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
 jobs:
   repo-sync:
