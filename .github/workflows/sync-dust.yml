@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
   watch:
     types: started
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
 jobs:
   repo-sync:
