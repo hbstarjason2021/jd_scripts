@@ -45,15 +45,22 @@ if ($.isNode()) {
 const JD_API_HOST = 'https://api.m.jd.com/api';
 
 let ids = {
-  '9':'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '11': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '13': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '15': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '20': 'RRA3q6FQPT9BKg4C6EyhA99TcA9K7SL',
-  '21': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '22': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '23': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
-  '0': 'RRAmLxWYJf212wNTGRFXjR2qTSEftB',
+  '8': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '9': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '10': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '11': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '12': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '13': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '14': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '15': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '16': 'RRA4Ky1Dth6fGRWjhc7Ec2bVK2N4xoK',
+  '17': 'RRA4YBXN3Db4cFT7r3P7y8Gi7BDvyBu',
+  '18': 'RRArxru3p8c3Pkmona5p3omwoergBj',
+  '19': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '20': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '21': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '22': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK',
+  '23': 'RRA2v2Lh5mtxYnC4j6VHrjoaDz7crQK'
 }
 
 !(async () => {
