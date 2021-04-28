@@ -1,12 +1,12 @@
 name: sync-Zero-S1/JD_tools
 on:
-  schedule:
-  - cron:  "4 * * * *"
+  #schedule:
+  #- cron:  "4 * * * *"
   workflow_dispatch:
   watch:
     types: started
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
 jobs:
   repo-sync:
