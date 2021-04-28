@@ -1,12 +1,12 @@
 name: sync-whyour/hundun
 on:
-  schedule:
-  - cron:  "8 * * * *"
+  #schedule:
+  #- cron:  "8 * * * *"
   workflow_dispatch:
   watch:
     types: started
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
 jobs:
   repo-sync:
