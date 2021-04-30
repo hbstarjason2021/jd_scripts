@@ -19,7 +19,8 @@ jobs:
     - name: repo-sync
       uses: repo-sync/github-sync@v2
       with:
-        source_repo: "https://github.com/nick814/dust.git"
+        #source_repo: "https://github.com/nick814/dust.git"
+        source_repo: "https://github.com/monk-coder/dust.git"
         source_branch: "dust"
         destination_branch: "dust-new"
         github_token: ${{ secrets.PAT }}
