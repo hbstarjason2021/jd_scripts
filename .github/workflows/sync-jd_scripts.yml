@@ -1,8 +1,8 @@
 name: sync-lxk0301/jd_scripts
 
 on:
-  #schedule:
-  #- cron:  "*/35 * * * *"
+  schedule:
+  - cron:  "*/35 * * * *"
   workflow_dispatch:
   watch:
     types: started
