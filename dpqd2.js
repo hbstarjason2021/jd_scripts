@@ -26,7 +26,7 @@ let vender=''
 let num=0
 let shopname=''
 const token=[
- '7AE7B2AD63D85F3A772E3CE6B63926A5',//10天10豆5.30
+ '763F636DD21CA70CF0A67BEC8AF2239C',//10天10豆5.30
   
 ]
 //IOS等用户直接用NobyDa的jd cookie
