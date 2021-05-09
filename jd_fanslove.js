@@ -453,7 +453,7 @@ function taskPostUrl(function_id, body) {
 }
 function getACT_ID() {
   return new Promise(async resolve => {
-    $.get({ url: `https://api.r2ray.com/jd.fanslove/index?ts=${Date.now()}` }, (err, resp, data) => {
+    $.get({ url: `https://raw.githubusercontent.com/ljqailym/JD/main/fansID` }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
