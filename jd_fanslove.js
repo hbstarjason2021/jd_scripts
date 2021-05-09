@@ -12,7 +12,7 @@
 ============Quantumultx===============
 [task_local]
 #粉丝互动
-1 0 * * * https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_fanslove.js, tag=粉丝互动,  enabled=true
+1 0,4 * * * https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_fanslove.js, tag=粉丝互动,  enabled=true
 [rewrite_local]
 ^https://lzkjdz\-isv\.isvjcloud\.com\/wxFansInterActionActivity\/activityContent url script-response-body https://raw.githubusercontent.com/i-chenzhe/qx/main/jd_getFanslove.js
 ================Loon==============
