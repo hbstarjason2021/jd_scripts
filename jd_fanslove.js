@@ -453,7 +453,7 @@ function taskPostUrl(function_id, body) {
 }
 function getACT_ID() {
   return new Promise(async resolve => {
-    $.get({ url: `https://raw.githubusercontent.com/ljqailym/JD/main/fansID` }, (err, resp, data) => {
+    $.get({ url: `https://raw.githubusercontent.com/ljqailym/JD/main/fans` }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
