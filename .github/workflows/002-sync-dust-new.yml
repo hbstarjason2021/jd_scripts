@@ -1,7 +1,7 @@
 name: 002-sync-monk-coder/dust-new
 on:
   schedule:
-  - cron:  "02 0,12 * * *"
+  - cron:  "02 */2 * * *"
   workflow_dispatch:
   watch:
     types: started
