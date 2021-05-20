@@ -1,4 +1,4 @@
-name: sync-monk-coder/dust-new
+name: 002-sync-monk-coder/dust-new
 on:
   schedule:
   - cron:  "02 0,12 * * *"
