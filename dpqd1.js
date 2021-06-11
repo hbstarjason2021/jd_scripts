@@ -12,7 +12,7 @@ cron "0 0 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/
 店铺签到 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/dpqd1.js, cronexpr="0 0 * * *", timeout=3600, enable=true
 */
 
-const $ = new Env('店铺签到');
+const $ = new Env('店铺签到1');
 
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
@@ -26,7 +26,6 @@ let vender=''
 let num=0
 let shopname=''
 const token=[
- 'E626DC31F0581297F1AE4443016BEBFD',//3天100豆4.18
  'F42A77AF0F33E8C96C337F0F6151EC7D',//10天100豆200份6.15
 ]
 //IOS等用户直接用NobyDa的jd cookie
