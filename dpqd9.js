@@ -12,7 +12,7 @@ cron "0 0 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/
 店铺签到 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/dpqd4.js, cronexpr="0 0 * * *", timeout=3600, enable=true
 */
 
-const $ = new Env('店铺签到');
+const $ = new Env('店铺签到全');
 
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
