@@ -19,7 +19,8 @@ jobs:
     - name: repo-sync
       uses: repo-sync/github-sync@v2
       with:
-        source_repo: "https://github.com/nianyuguai/longzhuzhu.git"
+        #source_repo: "https://github.com/nianyuguai/longzhuzhu.git"
+        source_repo: "https://github.com/bertms/longzhuzhu.git"
         source_branch: "main"
         destination_branch: "longzhuzhu"
         github_token: ${{ secrets.PAT }}
