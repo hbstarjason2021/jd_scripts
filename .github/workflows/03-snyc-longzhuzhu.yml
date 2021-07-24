@@ -1,4 +1,4 @@
-name: 003-sync-nianyuguai/longzhuzhu
+name: 03-sync-nianyuguai/longzhuzhu
 on:
   #schedule:
   #- cron:  "6 * * * *"
