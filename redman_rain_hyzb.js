@@ -1,17 +1,17 @@
 /*
 ============Quantumultx===============
 [task_local]
-#行业京豆雨
-0 0-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js, tag=行业京豆雨, enabled=true
+#行业直播日红包雨雨
+4 0 0-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hyzb.js, tag=行业直播日红包雨, enabled=true
 ===========Loon============
 [Script]
-cron "0 0-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js,tag=行业京豆雨
+cron "0 0-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js,tag=行业直播日红包雨
 ============Surge=============
-行业京豆雨 = type=cron,cronexp="0 0-23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js
+行业直播日红包雨 = type=cron,cronexp="0 0-23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js
 ===========小火箭========
-行业京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js, cronexpr="0 0-23 * * *", timeout=3600, enable=true
+行业直播日红包雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js, cronexpr="0 0-23 * * *", timeout=3600, enable=true
 */
-const $ = new Env('行业京豆雨');
+const $ = new Env('行业直播日红包雨');
 let allMessage = '';
 let bodyList = {
   '20': {
@@ -20,30 +20,30 @@ let bodyList = {
   }
 }
 let ids = {
-  '0': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '1': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '2': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '3': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '4': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '5': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '6': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '7': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '8': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '9': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '10': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '11': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '12': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '13': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '14': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '15': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '16': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '17': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '18': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '19': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '20': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '21': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '22': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '23': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN'
+  '0': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '1': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '2': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '3': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '4': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '5': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '6': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '7': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '8': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '9': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '10': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '11': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '12': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '13': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '14': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '15': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '16': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '17': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '18': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '19': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '20': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '21': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '22': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR',
+  '23': 'RRA2ejfmREadAgZf85Lz75jCotx6dYR'
 
 }
 const notify = $.isNode() ? require('./sendNotify') : '';
