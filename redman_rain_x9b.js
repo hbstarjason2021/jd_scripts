@@ -1,8 +1,8 @@
 /*
 ============Quantumultx===============
 [task_local]
-#行业京豆雨
-0 0-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js, tag=行业京豆雨, enabled=true
+#6豆红包雨
+0 0-23 * * * https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_x9b.js, tag=6豆红包雨, enabled=true
 ===========Loon============
 [Script]
 cron "0 0-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js,tag=行业京豆雨
@@ -11,7 +11,7 @@ cron "0 0-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD/ma
 ===========小火箭========
 行业京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_hy.js, cronexpr="0 0-23 * * *", timeout=3600, enable=true
 */
-const $ = new Env('行业京豆雨');
+const $ = new Env('6豆红包雨');
 let allMessage = '';
 let bodyList = {
   '20': {
@@ -20,30 +20,30 @@ let bodyList = {
   }
 }
 let ids = {
-  '0': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '1': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '2': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '3': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '4': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '5': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '6': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '7': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '8': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '9': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '10': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '11': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '12': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '13': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '14': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '15': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '16': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '17': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '18': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '19': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '20': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '21': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '22': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN',
-  '23': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN'
+  '0': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '1': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '2': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '3': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '4': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '5': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '6': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '7': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '8': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '9': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '10': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '11': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '12': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '13': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '14': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '15': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '16': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '17': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '18': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '19': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '20': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '21': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '22': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b',
+  '23': 'RRA44mA1u4J4w9HbGoRqxNRUeGrex9b'
 
 }
 const notify = $.isNode() ? require('./sendNotify') : '';
