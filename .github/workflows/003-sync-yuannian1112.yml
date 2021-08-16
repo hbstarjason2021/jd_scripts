@@ -1,0 +1,26 @@
+name: 003-sync-yuannian1112
+on:
+  schedule:
+  - cron:  "05 */2 * * *"
+  workflow_dispatch:
+  watch:
+    types: started
+  #push:
+  #  branches: [main]
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        #source_repo: "https://github.com/nick814/dust.git"
+        source_repo: "https://github.com/yuannian1112/jd_scripts.git"
+        source_branch: "main"
+        destination_branch: "yuannian1112"
+        github_token: ${{ secrets.PAT }}
