@@ -13,6 +13,6 @@ jobs:
         uses: smallprogram/delete-workflow-runs@main
         with:
           token: ${{ secrets.PAT }}
-          repository: jd_scripts
+          repository: hbstarjason2021/jd_scripts
           retain_days: 2
           keep_minimum_runs: 6
