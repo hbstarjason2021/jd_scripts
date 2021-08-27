@@ -1,0 +1,18 @@
+name: delete history
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 * * *'
+
+
+jobs:
+  del_runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete_workflow_runs
+        uses: smallprogram/delete-workflow-runs@main
+        with:
+          token: ${{ secrets.PAT }}
+          repository: jd_scripts
+          retain_days: 2
+          keep_minimum_runs: 6
