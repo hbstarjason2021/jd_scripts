@@ -1,0 +1,6 @@
+[rewrite_local]
+# jd_appopen
+^https:\/\/api\.m\.jd\.com\/openUpgrade url script-request-header https://raw.githubusercontent.com/JDHelloWorld/jd_scripts/4dc60ba1db557626a6290273bc98e9dc95a5b035/tools/jd_appopen.js
+
+[MITM]
+hostname = draw.jdfcloud.com
