@@ -32,7 +32,7 @@ http-request ^https:\/\/draw\.jdfcloud\.com\/\/common\/pet\/enterRoom\/h5\?invit
 
 https://jdjoy.jd.com/pet/getFriends?itemsPerPage=20&currentPage=1
 */
-const friendsArr = ["jd_6f9b9a6769afb", "jd_7d11b7fef428f", "jd_756c956e68aee", "jd_47a6d379fd0fe", "梁霞宇123", "242486518-117963", "jd_508f8570eca09", "jd_5a9a5e4d1ca80", "lcb747798385", ]
+const friendsArr = ["jd_6f9b9a6769afb", "81963514_m", "668862322_248914814", "jzchenbo"]
 /**
  * 生成随机数字
  * @param {number} min 最小值（包含）
