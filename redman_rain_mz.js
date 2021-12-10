@@ -11,7 +11,7 @@ cron "0 0,12-23 * * *" script-path=https://raw.githubusercontent.com/ljqailym/JD
 ===========小火箭========
 美妆京豆雨 = type=cron,script-path=https://raw.githubusercontent.com/ljqailym/JD/main/redman_rain_mz.js, cronexpr="0 0,12-23 * * *", timeout=3600, enable=true
 */
-const $ = new Env('美妆京豆雨');
+const $ = new Env('bN2美妆京豆雨');
 let allMessage = '';
 let bodyList = {
   '20': {
