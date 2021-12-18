@@ -1,0 +1,25 @@
+name: 008-sync-share_pool
+on:
+  schedule:
+  - cron:  "58 */3 * * *"
+  workflow_dispatch:
+  watch:
+    types: started
+  #push:
+  #  branches: [main]
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: "https://github.com/q398044828/xxoo_share_pool.git"
+        source_branch: "main"
+        destination_branch: "share_pool"
+        github_token: ${{ secrets.PAT }}
