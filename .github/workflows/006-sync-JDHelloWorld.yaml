@@ -1,4 +1,4 @@
-name: sync-JDHelloWorld/jd_scripts
+name: 006-sync-JDHelloWorld/jd_scripts
 on:
   schedule:
   - cron:  "07 */3 * * *"
