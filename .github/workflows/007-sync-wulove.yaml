@@ -1,4 +1,4 @@
-name: sync-wulove/my_scripts
+name: 007-sync-wulove/my_scripts
 on:
   schedule:
   - cron:  "18 */3 * * *"
