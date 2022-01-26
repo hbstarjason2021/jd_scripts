@@ -1,4 +1,4 @@
-const $ = new Env(dYR京豆雨');
+const $ = new Env('dYR京豆雨');
 let allMessage = '', id = '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
