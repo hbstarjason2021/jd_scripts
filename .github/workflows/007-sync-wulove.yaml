@@ -1,7 +1,7 @@
 name: 007-sync-wulove/my_scripts
 on:
   schedule:
-  - cron:  "18 */3 * * *"
+  - cron:  "18 */2 * * *"
   workflow_dispatch:
   watch:
     types: started
