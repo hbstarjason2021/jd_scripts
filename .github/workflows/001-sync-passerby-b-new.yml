@@ -1,7 +1,7 @@
 name: 001-sync-passerby-b-new
 on:
-  schedule:
-  - cron:  "01 0,10 * * *"
+  #schedule:
+  #- cron:  "01 0,10 * * *"
   workflow_dispatch:
   watch:
     types: started
