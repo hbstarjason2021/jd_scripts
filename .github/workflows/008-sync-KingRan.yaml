@@ -19,7 +19,7 @@ jobs:
     - name: repo-sync
       uses: repo-sync/github-sync@v2
       with:
-        source_repo: "https://github.com/KingRan/JDJB.git"
+        source_repo: "https://github.com/KingRan/KR.git"
         source_branch: "main"
         destination_branch: "KingRan-JDJB"
         github_token: ${{ secrets.PAT }}
