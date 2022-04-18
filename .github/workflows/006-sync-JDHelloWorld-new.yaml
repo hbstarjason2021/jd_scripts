@@ -1,0 +1,25 @@
+name: 006-sync-JDHelloWorld-new/jd_scripts
+on:
+  schedule:
+  - cron:  "37 */3 * * *"
+  workflow_dispatch:
+  watch:
+    types: started
+  #push:
+  #  branches: [main]
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: "https://github.com/DovFork/jd-scripts.git"
+        source_branch: "master"
+        destination_branch: "JDHelloWorld-jd_scripts-new"
+        github_token: ${{ secrets.PAT }}
