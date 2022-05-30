@@ -1,7 +1,7 @@
 name: 006-sync-JDHelloWorld/jd_scripts
 on:
-  schedule:
-  - cron:  "07 */2 * * *"
+  #schedule:
+  #- cron:  "07 */2 * * *"
   workflow_dispatch:
   watch:
     types: started
