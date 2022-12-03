@@ -1,7 +1,7 @@
 name: 010-sync-pangbai66
 on:
-  schedule:
-  - cron:  "58 */2 * * *"
+  #schedule:
+  #- cron:  "58 */2 * * *"
   workflow_dispatch:
   watch:
     types: started
@@ -11,7 +11,7 @@ on:
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
+    #if: github.event.repository.owner.id == github.event.sender.id
     steps:
     - uses: actions/checkout@v2
       with:
