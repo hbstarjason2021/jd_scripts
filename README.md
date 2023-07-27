@@ -17,12 +17,19 @@ ql repo命令拉取脚本时需要拉取的文件后缀，直接写文件后缀�
 
 `RepoFileExtensions="js py ts"`
 
-### 神秘代码
+### 青龙面板神秘代码
 
 `ql repo https://github.com/KingRan/KR.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|utils|function|sign|sendNotify|ql|JDJR"`
 
 拉库失败或者拉不到更新的解决方案：
 
 `rm -rf /ql/repo/KingRan_KR && ql repo https://github.com/KingRan/KR.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|utils|function|sendNotify|ql|JDJR"`
+
+### Arcadia神秘代码
+
+`arcadia repo KR "https://github.com/KingRan/KR.git" main \
+--updateTaskList true --whiteList "^jd_|^jx_" \
+--blackList "wskey|CheckCK|^jd_(disable|wx|txzj_|opencard|lzkj_|dplh|jinggeng`
+
 
 
