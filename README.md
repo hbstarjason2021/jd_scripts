@@ -6,10 +6,19 @@
 
 ### 自动填地址
 
-#### 无线类：
+#### 无线类
+
 `export WX_ADDRESS="" # 变量格式：收件人@手机号@省份@城市@区县@详细地址@6位行政区划代码@邮编，需按照顺序依次填写，多个用管道符分开（6位行政区划代码自己查地图，也可用身份证号前六位）`
 
 `export WX_ADDRESS_BLOCK="" # 多个关键词用@分开  黑名单`
+
+`例子：export WX_ADDRESS="Z先生@13888888888@@江苏省@南通市@崇川区@开发区万科翡翠公园@320602@226001|K先生@13888888888@@江苏省@南通市@崇川区@开发区万科翡翠公园@320602@226001"`
+
+#### Jinggen(京耕)类
+
+`export jd_jinggeng_address="" # 变量格式：收件人@手机号@省份@城市@区县@详细地址，需按照顺序依次填写，多个用管道符分开`
+
+`例子：export jd_jinggeng_address="Z先生@13888888888@@江苏省@南通市@崇川区@开发区万科翡翠公园|K先生@13888888888@@江苏省@南通市@崇川区@开发区万科翡翠公园"`
 
 ### 拉取(js py ts)青龙 config.sh 文件中修改
 
@@ -25,11 +34,9 @@ ql repo命令拉取脚本时需要拉取的文件后缀，直接写文件后缀�
 
 `rm -rf /ql/repo/KingRan_KR && ql repo https://github.com/KingRan/KR.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|utils|function|sendNotify|ql|JDJR"`
 
-### Arcadia神秘代码
+### Arcadia面板神秘代码
 
-`arcadia repo KR "https://github.com/KingRan/KR.git" main \
---updateTaskList true --whiteList "^jd_|^jx_" \
---blackList "wskey|CheckCK|^jd_(disable|wx|txzj_|opencard|lzkj_|dplh|jinggeng`
+`arcadia repo KR "https://github.com/KingRan/KR.git" main --updateTaskList true --whiteList "^jd_|^jx_" --blackList "wskey|CheckCK|^jd_(disable|wx|txzj_|opencard|lzkj_|dplh|jinggeng`
 
 
 
