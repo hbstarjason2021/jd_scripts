@@ -1,11 +1,11 @@
 /*
 预约抽奖赢新品
 
-cron:35 0,16 9-16 8 *
+cron:0 0 9-16 8 *
 ============Quantumultx===============
 [task_local]
 #预约抽奖赢新品
-35 0,16 9-16 8 * jd_xm.js, tag=预约抽奖赢新品, enabled=true
+0 0 9-16 8 * jd_xm.js, tag=预约抽奖赢新品, enabled=true
 */
 
 const $ = new Env("预约抽奖赢新品");
