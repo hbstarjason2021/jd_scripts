@@ -46,7 +46,7 @@ ql repo命令拉取脚本时需要拉取的文件后缀，直接写文件后缀�
 
 ### Arcadia面板神秘代码
 
-`arcadia repo KR "https://github.com/KingRan/KR.git" main --updateTaskList true --whiteList "^jd_|^jx_" --blackList "wskey|CheckCK|^jd_(disable|wx|txzj_|opencard|lzkj_|dplh|jinggeng`
+`arcadia repo KR "https://github.com/KingRan/KR.git" main --updateTaskList true --whiteList "^jd_|^jx_" --blackList "^jd_(wsck|CheckCK|disable|wx|txzj_|opencard|lzkj_|dplh|jinggeng"`
 
 
 
