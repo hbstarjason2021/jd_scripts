@@ -43,12 +43,8 @@
 5 6-18/6 * * * node /scripts/jd_fruit_task.js >> /scripts/logs/jd_fruit_task.log 2>&1
 # 京洞察问卷通知
 35 11 * * * node /scripts/jd_insight.js >> /scripts/logs/jd_insight.log 2>&1
-# 汪汪乐园每日任务
-0 1,7,20 * * * node /scripts/jd_joy_park_task.js >> /scripts/logs/jd_joy_park_task.log 2>&1
-# JOY庄园每日任务
-11 1,15 * * * node /scripts/jd_joymanor_task.js >> /scripts/logs/jd_joymanor_task.log 2>&1
-# 极速版签到提现-加密
-30 0,15 * * * node /scripts/jd_tj_sign.js >> /scripts/logs/jd_tj_signn.log 2>&1
+# 极速版签到提现
+20 1,17 * * * node /scripts/jd_tj_sign.js >> /scripts/logs/jd_tj_signn.log 2>&1
 # 京东快递签到
 10 0 * * * node /scripts/jd_kd.js >> /scripts/logs/jd_kd.log 2>&1
 # 京东快递签到
