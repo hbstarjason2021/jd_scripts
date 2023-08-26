@@ -43,7 +43,7 @@
 5 6-18/6 * * * node /scripts/jd_fruit_task.js >> /scripts/logs/jd_fruit_task.log 2>&1
 # 京洞察问卷通知
 35 11 * * * node /scripts/jd_insight.js >> /scripts/logs/jd_insight.log 2>&1
-# 极速版签到提现
+# 特价版签到提现
 20 1,17 * * * node /scripts/jd_tj_sign.js >> /scripts/logs/jd_tj_signn.log 2>&1
 # 京东快递签到
 10 0 * * * node /scripts/jd_kd.js >> /scripts/logs/jd_kd.log 2>&1
@@ -67,8 +67,6 @@
 48 1,18 * * * node /scripts/jd_beanSign.js >> /scripts/logs/jd_beanSign.log 2>&1
 # 京东签到翻牌
 10 8 * * * node /scripts/jd_sign_graphics.js >> /scripts/logs/jd_sign_graphics.log 2>&1
-# 京东极速版领红包-加密
-20 0,22 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 # 京东极速版
 21 3,8 * * * node /scripts/jd_speed_sign.js >> /scripts/logs/jd_speed_sign.log 2>&1
 # 特务Z-II
