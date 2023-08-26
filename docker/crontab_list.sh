@@ -62,8 +62,6 @@
 # 闪购签到有礼
 10 10 * * * node /scripts/jd_shangou.js >> /scripts/logs/jd_shangou.log 2>&1
 # 小豆签到
-48 2,19 * * * node /scripts/jd_krSign.js >> /scripts/logs/jd_krSign.log 2>&1
-# 小豆签到
 48 1,18 * * * node /scripts/jd_beanSign.js >> /scripts/logs/jd_beanSign.log 2>&1
 # 京东签到翻牌
 10 8 * * * node /scripts/jd_sign_graphics.js >> /scripts/logs/jd_sign_graphics.log 2>&1
