@@ -11,8 +11,8 @@
 		 LUCK_DRAW_NUM //运行账号数量，默认运行前7
 		 LUCK_DRAW_Number // 连续无次数跳出，默认 7 次，火爆账号请设置黑名单，否则也会占用次数
 		 LUCK_DRAW_BLACKLIST 黑名单 用&隔开 pin值
-         JD_LZ_OPEN // 是否开启LZ活动运行，默认运行
-         JD_CJ_OPEN // 是否开启CJ活动运行，默认运行
+         JD_LZ_OPEN // 是否开启LZ活动运行（true/false），默认运行
+         JD_CJ_OPEN // 是否开启CJ活动运行（true/false），默认运行
 
 注：只有在没有抽奖次数的情况下才会去做任务获取
 
