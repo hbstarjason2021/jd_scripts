@@ -3,7 +3,7 @@ new Env('getToken');
 
 变量：
 JD_TOKEN_INTERVAL   //获取接口403延迟等待时长（正整数），默认延迟 30s=30000ms
-JD_NEWTOKEN_INTERVAL   //获取接口成功延迟等待时长（正整数），默认延迟 1s=30000ms
+JD_NEWTOKEN_INTERVAL   //获取接口成功延迟等待时长（正整数），默认延迟 1s=1000ms
 根据自行需要设定，缓存文件数据通用，不再区分域名
 */
 
