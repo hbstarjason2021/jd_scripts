@@ -15,7 +15,7 @@ packages.urllib3.disable_warnings()
 from urllib.parse import unquote
 """
 new Env('wskey本地转换');
-cron 57 21,9 * * *	
+57 21,9 * * * jd_wsck.py
 by:lonesomexz
 """
 hadsend=True
