@@ -1,11 +1,13 @@
 /*
 909
 
+每天抽奖一次
+
 cron:35 23 9 9 *
 ============Quantumultx===============
 [task_local]
 #909
-35 23 9 9 * jd_909.js, tag=909, enabled=true
+35 13 9-20 9 * jd_909.js, tag=909, enabled=true
 */
 
 const $ = new Env('909');
