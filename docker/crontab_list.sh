@@ -15,8 +15,8 @@
 30 4,16 * * * node /scripts/jd_car_play.js >> /scripts/logs/jd_car_play.log 2>&1
 # 头文字J兑换
 0 10 * * * node /scripts/jd_car_play_exchange.js >> /scripts/logs/jd_car_play_exchange.log 2>&1
-# 签到领现金
-30 8,14 * * * node /scripts/jd_cash.js >> /scripts/logs/jd_cash.log 2>&1
+# 签到提现
+30 2,14 * * * node /scripts/jd_qdtx.js >> /scripts/logs/jd_qdtx.log 2>&1
 # 清空购物车
 53 22 * * * node /scripts/jd_cleancart_nolan.js >> /scripts/logs/jd_cleancart_nolan.log 2>&1
 # 摇京豆
