@@ -31,10 +31,8 @@
 0 3 * * * node /scripts/jd_jdgj_sign.js >> /scripts/logs/jd_jdgj_sign.log 2>&1
 # 摇钱树任务
 25 4,14 * * * node /scripts/jd_yqs.js >> /scripts/logs/jd_yqs.log 2>&1
-# 天天领京豆兑换
-0 21 * * * node /scripts/jd_lzkj_ttljd_exchange.js >> /scripts/logs/jd_lzkj_ttljd_exchange.log 2>&1
-# 天天领京豆
-0 7 * * * node /scripts/jd_lzkj_ttljd.js >> /scripts/logs/jd_lzkj_ttljd.log 2>&1
+# 天天领红包
+25 7 * * * node /scripts/jd_ttlhb.js >> /scripts/logs/jd_ttlhb.log 2>&1
 # 积分换话费
 33 7 * * * node /scripts/jd_dwapp.js >> /scripts/logs/jd_dwapp.log 2>&1
 # 东东农场好友删减奖励
