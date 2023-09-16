@@ -1,6 +1,5 @@
 /*
 变量：
-JD_CACHE_INTERVAL   //缓存TOKEN时长（正整数），默认缓存 25 分钟
 JD_PROXY_OPEN      // 代理启用变量，默认不开启（true/false）
 JD_PROXY_TUNNRL      // 代理池代理地址变量，默认不开启，仅支持代理池模式(auto-proxy-pool)，格式为：http://ip:port
 JD_PROXY_URL      // API代理地址变量，默认不开启，仅支持 数据格式:txt;提取数量:每次一个，格式为：http://api.xxx.xxx
