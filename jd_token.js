@@ -10,7 +10,7 @@ cron:5/25 * * * *
 ============Quantumultx===============
 [task_local]
 #代理缓存Token
-0/25 * * * * jd_token.js, tag=代理缓存Token, enabled=true
+5/25 * * * * jd_token.js, tag=代理缓存Token, enabled=true
 
 */
 
