@@ -4,7 +4,7 @@ JD_PROXY_OPEN      // 代理启用变量，默认不开启（true/false）
 JD_PROXY_TUNNRL      // 代理池代理地址变量，默认不开启，仅支持代理池模式(auto-proxy-pool)，格式为：http://ip:port
 JD_PROXY_URL      // API代理地址变量，默认不开启，仅支持 数据格式:txt;提取数量:每次一个，格式为：http://api.xxx.xxx
 JD_NO_PROXY      // 禁止走代理，默认 127.0.0.1,*.baidu.com 需要自行修改
-JD_TOKEN_BLACKLIST  // 黑名单  PIN值
+JD_TOKEN_BLACKLIST  // 黑名单 用&隔开 pin值
 根据自行需要设定，脚本定时每25分钟自动执行一次
 
 cron:5/25 * * * *
