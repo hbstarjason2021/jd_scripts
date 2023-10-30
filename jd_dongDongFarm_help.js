@@ -15,7 +15,7 @@ cron:45 6,16 * * *
 ============Quantumultx===============
 [task_local]
 #新东东农场助力
-45 6,16 * * * jd_dongDongFarm_help, tag=新东东农场助力, enabled=true
+45 6,16 * * * jd_dongDongFarm_help.js, tag=新东东农场助力, enabled=true
 
 */
 
