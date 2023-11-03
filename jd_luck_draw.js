@@ -6,18 +6,11 @@
 环境变量：LUCK_DRAW_URL // 活动链接
          LUCK_DRAW_NOTIFY // 是否推送通知（true/false），默认不推送
          LUCK_DRAW_OPENCARD // 是否入会（true/false），默认不入会
-		 LUCK_DRAW_BREAK // 493后继续执行，默认退出运行（true/false）
-         LUCK_DRAW_INTERVAL // 自定义抽奖间隔（正整数），默认1秒
          LUCK_DRAW_CONC // 是否启用并发模式（true/false），默认不开启
          LUCK_DRAW_CONC_THREADS // 控制并发线程数（正整数），默认3         
          LUCK_DRAW_CONC_RETRY // 并发模式下接口请求的最大重试次数（正整数），默认0即不重试
         LUCK_DRAW_INTERVAL // 自定义抽奖间隔（整数），默认1秒
          LUCK_DRAW_MAX_MISS // 最大连续未抽中次数（正整数），达到此次数后会跳过运行对应账号，默认不启用此功能
-		 LUCK_DRAW_CONC_RETRY // 并发模式下接口请求的最大重试次数（正整数），默认0即不重试
-		 LUCK_DRAW_NUM //运行账号数量，默认运行前7
-		 LUCK_DRAW_Number // 连续无次数跳出，默认 7 次，火爆账号请设置黑名单，否则也会占用次数
-		 LUCK_DRAW_BLACKLIST 黑名单 用&隔开 pin值
-         JD_LZ_OPEN // 是否开启LZ活动运行（true/false），默认运行
         LUCK_DRAW_FORBIDDEN_QUIT // 当连续请求493时是否跳出即停止运行脚本（true/false），默认停止运行
         LUCK_DRAW_LZKJ_PIN_FILTER // 超级无线类活动账号pin过滤，多个用@进行分割
         LUCK_DRAW_CJHY_PIN_FILTER // 超级会员类活动账号pin过滤，多个用@进行分割
