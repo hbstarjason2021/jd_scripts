@@ -6,6 +6,8 @@
 
 请自己查看是否已满助力，只有助力功能，其他啥都没
 
+号多请自行使用desi JD_COOKIE 控制
+
 cron: 7 7 7 7 * jd_newYear_party_invite.js
 
 */
